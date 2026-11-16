@@ -1,0 +1,182 @@
+[
+  {
+    "id": "evolucion-paro-juvenil",
+    "category": "Economía y Empleo",
+    "question": "¿Cuál es la tasa de paro juvenil en España?",
+    "chartType": "line",
+    "unit": "%",
+    "dataPoints": [
+      { "year": "2010", "value": 41.5 },
+      { "year": "2011", "value": 46.2 },
+      { "year": "2012", "value": 52.9 },
+      { "year": "2013", "value": 55.5 },
+      { "year": "2014", "value": 53.2 },
+      { "year": "2015", "value": 48.3 },
+      { "year": "2016", "value": 44.4 },
+      { "year": "2017", "value": 38.6 },
+      { "year": "2018", "value": 34.3 },
+      { "year": "2019", "value": 32.5 },
+      { "year": "2020", "value": 38.3 },
+      { "year": "2021", "value": 34.8 },
+      { "year": "2022", "value": 29.8 },
+      { "year": "2023", "value": 28.4 },
+      { "year": "2024", "value": 26.7 }
+    ],
+    "contextNotes": [
+      "Porcentaje de desempleados menores de 25 años respecto a la población activa de ese grupo de edad.",
+      "Cifras extraídas de la Encuesta de Población Activa (EPA), promedios del cuarto trimestre de cada ejercicio.",
+      "Se considera población activa a quienes están ocupados o en búsqueda activa de empleo."
+    ],
+    "source": {
+      "institution": "Instituto Nacional de Estadística (INE - EPA)",
+      "lastUpdated": "2024-10-24",
+      "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176918&menu=resultados&idp=1254735976595"
+    }
+  },
+  {
+    "id": "evolucion-precio-alquiler",
+    "category": "Vivienda",
+    "question": "¿Cómo ha evolucionado el índice de precios del alquiler de vivienda en España?",
+    "chartType": "line",
+    "unit": "Índice (Base 100=2015)",
+    "dataPoints": [
+      { "year": "2011", "value": 98.2 },
+      { "year": "2012", "value": 96.5 },
+      { "year": "2013", "value": 94.1 },
+      { "year": "2014", "value": 93.8 },
+      { "year": "2015", "value": 100.0 },
+      { "year": "2016", "value": 102.4 },
+      { "year": "2017", "value": 105.1 },
+      { "year": "2018", "value": 108.3 },
+      { "year": "2019", "value": 111.7 },
+      { "year": "2020", "value": 112.5 },
+      { "year": "2021", "value": 113.8 },
+      { "year": "2022", "value": 116.4 },
+      { "year": "2023", "value": 120.2 },
+      { "year": "2024", "value": 124.8 }
+    ],
+    "contextNotes": [
+      "Índice de Precios de Vivienda en Alquiler (IPVA) elaborado por el INE con base 100 en el año 2015.",
+      "Refleja la variación interanual del precio abonado por los arrendatarios en contratos de vivienda habitual.",
+      "No incluye gastos de comunidad ni suministros vinculados al inmueble."
+    ],
+    "source": {
+      "institution": "Instituto Nacional de Estadística (INE - IPVA)",
+      "lastUpdated": "2024-09-18",
+      "url": "https://www.ine.es/jaxiT3/Tabla.htm?t=25171"
+    }
+  },
+  {
+    "id": "gasto-publico-sanidad-pib",
+    "category": "Sanidad",
+    "question": "¿Qué porcentaje del PIB destina España al gasto público en sanidad?",
+    "chartType": "bar",
+    "unit": "% del PIB",
+    "dataPoints": [
+      { "year": "2010", "value": 6.5 },
+      { "year": "2012", "value": 6.2 },
+      { "year": "2014", "value": 6.0 },
+      { "year": "2016", "value": 6.0 },
+      { "year": "2018", "value": 5.9 },
+      { "year": "2019", "value": 6.0 },
+      { "year": "2020", "value": 7.6 },
+      { "year": "2021", "value": 7.3 },
+      { "year": "2022", "value": 6.8 },
+      { "year": "2023", "value": 6.7 }
+    ],
+    "contextNotes": [
+      "Consolidación del gasto sanitario público consolidado del Sistema Nacional de Salud respecto al Producto Interior Bruto.",
+      "El repunte del año 2020 responde a la respuesta asistencial y financiera ante la pandemia de COVID-19 y la caída del PIB nominal.",
+      "Incluye gasto estatal, autonómico y de las corporaciones locales en servicios sanitarios."
+    ],
+    "source": {
+      "institution": "Ministerio de Sanidad - Estadística de Gasto Sanitario Público",
+      "lastUpdated": "2024-05-10",
+      "url": "https://www.sanidad.gob.es/estadEstudios/estadisticas/inforRecopilaciones/gastoSanitario.htm"
+    }
+  },
+  {
+    "id": "ratio-afiliados-pensionista",
+    "category": "Pensiones y Demografía",
+    "question": "¿Cuál es la relación entre afiliados a la Seguridad Social y pensionistas?",
+    "chartType": "line",
+    "unit": "Afiliados / Pensionista",
+    "dataPoints": [
+      { "year": "2010", "value": 2.45 },
+      { "year": "2012", "value": 2.22 },
+      { "year": "2014", "value": 2.18 },
+      { "year": "2016", "value": 2.26 },
+      { "year": "2018", "value": 2.33 },
+      { "year": "2020", "value": 2.24 },
+      { "year": "2022", "value": 2.37 },
+      { "year": "2023", "value": 2.41 },
+      { "year": "2024", "value": 2.43 }
+    ],
+    "contextNotes": [
+      "Mide el número de cotizantes ocupados en la Seguridad Social por cada pensión contributiva abonada.",
+      "No distingue entre tipo de pensión (jubilación, incapacidad permanente, viudedad o orfandad).",
+      "Un ratio superior a 2.0 se considera habitualmente como el umbral de referencia para la sostenibilidad financiera del sistema de reparto."
+    ],
+    "source": {
+      "institution": "Ministerio de Inclusión, Seguridad Social y Migraciones",
+      "lastUpdated": "2024-11-04",
+      "url": "https://www.seg-social.es/wps/portal/wss/internet/Estadisticas"
+    }
+  },
+  {
+    "id": "esperanza-de-vida-al-nacer",
+    "category": "Pensiones y Demografía",
+    "question": "¿Cómo ha evolucionado la esperanza de vida al nacer en España?",
+    "chartType": "line",
+    "unit": "Años",
+    "dataPoints": [
+      { "year": "2005", "value": 80.3 },
+      { "year": "2008", "value": 81.2 },
+      { "year": "2011", "value": 82.3 },
+      { "year": "2014", "value": 83.0 },
+      { "year": "2017", "value": 83.3 },
+      { "year": "2019", "value": 83.5 },
+      { "year": "2020", "value": 82.3 },
+      { "year": "2021", "value": 83.0 },
+      { "year": "2022", "value": 83.1 },
+      { "year": "2023", "value": 83.8 }
+    ],
+    "contextNotes": [
+      "Número medio de años que se espera que viva un recién nacido si se mantienen las tasas de mortalidad por edad del periodo analizado.",
+      "La caída puntual observada en 2020 refleja el impacto en la mortalidad de la pandemia por COVID-19.",
+      "Datos procedentes de las Tablas de Mortalidad de la Población de España del INE."
+    ],
+    "source": {
+      "institution": "Instituto Nacional de Estadística (INE)",
+      "lastUpdated": "2024-06-20",
+      "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177004"
+    }
+  },
+  {
+    "id": "hipotecas-tipo-fijo-vs-variable",
+    "category": "Vivienda",
+    "question": "¿Qué porcentaje de las nuevas hipotecas sobre vivienda se constituyen a tipo fijo?",
+    "chartType": "bar",
+    "unit": "% de nuevas hipotecas",
+    "dataPoints": [
+      { "year": "2014", "value": 6.8 },
+      { "year": "2016", "value": 24.3 },
+      { "year": "2018", "value": 39.7 },
+      { "year": "2020", "value": 52.3 },
+      { "year": "2021", "value": 62.6 },
+      { "year": "2022", "value": 72.8 },
+      { "year": "2023", "value": 55.4 },
+      { "year": "2024", "value": 61.2 }
+    ],
+    "contextNotes": [
+      "Porcentaje de contratos de hipoteca sobre vivienda constituidos a tipo de interés fijo sobre el total de fincas urbanas hipotecadas.",
+      "Los datos corresponden al tipo de interés inicial fijado en la escritura de constitución del crédito.",
+      "Fuentes procesadas a partir de la Estadística de Hipotecas del INE basadas en los Registros de la Propiedad."
+    ],
+    "source": {
+      "institution": "Instituto Nacional de Estadística (INE - Hipotecas)",
+      "lastUpdated": "2024-10-15",
+      "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176993"
+    }
+  }
+]
