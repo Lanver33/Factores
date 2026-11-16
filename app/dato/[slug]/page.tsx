@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { getAllDatos, getDatoById } from "@/lib/data-utils";
 import InteractiveChart from "@/components/detail/InteractiveChart";
 import ContextNotes from "@/components/detail/ContextNotes";
-import ShareActions from "@/components/detail/ShareActions";
 import SourceCard from "@/components/detail/SourceCard";
 import { ArrowLeft, Tag } from "lucide-react";
 
@@ -89,15 +88,7 @@ export default async function DatoPage({ params }: PageProps) {
         <ContextNotes notes={dato.contextNotes} />
       </section>
 
-      {/* 4. Acciones de Compartir */}
-      <section className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
-        <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-          Compartir en Redes y Debate
-        </h3>
-        <ShareActions question={dato.question} id={dato.id} />
-      </section>
-
-      {/* 5. Trazabilidad (Caja de Fuente Oficial) */}
+      {/* 4. Trazabilidad (Caja de Fuente Oficial) */}
       <section>
         <SourceCard source={dato.source} />
       </section>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Info, BarChart3 } from "lucide-react";
+import { BarChart3 } from "lucide-react";
 
 export default function Header() {
   return (
@@ -20,14 +20,6 @@ export default function Header() {
               Datos sin relato político
             </p>
           </div>
-        </Link>
-
-        <Link
-          href="/metodologia"
-          className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200/80 px-3 py-1.5 rounded-full transition-colors"
-        >
-          <Info className="w-3.5 h-3.5 text-slate-500" />
-          <span>Metodología</span>
         </Link>
       </div>
     </header>

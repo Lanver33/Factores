@@ -16,9 +16,6 @@ export default function Footer() {
         </div>
         <div className="flex flex-col sm:items-end gap-2 text-slate-500">
           <div className="flex justify-center gap-4">
-            <Link href="/metodologia" className="hover:text-slate-900 underline">
-              Metodología
-            </Link>
             <Link href="/" className="hover:text-slate-900 underline">
               Inicio
             </Link>
