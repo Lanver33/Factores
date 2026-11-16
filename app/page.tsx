@@ -17,19 +17,6 @@ export default function HomePage() {
 
   return (
     <div className="space-y-6">
-      {/* Hero Banner / Subtítulo */}
-      <section className="bg-slate-900 text-white rounded-3xl p-6 shadow-sm space-y-3">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-800 border border-slate-700 text-blue-400 rounded-full text-xs font-semibold">
-          ⚡ Neutralidad Radical & Mobile-First
-        </div>
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight leading-tight">
-          Consulta datos oficiales verificados durante debates o conversaciones.
-        </h2>
-        <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-          Sin opiniones ni sesgo ideológico. Series históricas completas con trazabilidad directa al INE, Banco de España y Ministerios.
-        </p>
-      </section>
-
       {/* Buscador & Filtros */}
       <section className="space-y-4">
         <SearchBar value={searchQuery} onChange={setSearchQuery} />

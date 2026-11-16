@@ -14,7 +14,7 @@ export default function Header() {
           </div>
           <div>
             <h1 className="font-bold text-lg leading-none text-slate-900 tracking-tight">
-              Factores<span className="text-blue-600">.es</span>
+              Factor<span className="text-blue-600">.es</span>
             </h1>
             <p className="text-[11px] text-slate-500 leading-tight">
               Datos sin relato político
