@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowLeft, ShieldCheck, Scale, RefreshCw, FileCode } from "lucide-react";
 
 export const metadata = {
-  title: "Metodología y Fuentes | DatoOficial.es",
+  title: "Metodología y Fuentes | Factores.es",
   description:
     "Conoce nuestros principios de neutralidad radical, trazabilidad directa a organismos oficiales y ausencia de sesgo.",
 };
@@ -36,7 +36,7 @@ export default function MetodologiaPage() {
             1. Neutralidad Radical
           </h2>
           <p className="text-xs text-slate-600">
-            En <strong>DatoOficial.es</strong> no se utilizan adjetivos valorativos ni interpretaciones políticas. Todos los textos se limitan a describir la metodología empleada por el organismo oficial correspondiente.
+            En <strong>Factores.es</strong> no se utilizan adjetivos valorativos ni interpretaciones políticas. Todos los textos se limitan a describir la metodología empleada por el organismo oficial correspondiente.
           </p>
         </section>
 

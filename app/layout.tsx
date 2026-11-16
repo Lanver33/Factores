@@ -4,7 +4,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "DatoOficial.es | Datos oficiales de España sin filtro político",
+  title: "Factores.es | Datos oficiales de España sin filtro político",
   description:
     "Plataforma minimalista y neutral para consultar series históricas oficiales del INE, CIS, Banco de España y Ministerios en 2 clics.",
   keywords: [

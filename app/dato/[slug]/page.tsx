@@ -25,12 +25,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!dato) {
     return {
-      title: "Dato no encontrado | DatoOficial.es",
+      title: "Dato no encontrado | Factores.es",
     };
   }
 
   return {
-    title: `${dato.question} | DatoOficial.es`,
+    title: `${dato.question} | Factores.es`,
     description: `Serie histórica oficial (${dato.dataPoints[0]?.year}-${dato.dataPoints[dato.dataPoints.length - 1]?.year}) sobre ${dato.question}. Fuente: ${dato.source.institution}.`,
     openGraph: {
       title: dato.question,

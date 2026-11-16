@@ -17,11 +17,11 @@ export default function ShareActions({ question, id }: ShareActionsProps) {
     if (typeof window !== "undefined") {
       return `${window.location.origin}/dato/${id}`;
     }
-    return `https://datooficial.es/dato/${id}`;
+    return `https://factores.es/dato/${id}`;
   };
 
   const getShareText = () => {
-    return `${question}\nConsulta los datos oficiales sin filtro político en DatoOficial.es:`;
+    return `${question}\nConsulta los datos oficiales sin filtro político en Factores.es:`;
   };
 
   const handleNativeShare = async () => {
