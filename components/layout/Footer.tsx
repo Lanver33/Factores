@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ShieldCheck } from "lucide-react";
+import { ShieldCheck, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -14,13 +14,22 @@ export default function Footer() {
             Proyecto independiente y sin ánimo de lucro. Fuentes oficiales: INE, CIS, Banco de España y Ministerios.
           </p>
         </div>
-        <div className="flex justify-center gap-4 text-slate-500">
-          <Link href="/metodologia" className="hover:text-slate-900 underline">
-            Metodología
-          </Link>
-          <Link href="/" className="hover:text-slate-900 underline">
-            Inicio
-          </Link>
+        <div className="flex flex-col sm:items-end gap-2 text-slate-500">
+          <div className="flex justify-center gap-4">
+            <Link href="/metodologia" className="hover:text-slate-900 underline">
+              Metodología
+            </Link>
+            <Link href="/" className="hover:text-slate-900 underline">
+              Inicio
+            </Link>
+          </div>
+          <a
+            href="mailto:factores-feedback@proton.me"
+            className="inline-flex items-center justify-center sm:justify-end gap-1 text-slate-600 hover:text-blue-600 transition-colors"
+          >
+            <Mail className="w-3.5 h-3.5" />
+            <span>factores-feedback@proton.me</span>
+          </a>
         </div>
       </div>
     </footer>

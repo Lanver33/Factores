@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, ShieldCheck, Scale, RefreshCw, FileCode } from "lucide-react";
+import { ArrowLeft, ShieldCheck, Scale, RefreshCw, FileCode, Mail } from "lucide-react";
 
 export const metadata = {
   title: "Metodología y Fuentes | Factores.es",
@@ -68,6 +68,22 @@ export default function MetodologiaPage() {
           <p className="text-xs text-slate-600">
             Esta web no utiliza bases de datos ni backends complejos. Se genera como una web 100% estática respaldada por un archivo JSON público y auditable.
           </p>
+        </section>
+
+        <section className="bg-blue-50 border border-blue-200 rounded-2xl p-5 shadow-sm space-y-2">
+          <h2 className="font-semibold text-slate-900 flex items-center gap-2 text-base">
+            <Mail className="w-5 h-5 text-blue-600" />
+            5. Contacto y Feedback
+          </h2>
+          <p className="text-xs text-slate-600">
+            ¿Has detectado algún error en un dato, tienes sugerencias o quieres proponer una nueva serie histórica oficial? Escríbenos directamente a:
+          </p>
+          <a
+            href="mailto:factores-feedback@proton.me"
+            className="inline-block pt-1 font-semibold text-blue-700 hover:underline text-xs"
+          >
+            factores-feedback@proton.me
+          </a>
         </section>
       </div>
     </div>
