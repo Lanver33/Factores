@@ -1,6 +1,6 @@
 "use client";
 
-import { DataPoint } from "@/types";
+import { MetricSeriesPoint } from "@/types";
 import {
   ResponsiveContainer,
   LineChart,
@@ -14,25 +14,28 @@ import {
 } from "recharts";
 
 interface InteractiveChartProps {
-  dataPoints: DataPoint[];
-  chartType: "line" | "bar";
+  series: MetricSeriesPoint[];
+  chartType?: "line" | "bar";
   unit: string;
+  title?: string;
 }
 
 interface CustomTooltipProps {
   active?: boolean;
-  payload?: Array<{ value: number; payload: DataPoint }>;
+  payload?: Array<{ value: number; payload: MetricSeriesPoint }>;
   unit: string;
 }
 
 function CustomTooltip({ active, payload, unit }: CustomTooltipProps) {
   if (active && payload && payload.length) {
     const data = payload[0];
+    const displayValue =
+      unit === "percent" ? `${data.value}%` : `${data.value.toLocaleString()} ${unit}`;
     return (
       <div className="bg-slate-900 text-white px-3.5 py-2 rounded-xl shadow-lg border border-slate-700 text-xs">
-        <div className="text-slate-400 font-medium">{data.payload.year}</div>
+        <div className="text-slate-400 font-medium">{data.payload.date}</div>
         <div className="text-base font-bold text-white mt-0.5">
-          {data.value} <span className="text-xs font-normal text-blue-400">{unit}</span>
+          {displayValue}
         </div>
       </div>
     );
@@ -41,17 +44,32 @@ function CustomTooltip({ active, payload, unit }: CustomTooltipProps) {
 }
 
 export default function InteractiveChart({
-  dataPoints,
-  chartType,
+  series,
+  chartType = "line",
   unit,
+  title,
 }: InteractiveChartProps) {
+  if (!series || series.length === 0) {
+    return (
+      <div className="w-full bg-white rounded-2xl border border-slate-200 p-8 text-center text-slate-500">
+        No series data available.
+      </div>
+    );
+  }
+
+  const firstDate = series[0]?.date || "";
+  const lastDate = series[series.length - 1]?.date || "";
+
   return (
-    <div className="w-full bg-white rounded-2xl border border-slate-200 p-4 sm:p-6 shadow-sm">
-      <div className="flex items-center justify-between mb-4">
-        <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-          Serie Histórica ({dataPoints[0]?.year} - {dataPoints[dataPoints.length - 1]?.year})
+    <div className="w-full bg-white rounded-2xl border border-slate-200 p-4 sm:p-6 shadow-sm space-y-4">
+      <div className="flex items-center justify-between">
+        <div>
+          {title && <h3 className="text-sm font-bold text-slate-900">{title}</h3>}
+          <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-0.5">
+            Monthly Time-Series ({firstDate} — {lastDate})
+          </div>
         </div>
-        <div className="text-xs font-medium text-slate-600 bg-slate-100 px-2.5 py-1 rounded-md">
+        <div className="text-xs font-semibold text-blue-700 bg-blue-50 border border-blue-100 px-2.5 py-1 rounded-md">
           {unit}
         </div>
       </div>
@@ -60,12 +78,12 @@ export default function InteractiveChart({
         <ResponsiveContainer width="100%" height="100%">
           {chartType === "line" ? (
             <LineChart
-              data={dataPoints}
+              data={series}
               margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
               <XAxis
-                dataKey="year"
+                dataKey="date"
                 tickLine={false}
                 axisLine={{ stroke: "#cbd5e1" }}
                 tick={{ fill: "#64748b", fontSize: 12 }}
@@ -89,12 +107,12 @@ export default function InteractiveChart({
             </LineChart>
           ) : (
             <BarChart
-              data={dataPoints}
+              data={series}
               margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
               <XAxis
-                dataKey="year"
+                dataKey="date"
                 tickLine={false}
                 axisLine={{ stroke: "#cbd5e1" }}
                 tick={{ fill: "#64748b", fontSize: 12 }}
@@ -117,9 +135,9 @@ export default function InteractiveChart({
           )}
         </ResponsiveContainer>
       </div>
-      
-      <p className="text-[11px] text-slate-400 text-center mt-3">
-        👈 Desliza el dedo o mantén pulsado sobre el gráfico para ver el valor exacto por año
+
+      <p className="text-[11px] text-slate-400 text-center">
+        Hover or tap data points to view exact monthly statistical values.
       </p>
     </div>
   );

@@ -2,11 +2,15 @@
   "name": "factor",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/ingest.js && node scripts/validate-and-sync.js && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "ingest": "node scripts/ingest.js",
+    "validate": "node scripts/validate-and-sync.js",
+    "pipeline": "node scripts/ingest.js && node scripts/validate-and-sync.js"
   },
   "dependencies": {
     "clsx": "^2.1.1",

@@ -1,20 +1,84 @@
-import rawData from "@/data/data.json";
-import { Category, DatoItem } from "@/types";
+import { GlobalMetadata, DatoItem, ItemIndexItem, Category } from "@/types";
 
-const datos: DatoItem[] = rawData as DatoItem[];
+export const DATA_BASE_URL =
+  process.env.NEXT_PUBLIC_DATA_BASE_URL || "/data";
 
-export function getAllDatos(): DatoItem[] {
-  return datos;
+const cleanBaseUrl = DATA_BASE_URL.replace(/\/$/, "");
+
+export async function fetchMetadata(): Promise<GlobalMetadata> {
+  try {
+    const res = await fetch(`${cleanBaseUrl}/metadata.json`);
+    if (!res.ok) {
+      return { last_updated: new Date().toISOString().split("T")[0], total_items: 0 };
+    }
+    return await res.json();
+  } catch (err) {
+    console.warn("Could not fetch metadata.json:", err);
+    return { last_updated: new Date().toISOString().split("T")[0], total_items: 0 };
+  }
 }
 
-export function getDatoById(id: string): DatoItem | undefined {
-  return datos.find((item) => item.id === id);
+export async function fetchItems(): Promise<ItemIndexItem[]> {
+  try {
+    const res = await fetch(`${cleanBaseUrl}/items.json`);
+    if (!res.ok) {
+      const fallbackRes = await fetch(`${cleanBaseUrl}/counties.json`);
+      if (!fallbackRes.ok) return [];
+      const counties = await fallbackRes.json();
+      return counties.map((c: any) => ({
+        id: c.id,
+        category: "Economía y Empleo",
+        question: c.name,
+        unit: "",
+        latestValue: c.latest_summary ? Object.values(c.latest_summary)[0] as number : 0,
+        latestYear: "2026",
+        lastUpdated: c.last_updated || "2026-11-01"
+      }));
+    }
+    return await res.json();
+  } catch (err) {
+    console.warn("Could not fetch items index:", err);
+    return [];
+  }
 }
 
-export function getDatosByCategory(category: Category): DatoItem[] {
-  if (category === "Todas") return datos;
-  return datos.filter((item) => item.category === category);
+export const fetchCounties = fetchItems;
+
+export async function fetchItemDetail(id: string): Promise<DatoItem | null> {
+  try {
+    let res = await fetch(`${cleanBaseUrl}/items/${id}.json`);
+    if (!res.ok) {
+      res = await fetch(`${cleanBaseUrl}/counties/${id}.json`);
+    }
+    if (!res.ok) return null;
+    const raw = await res.json();
+
+    if (raw.metrics) {
+      const metricKey = Object.keys(raw.metrics)[0];
+      const metric = raw.metrics[metricKey];
+      return {
+        id: raw.county_id || raw.id,
+        category: raw.category || "Economía y Empleo",
+        question: raw.name || raw.question || metricKey,
+        chartType: "line",
+        unit: metric?.unit || raw.unit || "",
+        dataPoints: (metric?.series || []).map((s: any) => ({
+          year: s.date || s.year,
+          value: s.value
+        })),
+        contextNotes: raw.contextNotes || [],
+        source: raw.source || { institution: "Fuente Oficial", url: "#", lastUpdated: raw.last_updated }
+      };
+    }
+
+    return raw as DatoItem;
+  } catch (err) {
+    console.warn(`Could not fetch item detail for ${id}:`, err);
+    return null;
+  }
 }
+
+export const fetchCountyDetail = fetchItemDetail;
 
 export function getAllCategories(): Category[] {
   return [
@@ -24,23 +88,4 @@ export function getAllCategories(): Category[] {
     "Sanidad",
     "Pensiones y Demografía",
   ];
-}
-
-export function searchDatos(query: string, category: Category = "Todas"): DatoItem[] {
-  const normalizedQuery = query.toLowerCase().trim();
-  let result = datos;
-
-  if (category !== "Todas") {
-    result = result.filter((item) => item.category === category);
-  }
-
-  if (!normalizedQuery) return result;
-
-  return result.filter(
-    (item) =>
-      item.question.toLowerCase().includes(normalizedQuery) ||
-      item.category.toLowerCase().includes(normalizedQuery) ||
-      item.contextNotes.some((note) => note.toLowerCase().includes(normalizedQuery)) ||
-      item.source.institution.toLowerCase().includes(normalizedQuery)
-  );
 }

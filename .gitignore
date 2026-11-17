@@ -3,6 +3,13 @@
 /.pnp
 .pnp.js
 
+# python & uv
+.venv/
+staging/
+.opencode/
+__pycache__/
+*.pyc
+
 # testing
 /coverage
 
