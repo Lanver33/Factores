@@ -5,7 +5,6 @@ import { ImmigrationItem, AnnualBlock } from "@/types";
 import WebGisChronoArcs from "./WebGisChronoArcs";
 import TimelineScrubber from "./TimelineScrubber";
 import ConcentricSunburstRanking from "./ConcentricSunburstRanking";
-import SourceCard from "@/components/detail/SourceCard";
 
 type TimeframeMode = "single" | "range";
 type YearRange = [string, string];
@@ -113,8 +112,6 @@ export default function ImmigrationView({ item }: ImmigrationViewProps) {
     };
   }, [item.annualBlocks, mode, selectedYear, yearRange, years]);
 
-  const hasSources = Boolean(item.sources?.length || item.source);
-
   return (
     <div className="space-y-6">
       {/* Top Timeline Scrubber (Placed right at the top) */}
@@ -157,16 +154,6 @@ export default function ImmigrationView({ item }: ImmigrationViewProps) {
         setHoveredCountryId={setHoveredCountryId}
         selectedTimeframeLabel={timeframeLabel}
       />
-
-      {/* 3. Trazabilidad y Fuentes por tramos */}
-      {hasSources && (
-        <section>
-          <SourceCard
-            sources={item.sources}
-            source={item.source}
-          />
-        </section>
-      )}
     </div>
   );
 }

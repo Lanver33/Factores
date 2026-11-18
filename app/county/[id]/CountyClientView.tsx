@@ -170,7 +170,7 @@ export default function CountyClientView({ countyId }: CountyClientViewProps) {
       {/* Source Attribution & Traceability Card */}
       <section>
         <SourceCard
-          source={currentMetricMeta?.source}
+          sources={county.sources}
           lastUpdated={county.last_updated || metadata?.last_updated}
         />
       </section>

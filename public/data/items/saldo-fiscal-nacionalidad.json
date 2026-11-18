@@ -724,10 +724,25 @@
     "Categorías Específicas de Gastos: Gasto Imputado Extranjeros, Gasto Imputado Españoles, Intereses de la Deuda Pública, Defensa/Fuerzas Armadas, Seguridad Ciudadana/Justicia, Infraestructuras/Transportes, Medio Ambiente/I+D+i y Servicios Generales de la Administración Pública.",
     "Fuentes oficiales cruzadas: IGAE & Banco de España (Contabilidad Nacional S.13 SEC-2010), INE (ECP Tabla 56951), Seguridad Social (Afiliación y Pensiones por Nacionalidad) y AEAT (Informes de Recaudación Tributaria)."
   ],
-  "source": {
-    "institution": "IGAE, Banco de España, INE, Seguridad Social y AEAT",
-    "lastUpdated": "2024-12-01",
-    "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177003"
-  },
+  "sources": [
+    {
+      "institution": "Intervención General de la Administración del Estado (IGAE) / Banco de España",
+      "title": "Contabilidad Nacional de España (SEC-2010)",
+      "shortName": "Contabilidad Nacional",
+      "tableId": "SEC-2010",
+      "period": "2015-2024",
+      "lastUpdated": "2024-12-01",
+      "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177003"
+    },
+    {
+      "institution": "Instituto Nacional de Estadística (INE)",
+      "title": "Estadística de Cuentas Principales (ECP)",
+      "shortName": "ECP",
+      "tableId": "56951",
+      "period": "2015-2024",
+      "lastUpdated": "2024-12-01",
+      "url": "https://www.ine.es/jaxiT3/Tabla.htm?t=56951"
+    }
+  ],
   "last_updated": "2026-11-17"
 }

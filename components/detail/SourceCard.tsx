@@ -1,9 +1,10 @@
-import { ExternalLink, ShieldCheck, Calendar } from "lucide-react";
+import { ExternalLink, ShieldCheck, Calendar, AlertCircle } from "lucide-react";
 import { SourceInfo, TraceableSource } from "@/types";
 
 interface SourceCardProps extends TraceableSource {
   lastUpdated?: string;
   defaultInstitution?: string;
+  description?: string;
 }
 
 const DEFAULT_INSTITUTION = "Instituto Nacional de Estadística (INE)";
@@ -15,9 +16,7 @@ function normalizeSources(source?: SourceInfo, sources?: SourceInfo[]): SourceIn
 }
 
 function resolveShortName(source: SourceInfo): string {
-  if (source.shortName) return source.shortName;
-  const isEmcr = source.title?.includes("EMCR") || source.tableId === "69690";
-  return isEmcr ? "EMCR" : "Estadística de Migraciones";
+  return source.shortName || source.title || source.institution || "Ver fuente oficial";
 }
 
 function buildSourceKey(source: SourceInfo, fallbackIdx: number): string {
@@ -29,11 +28,45 @@ export default function SourceCard({
   sources,
   lastUpdated,
   defaultInstitution = DEFAULT_INSTITUTION,
+  description,
 }: SourceCardProps) {
   const sourceList = normalizeSources(source, sources);
-  if (sourceList.length === 0) return null;
 
-  const institutionName = sourceList[0]?.institution || defaultInstitution;
+  if (sourceList.length === 0) {
+    return (
+      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-sm space-y-4">
+        <div className="flex items-center justify-between flex-wrap gap-2">
+          <span className="text-[11px] uppercase tracking-wider font-bold text-slate-400 flex items-center gap-1.5">
+            <ShieldCheck className="w-4 h-4 text-blue-400" />
+            Fuente Oficial de Datos y Trazabilidad
+          </span>
+        </div>
+        <div className="p-5 rounded-xl border border-dashed border-slate-800 bg-slate-950/50 text-center space-y-2">
+          <AlertCircle className="w-5 h-5 text-amber-400 mx-auto" />
+          <p className="text-xs font-semibold text-white">
+            Pendiente de vinculación con tabla oficial
+          </p>
+          <p className="text-[11px] text-slate-400">
+            No hay fuentes oficiales vinculadas a este registro actualmente.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  const uniqueInstitutions = Array.from(
+    new Set(sourceList.map((s) => s.institution).filter(Boolean))
+  );
+  const headerInstitution =
+    uniqueInstitutions.length > 1
+      ? uniqueInstitutions.join(" / ")
+      : sourceList[0]?.institution || defaultInstitution;
+
+  const defaultSubtitle =
+    sourceList.length === 1
+      ? "Enlace directo a la publicación original para auditar y contrastar la serie histórica oficial:"
+      : "Series enlazadas para auditar y contrastar directamente los tramos o registros oficiales que componen este indicador:";
+  const subtitleText = description || defaultSubtitle;
 
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-sm space-y-4">
@@ -47,10 +80,10 @@ export default function SourceCard({
 
       <div className="space-y-1">
         <p className="text-sm font-semibold text-white">
-          {institutionName}
+          {headerInstitution}
         </p>
         <p className="text-xs text-slate-400">
-          Serie enlazada para auditar y contrastar directamente los dos tramos oficiales de la serie histórica:
+          {subtitleText}
         </p>
       </div>
 
@@ -67,8 +100,13 @@ export default function SourceCard({
             >
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 flex-wrap">
+                  {uniqueInstitutions.length > 1 && s.institution && (
+                    <span className="text-[11px] font-semibold text-amber-400 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800/80">
+                      {s.institution}
+                    </span>
+                  )}
                   <span className="text-xs font-bold text-white">
-                    {s.title || s.institution}
+                    {s.title}
                   </span>
                   {s.period && (
                     <span className="text-[11px] font-semibold text-blue-400 bg-blue-950 px-2 py-0.5 rounded border border-blue-800/80">

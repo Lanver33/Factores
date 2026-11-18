@@ -18,22 +18,21 @@ export interface DataPoint {
 
 export type MetricSeriesPoint = DataPoint;
 
-export interface MetricSource {
+export interface SourceInfo {
   institution: string;
+  title: string;
   url: string;
-  lastUpdated?: string;
-}
-
-export interface SourceInfo extends MetricSource {
-  title?: string;
   shortName?: string;
   tableId?: string;
   period?: string;
+  lastUpdated?: string;
 }
 
+export type MetricSource = SourceInfo;
+
 export interface TraceableSource {
-  source?: SourceInfo;
   sources?: SourceInfo[];
+  source?: SourceInfo;
 }
 
 export interface BaseEntityItem {

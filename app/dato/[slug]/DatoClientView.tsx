@@ -135,16 +135,13 @@ export default function DatoClientView({ slug }: DatoClientViewProps) {
         />
       </section>
 
-      {/* 3. Trazabilidad (solo si no lo renderiza ya ImmigrationView) */}
-      {!isImmigrationItem && (dato.sources?.length || dato.source) && (
-        <section>
-          <SourceCard
-            sources={dato.sources}
-            source={dato.source}
-            lastUpdated={dato.source?.lastUpdated || dato.last_updated}
-          />
-        </section>
-      )}
+      {/* 3. Trazabilidad y Fuentes Oficiales */}
+      <section>
+        <SourceCard
+          sources={dato.sources}
+          lastUpdated={dato.sources?.[0]?.lastUpdated || dato.last_updated}
+        />
+      </section>
     </article>
   );
 }

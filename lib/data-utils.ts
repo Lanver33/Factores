@@ -1,4 +1,4 @@
-import { GlobalMetadata, DatoItem, ItemIndexItem, Category } from "@/types";
+import { GlobalMetadata, DatoItem, ItemIndexItem, Category, SourceInfo } from "@/types";
 
 export const DATA_BASE_URL =
   process.env.NEXT_PUBLIC_DATA_BASE_URL || "/data";
@@ -53,6 +53,37 @@ export async function fetchItemDetail(id: string): Promise<DatoItem | null> {
     if (!res.ok) return null;
     const raw = await res.json();
 
+    const normalizeSourcesList = (r: any): SourceInfo[] => {
+      if (Array.isArray(r.sources) && r.sources.length > 0) {
+        return r.sources.map((s: any) => ({
+          institution: s.institution || "Fuente Oficial",
+          title: s.title || r.question || "Fuente Oficial de Datos",
+          url: s.url || "#",
+          shortName: s.shortName,
+          tableId: s.tableId,
+          period: s.period,
+          lastUpdated: s.lastUpdated || r.last_updated || r.lastUpdated
+        }));
+      }
+      if (r.source) {
+        return [{
+          institution: r.source.institution || "Fuente Oficial",
+          title: r.source.title || r.question || "Fuente Oficial de Datos",
+          url: r.source.url || "#",
+          shortName: r.source.shortName,
+          tableId: r.source.tableId,
+          period: r.source.period,
+          lastUpdated: r.source.lastUpdated || r.last_updated || r.lastUpdated
+        }];
+      }
+      return [{
+        institution: "Fuente Oficial",
+        title: r.question || "Fuente Oficial de Datos",
+        url: "#",
+        lastUpdated: r.last_updated || r.lastUpdated
+      }];
+    };
+
     if (raw.metrics) {
       const metricKey = Object.keys(raw.metrics)[0];
       const metric = raw.metrics[metricKey];
@@ -67,11 +98,14 @@ export async function fetchItemDetail(id: string): Promise<DatoItem | null> {
           value: s.value
         })),
         contextNotes: raw.contextNotes || [],
-        source: raw.source || { institution: "Fuente Oficial", url: "#", lastUpdated: raw.last_updated }
+        sources: normalizeSourcesList(raw)
       };
     }
 
-    return raw as DatoItem;
+    return {
+      ...raw,
+      sources: normalizeSourcesList(raw)
+    } as DatoItem;
   } catch (err) {
     console.warn(`Could not fetch item detail for ${id}:`, err);
     return null;

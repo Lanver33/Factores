@@ -35,6 +35,22 @@ function validateAndBuildIndex() {
       throw new Error(`Item in ${file} is missing required fields (id, question, category).`);
     }
 
+    if (!Array.isArray(item.sources) || item.sources.length === 0) {
+      throw new Error(`Item ${file} must include a standardized 'sources' array with at least one source (AC 1.1).`);
+    }
+
+    for (const src of item.sources) {
+      if (!src.institution || typeof src.institution !== "string") {
+        throw new Error(`Source in ${file} is missing required 'institution' string (AC 1.2).`);
+      }
+      if (!src.title || typeof src.title !== "string") {
+        throw new Error(`Source in ${file} is missing required 'title' string (AC 1.2).`);
+      }
+      if (!src.url || typeof src.url !== "string") {
+        throw new Error(`Source in ${file} is missing required 'url' string (AC 1.2).`);
+      }
+    }
+
     const points = item.dataPoints || (item.metrics && Object.values(item.metrics)[0]?.series);
     if (!Array.isArray(points) || points.length === 0) {
       throw new Error(`Item ${file} must have a non-empty dataPoints or series array.`);

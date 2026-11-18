@@ -30,7 +30,7 @@ export default function DirectoryRow({ item, detail }: DirectoryRowProps) {
 
   const compactVal = formatSpanishCompact(latestValue);
   const exactVal = formatSpanishExact(latestValue);
-  const sourceName = detail?.source?.institution || "INE";
+  const sourceName = detail?.sources?.[0]?.institution || detail?.source?.institution || "INE";
   const unit = item.unit || "personas";
 
   return (
