@@ -69,6 +69,13 @@ def validate_and_stage(
                     elif latest_val == 0:
                         latest_val = list(entry.values())[0]
 
+        sources = item_payload.get("sources")
+        last_upd = None
+        if isinstance(sources, list) and sources:
+            last_upd = sources[0].get("lastUpdated")
+        if not last_upd:
+            last_upd = item_payload.get("source", {}).get("lastUpdated") or item_payload.get("last_updated") or date.today().isoformat()
+
         existing_staging_entries[item_id] = {
             "id": item_id,
             "category": item_payload.get("category", "Pensiones y Demografía"),
@@ -76,7 +83,7 @@ def validate_and_stage(
             "unit": item_payload.get("unit", ""),
             "latestValue": latest_val,
             "latestYear": str(last_dp.get("year", "")),
-            "lastUpdated": item_payload.get("source", {}).get("lastUpdated") or item_payload.get("last_updated") or date.today().isoformat(),
+            "lastUpdated": last_upd,
         }
 
     with open(staging_dir / "items.json", "w", encoding="utf-8") as f:

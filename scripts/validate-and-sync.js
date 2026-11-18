@@ -76,6 +76,7 @@ function validateAndBuildIndex() {
       latestVal = totalObj ? Object.values(totalObj)[0] : 0;
     }
 
+    const firstSource = item.sources?.[0] || item.source;
     indexItems.push({
       id: item.id,
       category: item.category,
@@ -83,7 +84,7 @@ function validateAndBuildIndex() {
       unit: item.unit || "",
       latestValue: latestVal,
       latestYear: lastPoint.year || lastPoint.date,
-      lastUpdated: item.source?.lastUpdated || item.last_updated || new Date().toISOString().split("T")[0]
+      lastUpdated: firstSource?.lastUpdated || item.last_updated || new Date().toISOString().split("T")[0]
     });
   }
 

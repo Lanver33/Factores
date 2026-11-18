@@ -420,11 +420,24 @@ def build_consolidated_dataset(raw_legacy: list, raw_modern: list) -> dict:
             "Agrupación en 6 bloques continentales/lingüísticos: América (Hispanohablante), América (No Hispanohablante), Europa, África, Asia y Oceanía.",
             "Desglose de hasta 10 series individuales por bloque (Top países + Resto de bloque) con 100% de conciliación matemática respecto a subtotales y total global.",
         ],
-        "source": {
-            "institution": "Instituto Nacional de Estadística (INE)",
-            "lastUpdated": "2024-12-01",
-            "url": SOURCE_PAGE_URL,
-        },
+        "sources": [
+            {
+                "institution": "Instituto Nacional de Estadística (INE)",
+                "title": "Estadística de Migraciones y Cambios de Residencia (EMCR)",
+                "tableId": "69690",
+                "period": "2021-2024",
+                "lastUpdated": "2024-12-01",
+                "url": "https://www.ine.es/jaxiT3/Tabla.htm?t=69690",
+            },
+            {
+                "institution": "Instituto Nacional de Estadística (INE)",
+                "title": "Estadística de Migraciones (Serie histórica)",
+                "tableId": "24295",
+                "period": "2008-2020",
+                "lastUpdated": "2021-12-01",
+                "url": "https://www.ine.es/jaxiT3/Tabla.htm?t=24295",
+            },
+        ],
         "last_updated": today_str,
     }
 

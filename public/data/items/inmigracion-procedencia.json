@@ -4201,10 +4201,25 @@
     "Agrupación en 6 bloques continentales/lingüísticos: América (Hispanohablante), América (No Hispanohablante), Europa, África, Asia y Oceanía.",
     "Desglose de hasta 10 series individuales por bloque (Top países + Resto de bloque) con 100% de conciliación matemática respecto a subtotales y total global."
   ],
-  "source": {
-    "institution": "Instituto Nacional de Estadística (INE)",
-    "lastUpdated": "2024-12-01",
-    "url": "https://www.ine.es/jaxiT3/Tabla.htm?t=69690"
-  },
+  "sources": [
+    {
+      "institution": "Instituto Nacional de Estadística (INE)",
+      "title": "Estadística de Migraciones (EM)",
+      "shortName": "Estadística de Migraciones",
+      "tableId": "24312",
+      "period": "2008-2020",
+      "lastUpdated": "2024-12-01",
+      "url": "https://www.ine.es/jaxiT3/Tabla.htm?t=24312"
+    },
+    {
+      "institution": "Instituto Nacional de Estadística (INE)",
+      "title": "Estadística de Migraciones y Cambios de Residencia (EMCR)",
+      "shortName": "EMCR",
+      "tableId": "69690",
+      "period": "2021-2024",
+      "lastUpdated": "2024-12-01",
+      "url": "https://www.ine.es/jaxiT3/Tabla.htm?t=69690"
+    }
+  ],
   "last_updated": "2026-11-18"
 }

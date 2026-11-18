@@ -262,31 +262,4 @@ export function formatCompactSpanish(val: number): string {
   return val.toLocaleString("es-ES");
 }
 
-export interface ImmigrationItem {
-  id: string;
-  category: string;
-  question: string;
-  unit: string;
-  blocks: Array<{
-    id: string;
-    name: string;
-    color: string;
-    countries: Array<{ id: string; name: string }>;
-  }>;
-  annualBlocks: Array<{
-    year: string;
-    total: number;
-    blocks: Record<
-      string,
-      {
-        total: number;
-        countries: Record<string, number>;
-      }
-    >;
-  }>;
-  source?: {
-    institution: string;
-    lastUpdated: string;
-    url: string;
-  };
-}
+export type { ImmigrationItem } from "@/types";

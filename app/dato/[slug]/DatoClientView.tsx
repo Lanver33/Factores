@@ -77,6 +77,8 @@ export default function DatoClientView({ slug }: DatoClientViewProps) {
     );
   }
 
+  const isImmigrationItem = dato.id === "inmigracion-procedencia" || Boolean((dato as any).annualBlocks);
+
   const seriesPoints = dato.dataPoints.map((dp) => {
     let val = 0;
     const rawVal = dp.value as any;
@@ -133,10 +135,14 @@ export default function DatoClientView({ slug }: DatoClientViewProps) {
         />
       </section>
 
-      {/* 3. Trazabilidad */}
-      {dato.source && (
+      {/* 3. Trazabilidad (solo si no lo renderiza ya ImmigrationView) */}
+      {!isImmigrationItem && (dato.sources?.length || dato.source) && (
         <section>
-          <SourceCard source={dato.source} lastUpdated={dato.source.lastUpdated || dato.last_updated} />
+          <SourceCard
+            sources={dato.sources}
+            source={dato.source}
+            lastUpdated={dato.source?.lastUpdated || dato.last_updated}
+          />
         </section>
       )}
     </article>
