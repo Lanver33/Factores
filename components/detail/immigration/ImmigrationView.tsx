@@ -91,7 +91,20 @@ export default function ImmigrationView({ item }: ImmigrationViewProps) {
 
   return (
     <div className="space-y-6">
-      {/* 1. Map Canvas (Full width, no side drawer) */}
+      {/* Top Timeline Scrubber (Placed right at the top) */}
+      <TimelineScrubber
+        years={years}
+        selectedYear={selectedYear}
+        setSelectedYear={setSelectedYear}
+        yearRange={yearRange}
+        setYearRange={setYearRange}
+        mode={mode}
+        setMode={setMode}
+        isPlaying={isPlaying}
+        setIsPlaying={setIsPlaying}
+      />
+
+      {/* 1. Map Canvas */}
       <div className="w-full">
         <WebGisChronoArcs
           timeframeLabel={timeframeLabel}
@@ -107,7 +120,7 @@ export default function ImmigrationView({ item }: ImmigrationViewProps) {
         />
       </div>
 
-      {/* 2. Concentric Sunburst Ranking Component (Full width, no side drawer) */}
+      {/* 2. Concentric Sunburst Ranking Component */}
       <ConcentricSunburstRanking
         item={item}
         activeDataMap={activeDataMap}
@@ -117,19 +130,6 @@ export default function ImmigrationView({ item }: ImmigrationViewProps) {
         hoveredCountryId={hoveredCountryId}
         setHoveredCountryId={setHoveredCountryId}
         selectedTimeframeLabel={timeframeLabel}
-      />
-
-      {/* Bottom Timeline Scrubber */}
-      <TimelineScrubber
-        years={years}
-        selectedYear={selectedYear}
-        setSelectedYear={setSelectedYear}
-        yearRange={yearRange}
-        setYearRange={setYearRange}
-        mode={mode}
-        setMode={setMode}
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
       />
     </div>
   );

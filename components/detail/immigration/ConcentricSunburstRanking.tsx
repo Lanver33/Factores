@@ -7,7 +7,7 @@ import {
   formatCompactSpanish,
   describeArc,
 } from "./utils";
-import { PieChart, Filter } from "lucide-react";
+import { PieChart, Filter, Sparkles } from "lucide-react";
 
 interface ConcentricSunburstRankingProps {
   item: ImmigrationItem;
@@ -180,6 +180,31 @@ export default function ConcentricSunburstRanking({
             Mostrar todos los continentes
           </button>
         )}
+      </div>
+
+      {/* Continents Legend Bar */}
+      <div className="flex flex-wrap items-center justify-center gap-2 bg-slate-800/80 p-3 rounded-xl border border-slate-700/60 text-xs">
+        <span className="font-semibold text-slate-400 flex items-center gap-1 mr-2">
+          <Sparkles className="w-3.5 h-3.5 text-purple-400" />
+          Continentes (Anillo 1):
+        </span>
+        {blockRankings.map((block) => (
+          <button
+            key={block.id}
+            onClick={() => setActiveDrillBlockId(activeDrillBlockId === block.id ? null : block.id)}
+            className={`flex items-center gap-1.5 px-3 py-1 rounded-lg border transition-all ${
+              activeDrillBlockId === block.id
+                ? "bg-slate-900 border-blue-500 ring-1 ring-blue-500 font-bold"
+                : "bg-slate-900/60 border-slate-700 hover:bg-slate-900"
+            }`}
+          >
+            <span className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: block.color }} />
+            <span className="text-white">{block.name}</span>
+            <span className="text-slate-400 font-mono text-[10px]">
+              ({((block.total / (totalArrivals || 1)) * 100).toFixed(1)}%)
+            </span>
+          </button>
+        ))}
       </div>
 
       {/* Sunburst Centered Canvas */}
