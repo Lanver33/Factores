@@ -1,7 +1,7 @@
 {
   "id": "saldo-fiscal-nacionalidad",
   "category": "Economía y Empleo",
-  "question": "¿Cuál es el saldo fiscal y ratio contribución/gasto de la población extranjera frente a la española?",
+  "question": "Saldo fiscal y ratio contribución / gasto",
   "chartType": "fiscal",
   "unit": "% / € hab / MM€",
   "dataPoints": [
@@ -15,10 +15,10 @@
           "ratio-espanoles": 74.6
         },
         {
-          "saldo-capita-extranjeros": 1172.0
+          "saldo-capita-extranjeros": 1172
         },
         {
-          "saldo-capita-espanoles": -1622.0
+          "saldo-capita-espanoles": -1622
         },
         {
           "contribucion-extranjeros": 13.86
@@ -86,10 +86,10 @@
           "ratio-espanoles": 76.1
         },
         {
-          "saldo-capita-extranjeros": 1276.0
+          "saldo-capita-extranjeros": 1276
         },
         {
-          "saldo-capita-espanoles": -1537.0
+          "saldo-capita-espanoles": -1537
         },
         {
           "contribucion-extranjeros": 14.4
@@ -157,10 +157,10 @@
           "ratio-espanoles": 77.6
         },
         {
-          "saldo-capita-extranjeros": 1424.0
+          "saldo-capita-extranjeros": 1424
         },
         {
-          "saldo-capita-espanoles": -1461.0
+          "saldo-capita-espanoles": -1461
         },
         {
           "contribucion-extranjeros": 15.37
@@ -196,7 +196,7 @@
           "gastos-defensa-fuerzas-armadas": 8.9
         },
         {
-          "gastos-seguridad-ciudadana-justicia": 14.0
+          "gastos-seguridad-ciudadana-justicia": 14
         },
         {
           "gastos-infraestructuras-transportes": 15.8
@@ -222,16 +222,16 @@
       "year": "2018",
       "value": [
         {
-          "ratio-extranjeros": 176.0
+          "ratio-extranjeros": 176
         },
         {
           "ratio-espanoles": 79.7
         },
         {
-          "saldo-capita-extranjeros": 1610.0
+          "saldo-capita-extranjeros": 1610
         },
         {
-          "saldo-capita-espanoles": -1340.0
+          "saldo-capita-espanoles": -1340
         },
         {
           "contribucion-extranjeros": 17.05
@@ -299,10 +299,10 @@
           "ratio-espanoles": 82.3
         },
         {
-          "saldo-capita-extranjeros": 1765.0
+          "saldo-capita-extranjeros": 1765
         },
         {
-          "saldo-capita-espanoles": -1190.0
+          "saldo-capita-espanoles": -1190
         },
         {
           "contribucion-extranjeros": 19.2
@@ -338,7 +338,7 @@
           "gastos-defensa-fuerzas-armadas": 9.7
         },
         {
-          "gastos-seguridad-ciudadana-justicia": 15.0
+          "gastos-seguridad-ciudadana-justicia": 15
         },
         {
           "gastos-infraestructuras-transportes": 17.6
@@ -370,10 +370,10 @@
           "ratio-espanoles": 77.5
         },
         {
-          "saldo-capita-extranjeros": 1303.0
+          "saldo-capita-extranjeros": 1303
         },
         {
-          "saldo-capita-espanoles": -1578.0
+          "saldo-capita-espanoles": -1578
         },
         {
           "contribucion-extranjeros": 19.47
@@ -441,10 +441,10 @@
           "ratio-espanoles": 81.8
         },
         {
-          "saldo-capita-extranjeros": 1545.0
+          "saldo-capita-extranjeros": 1545
         },
         {
-          "saldo-capita-espanoles": -1299.0
+          "saldo-capita-espanoles": -1299
         },
         {
           "contribucion-extranjeros": 21.67
@@ -486,7 +486,7 @@
           "gastos-infraestructuras-transportes": 18.2
         },
         {
-          "gastos-medio-ambiente-investigacion": 12.0
+          "gastos-medio-ambiente-investigacion": 12
         },
         {
           "gastos-servicios-generales-admon": 208.8
@@ -506,16 +506,16 @@
       "year": "2022",
       "value": [
         {
-          "ratio-extranjeros": 172.0
+          "ratio-extranjeros": 172
         },
         {
           "ratio-espanoles": 86.8
         },
         {
-          "saldo-capita-extranjeros": 1896.0
+          "saldo-capita-extranjeros": 1896
         },
         {
-          "saldo-capita-espanoles": -964.0
+          "saldo-capita-espanoles": -964
         },
         {
           "contribucion-extranjeros": 25.11
@@ -583,10 +583,10 @@
           "ratio-espanoles": 91.1
         },
         {
-          "saldo-capita-extranjeros": 2245.0
+          "saldo-capita-extranjeros": 2245
         },
         {
-          "saldo-capita-espanoles": -660.0
+          "saldo-capita-espanoles": -660
         },
         {
           "contribucion-extranjeros": 30.43
@@ -648,16 +648,16 @@
       "year": "2024",
       "value": [
         {
-          "ratio-extranjeros": 187.0
+          "ratio-extranjeros": 187
         },
         {
           "ratio-espanoles": 94.8
         },
         {
-          "saldo-capita-extranjeros": 2509.0
+          "saldo-capita-extranjeros": 2509
         },
         {
-          "saldo-capita-espanoles": -392.0
+          "saldo-capita-espanoles": -392
         },
         {
           "contribucion-extranjeros": 35.02

@@ -1,7 +1,7 @@
 {
   "id": "inmigracion-procedencia",
   "category": "Pensiones y Demografía",
-  "question": "¿Cuál es la evolución de la inmigración procedente del extranjero en España?",
+  "question": "Inmigración exterior anual",
   "chartType": "bar",
   "unit": "personas",
   "blocks": [
