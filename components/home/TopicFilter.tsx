@@ -35,11 +35,11 @@ export default function TopicFilter({
               isTodas ? "col-span-2 sm:col-span-1" : "col-span-1"
             } ${
               isSelected
-                ? "bg-slate-900 text-white shadow-sm ring-1 ring-slate-900"
-                : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200"
+                ? "bg-blue-600 text-white shadow-md ring-1 ring-blue-500"
+                : "bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800"
             }`}
           >
-            <span className={isSelected ? "text-blue-400" : "text-slate-400"}>
+            <span className={isSelected ? "text-white" : "text-slate-400"}>
               {categoryIcons[category]}
             </span>
             <span className="truncate">{category}</span>

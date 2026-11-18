@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "id": "inmigracion-procedencia",
+    "category": "Pensiones y Demografía",
+    "question": "¿Cuál es la evolución de la inmigración procedente del extranjero en España?",
+    "unit": "personas",
+    "latestValue": 1288562,
+    "latestYear": "2024",
+    "lastUpdated": "2024-12-01"
+  },
+  {
+    "id": "saldo-fiscal-nacionalidad",
+    "category": "Economía y Empleo",
+    "question": "¿Cuál es el saldo fiscal y ratio contribución/gasto de la población extranjera frente a la española?",
+    "unit": "% / € hab / MM€",
+    "latestValue": 187,
+    "latestYear": "2024",
+    "lastUpdated": "2024-12-01"
+  }
+]

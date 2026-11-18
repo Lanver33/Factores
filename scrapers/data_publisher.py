@@ -3,6 +3,7 @@ Módulo encargado de la validación de integridad en staging y publicación ató
 Responsabilidad única (SRP): Gestión de persistencia local en staging y sincronización con data.
 """
 
+from datetime import date
 import json
 import shutil
 from pathlib import Path
@@ -10,94 +11,142 @@ from tqdm import tqdm
 
 
 def validate_and_stage(
-    metrics: dict,
+    items: dict | list[dict],
     staging_dir: Path = Path("./staging"),
-    metrics_staging_dir: Path = Path("./staging/metrics"),
 ) -> bool:
     """
-    Verifica que las series no estén vacías ni contengan valores negativos antes de guardarlas en ./staging.
+    Verifica que las tarjetas y sus series no estén vacías ni contengan valores negativos antes de guardarlas en ./staging.
     """
-    print(f"\n[3/4] 🧪 Validando esquemas y guardando datos en ({staging_dir}/)...")
-    if staging_dir.exists():
-        shutil.rmtree(staging_dir)
-    metrics_staging_dir.mkdir(parents=True, exist_ok=True)
+    print(f"\n[3/4] 🧪 Validando tarjetas y guardando datos en ({staging_dir}/)...")
+    items_staging_dir = staging_dir / "items"
+    items_staging_dir.mkdir(parents=True, exist_ok=True)
 
-    catalog_entries = []
-    for metric_id, payload in tqdm(metrics.items(), desc="      Guardando JSON", ncols=80):
-        series = payload.get("series", [])
-        if not series:
-            print(f"\n      ❌ ERROR: Serie vacía en {metric_id}")
+    items_list = items if isinstance(items, list) else [items]
+    existing_staging_entries = {}
+
+    staging_index_path = staging_dir / "items.json"
+    if staging_index_path.exists():
+        try:
+            with open(staging_index_path, "r", encoding="utf-8") as f:
+                for entry in json.load(f):
+                    existing_staging_entries[entry["id"]] = entry
+        except Exception:
+            pass
+
+    for item_payload in items_list:
+        item_id = item_payload.get("id")
+        if not item_id:
+            print("\n      ❌ ERROR: La tarjeta no tiene 'id'")
             return False
 
-        for pt in series:
-            if pt.get("value") is None or pt.get("value") < 0:
-                print(f"\n      ❌ ERROR: Valor inválido en {metric_id}: {pt}")
+        data_points = item_payload.get("dataPoints", [])
+        if not data_points:
+            print(f"\n      ❌ ERROR: dataPoints vacíos en tarjeta {item_id}")
+            return False
+
+        for pt in data_points:
+            val = pt.get("value")
+            if val is None:
+                print(f"\n      ❌ ERROR: Valor nulo en {item_id}: {pt}")
                 return False
 
-        with open(metrics_staging_dir / f"{metric_id}.json", "w", encoding="utf-8") as f:
-            json.dump(payload, f, ensure_ascii=False, indent=2)
+        # Guardar archivo de la tarjeta individual
+        with open(items_staging_dir / f"{item_id}.json", "w", encoding="utf-8") as f:
+            json.dump(item_payload, f, ensure_ascii=False, indent=2)
 
-        catalog_entries.append({
-            "id": payload["id"],
-            "name": payload["name"],
-            "category": payload["category"],
-            "unit": payload["unit"],
-            "minDate": series[0]["date"],
-            "maxDate": series[-1]["date"],
-        })
+        # Obtener el valor principal/total para el índice items.json
+        last_dp = data_points[-1]
+        latest_val = 0
+        val_raw = last_dp.get("value")
+        if isinstance(val_raw, (int, float)):
+            latest_val = val_raw
+        elif isinstance(val_raw, list):
+            for entry in val_raw:
+                if isinstance(entry, dict):
+                    if "total" in entry:
+                        latest_val = entry["total"]
+                        break
+                    elif latest_val == 0:
+                        latest_val = list(entry.values())[0]
 
-    with open(staging_dir / "catalog.json", "w", encoding="utf-8") as f:
-        json.dump(catalog_entries, f, ensure_ascii=False, indent=2)
+        existing_staging_entries[item_id] = {
+            "id": item_id,
+            "category": item_payload.get("category", "Pensiones y Demografía"),
+            "question": item_payload.get("question", item_id),
+            "unit": item_payload.get("unit", ""),
+            "latestValue": latest_val,
+            "latestYear": str(last_dp.get("year", "")),
+            "lastUpdated": item_payload.get("source", {}).get("lastUpdated") or item_payload.get("last_updated") or date.today().isoformat(),
+        }
 
-    print(f"      ✓ Validación superada: {len(metrics)} métricas guardadas en {staging_dir}/metrics/")
-    print(f"      ✓ Catálogo preliminar guardado en {staging_dir}/catalog.json")
+    with open(staging_dir / "items.json", "w", encoding="utf-8") as f:
+        json.dump(list(existing_staging_entries.values()), f, ensure_ascii=False, indent=2)
+
+    print(f"      ✓ Validación superada: {len(items_list)} tarjeta(s) guardada(s) en {staging_dir}/items/")
     return True
 
 
 def promote_to_data(
-    prefix_filter: str = "inmigracion-",
+    prefix_filter: str = "",
     staging_dir: Path = Path("./staging"),
     data_dir: Path = Path("./data"),
 ) -> None:
     """
-    Sincroniza los archivos validados de staging con la carpeta definitiva ./data y actualiza catalog.json.
+    Sincroniza las tarjetas en staging con ./data/items/<id>.json, ./data/items.json y ./data/metadata.json.
     """
     print(f"\n[4/4] 🚀 Promocionando datos a carpeta de producción ({data_dir}/)...")
-    metrics_staging_dir = staging_dir / "metrics"
+    items_staging_dir = staging_dir / "items"
+    live_items_dir = data_dir / "items"
+    live_items_dir.mkdir(parents=True, exist_ok=True)
+
+    # Limpiar obsoletos en metrics/ si existían de versiones anteriores
     live_metrics_dir = data_dir / "metrics"
-    live_metrics_dir.mkdir(parents=True, exist_ok=True)
+    if live_metrics_dir.exists():
+        shutil.rmtree(live_metrics_dir)
 
-    new_filenames = {f.name for f in metrics_staging_dir.glob("*.json")}
-    removed_count = 0
-    for old_file in live_metrics_dir.glob(f"{prefix_filter}*.json"):
-        if old_file.name not in new_filenames:
-            old_file.unlink()
-            removed_count += 1
+    src_files = list(items_staging_dir.glob("*.json"))
+    for src_file in tqdm(src_files, desc="      Copiando a ./data/items", ncols=80):
+        shutil.copy2(src_file, live_items_dir / src_file.name)
 
-    if removed_count > 0:
-        print(f"      ℹ️ Eliminados {removed_count} archivos obsoletos en {live_metrics_dir}/")
+    # Actualizar data/items.json combinando existentes con staging
+    live_items_index_path = data_dir / "items.json"
+    existing_items = {}
+    if live_items_index_path.exists():
+        try:
+            with open(live_items_index_path, "r", encoding="utf-8") as f:
+                content = json.load(f)
+                if isinstance(content, list):
+                    for item in content:
+                        existing_items[item["id"]] = item
+        except Exception:
+            pass
 
-    src_files = list(metrics_staging_dir.glob("*.json"))
-    for src_file in tqdm(src_files, desc="      Copiando a ./data", ncols=80):
-        shutil.copy2(src_file, live_metrics_dir / src_file.name)
-
-    live_catalog_path = data_dir / "catalog.json"
-    existing_catalog = {}
-    if live_catalog_path.exists():
-        with open(live_catalog_path, "r", encoding="utf-8") as f:
+    staging_items_index_path = staging_dir / "items.json"
+    if staging_items_index_path.exists():
+        with open(staging_items_index_path, "r", encoding="utf-8") as f:
             for item in json.load(f):
-                if not item["id"].startswith(prefix_filter):
-                    existing_catalog[item["id"]] = item
+                existing_items[item["id"]] = item
 
-    staging_catalog_path = staging_dir / "catalog.json"
-    if staging_catalog_path.exists():
-        with open(staging_catalog_path, "r", encoding="utf-8") as f:
-            for item in json.load(f):
-                existing_catalog[item["id"]] = item
+    items_list = list(existing_items.values())
+    with open(live_items_index_path, "w", encoding="utf-8") as f:
+        json.dump(items_list, f, ensure_ascii=False, indent=2)
 
-    with open(live_catalog_path, "w", encoding="utf-8") as f:
-        json.dump(list(existing_catalog.values()), f, ensure_ascii=False, indent=2)
+    # Actualizar data/metadata.json
+    metadata_path = data_dir / "metadata.json"
+    meta_payload = {
+        "last_updated": date.today().isoformat(),
+        "total_items": len(items_list),
+        "categories": [
+            "Vivienda",
+            "Economía y Empleo",
+            "Sanidad",
+            "Pensiones y Demografía"
+        ]
+    }
+    with open(metadata_path, "w", encoding="utf-8") as f:
+        json.dump(meta_payload, f, ensure_ascii=False, indent=2)
 
-    print(f"      ✓ {len(src_files)} métricas promocionadas en {live_metrics_dir}/")
-    print(f"      ✓ Catálogo global actualizado en {live_catalog_path} ({len(existing_catalog)} entradas totales).")
+    print(f"      ✓ {len(src_files)} tarjeta(s) promocionada(s) en {live_items_dir}/")
+    print(f"      ✓ Índice de tarjetas actualizado en {live_items_index_path} ({len(items_list)} entradas).")
+    print(f"      ✓ Metadatos globales actualizados en {metadata_path}.")
     print(f"\n🎉 ¡Proceso completado con éxito!")

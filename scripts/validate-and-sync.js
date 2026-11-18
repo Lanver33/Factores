@@ -42,9 +42,25 @@ function validateAndBuildIndex() {
 
     for (const p of points) {
       const val = p.value;
-      if (typeof val !== "number" || Number.isNaN(val) || !Number.isFinite(val)) {
-        throw new Error(`Invalid or corrupted numeric value '${val}' in ${file} (NaN/null/Infinity).`);
+      if (typeof val === "number") {
+        if (Number.isNaN(val) || !Number.isFinite(val)) {
+          throw new Error(`Invalid or corrupted numeric value '${val}' in ${file} (NaN/null/Infinity).`);
+        }
+      } else if (Array.isArray(val)) {
+        for (const entry of val) {
+          if (!entry || typeof entry !== "object") {
+            throw new Error(`Invalid point element in ${file}: expected object, got ${typeof entry}`);
+          }
+          for (const [k, num] of Object.entries(entry)) {
+            if (typeof num !== "number" || Number.isNaN(num) || !Number.isFinite(num)) {
+              throw new Error(`Invalid numeric value '${num}' for key '${k}' in ${file}.`);
+            }
+          }
+        }
+      } else {
+        throw new Error(`Invalid value type '${typeof val}' in ${file}. Expected number or array of objects.`);
       }
+
       const dateVal = p.year || p.date;
       if (!dateVal) {
         throw new Error(`Data point in ${file} missing year/date field.`);
@@ -52,12 +68,20 @@ function validateAndBuildIndex() {
     }
 
     const lastPoint = points[points.length - 1];
+    let latestVal = 0;
+    if (typeof lastPoint.value === "number") {
+      latestVal = lastPoint.value;
+    } else if (Array.isArray(lastPoint.value)) {
+      const totalObj = lastPoint.value.find((v) => v && typeof v === "object" && "total" in v) || lastPoint.value[0];
+      latestVal = totalObj ? Object.values(totalObj)[0] : 0;
+    }
+
     indexItems.push({
       id: item.id,
       category: item.category,
       question: item.question,
       unit: item.unit || "",
-      latestValue: lastPoint.value,
+      latestValue: latestVal,
       latestYear: lastPoint.year || lastPoint.date,
       lastUpdated: item.source?.lastUpdated || item.last_updated || new Date().toISOString().split("T")[0]
     });

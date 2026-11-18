@@ -39,6 +39,13 @@ def fetch_ine_table(table_id: str, tip: str = "AM", timeout: int = 60) -> list:
 
         raw_bytes = b"".join(chunks)
         print("      ⌛ Deserializando respuesta JSON...")
-        data = json.loads(raw_bytes.decode("utf-8"))
+        try:
+            data = json.loads(raw_bytes.decode("utf-8"))
+        except json.JSONDecodeError as e:
+            raise RuntimeError(
+                f"Error deserializando JSON de la tabla INE {table_id}. "
+                f"La respuesta fue truncada o es inválida ({len(raw_bytes)} bytes recibidos). "
+                f"Detalle: {e}"
+            ) from e
         print(f"      ✓ Respuesta recibida: {len(data)} series de datos crudas obtenidas.")
         return data

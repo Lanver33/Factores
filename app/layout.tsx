@@ -22,7 +22,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
-  themeColor: "#0f172a",
+  themeColor: "#020617",
 };
 
 export default function RootLayout({
@@ -31,8 +31,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
-      <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased selection:bg-blue-600 selection:text-white">
+    <html lang="es" className="dark">
+      <body className="min-h-screen flex flex-col bg-slate-950 text-slate-100 antialiased selection:bg-blue-600 selection:text-white">
         <Header />
         <main className="flex-1 max-w-3xl w-full mx-auto px-4 py-6">
           {children}

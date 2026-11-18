@@ -18,12 +18,12 @@ export default function SearchBar({ value, onChange }: SearchBarProps) {
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder="Buscar un dato (ej. paro, alquiler, hipotecas, sanidad)..."
-        className="w-full pl-10 pr-10 py-3 bg-white border border-slate-200 rounded-xl text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition-all shadow-sm"
+        className="w-full pl-10 pr-10 py-3 bg-slate-900 border border-slate-800 rounded-xl text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all shadow-sm"
       />
       {value && (
         <button
           onClick={() => onChange("")}
-          className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600"
+          className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-white"
           aria-label="Limpiar búsqueda"
         >
           <X className="w-4 h-4" />
