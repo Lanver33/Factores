@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { ItemIndexItem, DatoItem, Category } from "@/types";
 import { fetchMetadata, fetchItems, fetchItemDetail } from "@/lib/data-utils";
-import DirectorySection from "./DirectorySection";
+import DirectorySection from "@/components/directory/DirectorySection";
 import SearchBar from "@/components/home/SearchBar";
 import { Loader2, Database, BarChart3, ShieldCheck } from "lucide-react";
 

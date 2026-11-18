@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ItemIndexItem, DatoItem } from "@/types";
 import { formatSpanishCompact, formatSpanishExact } from "./utils";
 import Sparkline from "./Sparkline";
-import { ChevronRight, Database, ExternalLink } from "lucide-react";
+import { ChevronRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 interface DirectoryRowProps {
@@ -25,7 +25,7 @@ export default function DirectoryRow({ item, detail }: DirectoryRowProps) {
     if (typeof rawVal === "number") {
       latestValue = rawVal;
     } else if (Array.isArray(rawVal)) {
-      const totObj = rawVal.find((o: any) => o && "total" in o) || rawVal[0];
+      const totObj = rawVal.find((o: any) => o && typeof o === "object" && "total" in o) || rawVal[0];
       latestValue = totObj ? (Object.values(totObj)[0] as number) : latestValue;
     }
   }
