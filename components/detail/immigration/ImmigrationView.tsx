@@ -158,13 +158,12 @@ export default function ImmigrationView({ item }: ImmigrationViewProps) {
         selectedTimeframeLabel={timeframeLabel}
       />
 
-      {/* 3. Trazabilidad y Fuentes por tramos con resaltado contextual */}
+      {/* 3. Trazabilidad y Fuentes por tramos */}
       {hasSources && (
         <section>
           <SourceCard
             sources={item.sources}
             source={item.source}
-            selectedYear={mode === "single" ? selectedYear : undefined}
           />
         </section>
       )}
