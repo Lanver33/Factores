@@ -7,7 +7,7 @@ import {
   formatCompactSpanish,
   describeArc,
 } from "./utils";
-import { PieChart, Search, X, ChevronDown, ChevronUp, Sparkles, Filter } from "lucide-react";
+import { PieChart, Search, X, ChevronDown, ChevronUp, Sparkles } from "lucide-react";
 import { t, Lang } from "@/lib/i18n";
 
 interface ContinentCountrySplitViewProps {
@@ -57,7 +57,7 @@ export default function ContinentCountrySplitView({
   const [hoveredSectorId, setHoveredSectorId] = useState<string | null>(null);
 
   // 1. Process block and country data
-  const { blockSectors, allCountriesList, blockRankings } = useMemo(() => {
+  const { blockSectors, allCountriesList } = useMemo(() => {
     const totalGlobal = totalArrivals || 1;
     let currentAngle = -Math.PI / 2;
 
@@ -121,7 +121,7 @@ export default function ContinentCountrySplitView({
       const angleSpan = (block.total / (filteredTotal || 1)) * (2 * Math.PI);
       const startAngle = currentAngle;
       const endAngle = currentAngle + angleSpan;
-      const pathD = describeArc(200, 200, 72, 122, startAngle, endAngle);
+      const pathD = describeArc(160, 160, 72, 118, startAngle, endAngle);
       const globalPct = (block.total / totalGlobal) * 100;
 
       bSectors.push({
@@ -150,55 +150,10 @@ export default function ContinentCountrySplitView({
 
     flatCountries.sort((a, b) => b.value - a.value);
 
-    return { blockSectors: bSectors, allCountriesList: flatCountries, blockRankings: blockTotals };
+    return { blockSectors: bSectors, allCountriesList: flatCountries };
   }, [item, activeDataMap, totalArrivals]);
 
-  // 2. Computed callout positions with anti-collision (minGap >= 38px)
-  const calloutsWithPositions = useMemo(() => {
-    const cx = 200;
-    const cy = 200;
-    const rMid = (72 + 122) / 2; // 97
-
-    const raw = blockSectors.map((sector) => {
-      const midAngle = (sector.startAngle + sector.endAngle) / 2;
-      const x1 = cx + 122 * Math.cos(midAngle);
-      const y1 = cy + 122 * Math.sin(midAngle);
-      const isLeft = Math.cos(midAngle) < 0;
-      const xElbow = isLeft ? 45 : 355;
-      const xLabel = isLeft ? 10 : 390;
-
-      return {
-        ...sector,
-        midAngle,
-        x1,
-        y1,
-        xElbow,
-        xLabel,
-        isLeft,
-        yDesired: cy + rMid * Math.sin(midAngle),
-      };
-    });
-
-    const leftItems = raw.filter((i) => i.isLeft).sort((a, b) => a.yDesired - b.yDesired);
-    const rightItems = raw.filter((i) => !i.isLeft).sort((a, b) => a.yDesired - b.yDesired);
-
-    const relax = (items: typeof raw, minY: number, maxY: number) => {
-      let currentY = minY;
-      return items.map((item) => {
-        let y = Math.max(item.yDesired, currentY);
-        if (y > maxY) y = maxY;
-        currentY = y + 40; // minGap >= 38px
-        return { ...item, finalY: y };
-      });
-    };
-
-    const relaxedLeft = relax(leftItems, 45, 355);
-    const relaxedRight = relax(rightItems, 45, 355);
-
-    return [...relaxedLeft, ...relaxedRight];
-  }, [blockSectors]);
-
-  // 3. Filtered countries for the right panel
+  // 2. Filtered countries for the right panel
   const { visibleCountries, longTailCountries, longTailSum, longTailCount, maxCountryVal } = useMemo(() => {
     let filtered = allCountriesList;
 
@@ -224,11 +179,9 @@ export default function ContinentCountrySplitView({
       };
     }
 
-    // Default long-tail grouping: threshold global share < 1.5% (or index > 11)
-    const thresholdPct = 1.5;
-    const mainList = filtered.filter((c) => c.globalPct >= thresholdPct || filtered.indexOf(c) < 10);
-    const tailList = filtered.filter((c) => !mainList.includes(c));
-
+    // Default long-tail grouping: top 10 countries individually, rest in Otros
+    const mainList = filtered.slice(0, 10);
+    const tailList = filtered.slice(10);
     const tSum = tailList.reduce((acc, c) => acc + c.value, 0);
 
     return {
@@ -276,9 +229,9 @@ export default function ContinentCountrySplitView({
       {/* Responsive 2-Column Split Dashboard (Grid 12: 5 left, 7 right) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         
-        {/* LEFT PANEL: Single-Ring Continent Donut (5 columns on desktop) */}
-        <div className="lg:col-span-5 bg-slate-950/40 border border-slate-800/80 rounded-2xl p-4 flex flex-col items-center justify-between relative min-h-[420px]">
-          <div className="w-full flex items-center justify-between border-b border-slate-800 pb-2 mb-2">
+        {/* LEFT PANEL: Single-Ring Continent Donut + Vertical Breakdown List (5 columns) */}
+        <div className="lg:col-span-5 bg-slate-950/40 border border-slate-800/80 rounded-2xl p-4 flex flex-col space-y-4">
+          <div className="flex items-center justify-between border-b border-slate-800 pb-2">
             <span className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-purple-400" />
               {t("breakdownContinents", lang)}
@@ -290,9 +243,9 @@ export default function ContinentCountrySplitView({
             )}
           </div>
 
-          <div className="relative w-full max-w-[400px] aspect-square flex items-center justify-center my-auto">
-            <svg viewBox="0 0 400 400" className="w-full h-full overflow-visible">
-              {/* Donut Slices */}
+          {/* Clean Donut with zero overflow */}
+          <div className="relative w-full max-w-[260px] aspect-square mx-auto flex items-center justify-center">
+            <svg viewBox="0 0 320 320" className="w-full h-full">
               {blockSectors.map((sector) => {
                 const isActive = activeBlockFilter === sector.id;
                 const isHovered = hoveredSectorId === sector.id;
@@ -325,100 +278,69 @@ export default function ContinentCountrySplitView({
               })}
 
               {/* Center KPI Readout */}
-              <circle cx="200" cy="200" r="68" fill="#060913" className="drop-shadow-md" />
+              <circle cx="160" cy="160" r="62" fill="#060913" className="drop-shadow-md" />
               <text
-                x="200"
-                y="182"
+                x="160"
+                y="142"
                 textAnchor="middle"
                 className="text-[10px] font-bold fill-slate-400 uppercase tracking-widest"
               >
                 {t("totalGlobal", lang)}
               </text>
               <text
-                x="200"
-                y="208"
+                x="160"
+                y="168"
                 textAnchor="middle"
                 className="text-xl font-black fill-white font-mono"
               >
                 {formatCompactSpanish(totalArrivals)}
               </text>
               <text
-                x="200"
-                y="226"
+                x="160"
+                y="185"
                 textAnchor="middle"
                 className="text-[10px] font-semibold fill-slate-400"
               >
                 {t("people", lang)}
               </text>
-
-              {/* External Callout Leader Lines & Labels */}
-              {calloutsWithPositions.map((item) => {
-                const isActive = activeBlockFilter === item.id;
-                const isHovered = hoveredSectorId === item.id;
-
-                const pathD = `M ${item.x1} ${item.y1} L ${item.xElbow} ${item.finalY} L ${item.xLabel} ${item.finalY}`;
-                const textAnchor = item.isLeft ? "end" : "start";
-                const labelX = item.isLeft ? item.xLabel - 4 : item.xLabel + 4;
-
-                return (
-                  <g key={`callout-${item.id}`} className="cursor-pointer" onClick={() => setActiveBlockFilter(activeBlockFilter === item.id ? null : item.id)}>
-                    {/* Elbow Leader Line */}
-                    <path
-                      d={pathD}
-                      fill="none"
-                      stroke={isActive || isHovered ? item.color : "#475569"}
-                      strokeWidth={isActive || isHovered ? "2" : "1.25"}
-                      strokeOpacity="0.8"
-                    />
-                    {/* Dot on arc */}
-                    <circle cx={item.x1} cy={item.y1} r="3" fill={item.color} />
-
-                    {/* 3-line Callout Label */}
-                    <text
-                      x={labelX}
-                      y={item.finalY}
-                      textAnchor={textAnchor}
-                      dominantBaseline="central"
-                      className="text-[11px] select-none"
-                    >
-                      {/* Line 1: Continent Name */}
-                      <tspan
-                        x={labelX}
-                        dy="-1em"
-                        className={`font-bold ${isActive || isHovered ? "fill-white" : "fill-slate-200"}`}
-                      >
-                        {item.name}
-                      </tspan>
-                      {/* Line 2 & 3 combined neatly */}
-                      <tspan
-                        x={labelX}
-                        dy="1.2em"
-                        className="font-mono font-bold"
-                        style={{ fill: item.color }}
-                      >
-                        {formatPct(item.globalPct)}
-                      </tspan>
-                      <tspan
-                        dx="4"
-                        className="font-mono text-[10px] fill-slate-400"
-                      >
-                        ({formatSpanishNumber(item.value)} {t("pers", lang)})
-                      </tspan>
-                    </text>
-                  </g>
-                );
-              })}
             </svg>
           </div>
 
-          <div className="w-full text-center mt-3 pt-2 border-t border-slate-800/80">
-            <span className="text-[11px] text-slate-400 italic">
-              {lang === "en" ? "Click any donut slice or callout to filter countries." : "Haz clic en un sector del donut o etiqueta para filtrar países."}
-            </span>
+          {/* Interactive Vertical Breakdown List below Donut (fills dead space & acts as clean filter) */}
+          <div className="space-y-1.5 pt-2 border-t border-slate-800/80">
+            {blockSectors.map((sector) => {
+              const isActive = activeBlockFilter === sector.id;
+              const isHovered = hoveredSectorId === sector.id;
+
+              return (
+                <div
+                  key={`block-row-${sector.id}`}
+                  onClick={() => setActiveBlockFilter(activeBlockFilter === sector.id ? null : sector.id)}
+                  onMouseEnter={() => setHoveredSectorId(sector.id)}
+                  onMouseLeave={() => setHoveredSectorId(null)}
+                  className={`p-2 rounded-xl border transition-all cursor-pointer flex items-center justify-between text-xs ${
+                    isActive
+                      ? "bg-purple-950/40 border-purple-500/80 ring-1 ring-purple-500/50 font-bold"
+                      : isHovered
+                      ? "bg-slate-900 border-slate-700"
+                      : "bg-slate-900/40 border-slate-800 hover:border-slate-700"
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5 truncate">
+                    <span className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: sector.color }} />
+                    <span className="text-white truncate">{sector.name}</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 font-mono flex-shrink-0">
+                    <span className="text-slate-400 text-[11px]">{formatSpanishNumber(sector.value)} {t("pers", lang)}</span>
+                    <span className="text-white font-bold w-12 text-right">{formatPct(sector.globalPct)}</span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* RIGHT PANEL: Ranked Countries & Long-Tail Grouping (7 columns on desktop) */}
+        {/* RIGHT PANEL: Ranked Countries & Long-Tail Grouping (7 columns) */}
         <div className="lg:col-span-7 bg-slate-950/40 border border-slate-800/80 rounded-2xl p-4 flex flex-col space-y-4">
           
           {/* Header & Search Bar */}
@@ -454,8 +376,8 @@ export default function ContinentCountrySplitView({
             </div>
           </div>
 
-          {/* Country Ranking Rows Scrollable Container */}
-          <div className="space-y-2 max-h-[380px] overflow-y-auto pr-1">
+          {/* Country Ranking Rows Scrollable Container (increased height to max-h-[520px]) */}
+          <div className="space-y-2 max-h-[520px] overflow-y-auto pr-1">
             {visibleCountries.length === 0 ? (
               <div className="text-center py-12 text-slate-500 text-xs italic">
                 {lang === "en" ? "No countries match current filter or search." : "Ningún país coincide con el filtro o búsqueda actual."}
@@ -472,7 +394,7 @@ export default function ContinentCountrySplitView({
                     onMouseEnter={() => setHoveredCountryId(country.id)}
                     onMouseLeave={() => setHoveredCountryId(null)}
                     onClick={() => setPinnedCountryId(pinnedCountryId === country.id ? null : country.id)}
-                    className={`p-2.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
+                    className={`py-2.5 px-3.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
                       isPinned
                         ? "bg-blue-950/60 border-blue-500 ring-1 ring-blue-500 shadow-md"
                         : isHovered
@@ -481,8 +403,8 @@ export default function ContinentCountrySplitView({
                     }`}
                   >
                     {/* Left: Rank, Name, Headcount */}
-                    <div className="flex items-center gap-3 min-w-[180px] sm:min-w-[210px]">
-                      <span className="text-xs font-mono font-bold text-slate-500 w-6 flex-shrink-0">
+                    <div className="flex items-center gap-3 min-w-[170px] sm:min-w-[200px] truncate">
+                      <span className="text-xs font-mono font-bold text-slate-500 w-5 flex-shrink-0">
                         #{idx + 1}
                       </span>
                       <div className="truncate">
@@ -493,7 +415,7 @@ export default function ContinentCountrySplitView({
                       </div>
                     </div>
 
-                    {/* Center: Proportional Progress Bar */}
+                    {/* Center: Proportional Progress Bar colored by continent */}
                     <div className="flex-1 hidden sm:block px-2">
                       <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
                         <div
@@ -507,7 +429,7 @@ export default function ContinentCountrySplitView({
                     </div>
 
                     {/* Right: Tabular Percentage */}
-                    <div className="text-right flex-shrink-0 min-w-[65px]">
+                    <div className="text-right flex-shrink-0 min-w-[60px]">
                       <span className="text-xs font-mono font-bold text-white tabular-nums">
                         {formatPct(country.globalPct)}
                       </span>
@@ -539,16 +461,16 @@ export default function ContinentCountrySplitView({
                 {/* Expanded Long-Tail Individual Rows */}
                 {showAllLongTail && (
                   <div className="space-y-1.5 pt-2 border-t border-slate-800 max-h-48 overflow-y-auto pr-1">
-                    {longTailCountries.map((country, tIdx) => (
+                    {longTailCountries.map((country) => (
                       <div
                         key={country.id}
                         onMouseEnter={() => setHoveredCountryId(country.id)}
                         onMouseLeave={() => setHoveredCountryId(null)}
                         onClick={() => setPinnedCountryId(pinnedCountryId === country.id ? null : country.id)}
-                        className="p-2 rounded-lg bg-slate-950/60 border border-slate-800 flex items-center justify-between text-xs cursor-pointer hover:border-slate-700"
+                        className="py-2 px-3 rounded-lg bg-slate-950/60 border border-slate-800 flex items-center justify-between text-xs cursor-pointer hover:border-slate-700"
                       >
                         <div className="flex items-center gap-2 truncate">
-                          <span className="font-mono text-slate-500 text-[11px]">{country.name}</span>
+                          <span className="font-mono text-slate-400 text-[11px] truncate">{country.name}</span>
                         </div>
                         <div className="flex items-center gap-3 font-mono">
                           <span className="text-slate-400 text-[11px]">{formatSpanishNumber(country.value)} {t("pers", lang)}</span>
