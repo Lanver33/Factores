@@ -1,1 +1,2 @@
-export { SourceCard as default, SourceCard } from "@/src/components/detail/SourceCard";
+export * from "@/src/components/detail/SourceCard";
+export { SourceCard as default } from "@/src/components/detail/SourceCard";

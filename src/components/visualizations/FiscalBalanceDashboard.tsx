@@ -89,7 +89,7 @@ export default function FiscalBalanceDashboard({
 }: FiscalBalanceDashboardProps) {
   const [activeTab, setActiveTab] = useState<TabMode>("ratio");
 
-  const { points } = indicator;
+  const points = indicator.points || [];
 
   const ratioData = useMemo(
     () =>

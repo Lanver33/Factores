@@ -42,7 +42,7 @@ describe("Data Integrity & Invariants", () => {
         });
       }
 
-      if (raw.kind === "fiscal-balance") {
+      if (raw.kind === "fiscal-balance" && raw.points) {
         it("reconciles fiscal figures: sum(stateRevenue) ≈ totalRevenue and sum(stateSpending) ≈ totalSpending", () => {
           for (const point of raw.points) {
             const revSum = Object.values(point.stateRevenueMmEur as Record<string, number>).reduce(

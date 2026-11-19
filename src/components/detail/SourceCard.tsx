@@ -1,28 +1,32 @@
 import { ShieldCheck, Calendar, ExternalLink, AlertCircle } from "lucide-react";
 import type { Indicator, Locale } from "@/domain/indicator.schema";
+import type { Lang } from "@/types";
 import { sanitizeHttpUrl } from "@/lib/url";
 import { t } from "@/lib/i18n";
 
 interface SourceCardProps {
-  sources: Indicator["sources"];
+  sources?: Indicator["sources"] | any[];
   lastUpdated?: string;
-  locale: Locale;
+  locale?: Locale;
+  lang?: Lang;
 }
 
-export function SourceCard({ sources, lastUpdated, locale }: SourceCardProps) {
+export function SourceCard({ sources, lastUpdated, locale, lang }: SourceCardProps) {
+  const activeLocale: Locale = (lang || locale || "es") as Locale;
+
   if (!sources || sources.length === 0) {
     return (
       <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-sm space-y-4">
         <div className="flex items-center justify-between flex-wrap gap-2">
           <span className="text-[11px] uppercase tracking-wider font-bold text-slate-400 flex items-center gap-1.5">
             <ShieldCheck className="w-4 h-4 text-blue-400" />
-            {t("sourceTitle", locale)}
+            {t("sourceTitle", activeLocale)}
           </span>
         </div>
         <div className="p-5 rounded-xl border border-dashed border-slate-800 bg-slate-950/50 text-center space-y-2">
           <AlertCircle className="w-5 h-5 text-amber-400 mx-auto" />
           <p className="text-xs font-semibold text-white">
-            {t("noDataYet", locale)}
+            {t("noDataYet", activeLocale)}
           </p>
         </div>
       </div>
@@ -30,24 +34,32 @@ export function SourceCard({ sources, lastUpdated, locale }: SourceCardProps) {
   }
 
   const uniqueInstitutions = Array.from(
-    new Set(sources.map((s) => s.institution[locale]).filter(Boolean))
+    new Set(
+      sources.map((s: any) =>
+        typeof s.institution === "object"
+          ? s.institution[activeLocale] || s.institution.es
+          : s.institution
+      ).filter(Boolean)
+    )
   );
   const headerInstitution =
     uniqueInstitutions.length > 1
       ? uniqueInstitutions.join(" / ")
-      : sources[0]?.institution[locale] ?? "";
+      : typeof sources[0]?.institution === "object"
+      ? sources[0]?.institution[activeLocale] || sources[0]?.institution.es
+      : sources[0]?.institution ?? "";
 
   const subtitleText =
     sources.length === 1
-      ? t("sourcesSubtitleSingle", locale)
-      : t("sourcesSubtitleMultiple", locale);
+      ? t("sourcesSubtitleSingle", activeLocale)
+      : t("sourcesSubtitleMultiple", activeLocale);
 
   return (
     <section className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl space-y-4">
       <div className="flex items-center justify-between flex-wrap gap-2">
         <span className="text-[11px] uppercase tracking-wider font-bold text-slate-400 flex items-center gap-1.5">
           <ShieldCheck className="w-4 h-4 text-blue-400" />
-          {sources.length > 1 ? t("sourcesTitle", locale) : t("sourceTitle", locale)}
+          {sources.length > 1 ? t("sourcesTitle", activeLocale) : t("sourceTitle", activeLocale)}
         </span>
       </div>
 
@@ -57,9 +69,21 @@ export function SourceCard({ sources, lastUpdated, locale }: SourceCardProps) {
       </div>
 
       <div className="space-y-3">
-        {sources.map((s, idx) => {
+        {sources.map((s: any, idx: number) => {
           const safeUrl = sanitizeHttpUrl(s.url);
-          const shortName = s.shortName?.[locale] ?? s.title[locale];
+          const instText =
+            typeof s.institution === "object"
+              ? s.institution[activeLocale] || s.institution.es
+              : s.institution;
+          const titleText =
+            typeof s.title === "object"
+              ? s.title[activeLocale] || s.title.es
+              : s.title;
+          const shortName =
+            typeof s.shortName === "object"
+              ? s.shortName?.[activeLocale] || s.shortName?.es || titleText
+              : s.shortName || titleText;
+
           const effectiveDate = s.lastUpdated ?? lastUpdated;
 
           return (
@@ -71,10 +95,10 @@ export function SourceCard({ sources, lastUpdated, locale }: SourceCardProps) {
                 <div className="flex items-center gap-2 flex-wrap">
                   {uniqueInstitutions.length > 1 && (
                     <span className="text-[11px] font-semibold text-amber-400 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800/80">
-                      {s.institution[locale]}
+                      {instText}
                     </span>
                   )}
-                  <span className="text-xs font-bold text-white">{s.title[locale]}</span>
+                  <span className="text-xs font-bold text-white">{titleText}</span>
                   {s.period && (
                     <span className="text-[11px] font-semibold text-blue-400 bg-blue-950 px-2 py-0.5 rounded border border-blue-800/80 font-mono">
                       {s.period}
@@ -85,13 +109,13 @@ export function SourceCard({ sources, lastUpdated, locale }: SourceCardProps) {
                 <div className="flex items-center gap-3 text-[11px] text-slate-400 flex-wrap">
                   {s.tableId && (
                     <span className="font-mono text-slate-300 font-semibold">
-                      {t("officialTable", locale)} {s.tableId}
+                      {t("officialTable", activeLocale)} {s.tableId}
                     </span>
                   )}
                   {effectiveDate && (
                     <span className="flex items-center gap-1">
                       <Calendar className="w-3 h-3 text-slate-500" />
-                      {t("lastUpdated", locale)}: {effectiveDate}
+                      {t("lastUpdated", activeLocale)}: {effectiveDate}
                     </span>
                   )}
                 </div>

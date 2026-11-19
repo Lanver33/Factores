@@ -68,25 +68,27 @@ export function compileIndicators(): {
         }
       }
     } else if (indicator.kind === "fiscal-balance") {
-      for (const pt of indicator.points) {
-        const revSum = Object.values(pt.stateRevenueMmEur).reduce((a, b) => a + b, 0);
-        const spendSum = Object.values(pt.stateSpendingMmEur).reduce((a, b) => a + b, 0);
+      if (indicator.points) {
+        for (const pt of indicator.points) {
+          const revSum = Object.values(pt.stateRevenueMmEur).reduce((a, b) => a + b, 0);
+          const spendSum = Object.values(pt.stateSpendingMmEur).reduce((a, b) => a + b, 0);
 
-        if (Math.abs(revSum - pt.totalRevenueMmEur) > 0.1) {
-          throw new Error(
-            `Revenue invariant violated in ${file} for year ${pt.year}: sum=${revSum.toFixed(2)}, declared=${pt.totalRevenueMmEur}`
-          );
-        }
-        if (Math.abs(spendSum - pt.totalSpendingMmEur) > 0.1) {
-          throw new Error(
-            `Spending invariant violated in ${file} for year ${pt.year}: sum=${spendSum.toFixed(2)}, declared=${pt.totalSpendingMmEur}`
-          );
-        }
-        if (Math.abs(pt.totalRevenueMmEur - pt.totalSpendingMmEur - pt.deficitMmEur) > 0.1) {
-          throw new Error(
-            `Deficit invariant violated in ${file} for year ${pt.year}: ` +
-              `rev (${pt.totalRevenueMmEur}) - spend (${pt.totalSpendingMmEur}) != deficit (${pt.deficitMmEur})`
-          );
+          if (Math.abs(revSum - pt.totalRevenueMmEur) > 0.1) {
+            throw new Error(
+              `Revenue invariant violated in ${file} for year ${pt.year}: sum=${revSum.toFixed(2)}, declared=${pt.totalRevenueMmEur}`
+            );
+          }
+          if (Math.abs(spendSum - pt.totalSpendingMmEur) > 0.1) {
+            throw new Error(
+              `Spending invariant violated in ${file} for year ${pt.year}: sum=${spendSum.toFixed(2)}, declared=${pt.totalSpendingMmEur}`
+            );
+          }
+          if (Math.abs(pt.totalRevenueMmEur - pt.totalSpendingMmEur - pt.deficitMmEur) > 0.1) {
+            throw new Error(
+              `Deficit invariant violated in ${file} for year ${pt.year}: ` +
+                `rev (${pt.totalRevenueMmEur}) - spend (${pt.totalSpendingMmEur}) != deficit (${pt.deficitMmEur})`
+            );
+          }
         }
       }
     }
@@ -105,12 +107,22 @@ export function compileIndicators(): {
       timeHorizon = indicator.points.length > 1 ? `${first.period}–${last.period}` : last.period;
       sparkline = indicator.points.map((p) => p.value);
     } else if (indicator.kind === "fiscal-balance") {
-      const first = indicator.points[0];
-      const last = indicator.points[indicator.points.length - 1];
-      latestPeriod = last.year;
-      latestValue = last.ratio.foreign;
-      timeHorizon = indicator.points.length > 1 ? `${first.year}–${last.year}` : last.year;
-      sparkline = indicator.points.map((p) => p.ratio.foreign);
+      if ((indicator as any).annualBalances && (indicator as any).annualBalances.length > 0) {
+        const balances = (indicator as any).annualBalances;
+        const first = balances[0];
+        const last = balances[balances.length - 1];
+        latestPeriod = last.year;
+        latestValue = last.metrics?.PC_GDP?.totals?.balance ?? 0;
+        timeHorizon = balances.length > 1 ? `${first.year}–${last.year}` : last.year;
+        sparkline = balances.map((b: any) => b.metrics?.PC_GDP?.totals?.balance ?? 0);
+      } else if (indicator.points && indicator.points.length > 0) {
+        const first = indicator.points[0];
+        const last = indicator.points[indicator.points.length - 1];
+        latestPeriod = last.year;
+        latestValue = last.ratio.foreign;
+        timeHorizon = indicator.points.length > 1 ? `${first.year}–${last.year}` : last.year;
+        sparkline = indicator.points.map((p) => p.ratio.foreign);
+      }
     } else if (indicator.kind === "immigration-flow") {
       const first = indicator.years[0];
       const last = indicator.years[indicator.years.length - 1];

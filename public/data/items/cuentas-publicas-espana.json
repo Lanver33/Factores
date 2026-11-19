@@ -1,0 +1,6220 @@
+{
+  "id": "cuentas-publicas-espana",
+  "category": "economy-employment",
+  "question": {
+    "es": "¿Cómo se componen los ingresos, el gasto público por función y el saldo fiscal en España?",
+    "en": "How are revenues, public spending by function, and fiscal balance composed in Spain?"
+  },
+  "unit": {
+    "es": "% del PIB",
+    "en": "% of GDP"
+  },
+  "valueFormat": "percent",
+  "contextNotes": {
+    "es": [
+      "Serie histórica consolidada de las Cuentas Principales de las Administraciones Públicas (S.13) según el Sistema Europeo de Cuentas (SEC 2010).",
+      "Los datos de ingresos tributarios provienen de la contabilidad nacional trimestral y anual publicada por la IGAE y Eurostat.",
+      "El desglose funcional del gasto (COFOG) se publica con un año de desfase respecto a la contabilidad general."
+    ],
+    "en": [
+      "Consolidated historical series of General Government Main Aggregates (S.13) according to ESA 2010.",
+      "Tax revenue data is sourced from annual and quarterly national accounts published by IGAE and Eurostat.",
+      "Spending by function (COFOG) is published with a one-year lag relative to general accounts."
+    ]
+  },
+  "sources": [
+    {
+      "institution": {
+        "es": "Eurostat / IGAE",
+        "en": "Eurostat / IGAE"
+      },
+      "title": {
+        "es": "Cuentas Principales de las Administraciones Públicas (SEC 2010)",
+        "en": "General Government Main Aggregates (ESA 2010)"
+      },
+      "shortName": {
+        "es": "Eurostat gov_10a_main",
+        "en": "Eurostat gov_10a_main"
+      },
+      "tableId": "gov_10a_main",
+      "period": "1995-2025",
+      "lastUpdated": "2025-01-15",
+      "url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_main"
+    }
+  ],
+  "lastUpdated": "2025-01-15",
+  "kind": "fiscal-balance",
+  "availableUnits": [
+    {
+      "id": "MIO_EUR",
+      "label": "Millones de €",
+      "decimals": 1
+    },
+    {
+      "id": "PC_GDP",
+      "label": "% del PIB",
+      "decimals": 2
+    }
+  ],
+  "taxonomy": {
+    "revenues": [
+      {
+        "code": "D2",
+        "label": "Impuestos sobre la producción e importaciones",
+        "shortLabel": "Impuestos indirectos",
+        "children": [
+          {
+            "code": "D211",
+            "label": "IVA (Impuesto sobre el Valor Añadido)"
+          },
+          {
+            "code": "D214",
+            "label": "Impuestos especiales y otros sobre productos"
+          },
+          {
+            "code": "D212",
+            "label": "Impuestos sobre las importaciones (exc. IVA)"
+          },
+          {
+            "code": "D29",
+            "label": "Otros impuestos sobre la producción"
+          }
+        ]
+      },
+      {
+        "code": "D5",
+        "label": "Impuestos corrientes sobre la renta y el patrimonio",
+        "shortLabel": "Impuestos directos",
+        "children": [
+          {
+            "code": "D51A_C1",
+            "label": "IRPF y renta de hogares"
+          },
+          {
+            "code": "D51B_C2",
+            "label": "Impuesto sobre Sociedades"
+          },
+          {
+            "code": "D59",
+            "label": "Otros impuestos corrientes (patrimonio, etc.)"
+          }
+        ]
+      },
+      {
+        "code": "D61",
+        "label": "Cotizaciones sociales netas",
+        "shortLabel": "Cotizaciones sociales",
+        "children": [
+          {
+            "code": "D611",
+            "label": "Cotizaciones efectivas de empleadores"
+          },
+          {
+            "code": "D613",
+            "label": "Cotizaciones efectivas de hogares (trabajadores)"
+          },
+          {
+            "code": "D612",
+            "label": "Cotizaciones sociales imputadas"
+          }
+        ]
+      },
+      {
+        "code": "D91",
+        "label": "Impuestos sobre el capital (Sucesiones, Donaciones y Plusvalía)",
+        "shortLabel": "Impuestos de capital",
+        "children": []
+      },
+      {
+        "code": "NON_TAX_RESIDUAL",
+        "label": "Otros ingresos no tributarios (tasas, rentas patrimoniales y transferencias UE)",
+        "shortLabel": "Ingresos no tributarios",
+        "derivedFormula": "TR - total_tax_net",
+        "children": []
+      }
+    ],
+    "expenditures": [
+      {
+        "code": "GF10",
+        "label": "Protección social (pensiones, desempleo y ayudas)",
+        "shortLabel": "Protección social",
+        "highlights": [
+          {
+            "code": "GF1002",
+            "label": "Vejez (pensiones de jubilación)"
+          },
+          {
+            "code": "GF1005",
+            "label": "Desempleo"
+          }
+        ]
+      },
+      {
+        "code": "GF07",
+        "label": "Sanidad",
+        "shortLabel": "Sanidad",
+        "highlights": []
+      },
+      {
+        "code": "GF01",
+        "label": "Servicios públicos generales (incl. deuda pública)",
+        "shortLabel": "Servicios generales y deuda",
+        "highlights": [
+          {
+            "code": "GF0107",
+            "label": "Transacciones de la deuda pública (intereses)"
+          },
+          {
+            "code": "GF0101",
+            "label": "Órganos ejecutivos, legislativos y asuntos fiscales"
+          }
+        ]
+      },
+      {
+        "code": "GF09",
+        "label": "Educación",
+        "shortLabel": "Educación",
+        "highlights": []
+      },
+      {
+        "code": "GF04",
+        "label": "Asuntos económicos e infraestructuras",
+        "shortLabel": "Asuntos económicos",
+        "highlights": [
+          {
+            "code": "GF0405",
+            "label": "Transporte e infraestructuras"
+          }
+        ]
+      },
+      {
+        "code": "GF03",
+        "label": "Orden público y seguridad",
+        "shortLabel": "Seguridad y justicia",
+        "highlights": [
+          {
+            "code": "GF0301",
+            "label": "Servicios de policía"
+          },
+          {
+            "code": "GF0303",
+            "label": "Tribunales de justicia"
+          }
+        ]
+      },
+      {
+        "code": "GF08",
+        "label": "Ocio, cultura y religión",
+        "shortLabel": "Cultura y ocio",
+        "highlights": []
+      },
+      {
+        "code": "GF02",
+        "label": "Defensa",
+        "shortLabel": "Defensa",
+        "highlights": []
+      },
+      {
+        "code": "GF05",
+        "label": "Protección del medio ambiente",
+        "shortLabel": "Medio ambiente",
+        "highlights": []
+      },
+      {
+        "code": "GF06",
+        "label": "Vivienda y servicios comunitarios",
+        "shortLabel": "Vivienda y comunidad",
+        "highlights": []
+      }
+    ]
+  },
+  "annualBalances": [
+    {
+      "year": "1995",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 175363.7,
+            "expenditure": 207280.2,
+            "balance": -31916.5,
+            "uncollectibleAdjustment": -0.1
+          },
+          "revenues": {
+            "D2": {
+              "total": 46976,
+              "breakdown": {
+                "D211": 23398.2,
+                "D214": 17738,
+                "D212": 112.3,
+                "D29": 5727.6
+              }
+            },
+            "D5": {
+              "total": 44524.1,
+              "breakdown": {
+                "D51A_C1": 35097.2,
+                "D51B_C2": 7722.1,
+                "D59": 1704.7
+              }
+            },
+            "D61": {
+              "total": 57354.2,
+              "breakdown": {
+                "D611": 36897.9,
+                "D613": 16226.2,
+                "D612": 4230.1
+              }
+            },
+            "D91": {
+              "total": 1529.1,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 24980.4,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 67331.2,
+              "highlights": {
+                "GF1002": 31047.8,
+                "GF1005": 11429.6
+              }
+            },
+            "GF07": {
+              "total": 24645.5,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 37716.5,
+              "highlights": {
+                "GF0107": 23978,
+                "GF0101": 6938.2
+              }
+            },
+            "GF09": {
+              "total": 20193.9,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 27076,
+              "highlights": {
+                "GF0405": 15623.9
+              }
+            },
+            "GF03": {
+              "total": 9241.1,
+              "highlights": {
+                "GF0301": 6297.1,
+                "GF0303": 1577.1
+              }
+            },
+            "GF08": {
+              "total": 6126.7,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 6401.3,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 3684,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 4864,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 37.3,
+            "expenditure": 44.1,
+            "balance": -6.8
+          },
+          "revenues": {
+            "D2": {
+              "total": 10,
+              "breakdown": {
+                "D211": 5,
+                "D214": 3.8,
+                "D212": 0,
+                "D29": 1.2
+              }
+            },
+            "D5": {
+              "total": 9.5,
+              "breakdown": {
+                "D51A_C1": 7.5,
+                "D51B_C2": 1.6,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12.2,
+              "breakdown": {
+                "D611": 7.9,
+                "D613": 3.5,
+                "D612": 0.9
+              }
+            },
+            "D91": {
+              "total": 0.3,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 5.3,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 14.3,
+              "highlights": {
+                "GF1002": 6.6,
+                "GF1005": 2.4
+              }
+            },
+            "GF07": {
+              "total": 5.2,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 8,
+              "highlights": {
+                "GF0107": 5.1,
+                "GF0101": 1.5
+              }
+            },
+            "GF09": {
+              "total": 4.3,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 5.8,
+              "highlights": {
+                "GF0405": 3.3
+              }
+            },
+            "GF03": {
+              "total": 2,
+              "highlights": {
+                "GF0301": 1.3,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.3,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1.4,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 0.8,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 1,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "1996",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 187242.3,
+            "expenditure": 216929.3,
+            "balance": -29687
+          },
+          "revenues": {
+            "D2": {
+              "total": 50956.8,
+              "breakdown": {
+                "D211": 25889.3,
+                "D214": 19030.9,
+                "D212": 93.2,
+                "D29": 5943.4
+              }
+            },
+            "D5": {
+              "total": 47709.8,
+              "breakdown": {
+                "D51A_C1": 36784.6,
+                "D51B_C2": 9084.9,
+                "D59": 1839.3
+              }
+            },
+            "D61": {
+              "total": 60690.7,
+              "breakdown": {
+                "D611": 39328.8,
+                "D613": 16955.6,
+                "D612": 4406.3
+              }
+            },
+            "D91": {
+              "total": 1718.2,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 26166.8,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 71392.3,
+              "highlights": {
+                "GF1002": 34007.4,
+                "GF1005": 10761.7
+              }
+            },
+            "GF07": {
+              "total": 26813.7,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 41330.6,
+              "highlights": {
+                "GF0107": 26279.6,
+                "GF0101": 7967
+              }
+            },
+            "GF09": {
+              "total": 21584.5,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 24541.7,
+              "highlights": {
+                "GF0405": 13061.6
+              }
+            },
+            "GF03": {
+              "total": 9318.8,
+              "highlights": {
+                "GF0301": 6404,
+                "GF0303": 1525.7
+              }
+            },
+            "GF08": {
+              "total": 6506.5,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 6476.5,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 4005.7,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 4959.1,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 37,
+            "expenditure": 42.9,
+            "balance": -5.9
+          },
+          "revenues": {
+            "D2": {
+              "total": 10.1,
+              "breakdown": {
+                "D211": 5.1,
+                "D214": 3.8,
+                "D212": 0,
+                "D29": 1.2
+              }
+            },
+            "D5": {
+              "total": 9.4,
+              "breakdown": {
+                "D51A_C1": 7.3,
+                "D51B_C2": 1.8,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12,
+              "breakdown": {
+                "D611": 7.8,
+                "D613": 3.4,
+                "D612": 0.9
+              }
+            },
+            "D91": {
+              "total": 0.3,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 5.2,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 14.1,
+              "highlights": {
+                "GF1002": 6.7,
+                "GF1005": 2.1
+              }
+            },
+            "GF07": {
+              "total": 5.3,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 8.2,
+              "highlights": {
+                "GF0107": 5.2,
+                "GF0101": 1.6
+              }
+            },
+            "GF09": {
+              "total": 4.3,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 4.8,
+              "highlights": {
+                "GF0405": 2.6
+              }
+            },
+            "GF03": {
+              "total": 1.8,
+              "highlights": {
+                "GF0301": 1.3,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.3,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1.3,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 0.8,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 1,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "1997",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 195858.8,
+            "expenditure": 215947.1,
+            "balance": -20088.3,
+            "uncollectibleAdjustment": -0.1
+          },
+          "revenues": {
+            "D2": {
+              "total": 54066.3,
+              "breakdown": {
+                "D211": 27571.7,
+                "D214": 20206.6,
+                "D212": 117.4,
+                "D29": 6170.5
+              }
+            },
+            "D5": {
+              "total": 50557.7,
+              "breakdown": {
+                "D51A_C1": 35916.8,
+                "D51B_C2": 12733.2,
+                "D59": 1906.7
+              }
+            },
+            "D61": {
+              "total": 63301,
+              "breakdown": {
+                "D611": 41507.6,
+                "D613": 17154.5,
+                "D612": 4638.9
+              }
+            },
+            "D91": {
+              "total": 2460.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 25473.5,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 71531.7,
+              "highlights": {
+                "GF1002": 34385.2,
+                "GF1005": 9937.8
+              }
+            },
+            "GF07": {
+              "total": 26602.8,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 40276.9,
+              "highlights": {
+                "GF0107": 24186.6,
+                "GF0101": 8876.6
+              }
+            },
+            "GF09": {
+              "total": 21639.9,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 23754.3,
+              "highlights": {
+                "GF0405": 12209.6
+              }
+            },
+            "GF03": {
+              "total": 9539.6,
+              "highlights": {
+                "GF0301": 6612.8,
+                "GF0303": 1476.4
+              }
+            },
+            "GF08": {
+              "total": 6750.3,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 6488.5,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 4219.7,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 5143.4,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 37.6,
+            "expenditure": 41.5,
+            "balance": -3.9,
+            "uncollectibleAdjustment": -0.1
+          },
+          "revenues": {
+            "D2": {
+              "total": 10.4,
+              "breakdown": {
+                "D211": 5.3,
+                "D214": 3.9,
+                "D212": 0,
+                "D29": 1.2
+              }
+            },
+            "D5": {
+              "total": 9.7,
+              "breakdown": {
+                "D51A_C1": 6.9,
+                "D51B_C2": 2.4,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12.2,
+              "breakdown": {
+                "D611": 8,
+                "D613": 3.3,
+                "D612": 0.9
+              }
+            },
+            "D91": {
+              "total": 0.5,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.9,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 13.7,
+              "highlights": {
+                "GF1002": 6.6,
+                "GF1005": 1.9
+              }
+            },
+            "GF07": {
+              "total": 5.1,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 7.7,
+              "highlights": {
+                "GF0107": 4.6,
+                "GF0101": 1.7
+              }
+            },
+            "GF09": {
+              "total": 4.2,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 4.6,
+              "highlights": {
+                "GF0405": 2.3
+              }
+            },
+            "GF03": {
+              "total": 1.8,
+              "highlights": {
+                "GF0301": 1.3,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.3,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1.2,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 0.8,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 1,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "1998",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 211986.1,
+            "expenditure": 226510.4,
+            "balance": -14524.3
+          },
+          "revenues": {
+            "D2": {
+              "total": 61202.4,
+              "breakdown": {
+                "D211": 30921.7,
+                "D214": 23353,
+                "D212": 119.4,
+                "D29": 6808.3
+              }
+            },
+            "D5": {
+              "total": 54607.1,
+              "breakdown": {
+                "D51A_C1": 38416.7,
+                "D51B_C2": 13994.9,
+                "D59": 2195.5
+              }
+            },
+            "D61": {
+              "total": 67604.7,
+              "breakdown": {
+                "D611": 44614,
+                "D613": 18168.8,
+                "D612": 4821.9
+              }
+            },
+            "D91": {
+              "total": 1994.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 26577.5,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 73515.3,
+              "highlights": {
+                "GF1002": 35875.9,
+                "GF1005": 9259.6
+              }
+            },
+            "GF07": {
+              "total": 28231.6,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 40677.9,
+              "highlights": {
+                "GF0107": 22944.9,
+                "GF0101": 9747.2
+              }
+            },
+            "GF09": {
+              "total": 22596.6,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 27270.2,
+              "highlights": {
+                "GF0405": 13602.7
+              }
+            },
+            "GF03": {
+              "total": 9993.1,
+              "highlights": {
+                "GF0301": 6917.8,
+                "GF0303": 1467
+              }
+            },
+            "GF08": {
+              "total": 7111.9,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 6550.6,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 4602.9,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 5960.4,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 38.3,
+            "expenditure": 41,
+            "balance": -2.6,
+            "uncollectibleAdjustment": -0.1
+          },
+          "revenues": {
+            "D2": {
+              "total": 11.1,
+              "breakdown": {
+                "D211": 5.6,
+                "D214": 4.2,
+                "D212": 0,
+                "D29": 1.2
+              }
+            },
+            "D5": {
+              "total": 9.9,
+              "breakdown": {
+                "D51A_C1": 6.9,
+                "D51B_C2": 2.5,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12.2,
+              "breakdown": {
+                "D611": 8.1,
+                "D613": 3.3,
+                "D612": 0.9
+              }
+            },
+            "D91": {
+              "total": 0.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.8,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 13.3,
+              "highlights": {
+                "GF1002": 6.5,
+                "GF1005": 1.7
+              }
+            },
+            "GF07": {
+              "total": 5.1,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 7.4,
+              "highlights": {
+                "GF0107": 4.1,
+                "GF0101": 1.8
+              }
+            },
+            "GF09": {
+              "total": 4.1,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 4.9,
+              "highlights": {
+                "GF0405": 2.5
+              }
+            },
+            "GF03": {
+              "total": 1.8,
+              "highlights": {
+                "GF0301": 1.3,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.3,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1.2,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 0.8,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 1.1,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "1999",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 230397,
+            "expenditure": 237779,
+            "balance": -7382
+          },
+          "revenues": {
+            "D2": {
+              "total": 67814,
+              "breakdown": {
+                "D211": 35072,
+                "D214": 25478,
+                "D212": 118,
+                "D29": 7146
+              }
+            },
+            "D5": {
+              "total": 57860,
+              "breakdown": {
+                "D51A_C1": 39800,
+                "D51B_C2": 15587,
+                "D59": 2473
+              }
+            },
+            "D61": {
+              "total": 73986,
+              "breakdown": {
+                "D611": 49225,
+                "D613": 19675,
+                "D612": 5086
+              }
+            },
+            "D91": {
+              "total": 2206,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 28531,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 77370,
+              "highlights": {
+                "GF1002": 38332,
+                "GF1005": 8785
+              }
+            },
+            "GF07": {
+              "total": 30498,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 39572,
+              "highlights": {
+                "GF0107": 20724,
+                "GF0101": 10546
+              }
+            },
+            "GF09": {
+              "total": 24722,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 28570,
+              "highlights": {
+                "GF0405": 11737
+              }
+            },
+            "GF03": {
+              "total": 10692,
+              "highlights": {
+                "GF0301": 7352,
+                "GF0303": 1582
+              }
+            },
+            "GF08": {
+              "total": 8015,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 6635,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 5286,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 6419,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 38.7,
+            "expenditure": 39.9,
+            "balance": -1.2
+          },
+          "revenues": {
+            "D2": {
+              "total": 11.4,
+              "breakdown": {
+                "D211": 5.9,
+                "D214": 4.3,
+                "D212": 0,
+                "D29": 1.2
+              }
+            },
+            "D5": {
+              "total": 9.7,
+              "breakdown": {
+                "D51A_C1": 6.7,
+                "D51B_C2": 2.6,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12.4,
+              "breakdown": {
+                "D611": 8.3,
+                "D613": 3.3,
+                "D612": 0.9
+              }
+            },
+            "D91": {
+              "total": 0.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.8,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 13,
+              "highlights": {
+                "GF1002": 6.4,
+                "GF1005": 1.5
+              }
+            },
+            "GF07": {
+              "total": 5.1,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 6.6,
+              "highlights": {
+                "GF0107": 3.5,
+                "GF0101": 1.8
+              }
+            },
+            "GF09": {
+              "total": 4.2,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 4.8,
+              "highlights": {
+                "GF0405": 2
+              }
+            },
+            "GF03": {
+              "total": 1.8,
+              "highlights": {
+                "GF0301": 1.2,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.3,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1.1,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 0.9,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 1.1,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2000",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 245747,
+            "expenditure": 253267,
+            "balance": -7520
+          },
+          "revenues": {
+            "D2": {
+              "total": 72939,
+              "breakdown": {
+                "D211": 37785,
+                "D214": 27506,
+                "D212": 103,
+                "D29": 7545
+              }
+            },
+            "D5": {
+              "total": 62882,
+              "breakdown": {
+                "D51A_C1": 41248,
+                "D51B_C2": 18897,
+                "D59": 2737
+              }
+            },
+            "D61": {
+              "total": 80509,
+              "breakdown": {
+                "D611": 54226,
+                "D613": 20904,
+                "D612": 5379
+              }
+            },
+            "D91": {
+              "total": 2487,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 26930,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 82247,
+              "highlights": {
+                "GF1002": 40602,
+                "GF1005": 9014
+              }
+            },
+            "GF07": {
+              "total": 33324,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 40131,
+              "highlights": {
+                "GF0107": 20843,
+                "GF0101": 12105
+              }
+            },
+            "GF09": {
+              "total": 26387,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 32128,
+              "highlights": {
+                "GF0405": 13223
+              }
+            },
+            "GF03": {
+              "total": 10996,
+              "highlights": {
+                "GF0301": 7307,
+                "GF0303": 1774
+              }
+            },
+            "GF08": {
+              "total": 8655,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 7141,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 4706,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 7552,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 37.9,
+            "expenditure": 39.1,
+            "balance": -1.2
+          },
+          "revenues": {
+            "D2": {
+              "total": 11.3,
+              "breakdown": {
+                "D211": 5.8,
+                "D214": 4.2,
+                "D212": 0,
+                "D29": 1.2
+              }
+            },
+            "D5": {
+              "total": 9.7,
+              "breakdown": {
+                "D51A_C1": 6.4,
+                "D51B_C2": 2.9,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12.4,
+              "breakdown": {
+                "D611": 8.4,
+                "D613": 3.2,
+                "D612": 0.8
+              }
+            },
+            "D91": {
+              "total": 0.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.1,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 12.7,
+              "highlights": {
+                "GF1002": 6.3,
+                "GF1005": 1.4
+              }
+            },
+            "GF07": {
+              "total": 5.1,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 6.2,
+              "highlights": {
+                "GF0107": 3.2,
+                "GF0101": 1.9
+              }
+            },
+            "GF09": {
+              "total": 4.1,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 5,
+              "highlights": {
+                "GF0405": 2
+              }
+            },
+            "GF03": {
+              "total": 1.7,
+              "highlights": {
+                "GF0301": 1.1,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.3,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1.1,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 0.7,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 1.2,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2001",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 266006,
+            "expenditure": 269195,
+            "balance": -3189
+          },
+          "revenues": {
+            "D2": {
+              "total": 76726,
+              "breakdown": {
+                "D211": 40106,
+                "D214": 28450,
+                "D212": 102,
+                "D29": 8068
+              }
+            },
+            "D5": {
+              "total": 67520,
+              "breakdown": {
+                "D51A_C1": 46002,
+                "D51B_C2": 18696,
+                "D59": 2822
+              }
+            },
+            "D61": {
+              "total": 88138,
+              "breakdown": {
+                "D611": 59680,
+                "D613": 22860,
+                "D612": 5598
+              }
+            },
+            "D91": {
+              "total": 2514,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 31108,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 87398,
+              "highlights": {
+                "GF1002": 42627,
+                "GF1005": 9983
+              }
+            },
+            "GF07": {
+              "total": 35370,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 42660,
+              "highlights": {
+                "GF0107": 21506,
+                "GF0101": 11434
+              }
+            },
+            "GF09": {
+              "total": 27964,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 33225,
+              "highlights": {
+                "GF0405": 13545
+              }
+            },
+            "GF03": {
+              "total": 12837,
+              "highlights": {
+                "GF0301": 8592,
+                "GF0303": 1993
+              }
+            },
+            "GF08": {
+              "total": 9071,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 7459,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 6137,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 7074,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 37.9,
+            "expenditure": 38.4,
+            "balance": -0.5
+          },
+          "revenues": {
+            "D2": {
+              "total": 10.9,
+              "breakdown": {
+                "D211": 5.7,
+                "D214": 4.1,
+                "D212": 0,
+                "D29": 1.2
+              }
+            },
+            "D5": {
+              "total": 9.6,
+              "breakdown": {
+                "D51A_C1": 6.6,
+                "D51B_C2": 2.7,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12.6,
+              "breakdown": {
+                "D611": 8.5,
+                "D613": 3.3,
+                "D612": 0.8
+              }
+            },
+            "D91": {
+              "total": 0.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.4,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 12.5,
+              "highlights": {
+                "GF1002": 6.1,
+                "GF1005": 1.4
+              }
+            },
+            "GF07": {
+              "total": 5,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 6.1,
+              "highlights": {
+                "GF0107": 3.1,
+                "GF0101": 1.6
+              }
+            },
+            "GF09": {
+              "total": 4,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 4.7,
+              "highlights": {
+                "GF0405": 1.9
+              }
+            },
+            "GF03": {
+              "total": 1.8,
+              "highlights": {
+                "GF0301": 1.2,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.3,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1.1,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 0.9,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 1,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2002",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 287171,
+            "expenditure": 289527,
+            "balance": -2356
+          },
+          "revenues": {
+            "D2": {
+              "total": 82033,
+              "breakdown": {
+                "D211": 41673,
+                "D214": 31816,
+                "D212": 113,
+                "D29": 8431
+              }
+            },
+            "D5": {
+              "total": 75736,
+              "breakdown": {
+                "D51A_C1": 50313,
+                "D51B_C2": 22508,
+                "D59": 2915
+              }
+            },
+            "D61": {
+              "total": 94039,
+              "breakdown": {
+                "D611": 63828,
+                "D613": 24381,
+                "D612": 5830
+              }
+            },
+            "D91": {
+              "total": 2755,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 32608,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 94604,
+              "highlights": {
+                "GF1002": 46159,
+                "GF1005": 11440
+              }
+            },
+            "GF07": {
+              "total": 38354,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 43444,
+              "highlights": {
+                "GF0107": 20532,
+                "GF0101": 12034
+              }
+            },
+            "GF09": {
+              "total": 30285,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 36520,
+              "highlights": {
+                "GF0405": 15682
+              }
+            },
+            "GF03": {
+              "total": 13467,
+              "highlights": {
+                "GF0301": 8849,
+                "GF0303": 2248
+              }
+            },
+            "GF08": {
+              "total": 9812,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 8139,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 7120,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 7782,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 38.3,
+            "expenditure": 38.6,
+            "balance": -0.3,
+            "uncollectibleAdjustment": 0.1
+          },
+          "revenues": {
+            "D2": {
+              "total": 10.9,
+              "breakdown": {
+                "D211": 5.6,
+                "D214": 4.2,
+                "D212": 0,
+                "D29": 1.1
+              }
+            },
+            "D5": {
+              "total": 10.1,
+              "breakdown": {
+                "D51A_C1": 6.7,
+                "D51B_C2": 3,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12.5,
+              "breakdown": {
+                "D611": 8.5,
+                "D613": 3.3,
+                "D612": 0.8
+              }
+            },
+            "D91": {
+              "total": 0.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.3,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 12.6,
+              "highlights": {
+                "GF1002": 6.2,
+                "GF1005": 1.5
+              }
+            },
+            "GF07": {
+              "total": 5.1,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 5.8,
+              "highlights": {
+                "GF0107": 2.7,
+                "GF0101": 1.6
+              }
+            },
+            "GF09": {
+              "total": 4,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 4.9,
+              "highlights": {
+                "GF0405": 2.1
+              }
+            },
+            "GF03": {
+              "total": 1.8,
+              "highlights": {
+                "GF0301": 1.2,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.3,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1.1,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 0.9,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 1,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2003",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 304787,
+            "expenditure": 307796,
+            "balance": -3009
+          },
+          "revenues": {
+            "D2": {
+              "total": 89950,
+              "breakdown": {
+                "D211": 45645,
+                "D214": 35879,
+                "D212": 129,
+                "D29": 8297
+              }
+            },
+            "D5": {
+              "total": 77381,
+              "breakdown": {
+                "D51A_C1": 50390,
+                "D51B_C2": 23963,
+                "D59": 3028
+              }
+            },
+            "D61": {
+              "total": 101025,
+              "breakdown": {
+                "D611": 68735,
+                "D613": 26166,
+                "D612": 6124
+              }
+            },
+            "D91": {
+              "total": 3121,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 33310,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 101961,
+              "highlights": {
+                "GF1002": 49248,
+                "GF1005": 12010
+              }
+            },
+            "GF07": {
+              "total": 41512,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 44788,
+              "highlights": {
+                "GF0107": 19252,
+                "GF0101": 13574
+              }
+            },
+            "GF09": {
+              "total": 32276,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 37446,
+              "highlights": {
+                "GF0405": 15804
+              }
+            },
+            "GF03": {
+              "total": 14396,
+              "highlights": {
+                "GF0301": 9411,
+                "GF0303": 2608
+              }
+            },
+            "GF08": {
+              "total": 10832,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 8335,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 7795,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 8455,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 38,
+            "expenditure": 38.3,
+            "balance": -0.4
+          },
+          "revenues": {
+            "D2": {
+              "total": 11.2,
+              "breakdown": {
+                "D211": 5.7,
+                "D214": 4.5,
+                "D212": 0,
+                "D29": 1
+              }
+            },
+            "D5": {
+              "total": 9.6,
+              "breakdown": {
+                "D51A_C1": 6.3,
+                "D51B_C2": 3,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12.6,
+              "breakdown": {
+                "D611": 8.6,
+                "D613": 3.3,
+                "D612": 0.8
+              }
+            },
+            "D91": {
+              "total": 0.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.2,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 12.7,
+              "highlights": {
+                "GF1002": 6.1,
+                "GF1005": 1.5
+              }
+            },
+            "GF07": {
+              "total": 5.2,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 5.6,
+              "highlights": {
+                "GF0107": 2.4,
+                "GF0101": 1.7
+              }
+            },
+            "GF09": {
+              "total": 4,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 4.7,
+              "highlights": {
+                "GF0405": 2
+              }
+            },
+            "GF03": {
+              "total": 1.8,
+              "highlights": {
+                "GF0301": 1.2,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.3,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 1,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 1.1,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2004",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 332725,
+            "expenditure": 333666,
+            "balance": -941
+          },
+          "revenues": {
+            "D2": {
+              "total": 100460,
+              "breakdown": {
+                "D211": 51272,
+                "D214": 40170,
+                "D212": 127,
+                "D29": 8891
+              }
+            },
+            "D5": {
+              "total": 86080,
+              "breakdown": {
+                "D51A_C1": 54121,
+                "D51B_C2": 28793,
+                "D59": 3166
+              }
+            },
+            "D61": {
+              "total": 108469,
+              "breakdown": {
+                "D611": 73571,
+                "D613": 28479,
+                "D612": 6419
+              }
+            },
+            "D91": {
+              "total": 3610,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 34106,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 109816,
+              "highlights": {
+                "GF1002": 51879,
+                "GF1005": 13036
+              }
+            },
+            "GF07": {
+              "total": 46914,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 44262,
+              "highlights": {
+                "GF0107": 17852,
+                "GF0101": 13869
+              }
+            },
+            "GF09": {
+              "total": 35087,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 46640,
+              "highlights": {
+                "GF0405": 22569
+              }
+            },
+            "GF03": {
+              "total": 15376,
+              "highlights": {
+                "GF0301": 10159,
+                "GF0303": 2635
+              }
+            },
+            "GF08": {
+              "total": 11679,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 9230,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 7807,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 6855,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 38.7,
+            "expenditure": 38.8,
+            "balance": -0.1
+          },
+          "revenues": {
+            "D2": {
+              "total": 11.7,
+              "breakdown": {
+                "D211": 6,
+                "D214": 4.7,
+                "D212": 0,
+                "D29": 1
+              }
+            },
+            "D5": {
+              "total": 10,
+              "breakdown": {
+                "D51A_C1": 6.3,
+                "D51B_C2": 3.3,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12.6,
+              "breakdown": {
+                "D611": 8.6,
+                "D613": 3.3,
+                "D612": 0.7
+              }
+            },
+            "D91": {
+              "total": 0.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 12.8,
+              "highlights": {
+                "GF1002": 6,
+                "GF1005": 1.5
+              }
+            },
+            "GF07": {
+              "total": 5.5,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 5.1,
+              "highlights": {
+                "GF0107": 2.1,
+                "GF0101": 1.6
+              }
+            },
+            "GF09": {
+              "total": 4.1,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 5.4,
+              "highlights": {
+                "GF0405": 2.6
+              }
+            },
+            "GF03": {
+              "total": 1.8,
+              "highlights": {
+                "GF0301": 1.2,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.4,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1.1,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 0.9,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 0.8,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2005",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 368206,
+            "expenditure": 356785,
+            "balance": 11421
+          },
+          "revenues": {
+            "D2": {
+              "total": 112258,
+              "breakdown": {
+                "D211": 57716,
+                "D214": 44537,
+                "D212": 130,
+                "D29": 9875
+              }
+            },
+            "D5": {
+              "total": 99881,
+              "breakdown": {
+                "D51A_C1": 61115,
+                "D51B_C2": 35244,
+                "D59": 3522
+              }
+            },
+            "D61": {
+              "total": 116666,
+              "breakdown": {
+                "D611": 79647,
+                "D613": 30233,
+                "D612": 6786
+              }
+            },
+            "D91": {
+              "total": 4316,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 35085,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 117948,
+              "highlights": {
+                "GF1002": 56076,
+                "GF1005": 13928
+              }
+            },
+            "GF07": {
+              "total": 52462,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 47352,
+              "highlights": {
+                "GF0107": 16946,
+                "GF0101": 16220
+              }
+            },
+            "GF09": {
+              "total": 36725,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 46852,
+              "highlights": {
+                "GF0405": 20633
+              }
+            },
+            "GF03": {
+              "total": 16340,
+              "highlights": {
+                "GF0301": 10906,
+                "GF0303": 2855
+              }
+            },
+            "GF08": {
+              "total": 12768,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 9975,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 8420,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 7943,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 39.7,
+            "expenditure": 38.4,
+            "balance": 1.2,
+            "uncollectibleAdjustment": -0.1
+          },
+          "revenues": {
+            "D2": {
+              "total": 12.1,
+              "breakdown": {
+                "D211": 6.2,
+                "D214": 4.8,
+                "D212": 0,
+                "D29": 1.1
+              }
+            },
+            "D5": {
+              "total": 10.8,
+              "breakdown": {
+                "D51A_C1": 6.6,
+                "D51B_C2": 3.8,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12.6,
+              "breakdown": {
+                "D611": 8.6,
+                "D613": 3.3,
+                "D612": 0.7
+              }
+            },
+            "D91": {
+              "total": 0.5,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 3.8,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 12.7,
+              "highlights": {
+                "GF1002": 6,
+                "GF1005": 1.5
+              }
+            },
+            "GF07": {
+              "total": 5.7,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 5.1,
+              "highlights": {
+                "GF0107": 1.8,
+                "GF0101": 1.7
+              }
+            },
+            "GF09": {
+              "total": 4,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 5,
+              "highlights": {
+                "GF0405": 2.2
+              }
+            },
+            "GF03": {
+              "total": 1.8,
+              "highlights": {
+                "GF0301": 1.2,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.4,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1.1,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 0.9,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 0.9,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2006",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 407079,
+            "expenditure": 385757,
+            "balance": 21322
+          },
+          "revenues": {
+            "D2": {
+              "total": 122204,
+              "breakdown": {
+                "D211": 62365,
+                "D214": 48759,
+                "D212": 150,
+                "D29": 10930
+              }
+            },
+            "D5": {
+              "total": 114702,
+              "breakdown": {
+                "D51A_C1": 70442,
+                "D51B_C2": 40364,
+                "D59": 3896
+              }
+            },
+            "D61": {
+              "total": 126296,
+              "breakdown": {
+                "D611": 86596,
+                "D613": 32532,
+                "D612": 7168
+              }
+            },
+            "D91": {
+              "total": 4858,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 39019,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 127300,
+              "highlights": {
+                "GF1002": 61243,
+                "GF1005": 14975
+              }
+            },
+            "GF07": {
+              "total": 56708,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 50749,
+              "highlights": {
+                "GF0107": 16974,
+                "GF0101": 16865
+              }
+            },
+            "GF09": {
+              "total": 39812,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 50429,
+              "highlights": {
+                "GF0405": 22098
+              }
+            },
+            "GF03": {
+              "total": 17977,
+              "highlights": {
+                "GF0301": 12171,
+                "GF0303": 3005
+              }
+            },
+            "GF08": {
+              "total": 14851,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 10255,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 9873,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 7803,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 40.5,
+            "expenditure": 38.4,
+            "balance": 2.1,
+            "uncollectibleAdjustment": -0.1
+          },
+          "revenues": {
+            "D2": {
+              "total": 12.2,
+              "breakdown": {
+                "D211": 6.2,
+                "D214": 4.9,
+                "D212": 0,
+                "D29": 1.1
+              }
+            },
+            "D5": {
+              "total": 11.4,
+              "breakdown": {
+                "D51A_C1": 7,
+                "D51B_C2": 4,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12.6,
+              "breakdown": {
+                "D611": 8.6,
+                "D613": 3.2,
+                "D612": 0.7
+              }
+            },
+            "D91": {
+              "total": 0.5,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 3.9,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 12.7,
+              "highlights": {
+                "GF1002": 6.1,
+                "GF1005": 1.5
+              }
+            },
+            "GF07": {
+              "total": 5.6,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 5,
+              "highlights": {
+                "GF0107": 1.7,
+                "GF0101": 1.7
+              }
+            },
+            "GF09": {
+              "total": 4,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 5,
+              "highlights": {
+                "GF0405": 2.2
+              }
+            },
+            "GF03": {
+              "total": 1.8,
+              "highlights": {
+                "GF0301": 1.2,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.5,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 1,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 0.8,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2007",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 442451,
+            "expenditure": 422164,
+            "balance": 20287
+          },
+          "revenues": {
+            "D2": {
+              "total": 122839,
+              "breakdown": {
+                "D211": 62743,
+                "D214": 48463,
+                "D212": 145,
+                "D29": 11488
+              }
+            },
+            "D5": {
+              "total": 135000,
+              "breakdown": {
+                "D51A_C1": 81241,
+                "D51B_C2": 49362,
+                "D59": 4397
+              }
+            },
+            "D61": {
+              "total": 135643,
+              "breakdown": {
+                "D611": 93234,
+                "D613": 34791,
+                "D612": 7618
+              }
+            },
+            "D91": {
+              "total": 5348,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 43621,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 138115,
+              "highlights": {
+                "GF1002": 65710,
+                "GF1005": 16401
+              }
+            },
+            "GF07": {
+              "total": 61270,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 53370,
+              "highlights": {
+                "GF0107": 18219,
+                "GF0101": 17112
+              }
+            },
+            "GF09": {
+              "total": 43316,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 57643,
+              "highlights": {
+                "GF0405": 25147
+              }
+            },
+            "GF03": {
+              "total": 20064,
+              "highlights": {
+                "GF0301": 13377,
+                "GF0303": 3420
+              }
+            },
+            "GF08": {
+              "total": 16878,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 10817,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 10815,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 9876,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 41.1,
+            "expenditure": 39.2,
+            "balance": 1.9
+          },
+          "revenues": {
+            "D2": {
+              "total": 11.4,
+              "breakdown": {
+                "D211": 5.8,
+                "D214": 4.5,
+                "D212": 0,
+                "D29": 1.1
+              }
+            },
+            "D5": {
+              "total": 12.5,
+              "breakdown": {
+                "D51A_C1": 7.5,
+                "D51B_C2": 4.6,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12.6,
+              "breakdown": {
+                "D611": 8.7,
+                "D613": 3.2,
+                "D612": 0.7
+              }
+            },
+            "D91": {
+              "total": 0.5,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.1,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 12.8,
+              "highlights": {
+                "GF1002": 6.1,
+                "GF1005": 1.5
+              }
+            },
+            "GF07": {
+              "total": 5.7,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 5,
+              "highlights": {
+                "GF0107": 1.7,
+                "GF0101": 1.6
+              }
+            },
+            "GF09": {
+              "total": 4,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 5.3,
+              "highlights": {
+                "GF0405": 2.3
+              }
+            },
+            "GF03": {
+              "total": 1.9,
+              "highlights": {
+                "GF0301": 1.2,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.6,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 1,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 0.9,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2008",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 409082,
+            "expenditure": 459813,
+            "balance": -50731
+          },
+          "revenues": {
+            "D2": {
+              "total": 104356,
+              "breakdown": {
+                "D211": 52347,
+                "D214": 39650,
+                "D212": 140,
+                "D29": 12219
+              }
+            },
+            "D5": {
+              "total": 113916,
+              "breakdown": {
+                "D51A_C1": 78445,
+                "D51B_C2": 30634,
+                "D59": 4837
+              }
+            },
+            "D61": {
+              "total": 140997,
+              "breakdown": {
+                "D611": 95957,
+                "D613": 36997,
+                "D612": 8043
+              }
+            },
+            "D91": {
+              "total": 4844,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 44969,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 153146,
+              "highlights": {
+                "GF1002": 70164,
+                "GF1005": 22183
+              }
+            },
+            "GF07": {
+              "total": 67347,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 57242,
+              "highlights": {
+                "GF0107": 18894,
+                "GF0101": 17649
+              }
+            },
+            "GF09": {
+              "total": 47026,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 61229,
+              "highlights": {
+                "GF0405": 26581
+              }
+            },
+            "GF03": {
+              "total": 21730,
+              "highlights": {
+                "GF0301": 14409,
+                "GF0303": 3824
+              }
+            },
+            "GF08": {
+              "total": 18060,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 11243,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 10923,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 11867,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 36.8,
+            "expenditure": 41.3,
+            "balance": -4.6
+          },
+          "revenues": {
+            "D2": {
+              "total": 9.4,
+              "breakdown": {
+                "D211": 4.7,
+                "D214": 3.6,
+                "D212": 0,
+                "D29": 1.1
+              }
+            },
+            "D5": {
+              "total": 10.2,
+              "breakdown": {
+                "D51A_C1": 7.1,
+                "D51B_C2": 2.8,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12.7,
+              "breakdown": {
+                "D611": 8.6,
+                "D613": 3.3,
+                "D612": 0.7
+              }
+            },
+            "D91": {
+              "total": 0.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.1,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 13.8,
+              "highlights": {
+                "GF1002": 6.3,
+                "GF1005": 2
+              }
+            },
+            "GF07": {
+              "total": 6.1,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 5.1,
+              "highlights": {
+                "GF0107": 1.7,
+                "GF0101": 1.6
+              }
+            },
+            "GF09": {
+              "total": 4.2,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 5.5,
+              "highlights": {
+                "GF0405": 2.4
+              }
+            },
+            "GF03": {
+              "total": 2,
+              "highlights": {
+                "GF0301": 1.3,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.6,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 1,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 1.1,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2009",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 373777,
+            "expenditure": 494353,
+            "balance": -120576
+          },
+          "revenues": {
+            "D2": {
+              "total": 86108,
+              "breakdown": {
+                "D211": 36786,
+                "D214": 36066,
+                "D212": 120,
+                "D29": 13136
+              }
+            },
+            "D5": {
+              "total": 97621,
+              "breakdown": {
+                "D51A_C1": 71309,
+                "D51B_C2": 23681,
+                "D59": 2631
+              }
+            },
+            "D61": {
+              "total": 138190,
+              "breakdown": {
+                "D611": 90431,
+                "D613": 39166,
+                "D612": 8593
+              }
+            },
+            "D91": {
+              "total": 4311,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 47547,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 172746,
+              "highlights": {
+                "GF1002": 75516,
+                "GF1005": 32991
+              }
+            },
+            "GF07": {
+              "total": 72993,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 60954,
+              "highlights": {
+                "GF0107": 19913,
+                "GF0101": 19188
+              }
+            },
+            "GF09": {
+              "total": 49666,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 62069,
+              "highlights": {
+                "GF0405": 27285
+              }
+            },
+            "GF03": {
+              "total": 21954,
+              "highlights": {
+                "GF0301": 14388,
+                "GF0303": 4127
+              }
+            },
+            "GF08": {
+              "total": 17502,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 10946,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 11560,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 13963,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 34.8,
+            "expenditure": 46.1,
+            "balance": -11.2
+          },
+          "revenues": {
+            "D2": {
+              "total": 8,
+              "breakdown": {
+                "D211": 3.4,
+                "D214": 3.4,
+                "D212": 0,
+                "D29": 1.2
+              }
+            },
+            "D5": {
+              "total": 9.1,
+              "breakdown": {
+                "D51A_C1": 6.6,
+                "D51B_C2": 2.2,
+                "D59": 0.2
+              }
+            },
+            "D61": {
+              "total": 12.9,
+              "breakdown": {
+                "D611": 8.4,
+                "D613": 3.7,
+                "D612": 0.8
+              }
+            },
+            "D91": {
+              "total": 0.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.4,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 16.1,
+              "highlights": {
+                "GF1002": 7,
+                "GF1005": 3.1
+              }
+            },
+            "GF07": {
+              "total": 6.8,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 5.7,
+              "highlights": {
+                "GF0107": 1.9,
+                "GF0101": 1.8
+              }
+            },
+            "GF09": {
+              "total": 4.6,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 5.8,
+              "highlights": {
+                "GF0405": 2.5
+              }
+            },
+            "GF03": {
+              "total": 2,
+              "highlights": {
+                "GF0301": 1.3,
+                "GF0303": 0.4
+              }
+            },
+            "GF08": {
+              "total": 1.6,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 1.1,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 1.3,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2010",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 391624,
+            "expenditure": 493817,
+            "balance": -102193
+          },
+          "revenues": {
+            "D2": {
+              "total": 105981,
+              "breakdown": {
+                "D211": 55318,
+                "D214": 36458,
+                "D212": 131,
+                "D29": 14074
+              }
+            },
+            "D5": {
+              "total": 97247,
+              "breakdown": {
+                "D51A_C1": 74847,
+                "D51B_C2": 19680,
+                "D59": 2720
+              }
+            },
+            "D61": {
+              "total": 136975,
+              "breakdown": {
+                "D611": 89666,
+                "D613": 38724,
+                "D612": 8585
+              }
+            },
+            "D91": {
+              "total": 4221,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 47200,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 179730,
+              "highlights": {
+                "GF1002": 80022,
+                "GF1005": 34503
+              }
+            },
+            "GF07": {
+              "total": 71145,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 60442,
+              "highlights": {
+                "GF0107": 21622,
+                "GF0101": 17889
+              }
+            },
+            "GF09": {
+              "total": 48493,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 62801,
+              "highlights": {
+                "GF0405": 28620
+              }
+            },
+            "GF03": {
+              "total": 23166,
+              "highlights": {
+                "GF0301": 14984,
+                "GF0303": 4192
+              }
+            },
+            "GF08": {
+              "total": 17704,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 11283,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 11507,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 7546,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 36.4,
+            "expenditure": 45.8,
+            "balance": -9.5,
+            "uncollectibleAdjustment": 0.1
+          },
+          "revenues": {
+            "D2": {
+              "total": 9.8,
+              "breakdown": {
+                "D211": 5.1,
+                "D214": 3.4,
+                "D212": 0,
+                "D29": 1.3
+              }
+            },
+            "D5": {
+              "total": 9,
+              "breakdown": {
+                "D51A_C1": 6.9,
+                "D51B_C2": 1.8,
+                "D59": 0.3
+              }
+            },
+            "D61": {
+              "total": 12.7,
+              "breakdown": {
+                "D611": 8.3,
+                "D613": 3.6,
+                "D612": 0.8
+              }
+            },
+            "D91": {
+              "total": 0.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.4,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 16.7,
+              "highlights": {
+                "GF1002": 7.4,
+                "GF1005": 3.2
+              }
+            },
+            "GF07": {
+              "total": 6.6,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 5.6,
+              "highlights": {
+                "GF0107": 2,
+                "GF0101": 1.7
+              }
+            },
+            "GF09": {
+              "total": 4.5,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 5.8,
+              "highlights": {
+                "GF0405": 2.7
+              }
+            },
+            "GF03": {
+              "total": 2.2,
+              "highlights": {
+                "GF0301": 1.4,
+                "GF0303": 0.4
+              }
+            },
+            "GF08": {
+              "total": 1.6,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 1.1,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 0.7,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2011",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 387333,
+            "expenditure": 490908,
+            "balance": -103575
+          },
+          "revenues": {
+            "D2": {
+              "total": 102441,
+              "breakdown": {
+                "D211": 54101,
+                "D214": 33545,
+                "D212": 127,
+                "D29": 14668
+              }
+            },
+            "D5": {
+              "total": 98373,
+              "breakdown": {
+                "D51A_C1": 76814,
+                "D51B_C2": 18890,
+                "D59": 2669
+              }
+            },
+            "D61": {
+              "total": 135458,
+              "breakdown": {
+                "D611": 88404,
+                "D613": 38578,
+                "D612": 8476
+              }
+            },
+            "D91": {
+              "total": 3892,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 47169,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 180794,
+              "highlights": {
+                "GF1002": 83897,
+                "GF1005": 32734
+              }
+            },
+            "GF07": {
+              "total": 69312,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 66717,
+              "highlights": {
+                "GF0107": 28145,
+                "GF0101": 18445
+              }
+            },
+            "GF09": {
+              "total": 47120,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 60329,
+              "highlights": {
+                "GF0405": 25114
+              }
+            },
+            "GF03": {
+              "total": 23017,
+              "highlights": {
+                "GF0301": 14792,
+                "GF0303": 4088
+              }
+            },
+            "GF08": {
+              "total": 16050,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 11155,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 10366,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 6048,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 36.2,
+            "expenditure": 45.9,
+            "balance": -9.7,
+            "uncollectibleAdjustment": -0.1
+          },
+          "revenues": {
+            "D2": {
+              "total": 9.6,
+              "breakdown": {
+                "D211": 5.1,
+                "D214": 3.1,
+                "D212": 0,
+                "D29": 1.4
+              }
+            },
+            "D5": {
+              "total": 9.2,
+              "breakdown": {
+                "D51A_C1": 7.2,
+                "D51B_C2": 1.8,
+                "D59": 0.2
+              }
+            },
+            "D61": {
+              "total": 12.7,
+              "breakdown": {
+                "D611": 8.3,
+                "D613": 3.6,
+                "D612": 0.8
+              }
+            },
+            "D91": {
+              "total": 0.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.4,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 16.9,
+              "highlights": {
+                "GF1002": 7.9,
+                "GF1005": 3.1
+              }
+            },
+            "GF07": {
+              "total": 6.5,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 6.2,
+              "highlights": {
+                "GF0107": 2.6,
+                "GF0101": 1.7
+              }
+            },
+            "GF09": {
+              "total": 4.4,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 5.6,
+              "highlights": {
+                "GF0405": 2.3
+              }
+            },
+            "GF03": {
+              "total": 2.2,
+              "highlights": {
+                "GF0301": 1.4,
+                "GF0303": 0.4
+              }
+            },
+            "GF08": {
+              "total": 1.5,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 1,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 0.6,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2012",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 390842,
+            "expenditure": 509936,
+            "balance": -119094
+          },
+          "revenues": {
+            "D2": {
+              "total": 105324,
+              "breakdown": {
+                "D211": 55021,
+                "D214": 31714,
+                "D212": 118,
+                "D29": 18471
+              }
+            },
+            "D5": {
+              "total": 102973,
+              "breakdown": {
+                "D51A_C1": 77395,
+                "D51B_C2": 22127,
+                "D59": 3451
+              }
+            },
+            "D61": {
+              "total": 129823,
+              "breakdown": {
+                "D611": 83640,
+                "D613": 37972,
+                "D612": 8211
+              }
+            },
+            "D91": {
+              "total": 3881,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 48841,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 183764,
+              "highlights": {
+                "GF1002": 87831,
+                "GF1005": 34561
+              }
+            },
+            "GF07": {
+              "total": 64721,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 69044,
+              "highlights": {
+                "GF0107": 34156,
+                "GF0101": 17766
+              }
+            },
+            "GF09": {
+              "total": 43291,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 90461,
+              "highlights": {
+                "GF0405": 17773
+              }
+            },
+            "GF03": {
+              "total": 21024,
+              "highlights": {
+                "GF0301": 13280,
+                "GF0303": 3862
+              }
+            },
+            "GF08": {
+              "total": 12504,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 9698,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 9586,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 5843,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 37.7,
+            "expenditure": 49.2,
+            "balance": -11.5
+          },
+          "revenues": {
+            "D2": {
+              "total": 10.2,
+              "breakdown": {
+                "D211": 5.3,
+                "D214": 3.1,
+                "D212": 0,
+                "D29": 1.8
+              }
+            },
+            "D5": {
+              "total": 9.9,
+              "breakdown": {
+                "D51A_C1": 7.5,
+                "D51B_C2": 2.1,
+                "D59": 0.3
+              }
+            },
+            "D61": {
+              "total": 12.5,
+              "breakdown": {
+                "D611": 8.1,
+                "D613": 3.7,
+                "D612": 0.8
+              }
+            },
+            "D91": {
+              "total": 0.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.7,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 17.7,
+              "highlights": {
+                "GF1002": 8.5,
+                "GF1005": 3.3
+              }
+            },
+            "GF07": {
+              "total": 6.2,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 6.7,
+              "highlights": {
+                "GF0107": 3.3,
+                "GF0101": 1.7
+              }
+            },
+            "GF09": {
+              "total": 4.2,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 8.7,
+              "highlights": {
+                "GF0405": 1.7
+              }
+            },
+            "GF03": {
+              "total": 2,
+              "highlights": {
+                "GF0301": 1.3,
+                "GF0303": 0.4
+              }
+            },
+            "GF08": {
+              "total": 1.2,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 0.9,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 0.9,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 0.6,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2013",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 396593,
+            "expenditure": 473398,
+            "balance": -76805
+          },
+          "revenues": {
+            "D2": {
+              "total": 112744,
+              "breakdown": {
+                "D211": 60314,
+                "D214": 33380,
+                "D212": 124,
+                "D29": 18926
+              }
+            },
+            "D5": {
+              "total": 102233,
+              "breakdown": {
+                "D51A_C1": 77662,
+                "D51B_C2": 20434,
+                "D59": 4137
+              }
+            },
+            "D61": {
+              "total": 126856,
+              "breakdown": {
+                "D611": 82224,
+                "D613": 36860,
+                "D612": 7772
+              }
+            },
+            "D91": {
+              "total": 5071,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 49689,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 185373,
+              "highlights": {
+                "GF1002": 92135,
+                "GF1005": 32214
+              }
+            },
+            "GF07": {
+              "total": 63338,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 75491,
+              "highlights": {
+                "GF0107": 39253,
+                "GF0101": 18687
+              }
+            },
+            "GF09": {
+              "total": 42106,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 51114,
+              "highlights": {
+                "GF0405": 16596
+              }
+            },
+            "GF03": {
+              "total": 20870,
+              "highlights": {
+                "GF0301": 13357,
+                "GF0303": 3759
+              }
+            },
+            "GF08": {
+              "total": 11681,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 9878,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 8844,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 4703,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 38.7,
+            "expenditure": 46.2,
+            "balance": -7.5,
+            "uncollectibleAdjustment": -0.1
+          },
+          "revenues": {
+            "D2": {
+              "total": 11,
+              "breakdown": {
+                "D211": 5.9,
+                "D214": 3.3,
+                "D212": 0,
+                "D29": 1.8
+              }
+            },
+            "D5": {
+              "total": 10,
+              "breakdown": {
+                "D51A_C1": 7.6,
+                "D51B_C2": 2,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12.4,
+              "breakdown": {
+                "D611": 8,
+                "D613": 3.6,
+                "D612": 0.8
+              }
+            },
+            "D91": {
+              "total": 0.5,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.9,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 18.1,
+              "highlights": {
+                "GF1002": 9,
+                "GF1005": 3.1
+              }
+            },
+            "GF07": {
+              "total": 6.2,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 7.4,
+              "highlights": {
+                "GF0107": 3.8,
+                "GF0101": 1.8
+              }
+            },
+            "GF09": {
+              "total": 4.1,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 5,
+              "highlights": {
+                "GF0405": 1.6
+              }
+            },
+            "GF03": {
+              "total": 2,
+              "highlights": {
+                "GF0301": 1.3,
+                "GF0303": 0.4
+              }
+            },
+            "GF08": {
+              "total": 1.1,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 0.9,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 0.5,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2014",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 405125,
+            "expenditure": 467841,
+            "balance": -62716
+          },
+          "revenues": {
+            "D2": {
+              "total": 118365,
+              "breakdown": {
+                "D211": 64091,
+                "D214": 34257,
+                "D212": 132,
+                "D29": 19885
+              }
+            },
+            "D5": {
+              "total": 104395,
+              "breakdown": {
+                "D51A_C1": 79928,
+                "D51B_C2": 20573,
+                "D59": 3894
+              }
+            },
+            "D61": {
+              "total": 128966,
+              "breakdown": {
+                "D611": 84907,
+                "D613": 36422,
+                "D612": 7637
+              }
+            },
+            "D91": {
+              "total": 5647,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 47752,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 185342,
+              "highlights": {
+                "GF1002": 95350,
+                "GF1005": 27665
+              }
+            },
+            "GF07": {
+              "total": 63499,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 73703,
+              "highlights": {
+                "GF0107": 39199,
+                "GF0101": 17331
+              }
+            },
+            "GF09": {
+              "total": 42556,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 46873,
+              "highlights": {
+                "GF0405": 16809
+              }
+            },
+            "GF03": {
+              "total": 20688,
+              "highlights": {
+                "GF0301": 13311,
+                "GF0303": 3701
+              }
+            },
+            "GF08": {
+              "total": 11799,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 8950,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 9265,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 5166,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 39,
+            "expenditure": 45,
+            "balance": -6,
+            "uncollectibleAdjustment": 0.1
+          },
+          "revenues": {
+            "D2": {
+              "total": 11.4,
+              "breakdown": {
+                "D211": 6.2,
+                "D214": 3.3,
+                "D212": 0,
+                "D29": 1.9
+              }
+            },
+            "D5": {
+              "total": 10,
+              "breakdown": {
+                "D51A_C1": 7.7,
+                "D51B_C2": 2,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12.4,
+              "breakdown": {
+                "D611": 8.2,
+                "D613": 3.5,
+                "D612": 0.7
+              }
+            },
+            "D91": {
+              "total": 0.5,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.6,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 17.8,
+              "highlights": {
+                "GF1002": 9.2,
+                "GF1005": 2.7
+              }
+            },
+            "GF07": {
+              "total": 6.1,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 7.1,
+              "highlights": {
+                "GF0107": 3.8,
+                "GF0101": 1.7
+              }
+            },
+            "GF09": {
+              "total": 4.1,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 4.5,
+              "highlights": {
+                "GF0405": 1.6
+              }
+            },
+            "GF03": {
+              "total": 2,
+              "highlights": {
+                "GF0301": 1.3,
+                "GF0303": 0.4
+              }
+            },
+            "GF08": {
+              "total": 1.1,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 0.9,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 0.9,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 0.5,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2015",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 417645,
+            "expenditure": 474893,
+            "balance": -57248
+          },
+          "revenues": {
+            "D2": {
+              "total": 126349,
+              "breakdown": {
+                "D211": 69294,
+                "D214": 36475,
+                "D212": 143,
+                "D29": 20437
+              }
+            },
+            "D5": {
+              "total": 107107,
+              "breakdown": {
+                "D51A_C1": 79442,
+                "D51B_C2": 23761,
+                "D59": 3904
+              }
+            },
+            "D61": {
+              "total": 131508,
+              "breakdown": {
+                "D611": 87988,
+                "D613": 36017,
+                "D612": 7503
+              }
+            },
+            "D91": {
+              "total": 6344,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 46337,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 185186,
+              "highlights": {
+                "GF1002": 98901,
+                "GF1005": 22564
+              }
+            },
+            "GF07": {
+              "total": 66484,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 70356,
+              "highlights": {
+                "GF0107": 35660,
+                "GF0101": 17458
+              }
+            },
+            "GF09": {
+              "total": 44390,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 48799,
+              "highlights": {
+                "GF0405": 18592
+              }
+            },
+            "GF03": {
+              "total": 21772,
+              "highlights": {
+                "GF0301": 13698,
+                "GF0303": 3879
+              }
+            },
+            "GF08": {
+              "total": 12445,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 10416,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 9495,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 5550,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 38.4,
+            "expenditure": 43.7,
+            "balance": -5.3
+          },
+          "revenues": {
+            "D2": {
+              "total": 11.6,
+              "breakdown": {
+                "D211": 6.4,
+                "D214": 3.4,
+                "D212": 0,
+                "D29": 1.9
+              }
+            },
+            "D5": {
+              "total": 9.9,
+              "breakdown": {
+                "D51A_C1": 7.3,
+                "D51B_C2": 2.2,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12.1,
+              "breakdown": {
+                "D611": 8.1,
+                "D613": 3.3,
+                "D612": 0.7
+              }
+            },
+            "D91": {
+              "total": 0.6,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.2,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 17,
+              "highlights": {
+                "GF1002": 9.1,
+                "GF1005": 2.1
+              }
+            },
+            "GF07": {
+              "total": 6.1,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 6.5,
+              "highlights": {
+                "GF0107": 3.3,
+                "GF0101": 1.6
+              }
+            },
+            "GF09": {
+              "total": 4.1,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 4.5,
+              "highlights": {
+                "GF0405": 1.7
+              }
+            },
+            "GF03": {
+              "total": 2,
+              "highlights": {
+                "GF0301": 1.3,
+                "GF0303": 0.4
+              }
+            },
+            "GF08": {
+              "total": 1.1,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 0.9,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 0.5,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2016",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 425316,
+            "expenditure": 472717,
+            "balance": -47401
+          },
+          "revenues": {
+            "D2": {
+              "total": 128812,
+              "breakdown": {
+                "D211": 71753,
+                "D214": 36932,
+                "D212": 135,
+                "D29": 19992
+              }
+            },
+            "D5": {
+              "total": 110002,
+              "breakdown": {
+                "D51A_C1": 81224,
+                "D51B_C2": 24678,
+                "D59": 4100
+              }
+            },
+            "D61": {
+              "total": 135573,
+              "breakdown": {
+                "D611": 91708,
+                "D613": 36530,
+                "D612": 7335
+              }
+            },
+            "D91": {
+              "total": 6429,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 44500,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 189379,
+              "highlights": {
+                "GF1002": 102579,
+                "GF1005": 20460
+              }
+            },
+            "GF07": {
+              "total": 67713,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 68317,
+              "highlights": {
+                "GF0107": 32926,
+                "GF0101": 18276
+              }
+            },
+            "GF09": {
+              "total": 45328,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 43174,
+              "highlights": {
+                "GF0405": 15961
+              }
+            },
+            "GF03": {
+              "total": 21215,
+              "highlights": {
+                "GF0301": 13548,
+                "GF0303": 3877
+              }
+            },
+            "GF08": {
+              "total": 12334,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 10889,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 9492,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 4876,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 37.9,
+            "expenditure": 42.1,
+            "balance": -4.2,
+            "uncollectibleAdjustment": -0.1
+          },
+          "revenues": {
+            "D2": {
+              "total": 11.5,
+              "breakdown": {
+                "D211": 6.4,
+                "D214": 3.3,
+                "D212": 0,
+                "D29": 1.8
+              }
+            },
+            "D5": {
+              "total": 9.8,
+              "breakdown": {
+                "D51A_C1": 7.2,
+                "D51B_C2": 2.2,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12.1,
+              "breakdown": {
+                "D611": 8.2,
+                "D613": 3.3,
+                "D612": 0.7
+              }
+            },
+            "D91": {
+              "total": 0.6,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 16.9,
+              "highlights": {
+                "GF1002": 9.1,
+                "GF1005": 1.8
+              }
+            },
+            "GF07": {
+              "total": 6,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 6.1,
+              "highlights": {
+                "GF0107": 2.9,
+                "GF0101": 1.6
+              }
+            },
+            "GF09": {
+              "total": 4,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 3.8,
+              "highlights": {
+                "GF0405": 1.4
+              }
+            },
+            "GF03": {
+              "total": 1.9,
+              "highlights": {
+                "GF0301": 1.2,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.1,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 0.8,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 0.4,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2017",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 444005,
+            "expenditure": 479908,
+            "balance": -35903
+          },
+          "revenues": {
+            "D2": {
+              "total": 135067,
+              "breakdown": {
+                "D211": 75599,
+                "D214": 38994,
+                "D212": 129,
+                "D29": 20345
+              }
+            },
+            "D5": {
+              "total": 116938,
+              "breakdown": {
+                "D51A_C1": 86735,
+                "D51B_C2": 25996,
+                "D59": 4207
+              }
+            },
+            "D61": {
+              "total": 142430,
+              "breakdown": {
+                "D611": 97529,
+                "D613": 37730,
+                "D612": 7171
+              }
+            },
+            "D91": {
+              "total": 5716,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 43854,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 193870,
+              "highlights": {
+                "GF1002": 106655,
+                "GF1005": 18747
+              }
+            },
+            "GF07": {
+              "total": 69298,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 64641,
+              "highlights": {
+                "GF0107": 31053,
+                "GF0101": 16101
+              }
+            },
+            "GF09": {
+              "total": 46442,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 46256,
+              "highlights": {
+                "GF0405": 16491
+              }
+            },
+            "GF03": {
+              "total": 21262,
+              "highlights": {
+                "GF0301": 13512,
+                "GF0303": 3958
+              }
+            },
+            "GF08": {
+              "total": 12811,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 10373,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 9924,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 5031,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 37.9,
+            "expenditure": 41,
+            "balance": -3.1
+          },
+          "revenues": {
+            "D2": {
+              "total": 11.5,
+              "breakdown": {
+                "D211": 6.5,
+                "D214": 3.3,
+                "D212": 0,
+                "D29": 1.7
+              }
+            },
+            "D5": {
+              "total": 10,
+              "breakdown": {
+                "D51A_C1": 7.4,
+                "D51B_C2": 2.2,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12.2,
+              "breakdown": {
+                "D611": 8.3,
+                "D613": 3.2,
+                "D612": 0.6
+              }
+            },
+            "D91": {
+              "total": 0.5,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 3.7,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 16.6,
+              "highlights": {
+                "GF1002": 9.1,
+                "GF1005": 1.6
+              }
+            },
+            "GF07": {
+              "total": 5.9,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 5.5,
+              "highlights": {
+                "GF0107": 2.7,
+                "GF0101": 1.4
+              }
+            },
+            "GF09": {
+              "total": 4,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 4,
+              "highlights": {
+                "GF0405": 1.4
+              }
+            },
+            "GF03": {
+              "total": 1.8,
+              "highlights": {
+                "GF0301": 1.2,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.1,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 0.9,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 0.8,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 0.4,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2018",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 472250,
+            "expenditure": 503193,
+            "balance": -30943
+          },
+          "revenues": {
+            "D2": {
+              "total": 141184,
+              "breakdown": {
+                "D211": 79239,
+                "D214": 40622,
+                "D212": 129,
+                "D29": 21194
+              }
+            },
+            "D5": {
+              "total": 127284,
+              "breakdown": {
+                "D51A_C1": 93248,
+                "D51B_C2": 29688,
+                "D59": 4348
+              }
+            },
+            "D61": {
+              "total": 149450,
+              "breakdown": {
+                "D611": 103358,
+                "D613": 38963,
+                "D612": 7129
+              }
+            },
+            "D91": {
+              "total": 5595,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 48737,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 203470,
+              "highlights": {
+                "GF1002": 112641,
+                "GF1005": 18647
+              }
+            },
+            "GF07": {
+              "total": 72146,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 67520,
+              "highlights": {
+                "GF0107": 30924,
+                "GF0101": 18640
+              }
+            },
+            "GF09": {
+              "total": 47764,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 51532,
+              "highlights": {
+                "GF0405": 19607
+              }
+            },
+            "GF03": {
+              "total": 21542,
+              "highlights": {
+                "GF0301": 13495,
+                "GF0303": 4114
+              }
+            },
+            "GF08": {
+              "total": 13544,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 10287,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 10258,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 5130,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 39,
+            "expenditure": 41.5,
+            "balance": -2.6
+          },
+          "revenues": {
+            "D2": {
+              "total": 11.6,
+              "breakdown": {
+                "D211": 6.5,
+                "D214": 3.4,
+                "D212": 0,
+                "D29": 1.7
+              }
+            },
+            "D5": {
+              "total": 10.5,
+              "breakdown": {
+                "D51A_C1": 7.7,
+                "D51B_C2": 2.4,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 12.3,
+              "breakdown": {
+                "D611": 8.5,
+                "D613": 3.2,
+                "D612": 0.6
+              }
+            },
+            "D91": {
+              "total": 0.5,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.1,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 16.8,
+              "highlights": {
+                "GF1002": 9.3,
+                "GF1005": 1.5
+              }
+            },
+            "GF07": {
+              "total": 6,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 5.6,
+              "highlights": {
+                "GF0107": 2.6,
+                "GF0101": 1.5
+              }
+            },
+            "GF09": {
+              "total": 3.9,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 4.3,
+              "highlights": {
+                "GF0405": 1.6
+              }
+            },
+            "GF03": {
+              "total": 1.8,
+              "highlights": {
+                "GF0301": 1.1,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.1,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 0.8,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 0.8,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 0.4,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2019",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 488347,
+            "expenditure": 526769,
+            "balance": -38422
+          },
+          "revenues": {
+            "D2": {
+              "total": 143058,
+              "breakdown": {
+                "D211": 80889,
+                "D214": 40399,
+                "D212": 130,
+                "D29": 21640
+              }
+            },
+            "D5": {
+              "total": 129117,
+              "breakdown": {
+                "D51A_C1": 99033,
+                "D51B_C2": 25714,
+                "D59": 4370
+              }
+            },
+            "D61": {
+              "total": 160656,
+              "breakdown": {
+                "D611": 112274,
+                "D613": 41240,
+                "D612": 7142
+              }
+            },
+            "D91": {
+              "total": 5510,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 50006,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 216733,
+              "highlights": {
+                "GF1002": 118714,
+                "GF1005": 20087
+              }
+            },
+            "GF07": {
+              "total": 75917,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 67671,
+              "highlights": {
+                "GF0107": 29300,
+                "GF0101": 18789
+              }
+            },
+            "GF09": {
+              "total": 50052,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 52761,
+              "highlights": {
+                "GF0405": 18493
+              }
+            },
+            "GF03": {
+              "total": 22685,
+              "highlights": {
+                "GF0301": 14233,
+                "GF0303": 4253
+              }
+            },
+            "GF08": {
+              "total": 14420,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 10537,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 10803,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 5190,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 39,
+            "expenditure": 42,
+            "balance": -3.1,
+            "uncollectibleAdjustment": 0.1
+          },
+          "revenues": {
+            "D2": {
+              "total": 11.4,
+              "breakdown": {
+                "D211": 6.5,
+                "D214": 3.2,
+                "D212": 0,
+                "D29": 1.7
+              }
+            },
+            "D5": {
+              "total": 10.3,
+              "breakdown": {
+                "D51A_C1": 7.9,
+                "D51B_C2": 2.1,
+                "D59": 0.3
+              }
+            },
+            "D61": {
+              "total": 12.8,
+              "breakdown": {
+                "D611": 9,
+                "D613": 3.3,
+                "D612": 0.6
+              }
+            },
+            "D91": {
+              "total": 0.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 17.3,
+              "highlights": {
+                "GF1002": 9.5,
+                "GF1005": 1.6
+              }
+            },
+            "GF07": {
+              "total": 6.1,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 5.4,
+              "highlights": {
+                "GF0107": 2.3,
+                "GF0101": 1.5
+              }
+            },
+            "GF09": {
+              "total": 4,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 4.2,
+              "highlights": {
+                "GF0405": 1.5
+              }
+            },
+            "GF03": {
+              "total": 1.8,
+              "highlights": {
+                "GF0301": 1.1,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.2,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 0.8,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 0.9,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 0.4,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2020",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 468267,
+            "expenditure": 580164,
+            "balance": -111897
+          },
+          "revenues": {
+            "D2": {
+              "total": 126756,
+              "breakdown": {
+                "D211": 70669,
+                "D214": 34575,
+                "D212": 107,
+                "D29": 21405
+              }
+            },
+            "D5": {
+              "total": 125348,
+              "breakdown": {
+                "D51A_C1": 98960,
+                "D51B_C2": 22065,
+                "D59": 4323
+              }
+            },
+            "D61": {
+              "total": 162174,
+              "breakdown": {
+                "D611": 112429,
+                "D613": 42760,
+                "D612": 6985
+              }
+            },
+            "D91": {
+              "total": 4664,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 49325,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 247445,
+              "highlights": {
+                "GF1002": 122744,
+                "GF1005": 42338
+              }
+            },
+            "GF07": {
+              "total": 85545,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 66059,
+              "highlights": {
+                "GF0107": 26092,
+                "GF0101": 19873
+              }
+            },
+            "GF09": {
+              "total": 52003,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 65789,
+              "highlights": {
+                "GF0405": 21069
+              }
+            },
+            "GF03": {
+              "total": 23458,
+              "highlights": {
+                "GF0301": 14742,
+                "GF0303": 4365
+              }
+            },
+            "GF08": {
+              "total": 13382,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 10549,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 10785,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 5149,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 41.5,
+            "expenditure": 51.4,
+            "balance": -9.9
+          },
+          "revenues": {
+            "D2": {
+              "total": 11.2,
+              "breakdown": {
+                "D211": 6.3,
+                "D214": 3.1,
+                "D212": 0,
+                "D29": 1.9
+              }
+            },
+            "D5": {
+              "total": 11.1,
+              "breakdown": {
+                "D51A_C1": 8.8,
+                "D51B_C2": 2,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 14.4,
+              "breakdown": {
+                "D611": 10,
+                "D613": 3.8,
+                "D612": 0.6
+              }
+            },
+            "D91": {
+              "total": 0.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.4,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 21.9,
+              "highlights": {
+                "GF1002": 10.9,
+                "GF1005": 3.7
+              }
+            },
+            "GF07": {
+              "total": 7.6,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 5.8,
+              "highlights": {
+                "GF0107": 2.3,
+                "GF0101": 1.8
+              }
+            },
+            "GF09": {
+              "total": 4.6,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 5.8,
+              "highlights": {
+                "GF0405": 1.9
+              }
+            },
+            "GF03": {
+              "total": 2.1,
+              "highlights": {
+                "GF0301": 1.3,
+                "GF0303": 0.4
+              }
+            },
+            "GF08": {
+              "total": 1.2,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 0.9,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 1,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 0.5,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2021",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 528950,
+            "expenditure": 611124,
+            "balance": -82174
+          },
+          "revenues": {
+            "D2": {
+              "total": 146953,
+              "breakdown": {
+                "D211": 83547,
+                "D214": 40202,
+                "D212": 139,
+                "D29": 23065
+              }
+            },
+            "D5": {
+              "total": 143485,
+              "breakdown": {
+                "D51A_C1": 106648,
+                "D51B_C2": 32331,
+                "D59": 4506
+              }
+            },
+            "D61": {
+              "total": 171687,
+              "breakdown": {
+                "D611": 118756,
+                "D613": 45999,
+                "D612": 6932
+              }
+            },
+            "D91": {
+              "total": 6193,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 60632,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 248671,
+              "highlights": {
+                "GF1002": 129584,
+                "GF1005": 32137
+              }
+            },
+            "GF07": {
+              "total": 88541,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 70976,
+              "highlights": {
+                "GF0107": 26976,
+                "GF0101": 21941
+              }
+            },
+            "GF09": {
+              "total": 55885,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 78943,
+              "highlights": {
+                "GF0405": 24785
+              }
+            },
+            "GF03": {
+              "total": 24540,
+              "highlights": {
+                "GF0301": 15230,
+                "GF0303": 4641
+              }
+            },
+            "GF08": {
+              "total": 14607,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 11716,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 11465,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 5780,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 42.8,
+            "expenditure": 49.5,
+            "balance": -6.7
+          },
+          "revenues": {
+            "D2": {
+              "total": 11.9,
+              "breakdown": {
+                "D211": 6.8,
+                "D214": 3.3,
+                "D212": 0,
+                "D29": 1.9
+              }
+            },
+            "D5": {
+              "total": 11.6,
+              "breakdown": {
+                "D51A_C1": 8.6,
+                "D51B_C2": 2.6,
+                "D59": 0.4
+              }
+            },
+            "D61": {
+              "total": 13.9,
+              "breakdown": {
+                "D611": 9.6,
+                "D613": 3.7,
+                "D612": 0.6
+              }
+            },
+            "D91": {
+              "total": 0.5,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.9,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 20.1,
+              "highlights": {
+                "GF1002": 10.5,
+                "GF1005": 2.6
+              }
+            },
+            "GF07": {
+              "total": 7.2,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 5.7,
+              "highlights": {
+                "GF0107": 2.2,
+                "GF0101": 1.8
+              }
+            },
+            "GF09": {
+              "total": 4.5,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 6.4,
+              "highlights": {
+                "GF0405": 2
+              }
+            },
+            "GF03": {
+              "total": 2,
+              "highlights": {
+                "GF0301": 1.2,
+                "GF0303": 0.4
+              }
+            },
+            "GF08": {
+              "total": 1.2,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 0.9,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 0.9,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 0.5,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2022",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 574012,
+            "expenditure": 637117,
+            "balance": -63105
+          },
+          "revenues": {
+            "D2": {
+              "total": 160429,
+              "breakdown": {
+                "D211": 94140,
+                "D214": 42327,
+                "D212": 144,
+                "D29": 23818
+              }
+            },
+            "D5": {
+              "total": 164770,
+              "breakdown": {
+                "D51A_C1": 123399,
+                "D51B_C2": 36628,
+                "D59": 4743
+              }
+            },
+            "D61": {
+              "total": 180086,
+              "breakdown": {
+                "D611": 127761,
+                "D613": 45477,
+                "D612": 6848
+              }
+            },
+            "D91": {
+              "total": 5577,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 63150,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 252111,
+              "highlights": {
+                "GF1002": 137505,
+                "GF1005": 21609
+              }
+            },
+            "GF07": {
+              "total": 93327,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 77818,
+              "highlights": {
+                "GF0107": 32610,
+                "GF0101": 21308
+              }
+            },
+            "GF09": {
+              "total": 58669,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 77131,
+              "highlights": {
+                "GF0405": 25167
+              }
+            },
+            "GF03": {
+              "total": 25798,
+              "highlights": {
+                "GF0301": 16158,
+                "GF0303": 4874
+              }
+            },
+            "GF08": {
+              "total": 17120,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 15347,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 13335,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 6461,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 41.7,
+            "expenditure": 46.3,
+            "balance": -4.6,
+            "uncollectibleAdjustment": -0.1
+          },
+          "revenues": {
+            "D2": {
+              "total": 11.7,
+              "breakdown": {
+                "D211": 6.8,
+                "D214": 3.1,
+                "D212": 0,
+                "D29": 1.7
+              }
+            },
+            "D5": {
+              "total": 12,
+              "breakdown": {
+                "D51A_C1": 9,
+                "D51B_C2": 2.7,
+                "D59": 0.3
+              }
+            },
+            "D61": {
+              "total": 13.1,
+              "breakdown": {
+                "D611": 9.3,
+                "D613": 3.3,
+                "D612": 0.5
+              }
+            },
+            "D91": {
+              "total": 0.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.6,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 18.3,
+              "highlights": {
+                "GF1002": 10,
+                "GF1005": 1.6
+              }
+            },
+            "GF07": {
+              "total": 6.8,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 5.7,
+              "highlights": {
+                "GF0107": 2.4,
+                "GF0101": 1.5
+              }
+            },
+            "GF09": {
+              "total": 4.3,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 5.6,
+              "highlights": {
+                "GF0405": 1.8
+              }
+            },
+            "GF03": {
+              "total": 1.9,
+              "highlights": {
+                "GF0301": 1.2,
+                "GF0303": 0.4
+              }
+            },
+            "GF08": {
+              "total": 1.2,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 1.1,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 1,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 0.5,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2023",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 630198,
+            "expenditure": 680225,
+            "balance": -50027
+          },
+          "revenues": {
+            "D2": {
+              "total": 165865,
+              "breakdown": {
+                "D211": 96030,
+                "D214": 42172,
+                "D212": 280,
+                "D29": 27383
+              }
+            },
+            "D5": {
+              "total": 183119,
+              "breakdown": {
+                "D51A_C1": 134371,
+                "D51B_C2": 43520,
+                "D59": 5228
+              }
+            },
+            "D61": {
+              "total": 197003,
+              "breakdown": {
+                "D611": 141022,
+                "D613": 48926,
+                "D612": 7055
+              }
+            },
+            "D91": {
+              "total": 5551,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 78660,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 277327,
+              "highlights": {
+                "GF1002": 153051,
+                "GF1005": 22995
+              }
+            },
+            "GF07": {
+              "total": 98630,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 84425,
+              "highlights": {
+                "GF0107": 36726,
+                "GF0101": 20901
+              }
+            },
+            "GF09": {
+              "total": 62532,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 74851,
+              "highlights": {
+                "GF0405": 28897
+              }
+            },
+            "GF03": {
+              "total": 27414,
+              "highlights": {
+                "GF0301": 16960,
+                "GF0303": 5122
+              }
+            },
+            "GF08": {
+              "total": 18638,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 14008,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 14579,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 7821,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 42.1,
+            "expenditure": 45.5,
+            "balance": -3.3
+          },
+          "revenues": {
+            "D2": {
+              "total": 11.1,
+              "breakdown": {
+                "D211": 6.4,
+                "D214": 2.8,
+                "D212": 0,
+                "D29": 1.8
+              }
+            },
+            "D5": {
+              "total": 12.2,
+              "breakdown": {
+                "D51A_C1": 9,
+                "D51B_C2": 2.9,
+                "D59": 0.3
+              }
+            },
+            "D61": {
+              "total": 13.2,
+              "breakdown": {
+                "D611": 9.4,
+                "D613": 3.3,
+                "D612": 0.5
+              }
+            },
+            "D91": {
+              "total": 0.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 5.2,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 18.5,
+              "highlights": {
+                "GF1002": 10.2,
+                "GF1005": 1.5
+              }
+            },
+            "GF07": {
+              "total": 6.6,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 5.6,
+              "highlights": {
+                "GF0107": 2.5,
+                "GF0101": 1.4
+              }
+            },
+            "GF09": {
+              "total": 4.2,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 5,
+              "highlights": {
+                "GF0405": 1.9
+              }
+            },
+            "GF03": {
+              "total": 1.8,
+              "highlights": {
+                "GF0301": 1.1,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.2,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 0.9,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 1,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 0.5,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2024",
+      "cofogAvailable": true,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 674315,
+            "expenditure": 725122,
+            "balance": -50807
+          },
+          "revenues": {
+            "D2": {
+              "total": 177234,
+              "breakdown": {
+                "D211": 102527,
+                "D214": 47202,
+                "D212": 303,
+                "D29": 27202
+              }
+            },
+            "D5": {
+              "total": 198697,
+              "breakdown": {
+                "D51A_C1": 145873,
+                "D51B_C2": 47471,
+                "D59": 5353
+              }
+            },
+            "D61": {
+              "total": 210294,
+              "breakdown": {
+                "D611": 151551,
+                "D613": 51754,
+                "D612": 6989
+              }
+            },
+            "D91": {
+              "total": 5735,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 82355,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 297532,
+              "highlights": {
+                "GF1002": 165050,
+                "GF1005": 24077
+              }
+            },
+            "GF07": {
+              "total": 102942,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 92551,
+              "highlights": {
+                "GF0107": 39644,
+                "GF0101": 21444
+              }
+            },
+            "GF09": {
+              "total": 65862,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 80908,
+              "highlights": {
+                "GF0405": 28634
+              }
+            },
+            "GF03": {
+              "total": 28628,
+              "highlights": {
+                "GF0301": 17541,
+                "GF0303": 5416
+              }
+            },
+            "GF08": {
+              "total": 19193,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 14233,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 15539,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 7613,
+              "highlights": {}
+            }
+          }
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 42.2,
+            "expenditure": 45.4,
+            "balance": -3.2,
+            "uncollectibleAdjustment": -0.1
+          },
+          "revenues": {
+            "D2": {
+              "total": 11.1,
+              "breakdown": {
+                "D211": 6.4,
+                "D214": 3,
+                "D212": 0,
+                "D29": 1.7
+              }
+            },
+            "D5": {
+              "total": 12.4,
+              "breakdown": {
+                "D51A_C1": 9.1,
+                "D51B_C2": 3,
+                "D59": 0.3
+              }
+            },
+            "D61": {
+              "total": 13.2,
+              "breakdown": {
+                "D611": 9.5,
+                "D613": 3.2,
+                "D612": 0.4
+              }
+            },
+            "D91": {
+              "total": 0.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 5.2,
+              "breakdown": {}
+            }
+          },
+          "expenditures": {
+            "GF10": {
+              "total": 18.7,
+              "highlights": {
+                "GF1002": 10.4,
+                "GF1005": 1.5
+              }
+            },
+            "GF07": {
+              "total": 6.5,
+              "highlights": {}
+            },
+            "GF01": {
+              "total": 5.8,
+              "highlights": {
+                "GF0107": 2.5,
+                "GF0101": 1.3
+              }
+            },
+            "GF09": {
+              "total": 4.1,
+              "highlights": {}
+            },
+            "GF04": {
+              "total": 5.1,
+              "highlights": {
+                "GF0405": 1.8
+              }
+            },
+            "GF03": {
+              "total": 1.8,
+              "highlights": {
+                "GF0301": 1.1,
+                "GF0303": 0.3
+              }
+            },
+            "GF08": {
+              "total": 1.2,
+              "highlights": {}
+            },
+            "GF02": {
+              "total": 0.9,
+              "highlights": {}
+            },
+            "GF05": {
+              "total": 1,
+              "highlights": {}
+            },
+            "GF06": {
+              "total": 0.5,
+              "highlights": {}
+            }
+          }
+        }
+      }
+    },
+    {
+      "year": "2025",
+      "cofogAvailable": false,
+      "metrics": {
+        "MIO_EUR": {
+          "totals": {
+            "revenue": 725655,
+            "expenditure": 766296,
+            "balance": -40641
+          },
+          "revenues": {
+            "D2": {
+              "total": 191558,
+              "breakdown": {
+                "D211": 114428,
+                "D214": 52189,
+                "D212": 315,
+                "D29": 24626
+              }
+            },
+            "D5": {
+              "total": 220653,
+              "breakdown": {
+                "D51A_C1": 161400,
+                "D51B_C2": 53623,
+                "D59": 5630
+              }
+            },
+            "D61": {
+              "total": 223230,
+              "breakdown": {
+                "D611": 161450,
+                "D613": 54938,
+                "D612": 6842
+              }
+            },
+            "D91": {
+              "total": 6047,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 84167,
+              "breakdown": {}
+            }
+          },
+          "expenditures": null
+        },
+        "PC_GDP": {
+          "totals": {
+            "revenue": 42.9,
+            "expenditure": 45.3,
+            "balance": -2.4
+          },
+          "revenues": {
+            "D2": {
+              "total": 11.3,
+              "breakdown": {
+                "D211": 6.8,
+                "D214": 3.1,
+                "D212": 0,
+                "D29": 1.5
+              }
+            },
+            "D5": {
+              "total": 13.1,
+              "breakdown": {
+                "D51A_C1": 9.6,
+                "D51B_C2": 3.2,
+                "D59": 0.3
+              }
+            },
+            "D61": {
+              "total": 13.2,
+              "breakdown": {
+                "D611": 9.6,
+                "D613": 3.3,
+                "D612": 0.4
+              }
+            },
+            "D91": {
+              "total": 0.4,
+              "breakdown": {}
+            },
+            "NON_TAX_RESIDUAL": {
+              "total": 4.9,
+              "breakdown": {}
+            }
+          },
+          "expenditures": null
+        }
+      }
+    }
+  ]
+}

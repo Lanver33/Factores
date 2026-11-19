@@ -10,7 +10,9 @@ export const CATEGORIES = [
 
 export type Category = (typeof CATEGORIES)[number];
 
-export type ChartType = "line" | "bar";
+export type Lang = "es" | "en";
+
+export type ChartType = "line" | "bar" | "fiscal-balance" | "immigration-flow";
 
 export interface DataPoint {
   year: string;
@@ -103,4 +105,81 @@ export interface ImmigrationItem extends TraceableSource {
     countries: Array<{ id: string; name: string }>;
   }>;
   annualBlocks: AnnualBlock[];
+}
+
+export type FiscalUnitId = "MIO_EUR" | "PC_GDP";
+
+export interface FiscalUnitOption {
+  id: FiscalUnitId;
+  label: string;
+  decimals?: number;
+}
+
+export interface FiscalTaxonomyChild {
+  code: string;
+  label: string;
+}
+
+export interface FiscalRevenueTaxon {
+  code: string;
+  label: string;
+  shortLabel: string;
+  derivedFormula?: string;
+  children: FiscalTaxonomyChild[];
+}
+
+export interface FiscalExpenditureTaxon {
+  code: string;
+  label: string;
+  shortLabel: string;
+  highlights: FiscalTaxonomyChild[];
+}
+
+export interface FiscalTaxonomy {
+  revenues: FiscalRevenueTaxon[];
+  expenditures: FiscalExpenditureTaxon[];
+}
+
+export interface FiscalTotals {
+  revenue: number;
+  expenditure: number;
+  balance: number;
+  uncollectibleAdjustment?: number;
+}
+
+export interface FiscalRevenueEntry {
+  total: number;
+  breakdown: Record<string, number>;
+}
+
+export interface FiscalExpenditureEntry {
+  total: number;
+  highlights: Record<string, number>;
+}
+
+export interface FiscalUnitMetrics {
+  totals: FiscalTotals;
+  revenues: Record<string, FiscalRevenueEntry>;
+  expenditures: Record<string, FiscalExpenditureEntry> | null;
+}
+
+export interface AnnualBalanceRecord {
+  year: string;
+  cofogAvailable: boolean;
+  metrics: Record<FiscalUnitId, FiscalUnitMetrics>;
+}
+
+export interface FiscalBalanceItem extends DatoItem {
+  chartType: "fiscal-balance";
+  availableUnits: FiscalUnitOption[];
+  taxonomy: FiscalTaxonomy;
+  annualBalances: AnnualBalanceRecord[];
+}
+
+export function isFiscalBalanceItem(item: DatoItem): item is FiscalBalanceItem {
+  return (
+    item.chartType === "fiscal-balance" &&
+    "annualBalances" in item &&
+    Array.isArray((item as Partial<FiscalBalanceItem>).annualBalances)
+  );
 }

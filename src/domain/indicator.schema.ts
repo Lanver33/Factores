@@ -60,6 +60,22 @@ export const TimeSeriesIndicatorSchema = BaseIndicatorSchema.extend({
 
 export const FiscalBalanceIndicatorSchema = BaseIndicatorSchema.extend({
   kind: z.literal("fiscal-balance"),
+  availableUnits: z
+    .array(
+      z.object({
+        id: z.string(),
+        label: z.string(),
+        decimals: z.number().optional(),
+      })
+    )
+    .optional(),
+  taxonomy: z
+    .object({
+      revenues: z.array(z.any()),
+      expenditures: z.array(z.any()),
+    })
+    .optional(),
+  annualBalances: z.array(z.any()).optional(),
   points: z
     .array(
       z.object({
@@ -73,7 +89,7 @@ export const FiscalBalanceIndicatorSchema = BaseIndicatorSchema.extend({
         deficitMmEur: z.number(),
       })
     )
-    .min(1),
+    .optional(),
 });
 
 export const ImmigrationFlowIndicatorSchema = BaseIndicatorSchema.extend({

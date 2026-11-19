@@ -1,5 +1,63 @@
 [
   {
+    "id": "cuentas-publicas-espana",
+    "kind": "fiscal-balance",
+    "category": "economy-employment",
+    "question": {
+      "es": "¿Cómo se componen los ingresos, el gasto público por función y el saldo fiscal en España?",
+      "en": "How are revenues, public spending by function, and fiscal balance composed in Spain?"
+    },
+    "unit": {
+      "es": "% del PIB",
+      "en": "% of GDP"
+    },
+    "valueFormat": "percent",
+    "latestValue": -2.4,
+    "latestPeriod": "2025",
+    "timeHorizon": "1995–2025",
+    "primarySource": {
+      "es": "Eurostat / IGAE",
+      "en": "Eurostat / IGAE"
+    },
+    "searchSummary": {
+      "es": "Serie histórica consolidada de las Cuentas Principales de las Administraciones Públicas (S.13) según el Sistema Europeo de Cuentas (SEC 2010).",
+      "en": "Consolidated historical series of General Government Main Aggregates (S.13) according to ESA 2010."
+    },
+    "sparkline": [
+      -6.8,
+      -5.9,
+      -3.9,
+      -2.6,
+      -1.2,
+      -1.2,
+      -0.5,
+      -0.3,
+      -0.4,
+      -0.1,
+      1.2,
+      2.1,
+      1.9,
+      -4.6,
+      -11.2,
+      -9.5,
+      -9.7,
+      -11.5,
+      -7.5,
+      -6,
+      -5.3,
+      -4.2,
+      -3.1,
+      -2.6,
+      -3.1,
+      -9.9,
+      -6.7,
+      -4.6,
+      -3.3,
+      -3.2,
+      -2.4
+    ]
+  },
+  {
     "id": "inmigracion-procedencia",
     "kind": "immigration-flow",
     "category": "pensions-demography",
@@ -41,43 +99,6 @@
       1258894,
       1250991,
       1288562
-    ]
-  },
-  {
-    "id": "saldo-fiscal-nacionalidad",
-    "kind": "fiscal-balance",
-    "category": "economy-employment",
-    "question": {
-      "es": "Saldo fiscal y ratio contribución / gasto por nacionalidad",
-      "en": "Fiscal balance and contribution / spending ratio by nationality"
-    },
-    "unit": {
-      "es": "% / € hab / MM€",
-      "en": "% / € per capita / MM€"
-    },
-    "valueFormat": "percent",
-    "latestValue": 187,
-    "latestPeriod": "2024",
-    "timeHorizon": "2015–2024",
-    "primarySource": {
-      "es": "Intervención General de la Administración del Estado (IGAE) / Banco de España",
-      "en": "General Intervention Board of the State Administration (IGAE) / Bank of Spain"
-    },
-    "searchSummary": {
-      "es": "Pestaña 1 (Comparativa Ratio %): Compara el ratio Contribución / Gasto (Cotizaciones SS + IRPF + IVA imputado sobre Gasto público COFOG e imputaciones). Un valor por encima del 100% indica superávit fiscal; por debajo, déficit.",
-      "en": "Tab 1 (Ratio % Comparison): Compares the Contribution / Spending ratio (SS contributions + IRPF + imputed VAT over COFOG public spending). Values above 100% indicate fiscal surplus; below 100%, deficit."
-    },
-    "sparkline": [
-      160.4,
-      164.4,
-      169.5,
-      176,
-      180.5,
-      153.9,
-      161.2,
-      172,
-      181.6,
-      187
     ]
   }
 ]

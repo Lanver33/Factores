@@ -1,19 +1,19 @@
 [
   {
+    "id": "cuentas-publicas-espana",
+    "category": "Economía y Empleo",
+    "question": "¿Cómo se componen los ingresos, el gasto público por función y el saldo fiscal en España?",
+    "unit": "% del PIB",
+    "latestValue": -2.4,
+    "latestYear": "2025",
+    "lastUpdated": "2026-10-21"
+  },
+  {
     "id": "inmigracion-procedencia",
     "category": "Pensiones y Demografía",
     "question": "¿Cuál es la evolución de la inmigración procedente del extranjero en España?",
     "unit": "personas",
     "latestValue": 1288562,
-    "latestYear": "2024",
-    "lastUpdated": "2024-12-01"
-  },
-  {
-    "id": "saldo-fiscal-nacionalidad",
-    "category": "Economía y Empleo",
-    "question": "Saldo fiscal y ratio contribución / gasto",
-    "unit": "% / € hab / MM€",
-    "latestValue": 187,
     "latestYear": "2024",
     "lastUpdated": "2024-12-01"
   }

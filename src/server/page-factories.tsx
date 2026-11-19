@@ -10,6 +10,7 @@ import DirectoryExplorer from "@/components/directory/DirectoryExplorer";
 import { IndicatorVisualization } from "@/components/visualizations/IndicatorVisualization";
 import SourceCard from "@/components/detail/SourceCard";
 import MethodologicalNotes from "@/components/detail/MethodologicalNotes";
+import ContextNotesCard from "@/components/detail/ContextNotesCard";
 
 export async function renderHomePage(locale: Locale) {
   const initialItems = await getDirectoryIndex();
@@ -87,7 +88,7 @@ export async function renderIndicatorPage(locale: Locale, slug: string) {
       <IndicatorVisualization indicator={indicator} locale={locale} />
 
       {/* Methodological Context Notes */}
-      <MethodologicalNotes notes={indicator.contextNotes[locale]} locale={locale} />
+      <ContextNotesCard notes={indicator.contextNotes[locale]} lang={locale} locale={locale} />
 
       {/* Official Data Source & Traceability */}
       <SourceCard

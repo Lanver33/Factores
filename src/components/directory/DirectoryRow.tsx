@@ -11,12 +11,14 @@ interface DirectoryRowProps {
 }
 
 export function DirectoryRow({ item, locale }: DirectoryRowProps) {
-  const compactVal = formatIndicatorValue(item.latestValue, item.valueFormat, locale, true);
-  const exactVal = formatIndicatorValue(item.latestValue, item.valueFormat, locale, false);
   const question = item.question[locale];
   const unit = item.unit[locale];
   const primarySource = item.primarySource[locale];
   const href = routes.indicator(locale, item.id);
+
+  const rawCompact = formatIndicatorValue(item.latestValue, item.valueFormat, locale, true);
+  const compactVal = unit.startsWith("%") && !rawCompact.endsWith("%") ? `${rawCompact}%` : rawCompact;
+  const exactVal = formatIndicatorValue(item.latestValue, item.valueFormat, locale, false);
 
   return (
     <Link
