@@ -1,0 +1,205 @@
+import type { Category, Locale } from "@/domain/indicator.schema";
+
+export const routes = {
+  home: (locale: Locale = "es"): string => (locale === "en" ? "/en" : "/"),
+  indicator: (locale: Locale = "es", slug: string): string =>
+    locale === "en" ? `/en/dato/${slug}` : `/dato/${slug}`,
+  toggleLocale: (pathname: string, targetLocale: Locale): string => {
+    const clean = pathname.replace(/\/$/, "");
+    if (targetLocale === "en") {
+      if (!clean || clean === "") return "/en";
+      if (clean === "/en") return "/en";
+      if (clean.startsWith("/en/")) return clean;
+      return `/en${clean}`;
+    } else {
+      if (clean === "/en" || !clean) return "/";
+      if (clean.startsWith("/en/")) {
+        const stripped = clean.replace(/^\/en/, "");
+        return stripped || "/";
+      }
+      return clean || "/";
+    }
+  },
+};
+
+export const CATEGORY_LABELS: Record<Category | "all", Record<Locale, string>> = {
+  all: {
+    es: "Todas",
+    en: "All",
+  },
+  "pensions-demography": {
+    es: "Pensiones y Demografía",
+    en: "Pensions & Demography",
+  },
+  "economy-employment": {
+    es: "Economía y Empleo",
+    en: "Economy & Employment",
+  },
+  housing: {
+    es: "Vivienda",
+    en: "Housing",
+  },
+  healthcare: {
+    es: "Sanidad",
+    en: "Healthcare",
+  },
+};
+
+export const CATEGORY_ICONS: Record<Category | "all", string> = {
+  all: "📊",
+  housing: "🏠",
+  "economy-employment": "📈",
+  healthcare: "🏥",
+  "pensions-demography": "👥",
+};
+
+const DICTIONARY: Record<Locale, Record<string, string>> = {
+  es: {
+    appName: "Factor.es",
+    tagline:
+      "Directorio unificado de indicadores oficiales de España. Cifras abreviadas, trazabilidad directa y cero ruido político.",
+    backToExplorer: "Volver al explorador",
+    loadingDirectory: "Cargando directorio unificado...",
+    loadingData: "Cargando dato vía HTTP...",
+    noResults: "No se encontraron indicadores que coincidan con",
+    clearSearch: "Limpiar búsqueda",
+    searchPlaceholder: "Buscar indicador, categoría o término (ej. paro, alquiler)...",
+    sourceTitle: "Fuente Oficial de Datos y Trazabilidad",
+    sourcesTitle: "Fuentes Oficiales de Datos y Trazabilidad",
+    sourcesSubtitleSingle:
+      "Enlace directo a la publicación original para auditar y contrastar la serie histórica oficial:",
+    sourcesSubtitleMultiple:
+      "Series enlazadas para auditar y contrastar directamente los tramos o registros oficiales que componen este indicador:",
+    lastUpdated: "Última actualización",
+    period: "Período",
+    institution: "Institución",
+    officialTable: "Tabla",
+    viewOriginalSource: "Ver fuente oficial",
+    noDataYet: "No hay datos registrados aún",
+    people: "personas",
+    totalGlobal: "Total Global",
+    indicatorsCount: "indicadores",
+    indicatorCount: "indicador",
+    methodologicalNotesTitle: "Notas Metodológicas y Contexto",
+    fiscalTabRatio: "Comparativa Ratio %",
+    fiscalTabCapita: "Saldo Neto €/hab",
+    fiscalTabTotal: "Balance Total Estado (MM€)",
+    fiscalRatioDesc: "Ratio Contribución / Gasto (>100% superávit, <100% déficit)",
+    fiscalCapitaDesc: "Saldo fiscal neto anual por habitante (€/hab)",
+    fiscalTotalDesc: "Presupuesto público consolidado de las AAPP (IGAE S.13 SEC-2010)",
+    fiscalForeignRatio: "Población Extranjera",
+    fiscalSpanishRatio: "Población Española",
+    fiscalForeignCapita: "Extranjeros (€/hab)",
+    fiscalSpanishCapita: "Españoles (€/hab)",
+    fiscalSurplus: "Superávit",
+    fiscalDeficit: "Déficit",
+    fiscalTotalRevenue: "Total Ingresos",
+    fiscalTotalSpending: "Total Gastos",
+    fiscalDeficitCurve: "Déficit / Superávit Consolidado",
+    yearLabel: "Año",
+    singleYear: "Año Único",
+    yearRange: "Rango de Años",
+    activeYear: "Año Activo",
+    accumulatedRange: "Rango Acumulado",
+    playChronology: "Reproducir cronología",
+    pauseAnimation: "Pausar animación",
+    previousYear: "Año anterior (<)",
+    nextYear: "Año siguiente (>)",
+    zoomIn: "Acercar mapa (+)",
+    zoomOut: "Alejar mapa (-)",
+    resetZoom: "Restablecer encuadre",
+    choroplethMapTitle: "Mapa Coroplético por Cortes Naturales",
+    noRecords: "Sin registro",
+    transparencyBadge: "Transparencia y Neutralidad Radical",
+    footerSubtitle:
+      "Proyecto independiente y sin ánimo de lucro. Fuentes oficiales: INE, CIS, Banco de España y Ministerios.",
+    homeLink: "Inicio",
+    notFoundTitle: "Página no encontrada",
+    notFoundDesc: "El indicador o recurso solicitado no existe o ha sido trasladado.",
+    continentBreakdown: "Desglose por Continentes",
+    originRankingTitle: "Países de Origen · Ranking Detallado",
+    searchCountryPlaceholder: "Buscar país...",
+    showMore: "Mostrar más",
+    collapse: "Ocultar",
+    otherCountries: "Otros países (<1,5%)",
+    groupedCountries: "países agrupados",
+  },
+  en: {
+    appName: "Factor.es",
+    tagline:
+      "Unified directory of official Spanish indicators. Condensed figures, direct traceability, and zero political noise.",
+    backToExplorer: "Back to explorer",
+    loadingDirectory: "Loading unified directory...",
+    loadingData: "Loading data via HTTP...",
+    noResults: "No indicators found matching",
+    clearSearch: "Clear search",
+    searchPlaceholder: "Search indicator, category or term (e.g., unemployment, rent)...",
+    sourceTitle: "Official Data Source & Traceability",
+    sourcesTitle: "Official Data Sources & Traceability",
+    sourcesSubtitleSingle:
+      "Direct link to the original publication to audit and verify the official historical series:",
+    sourcesSubtitleMultiple:
+      "Linked series to directly audit and verify the official records that make up this indicator:",
+    lastUpdated: "Last updated",
+    period: "Period",
+    institution: "Institution",
+    officialTable: "Table",
+    viewOriginalSource: "View official source",
+    noDataYet: "No data registered yet",
+    people: "people",
+    totalGlobal: "Global Total",
+    indicatorsCount: "indicators",
+    indicatorCount: "indicator",
+    methodologicalNotesTitle: "Methodological Notes & Context",
+    fiscalTabRatio: "Ratio Comparison %",
+    fiscalTabCapita: "Net Balance €/capita",
+    fiscalTabTotal: "Total State Balance (MM€)",
+    fiscalRatioDesc: "Contribution / Spending Ratio (>100% surplus, <100% deficit)",
+    fiscalCapitaDesc: "Annual net fiscal balance per capita (€/person)",
+    fiscalTotalDesc: "Consolidated public budget of General Government (IGAE S.13 SEC-2010)",
+    fiscalForeignRatio: "Foreign Population",
+    fiscalSpanishRatio: "Spanish Population",
+    fiscalForeignCapita: "Foreign (€/capita)",
+    fiscalSpanishCapita: "Spanish (€/capita)",
+    fiscalSurplus: "Surplus",
+    fiscalDeficit: "Deficit",
+    fiscalTotalRevenue: "Total Revenue",
+    fiscalTotalSpending: "Total Spending",
+    fiscalDeficitCurve: "Consolidated Deficit / Surplus",
+    yearLabel: "Year",
+    singleYear: "Single Year",
+    yearRange: "Year Range",
+    activeYear: "Active Year",
+    accumulatedRange: "Accumulated Range",
+    playChronology: "Play chronology",
+    pauseAnimation: "Pause animation",
+    previousYear: "Previous year (<)",
+    nextYear: "Next year (>)",
+    zoomIn: "Zoom in (+)",
+    zoomOut: "Zoom out (-)",
+    resetZoom: "Reset view",
+    choroplethMapTitle: "Choropleth Map by Natural Breaks",
+    noRecords: "No record",
+    transparencyBadge: "Transparency & Radical Neutrality",
+    footerSubtitle:
+      "Independent non-profit project. Official sources: INE, CIS, Bank of Spain & Ministries.",
+    homeLink: "Home",
+    notFoundTitle: "Page Not Found",
+    notFoundDesc: "The requested indicator or resource does not exist or has been moved.",
+    continentBreakdown: "Continent Breakdown",
+    originRankingTitle: "Origin Countries · Detailed Ranking",
+    searchCountryPlaceholder: "Search country...",
+    showMore: "Show more",
+    collapse: "Collapse",
+    otherCountries: "Other countries (<1.5%)",
+    groupedCountries: "countries grouped",
+  },
+};
+
+export function t(key: string, locale: Locale = "es"): string {
+  return DICTIONARY[locale]?.[key] ?? DICTIONARY.es[key] ?? key;
+}
+
+export function translateCategory(category: Category | "all", locale: Locale = "es"): string {
+  return CATEGORY_LABELS[category]?.[locale] ?? category;
+}

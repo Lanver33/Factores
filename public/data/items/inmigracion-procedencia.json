@@ -1,4996 +1,1189 @@
 {
   "id": "inmigracion-procedencia",
-  "category": "Pensiones y Demografía",
-  "question": "¿Cuál es la evolución de la inmigración procedente del extranjero en España?",
-  "chartType": "bar",
-  "unit": "personas",
-  "blocks": [
-    {
-      "id": "america-hispanohablante",
-      "name": "América (Hispanohablante)",
-      "color": "#2563EB",
-      "countries": [
-        {
-          "id": "colombia",
-          "name": "Colombia"
-        },
-        {
-          "id": "venezuela",
-          "name": "Venezuela"
-        },
-        {
-          "id": "peru",
-          "name": "Perú"
-        },
-        {
-          "id": "argentina",
-          "name": "Argentina"
-        },
-        {
-          "id": "honduras",
-          "name": "Honduras"
-        },
-        {
-          "id": "ecuador",
-          "name": "Ecuador"
-        },
-        {
-          "id": "cuba",
-          "name": "Cuba"
-        },
-        {
-          "id": "paraguay",
-          "name": "Paraguay"
-        },
-        {
-          "id": "republica-dominicana",
-          "name": "República Dominicana"
-        },
-        {
-          "id": "bolivia",
-          "name": "Bolivia"
-        },
-        {
-          "id": "chile",
-          "name": "Chile"
-        },
-        {
-          "id": "mexico",
-          "name": "México"
-        },
-        {
-          "id": "nicaragua",
-          "name": "Nicaragua"
-        },
-        {
-          "id": "uruguay",
-          "name": "Uruguay"
-        }
-      ]
-    },
-    {
-      "id": "america-no-hispanohablante",
-      "name": "América (No Hispanohablante)",
-      "color": "#7C3AED",
-      "countries": [
-        {
-          "id": "brasil",
-          "name": "Brasil"
-        },
-        {
-          "id": "estados-unidos-de-america",
-          "name": "Estados Unidos de América"
-        },
-        {
-          "id": "canada",
-          "name": "Canadá"
-        }
-      ]
-    },
-    {
-      "id": "europa",
-      "name": "Europa",
-      "color": "#0891B2",
-      "countries": [
-        {
-          "id": "alemania",
-          "name": "Alemania"
-        },
-        {
-          "id": "rumania",
-          "name": "Rumanía"
-        },
-        {
-          "id": "reino-unido",
-          "name": "Reino Unido"
-        },
-        {
-          "id": "italia",
-          "name": "Italia"
-        },
-        {
-          "id": "ucrania",
-          "name": "Ucrania"
-        },
-        {
-          "id": "francia",
-          "name": "Francia"
-        },
-        {
-          "id": "rusia",
-          "name": "Rusia"
-        },
-        {
-          "id": "portugal",
-          "name": "Portugal"
-        },
-        {
-          "id": "bulgaria",
-          "name": "Bulgaria"
-        },
-        {
-          "id": "belgica",
-          "name": "Bélgica"
-        },
-        {
-          "id": "dinamarca",
-          "name": "Dinamarca"
-        },
-        {
-          "id": "finlandia",
-          "name": "Finlandia"
-        },
-        {
-          "id": "irlanda",
-          "name": "Irlanda"
-        },
-        {
-          "id": "lituania",
-          "name": "Lituania"
-        },
-        {
-          "id": "moldavia",
-          "name": "Moldavia"
-        },
-        {
-          "id": "noruega",
-          "name": "Noruega"
-        },
-        {
-          "id": "paises-bajos",
-          "name": "Países Bajos"
-        },
-        {
-          "id": "polonia",
-          "name": "Polonia"
-        },
-        {
-          "id": "suecia",
-          "name": "Suecia"
-        },
-        {
-          "id": "suiza",
-          "name": "Suiza"
-        }
-      ]
-    },
-    {
-      "id": "africa",
-      "name": "África",
-      "color": "#059669",
-      "countries": [
-        {
-          "id": "marruecos",
-          "name": "Marruecos"
-        },
-        {
-          "id": "argelia",
-          "name": "Argelia"
-        },
-        {
-          "id": "senegal",
-          "name": "Senegal"
-        },
-        {
-          "id": "mali",
-          "name": "Mali"
-        },
-        {
-          "id": "nigeria",
-          "name": "Nigeria"
-        },
-        {
-          "id": "gambia",
-          "name": "Gambia"
-        },
-        {
-          "id": "guinea-ecuatorial",
-          "name": "Guinea Ecuatorial"
-        },
-        {
-          "id": "ghana",
-          "name": "Ghana"
-        },
-        {
-          "id": "guinea",
-          "name": "Guinea"
-        },
-        {
-          "id": "mauritania",
-          "name": "Mauritania"
-        }
-      ]
-    },
-    {
-      "id": "asia",
-      "name": "Asia",
-      "color": "#D97706",
-      "countries": [
-        {
-          "id": "china",
-          "name": "China"
-        },
-        {
-          "id": "pakistan",
-          "name": "Pakistán"
-        },
-        {
-          "id": "india",
-          "name": "India"
-        },
-        {
-          "id": "filipinas",
-          "name": "Filipinas"
-        },
-        {
-          "id": "bangladesh",
-          "name": "Bangladesh"
-        }
-      ]
-    },
-    {
-      "id": "oceania",
-      "name": "Oceanía",
-      "color": "#64748B",
-      "countries": []
-    }
-  ],
-  "annualBlocks": [
-    {
-      "year": "2008",
-      "total": 599074,
-      "blocks": {
-        "america-hispanohablante": {
-          "total": 207808,
-          "countries": {
-            "colombia": 36416,
-            "venezuela": 12969,
-            "peru": 27968,
-            "argentina": 18190,
-            "honduras": 4584,
-            "ecuador": 32617,
-            "cuba": 10161,
-            "paraguay": 17558,
-            "republica-dominicana": 16829,
-            "bolivia": 10549,
-            "chile": 5695,
-            "mexico": 5650,
-            "nicaragua": 2941,
-            "uruguay": 5681
-          }
-        },
-        "america-no-hispanohablante": {
-          "total": 28285,
-          "countries": {
-            "brasil": 21099,
-            "estados-unidos-de-america": 6512,
-            "canada": 674
-          }
-        },
-        "europa": {
-          "total": 191655,
-          "countries": {
-            "alemania": 14047,
-            "rumania": 61027,
-            "reino-unido": 26631,
-            "italia": 13075,
-            "ucrania": 6726,
-            "francia": 12407,
-            "rusia": 6122,
-            "portugal": 15440,
-            "bulgaria": 10719,
-            "belgica": 2718,
-            "dinamarca": 861,
-            "finlandia": 712,
-            "irlanda": 1525,
-            "lituania": 1101,
-            "moldavia": 2195,
-            "noruega": 1159,
-            "paises-bajos": 4323,
-            "polonia": 6597,
-            "suecia": 1633,
-            "suiza": 2637
-          }
-        },
-        "africa": {
-          "total": 105720,
-          "countries": {
-            "marruecos": 71660,
-            "argelia": 5435,
-            "senegal": 10553,
-            "mali": 3503,
-            "nigeria": 4726,
-            "gambia": 2532,
-            "guinea-ecuatorial": 2171,
-            "ghana": 1834,
-            "guinea": 1697,
-            "mauritania": 1609
-          }
-        },
-        "asia": {
-          "total": 40031,
-          "countries": {
-            "china": 20261,
-            "pakistan": 8495,
-            "india": 4907,
-            "filipinas": 4797,
-            "bangladesh": 1571
-          }
-        },
-        "oceania": {
-          "total": 0,
-          "countries": {}
-        }
-      }
-    },
-    {
-      "year": "2009",
-      "total": 392963,
-      "blocks": {
-        "america-hispanohablante": {
-          "total": 117899,
-          "countries": {
-            "colombia": 20946,
-            "venezuela": 9077,
-            "peru": 13972,
-            "argentina": 9813,
-            "honduras": 3757,
-            "ecuador": 13747,
-            "cuba": 6881,
-            "paraguay": 10871,
-            "republica-dominicana": 9944,
-            "bolivia": 5973,
-            "chile": 3499,
-            "mexico": 4818,
-            "nicaragua": 2391,
-            "uruguay": 2210
-          }
-        },
-        "america-no-hispanohablante": {
-          "total": 17907,
-          "countries": {
-            "brasil": 10923,
-            "estados-unidos-de-america": 6345,
-            "canada": 639
-          }
-        },
-        "europa": {
-          "total": 143466,
-          "countries": {
-            "alemania": 11048,
-            "rumania": 43988,
-            "reino-unido": 20355,
-            "italia": 10557,
-            "ucrania": 4725,
-            "francia": 10558,
-            "rusia": 5650,
-            "portugal": 8648,
-            "bulgaria": 7687,
-            "belgica": 2554,
-            "dinamarca": 690,
-            "finlandia": 691,
-            "irlanda": 1589,
-            "lituania": 1154,
-            "moldavia": 1269,
-            "noruega": 1260,
-            "paises-bajos": 3452,
-            "polonia": 3653,
-            "suecia": 1556,
-            "suiza": 2382
-          }
-        },
-        "africa": {
-          "total": 66603,
-          "countries": {
-            "marruecos": 43436,
-            "argelia": 4291,
-            "senegal": 7142,
-            "mali": 2097,
-            "nigeria": 2904,
-            "gambia": 1741,
-            "guinea-ecuatorial": 1531,
-            "ghana": 1342,
-            "guinea": 1219,
-            "mauritania": 900
-          }
-        },
-        "asia": {
-          "total": 27234,
-          "countries": {
-            "china": 12174,
-            "pakistan": 6137,
-            "india": 4232,
-            "filipinas": 3060,
-            "bangladesh": 1631
-          }
-        },
-        "oceania": {
-          "total": 0,
-          "countries": {}
-        }
-      }
-    },
-    {
-      "year": "2010",
-      "total": 360704,
-      "blocks": {
-        "america-hispanohablante": {
-          "total": 97435,
-          "countries": {
-            "colombia": 14122,
-            "venezuela": 10623,
-            "peru": 8495,
-            "argentina": 8398,
-            "honduras": 4758,
-            "ecuador": 7238,
-            "cuba": 9414,
-            "paraguay": 9477,
-            "republica-dominicana": 7415,
-            "bolivia": 4201,
-            "chile": 3265,
-            "mexico": 4990,
-            "nicaragua": 3029,
-            "uruguay": 2010
-          }
-        },
-        "america-no-hispanohablante": {
-          "total": 16018,
-          "countries": {
-            "brasil": 9114,
-            "estados-unidos-de-america": 6226,
-            "canada": 678
-          }
-        },
-        "europa": {
-          "total": 148789,
-          "countries": {
-            "alemania": 10249,
-            "rumania": 51819,
-            "reino-unido": 18670,
-            "italia": 10378,
-            "ucrania": 4846,
-            "francia": 10544,
-            "rusia": 6490,
-            "portugal": 6843,
-            "bulgaria": 8395,
-            "belgica": 2800,
-            "dinamarca": 750,
-            "finlandia": 940,
-            "irlanda": 1617,
-            "lituania": 1272,
-            "moldavia": 851,
-            "noruega": 1495,
-            "paises-bajos": 3518,
-            "polonia": 3352,
-            "suecia": 1783,
-            "suiza": 2177
-          }
-        },
-        "africa": {
-          "total": 47071,
-          "countries": {
-            "marruecos": 30231,
-            "argelia": 3748,
-            "senegal": 3774,
-            "mali": 1299,
-            "nigeria": 2416,
-            "gambia": 1464,
-            "guinea-ecuatorial": 1418,
-            "ghana": 1201,
-            "guinea": 827,
-            "mauritania": 693
-          }
-        },
-        "asia": {
-          "total": 31922,
-          "countries": {
-            "china": 10495,
-            "pakistan": 14849,
-            "india": 3275,
-            "filipinas": 1972,
-            "bangladesh": 1331
-          }
-        },
-        "oceania": {
-          "total": 0,
-          "countries": {}
-        }
-      }
-    },
-    {
-      "year": "2011",
-      "total": 371335,
-      "blocks": {
-        "america-hispanohablante": {
-          "total": 104104,
-          "countries": {
-            "colombia": 13673,
-            "venezuela": 10762,
-            "peru": 8071,
-            "argentina": 7527,
-            "honduras": 6362,
-            "ecuador": 7093,
-            "cuba": 12099,
-            "paraguay": 8306,
-            "republica-dominicana": 10985,
-            "bolivia": 4758,
-            "chile": 3105,
-            "mexico": 5873,
-            "nicaragua": 3646,
-            "uruguay": 1844
-          }
-        },
-        "america-no-hispanohablante": {
-          "total": 17199,
-          "countries": {
-            "brasil": 8389,
-            "estados-unidos-de-america": 7911,
-            "canada": 899
-          }
-        },
-        "europa": {
-          "total": 153272,
-          "countries": {
-            "alemania": 10054,
-            "rumania": 50747,
-            "reino-unido": 18828,
-            "italia": 11558,
-            "ucrania": 5000,
-            "francia": 11143,
-            "rusia": 7887,
-            "portugal": 7006,
-            "bulgaria": 9931,
-            "belgica": 2982,
-            "dinamarca": 780,
-            "finlandia": 985,
-            "irlanda": 1713,
-            "lituania": 1065,
-            "moldavia": 791,
-            "noruega": 1565,
-            "paises-bajos": 3751,
-            "polonia": 3270,
-            "suecia": 1800,
-            "suiza": 2416
-          }
-        },
-        "africa": {
-          "total": 44671,
-          "countries": {
-            "marruecos": 28415,
-            "argelia": 4240,
-            "senegal": 3602,
-            "mali": 1068,
-            "nigeria": 2097,
-            "gambia": 1368,
-            "guinea-ecuatorial": 1333,
-            "ghana": 1254,
-            "guinea": 663,
-            "mauritania": 631
-          }
-        },
-        "asia": {
-          "total": 29047,
-          "countries": {
-            "china": 10778,
-            "pakistan": 10871,
-            "india": 3586,
-            "filipinas": 2364,
-            "bangladesh": 1448
-          }
-        },
-        "oceania": {
-          "total": 0,
-          "countries": {}
-        }
-      }
-    },
-    {
-      "year": "2012",
-      "total": 304054,
-      "blocks": {
-        "america-hispanohablante": {
-          "total": 82122,
-          "countries": {
-            "colombia": 10431,
-            "venezuela": 7578,
-            "peru": 6040,
-            "argentina": 5738,
-            "honduras": 5399,
-            "ecuador": 6421,
-            "cuba": 8944,
-            "paraguay": 4903,
-            "republica-dominicana": 10771,
-            "bolivia": 4054,
-            "chile": 2374,
-            "mexico": 5316,
-            "nicaragua": 2836,
-            "uruguay": 1317
-          }
-        },
-        "america-no-hispanohablante": {
-          "total": 15328,
-          "countries": {
-            "brasil": 6928,
-            "estados-unidos-de-america": 7492,
-            "canada": 908
-          }
-        },
-        "europa": {
-          "total": 122977,
-          "countries": {
-            "alemania": 9896,
-            "rumania": 27244,
-            "reino-unido": 19219,
-            "italia": 12436,
-            "ucrania": 3623,
-            "francia": 10407,
-            "rusia": 7820,
-            "portugal": 5837,
-            "bulgaria": 6268,
-            "belgica": 3285,
-            "dinamarca": 890,
-            "finlandia": 941,
-            "irlanda": 1752,
-            "lituania": 808,
-            "moldavia": 647,
-            "noruega": 1460,
-            "paises-bajos": 3413,
-            "polonia": 2693,
-            "suecia": 1886,
-            "suiza": 2452
-          }
-        },
-        "africa": {
-          "total": 37765,
-          "countries": {
-            "marruecos": 23017,
-            "argelia": 4572,
-            "senegal": 2920,
-            "mali": 1074,
-            "nigeria": 1659,
-            "gambia": 1148,
-            "guinea-ecuatorial": 1199,
-            "ghana": 1059,
-            "guinea": 607,
-            "mauritania": 510
-          }
-        },
-        "asia": {
-          "total": 23822,
-          "countries": {
-            "china": 9348,
-            "pakistan": 7794,
-            "india": 2839,
-            "filipinas": 2092,
-            "bangladesh": 1749
-          }
-        },
-        "oceania": {
-          "total": 0,
-          "countries": {}
-        }
-      }
-    },
-    {
-      "year": "2013",
-      "total": 280772,
-      "blocks": {
-        "america-hispanohablante": {
-          "total": 73635,
-          "countries": {
-            "colombia": 9268,
-            "venezuela": 7725,
-            "peru": 5402,
-            "argentina": 6021,
-            "honduras": 4424,
-            "ecuador": 6329,
-            "cuba": 8103,
-            "paraguay": 3828,
-            "republica-dominicana": 8866,
-            "bolivia": 3832,
-            "chile": 2142,
-            "mexico": 4239,
-            "nicaragua": 2201,
-            "uruguay": 1255
-          }
-        },
-        "america-no-hispanohablante": {
-          "total": 14528,
-          "countries": {
-            "brasil": 5625,
-            "estados-unidos-de-america": 7930,
-            "canada": 973
-          }
-        },
-        "europa": {
-          "total": 113489,
-          "countries": {
-            "alemania": 9208,
-            "rumania": 22747,
-            "reino-unido": 16782,
-            "italia": 12606,
-            "ucrania": 3250,
-            "francia": 10548,
-            "rusia": 8617,
-            "portugal": 5182,
-            "bulgaria": 4981,
-            "belgica": 3573,
-            "dinamarca": 812,
-            "finlandia": 906,
-            "irlanda": 1605,
-            "lituania": 736,
-            "moldavia": 493,
-            "noruega": 1393,
-            "paises-bajos": 3450,
-            "polonia": 2556,
-            "suecia": 1759,
-            "suiza": 2285
-          }
-        },
-        "africa": {
-          "total": 35900,
-          "countries": {
-            "marruecos": 21034,
-            "argelia": 4737,
-            "senegal": 3146,
-            "mali": 1145,
-            "nigeria": 1404,
-            "gambia": 1135,
-            "guinea-ecuatorial": 1231,
-            "ghana": 1007,
-            "guinea": 559,
-            "mauritania": 502
-          }
-        },
-        "asia": {
-          "total": 21539,
-          "countries": {
-            "china": 9322,
-            "pakistan": 6098,
-            "india": 2835,
-            "filipinas": 2008,
-            "bangladesh": 1276
-          }
-        },
-        "oceania": {
-          "total": 0,
-          "countries": {}
-        }
-      }
-    },
-    {
-      "year": "2014",
-      "total": 305454,
-      "blocks": {
-        "america-hispanohablante": {
-          "total": 84220,
-          "countries": {
-            "colombia": 9378,
-            "venezuela": 12842,
-            "peru": 5696,
-            "argentina": 7082,
-            "honduras": 5781,
-            "ecuador": 6873,
-            "cuba": 7586,
-            "paraguay": 4349,
-            "republica-dominicana": 8706,
-            "bolivia": 4539,
-            "chile": 2528,
-            "mexico": 4579,
-            "nicaragua": 2769,
-            "uruguay": 1512
-          }
-        },
-        "america-no-hispanohablante": {
-          "total": 15795,
-          "countries": {
-            "brasil": 6643,
-            "estados-unidos-de-america": 8054,
-            "canada": 1098
-          }
-        },
-        "europa": {
-          "total": 126877,
-          "countries": {
-            "alemania": 8913,
-            "rumania": 29531,
-            "reino-unido": 17746,
-            "italia": 14781,
-            "ucrania": 5665,
-            "francia": 11985,
-            "rusia": 8286,
-            "portugal": 4939,
-            "bulgaria": 4689,
-            "belgica": 3665,
-            "dinamarca": 827,
-            "finlandia": 889,
-            "irlanda": 1524,
-            "lituania": 673,
-            "moldavia": 815,
-            "noruega": 1468,
-            "paises-bajos": 3703,
-            "polonia": 2307,
-            "suecia": 1925,
-            "suiza": 2546
-          }
-        },
-        "africa": {
-          "total": 34850,
-          "countries": {
-            "marruecos": 20284,
-            "argelia": 4488,
-            "senegal": 2984,
-            "mali": 1214,
-            "nigeria": 1201,
-            "gambia": 1203,
-            "guinea-ecuatorial": 1505,
-            "ghana": 873,
-            "guinea": 564,
-            "mauritania": 534
-          }
-        },
-        "asia": {
-          "total": 20322,
-          "countries": {
-            "china": 9589,
-            "pakistan": 4980,
-            "india": 2900,
-            "filipinas": 1883,
-            "bangladesh": 970
-          }
-        },
-        "oceania": {
-          "total": 0,
-          "countries": {}
-        }
-      }
-    },
-    {
-      "year": "2015",
-      "total": 342114,
-      "blocks": {
-        "america-hispanohablante": {
-          "total": 100936,
-          "countries": {
-            "colombia": 10928,
-            "venezuela": 19652,
-            "peru": 6685,
-            "argentina": 8768,
-            "honduras": 7754,
-            "ecuador": 8355,
-            "cuba": 7365,
-            "paraguay": 4848,
-            "republica-dominicana": 7988,
-            "bolivia": 4977,
-            "chile": 3236,
-            "mexico": 5188,
-            "nicaragua": 3200,
-            "uruguay": 1992
-          }
-        },
-        "america-no-hispanohablante": {
-          "total": 19080,
-          "countries": {
-            "brasil": 8770,
-            "estados-unidos-de-america": 9170,
-            "canada": 1140
-          }
-        },
-        "europa": {
-          "total": 135743,
-          "countries": {
-            "alemania": 9605,
-            "rumania": 28382,
-            "reino-unido": 19284,
-            "italia": 17350,
-            "ucrania": 8827,
-            "francia": 13507,
-            "rusia": 7113,
-            "portugal": 5010,
-            "bulgaria": 4915,
-            "belgica": 4047,
-            "dinamarca": 902,
-            "finlandia": 925,
-            "irlanda": 1684,
-            "lituania": 763,
-            "moldavia": 1025,
-            "noruega": 1313,
-            "paises-bajos": 3937,
-            "polonia": 2343,
-            "suecia": 1872,
-            "suiza": 2939
-          }
-        },
-        "africa": {
-          "total": 39272,
-          "countries": {
-            "marruecos": 24208,
-            "argelia": 4167,
-            "senegal": 3419,
-            "mali": 1131,
-            "nigeria": 1175,
-            "gambia": 1158,
-            "guinea-ecuatorial": 1823,
-            "ghana": 866,
-            "guinea": 649,
-            "mauritania": 676
-          }
-        },
-        "asia": {
-          "total": 21321,
-          "countries": {
-            "china": 10327,
-            "pakistan": 4483,
-            "india": 3003,
-            "filipinas": 2307,
-            "bangladesh": 1201
-          }
-        },
-        "oceania": {
-          "total": 0,
-          "countries": {}
-        }
-      }
-    },
-    {
-      "year": "2016",
-      "total": 414746,
-      "blocks": {
-        "america-hispanohablante": {
-          "total": 148553,
-          "countries": {
-            "colombia": 24844,
-            "venezuela": 31553,
-            "peru": 9711,
-            "argentina": 10852,
-            "honduras": 11074,
-            "ecuador": 12349,
-            "cuba": 8122,
-            "paraguay": 7500,
-            "republica-dominicana": 9709,
-            "bolivia": 6202,
-            "chile": 4304,
-            "mexico": 5301,
-            "nicaragua": 4250,
-            "uruguay": 2782
-          }
-        },
-        "america-no-hispanohablante": {
-          "total": 23063,
-          "countries": {
-            "brasil": 11954,
-            "estados-unidos-de-america": 9942,
-            "canada": 1167
-          }
-        },
-        "europa": {
-          "total": 141959,
-          "countries": {
-            "alemania": 10505,
-            "rumania": 27860,
-            "reino-unido": 23876,
-            "italia": 18526,
-            "ucrania": 6835,
-            "francia": 13341,
-            "rusia": 6350,
-            "portugal": 5257,
-            "bulgaria": 5297,
-            "belgica": 4511,
-            "dinamarca": 968,
-            "finlandia": 971,
-            "irlanda": 1973,
-            "lituania": 942,
-            "moldavia": 1096,
-            "noruega": 1422,
-            "paises-bajos": 4373,
-            "polonia": 2445,
-            "suecia": 2101,
-            "suiza": 3310
-          }
-        },
-        "africa": {
-          "total": 46562,
-          "countries": {
-            "marruecos": 30097,
-            "argelia": 4512,
-            "senegal": 3918,
-            "mali": 1128,
-            "nigeria": 1188,
-            "gambia": 1280,
-            "guinea-ecuatorial": 1983,
-            "ghana": 959,
-            "guinea": 773,
-            "mauritania": 724
-          }
-        },
-        "asia": {
-          "total": 24476,
-          "countries": {
-            "china": 10552,
-            "pakistan": 6225,
-            "india": 3734,
-            "filipinas": 2369,
-            "bangladesh": 1596
-          }
-        },
-        "oceania": {
-          "total": 0,
-          "countries": {}
-        }
-      }
-    },
-    {
-      "year": "2017",
-      "total": 532132,
-      "blocks": {
-        "america-hispanohablante": {
-          "total": 214610,
-          "countries": {
-            "colombia": 36678,
-            "venezuela": 52385,
-            "peru": 15945,
-            "argentina": 14904,
-            "honduras": 18573,
-            "ecuador": 15600,
-            "cuba": 10280,
-            "paraguay": 8659,
-            "republica-dominicana": 11324,
-            "bolivia": 7689,
-            "chile": 5348,
-            "mexico": 7068,
-            "nicaragua": 6330,
-            "uruguay": 3827
-          }
-        },
-        "america-no-hispanohablante": {
-          "total": 28836,
-          "countries": {
-            "brasil": 14816,
-            "estados-unidos-de-america": 12719,
-            "canada": 1301
-          }
-        },
-        "europa": {
-          "total": 165973,
-          "countries": {
-            "alemania": 12714,
-            "rumania": 30235,
-            "reino-unido": 28875,
-            "italia": 22203,
-            "ucrania": 7806,
-            "francia": 16290,
-            "rusia": 7051,
-            "portugal": 5888,
-            "bulgaria": 5942,
-            "belgica": 5358,
-            "dinamarca": 1179,
-            "finlandia": 1141,
-            "irlanda": 2234,
-            "lituania": 1219,
-            "moldavia": 1240,
-            "noruega": 1603,
-            "paises-bajos": 5030,
-            "polonia": 3041,
-            "suecia": 2552,
-            "suiza": 4372
-          }
-        },
-        "africa": {
-          "total": 57947,
-          "countries": {
-            "marruecos": 40372,
-            "argelia": 4899,
-            "senegal": 4362,
-            "mali": 1118,
-            "nigeria": 1400,
-            "gambia": 1362,
-            "guinea-ecuatorial": 1963,
-            "ghana": 1227,
-            "guinea": 734,
-            "mauritania": 510
-          }
-        },
-        "asia": {
-          "total": 27637,
-          "countries": {
-            "china": 11779,
-            "pakistan": 6560,
-            "india": 4664,
-            "filipinas": 2674,
-            "bangladesh": 1960
-          }
-        },
-        "oceania": {
-          "total": 0,
-          "countries": {}
-        }
-      }
-    },
-    {
-      "year": "2018",
-      "total": 643684,
-      "blocks": {
-        "america-hispanohablante": {
-          "total": 280612,
-          "countries": {
-            "colombia": 56253,
-            "venezuela": 71666,
-            "peru": 21463,
-            "argentina": 19166,
-            "honduras": 23671,
-            "ecuador": 15893,
-            "cuba": 14265,
-            "paraguay": 9533,
-            "republica-dominicana": 10813,
-            "bolivia": 7632,
-            "chile": 6256,
-            "mexico": 7834,
-            "nicaragua": 11732,
-            "uruguay": 4435
-          }
-        },
-        "america-no-hispanohablante": {
-          "total": 33219,
-          "countries": {
-            "brasil": 17863,
-            "estados-unidos-de-america": 13853,
-            "canada": 1503
-          }
-        },
-        "europa": {
-          "total": 169346,
-          "countries": {
-            "alemania": 13314,
-            "rumania": 28030,
-            "reino-unido": 31276,
-            "italia": 22002,
-            "ucrania": 8152,
-            "francia": 16210,
-            "rusia": 8091,
-            "portugal": 6369,
-            "bulgaria": 5173,
-            "belgica": 5495,
-            "dinamarca": 1201,
-            "finlandia": 1115,
-            "irlanda": 2597,
-            "lituania": 1247,
-            "moldavia": 1478,
-            "noruega": 1648,
-            "paises-bajos": 5506,
-            "polonia": 3211,
-            "suecia": 2985,
-            "suiza": 4246
-          }
-        },
-        "africa": {
-          "total": 85743,
-          "countries": {
-            "marruecos": 61715,
-            "argelia": 6687,
-            "senegal": 6797,
-            "mali": 1776,
-            "nigeria": 1513,
-            "gambia": 1646,
-            "guinea-ecuatorial": 1915,
-            "ghana": 1822,
-            "guinea": 1132,
-            "mauritania": 740
-          }
-        },
-        "asia": {
-          "total": 32712,
-          "countries": {
-            "china": 12182,
-            "pakistan": 8673,
-            "india": 6858,
-            "filipinas": 2561,
-            "bangladesh": 2438
-          }
-        },
-        "oceania": {
-          "total": 0,
-          "countries": {}
-        }
-      }
-    },
-    {
-      "year": "2019",
-      "total": 750480,
-      "blocks": {
-        "america-hispanohablante": {
-          "total": 352712,
-          "countries": {
-            "colombia": 80324,
-            "venezuela": 74344,
-            "peru": 31390,
-            "argentina": 31306,
-            "honduras": 29312,
-            "ecuador": 17663,
-            "cuba": 17660,
-            "paraguay": 12231,
-            "republica-dominicana": 11058,
-            "bolivia": 7705,
-            "chile": 7171,
-            "mexico": 9088,
-            "nicaragua": 17452,
-            "uruguay": 6008
-          }
-        },
-        "america-no-hispanohablante": {
-          "total": 35321,
-          "countries": {
-            "brasil": 18711,
-            "estados-unidos-de-america": 15032,
-            "canada": 1578
-          }
-        },
-        "europa": {
-          "total": 175670,
-          "countries": {
-            "alemania": 13633,
-            "rumania": 25576,
-            "reino-unido": 37720,
-            "italia": 21559,
-            "ucrania": 7965,
-            "francia": 16550,
-            "rusia": 9032,
-            "portugal": 7068,
-            "bulgaria": 5392,
-            "belgica": 5605,
-            "dinamarca": 1235,
-            "finlandia": 999,
-            "irlanda": 2824,
-            "lituania": 1102,
-            "moldavia": 1534,
-            "noruega": 1711,
-            "paises-bajos": 5648,
-            "polonia": 3133,
-            "suecia": 3250,
-            "suiza": 4134
-          }
-        },
-        "africa": {
-          "total": 101539,
-          "countries": {
-            "marruecos": 73348,
-            "argelia": 7572,
-            "senegal": 7963,
-            "mali": 2634,
-            "nigeria": 1496,
-            "gambia": 2033,
-            "guinea-ecuatorial": 1659,
-            "ghana": 2435,
-            "guinea": 1469,
-            "mauritania": 930
-          }
-        },
-        "asia": {
-          "total": 36724,
-          "countries": {
-            "china": 12646,
-            "pakistan": 11513,
-            "india": 7013,
-            "filipinas": 3070,
-            "bangladesh": 2482
-          }
-        },
-        "oceania": {
-          "total": 0,
-          "countries": {}
-        }
-      }
-    },
-    {
-      "year": "2020",
-      "total": 467918,
-      "blocks": {
-        "america-hispanohablante": {
-          "total": 203101,
-          "countries": {
-            "colombia": 52921,
-            "venezuela": 32927,
-            "peru": 19737,
-            "argentina": 19857,
-            "honduras": 18856,
-            "ecuador": 10058,
-            "cuba": 7784,
-            "paraguay": 6596,
-            "republica-dominicana": 6470,
-            "bolivia": 4085,
-            "chile": 5052,
-            "mexico": 5867,
-            "nicaragua": 9416,
-            "uruguay": 3475
-          }
-        },
-        "america-no-hispanohablante": {
-          "total": 20658,
-          "countries": {
-            "brasil": 9541,
-            "estados-unidos-de-america": 9909,
-            "canada": 1208
-          }
-        },
-        "europa": {
-          "total": 131236,
-          "countries": {
-            "alemania": 10670,
-            "rumania": 14891,
-            "reino-unido": 36374,
-            "italia": 14258,
-            "ucrania": 4145,
-            "francia": 14086,
-            "rusia": 4640,
-            "portugal": 5555,
-            "bulgaria": 3274,
-            "belgica": 4667,
-            "dinamarca": 842,
-            "finlandia": 671,
-            "irlanda": 2201,
-            "lituania": 673,
-            "moldavia": 906,
-            "noruega": 1198,
-            "paises-bajos": 4493,
-            "polonia": 2268,
-            "suecia": 2198,
-            "suiza": 3226
-          }
-        },
-        "africa": {
-          "total": 63348,
-          "countries": {
-            "marruecos": 45464,
-            "argelia": 4388,
-            "senegal": 5132,
-            "mali": 2191,
-            "nigeria": 1091,
-            "gambia": 1556,
-            "guinea-ecuatorial": 842,
-            "ghana": 1314,
-            "guinea": 761,
-            "mauritania": 609
-          }
-        },
-        "asia": {
-          "total": 18860,
-          "countries": {
-            "china": 5670,
-            "pakistan": 7340,
-            "india": 2946,
-            "filipinas": 1706,
-            "bangladesh": 1198
-          }
-        },
-        "oceania": {
-          "total": 0,
-          "countries": {}
-        }
-      }
-    },
-    {
-      "year": "2021",
-      "total": 887960,
-      "blocks": {
-        "america-hispanohablante": {
-          "total": 318804,
-          "countries": {
-            "colombia": 69757,
-            "venezuela": 43698,
-            "peru": 31346,
-            "argentina": 43747,
-            "honduras": 20310,
-            "ecuador": 22407,
-            "cuba": 18107,
-            "paraguay": 11036,
-            "republica-dominicana": 13143,
-            "bolivia": 10286,
-            "chile": 10453,
-            "mexico": 11921,
-            "nicaragua": 7323,
-            "uruguay": 5270
-          }
-        },
-        "america-no-hispanohablante": {
-          "total": 38021,
-          "countries": {
-            "brasil": 14612,
-            "estados-unidos-de-america": 20911,
-            "canada": 2498
-          }
-        },
-        "europa": {
-          "total": 275221,
-          "countries": {
-            "alemania": 28544,
-            "rumania": 45619,
-            "reino-unido": 50845,
-            "italia": 25084,
-            "ucrania": 9811,
-            "francia": 27894,
-            "rusia": 12874,
-            "portugal": 10789,
-            "bulgaria": 8434,
-            "belgica": 9865,
-            "dinamarca": 2024,
-            "finlandia": 1643,
-            "irlanda": 6200,
-            "lituania": 1519,
-            "moldavia": 1840,
-            "noruega": 3160,
-            "paises-bajos": 11286,
-            "polonia": 5360,
-            "suecia": 5249,
-            "suiza": 7181
-          }
-        },
-        "africa": {
-          "total": 146123,
-          "countries": {
-            "marruecos": 101234,
-            "argelia": 9744,
-            "senegal": 12582,
-            "mali": 6329,
-            "nigeria": 2998,
-            "gambia": 3804,
-            "guinea-ecuatorial": 2738,
-            "ghana": 2892,
-            "guinea": 1698,
-            "mauritania": 2104
-          }
-        },
-        "asia": {
-          "total": 46415,
-          "countries": {
-            "china": 18910,
-            "pakistan": 16057,
-            "india": 5850,
-            "filipinas": 3524,
-            "bangladesh": 2074
-          }
-        },
-        "oceania": {
-          "total": 0,
-          "countries": {}
-        }
-      }
-    },
-    {
-      "year": "2022",
-      "total": 1258894,
-      "blocks": {
-        "america-hispanohablante": {
-          "total": 583145,
-          "countries": {
-            "colombia": 178088,
-            "venezuela": 85299,
-            "peru": 70921,
-            "argentina": 59452,
-            "honduras": 34948,
-            "ecuador": 27982,
-            "cuba": 27080,
-            "paraguay": 24078,
-            "republica-dominicana": 14436,
-            "bolivia": 11229,
-            "chile": 12977,
-            "mexico": 13308,
-            "nicaragua": 16588,
-            "uruguay": 6759
-          }
-        },
-        "america-no-hispanohablante": {
-          "total": 45920,
-          "countries": {
-            "brasil": 22454,
-            "estados-unidos-de-america": 20646,
-            "canada": 2820
-          }
-        },
-        "europa": {
-          "total": 350041,
-          "countries": {
-            "alemania": 26468,
-            "rumania": 45591,
-            "reino-unido": 35084,
-            "italia": 30400,
-            "ucrania": 93191,
-            "francia": 26265,
-            "rusia": 20120,
-            "portugal": 10696,
-            "bulgaria": 8333,
-            "belgica": 9023,
-            "dinamarca": 1769,
-            "finlandia": 1627,
-            "irlanda": 5018,
-            "lituania": 1912,
-            "moldavia": 2553,
-            "noruega": 2425,
-            "paises-bajos": 11095,
-            "polonia": 6707,
-            "suecia": 4890,
-            "suiza": 6874
-          }
-        },
-        "africa": {
-          "total": 160823,
-          "countries": {
-            "marruecos": 115172,
-            "argelia": 12704,
-            "senegal": 11785,
-            "mali": 4637,
-            "nigeria": 2951,
-            "gambia": 3763,
-            "guinea-ecuatorial": 3478,
-            "ghana": 2870,
-            "guinea": 1691,
-            "mauritania": 1772
-          }
-        },
-        "asia": {
-          "total": 46339,
-          "countries": {
-            "china": 15334,
-            "pakistan": 16496,
-            "india": 8126,
-            "filipinas": 3903,
-            "bangladesh": 2480
-          }
-        },
-        "oceania": {
-          "total": 0,
-          "countries": {}
-        }
-      }
-    },
-    {
-      "year": "2023",
-      "total": 1250991,
-      "blocks": {
-        "america-hispanohablante": {
-          "total": 599411,
-          "countries": {
-            "colombia": 176124,
-            "venezuela": 92771,
-            "peru": 72138,
-            "argentina": 58266,
-            "honduras": 32983,
-            "ecuador": 34221,
-            "cuba": 30812,
-            "paraguay": 25223,
-            "republica-dominicana": 15570,
-            "bolivia": 12065,
-            "chile": 13700,
-            "mexico": 14475,
-            "nicaragua": 14148,
-            "uruguay": 6915
-          }
-        },
-        "america-no-hispanohablante": {
-          "total": 48207,
-          "countries": {
-            "brasil": 21741,
-            "estados-unidos-de-america": 23221,
-            "canada": 3245
-          }
-        },
-        "europa": {
-          "total": 297032,
-          "countries": {
-            "alemania": 27608,
-            "rumania": 43480,
-            "reino-unido": 35286,
-            "italia": 30602,
-            "ucrania": 34199,
-            "francia": 28326,
-            "rusia": 20600,
-            "portugal": 12208,
-            "bulgaria": 8159,
-            "belgica": 9364,
-            "dinamarca": 2083,
-            "finlandia": 1643,
-            "irlanda": 5573,
-            "lituania": 1953,
-            "moldavia": 1907,
-            "noruega": 2645,
-            "paises-bajos": 11445,
-            "polonia": 7357,
-            "suecia": 5043,
-            "suiza": 7551
-          }
-        },
-        "africa": {
-          "total": 172200,
-          "countries": {
-            "marruecos": 124832,
-            "argelia": 15457,
-            "senegal": 11751,
-            "mali": 3760,
-            "nigeria": 3149,
-            "gambia": 3579,
-            "guinea-ecuatorial": 3525,
-            "ghana": 2597,
-            "guinea": 1737,
-            "mauritania": 1813
-          }
-        },
-        "asia": {
-          "total": 57504,
-          "countries": {
-            "china": 21084,
-            "pakistan": 18221,
-            "india": 10033,
-            "filipinas": 4708,
-            "bangladesh": 3458
-          }
-        },
-        "oceania": {
-          "total": 0,
-          "countries": {}
-        }
-      }
-    },
-    {
-      "year": "2024",
-      "total": 1288562,
-      "blocks": {
-        "america-hispanohablante": {
-          "total": 608871,
-          "countries": {
-            "colombia": 172599,
-            "venezuela": 107223,
-            "peru": 74232,
-            "argentina": 53660,
-            "honduras": 29868,
-            "ecuador": 36684,
-            "cuba": 35741,
-            "paraguay": 25565,
-            "republica-dominicana": 15002,
-            "bolivia": 10594,
-            "chile": 13642,
-            "mexico": 15434,
-            "nicaragua": 12736,
-            "uruguay": 5891
-          }
-        },
-        "america-no-hispanohablante": {
-          "total": 50548,
-          "countries": {
-            "brasil": 21481,
-            "estados-unidos-de-america": 25559,
-            "canada": 3508
-          }
-        },
-        "europa": {
-          "total": 275553,
-          "countries": {
-            "alemania": 26123,
-            "rumania": 35747,
-            "reino-unido": 34791,
-            "italia": 28945,
-            "ucrania": 30000,
-            "francia": 29053,
-            "rusia": 14067,
-            "portugal": 12459,
-            "bulgaria": 6465,
-            "belgica": 9492,
-            "dinamarca": 2013,
-            "finlandia": 1509,
-            "irlanda": 5968,
-            "lituania": 1833,
-            "moldavia": 1561,
-            "noruega": 2734,
-            "paises-bajos": 13130,
-            "polonia": 7344,
-            "suecia": 5182,
-            "suiza": 7137
-          }
-        },
-        "africa": {
-          "total": 205186,
-          "countries": {
-            "marruecos": 132998,
-            "argelia": 22847,
-            "senegal": 20880,
-            "mali": 8810,
-            "nigeria": 3059,
-            "gambia": 5455,
-            "guinea-ecuatorial": 3295,
-            "ghana": 2916,
-            "guinea": 1950,
-            "mauritania": 2976
-          }
-        },
-        "asia": {
-          "total": 68647,
-          "countries": {
-            "china": 24619,
-            "pakistan": 20067,
-            "india": 13039,
-            "filipinas": 5125,
-            "bangladesh": 5797
-          }
-        },
-        "oceania": {
-          "total": 0,
-          "countries": {}
-        }
-      }
-    }
-  ],
-  "dataPoints": [
-    {
-      "year": "2008",
-      "value": [
-        {
-          "total": 599074
-        },
-        {
-          "colombia": 36416
-        },
-        {
-          "venezuela": 12969
-        },
-        {
-          "peru": 27968
-        },
-        {
-          "argentina": 18190
-        },
-        {
-          "honduras": 4584
-        },
-        {
-          "ecuador": 32617
-        },
-        {
-          "cuba": 10161
-        },
-        {
-          "paraguay": 17558
-        },
-        {
-          "republica-dominicana": 16829
-        },
-        {
-          "bolivia": 10549
-        },
-        {
-          "chile": 5695
-        },
-        {
-          "mexico": 5650
-        },
-        {
-          "nicaragua": 2941
-        },
-        {
-          "uruguay": 5681
-        },
-        {
-          "brasil": 21099
-        },
-        {
-          "estados-unidos-de-america": 6512
-        },
-        {
-          "canada": 674
-        },
-        {
-          "alemania": 14047
-        },
-        {
-          "rumania": 61027
-        },
-        {
-          "reino-unido": 26631
-        },
-        {
-          "italia": 13075
-        },
-        {
-          "ucrania": 6726
-        },
-        {
-          "francia": 12407
-        },
-        {
-          "rusia": 6122
-        },
-        {
-          "portugal": 15440
-        },
-        {
-          "bulgaria": 10719
-        },
-        {
-          "belgica": 2718
-        },
-        {
-          "dinamarca": 861
-        },
-        {
-          "finlandia": 712
-        },
-        {
-          "irlanda": 1525
-        },
-        {
-          "lituania": 1101
-        },
-        {
-          "moldavia": 2195
-        },
-        {
-          "noruega": 1159
-        },
-        {
-          "paises-bajos": 4323
-        },
-        {
-          "polonia": 6597
-        },
-        {
-          "suecia": 1633
-        },
-        {
-          "suiza": 2637
-        },
-        {
-          "marruecos": 71660
-        },
-        {
-          "argelia": 5435
-        },
-        {
-          "senegal": 10553
-        },
-        {
-          "mali": 3503
-        },
-        {
-          "nigeria": 4726
-        },
-        {
-          "gambia": 2532
-        },
-        {
-          "guinea-ecuatorial": 2171
-        },
-        {
-          "ghana": 1834
-        },
-        {
-          "guinea": 1697
-        },
-        {
-          "mauritania": 1609
-        },
-        {
-          "china": 20261
-        },
-        {
-          "pakistan": 8495
-        },
-        {
-          "india": 4907
-        },
-        {
-          "filipinas": 4797
-        },
-        {
-          "bangladesh": 1571
-        }
-      ]
-    },
-    {
-      "year": "2009",
-      "value": [
-        {
-          "total": 392963
-        },
-        {
-          "colombia": 20946
-        },
-        {
-          "venezuela": 9077
-        },
-        {
-          "peru": 13972
-        },
-        {
-          "argentina": 9813
-        },
-        {
-          "honduras": 3757
-        },
-        {
-          "ecuador": 13747
-        },
-        {
-          "cuba": 6881
-        },
-        {
-          "paraguay": 10871
-        },
-        {
-          "republica-dominicana": 9944
-        },
-        {
-          "bolivia": 5973
-        },
-        {
-          "chile": 3499
-        },
-        {
-          "mexico": 4818
-        },
-        {
-          "nicaragua": 2391
-        },
-        {
-          "uruguay": 2210
-        },
-        {
-          "brasil": 10923
-        },
-        {
-          "estados-unidos-de-america": 6345
-        },
-        {
-          "canada": 639
-        },
-        {
-          "alemania": 11048
-        },
-        {
-          "rumania": 43988
-        },
-        {
-          "reino-unido": 20355
-        },
-        {
-          "italia": 10557
-        },
-        {
-          "ucrania": 4725
-        },
-        {
-          "francia": 10558
-        },
-        {
-          "rusia": 5650
-        },
-        {
-          "portugal": 8648
-        },
-        {
-          "bulgaria": 7687
-        },
-        {
-          "belgica": 2554
-        },
-        {
-          "dinamarca": 690
-        },
-        {
-          "finlandia": 691
-        },
-        {
-          "irlanda": 1589
-        },
-        {
-          "lituania": 1154
-        },
-        {
-          "moldavia": 1269
-        },
-        {
-          "noruega": 1260
-        },
-        {
-          "paises-bajos": 3452
-        },
-        {
-          "polonia": 3653
-        },
-        {
-          "suecia": 1556
-        },
-        {
-          "suiza": 2382
-        },
-        {
-          "marruecos": 43436
-        },
-        {
-          "argelia": 4291
-        },
-        {
-          "senegal": 7142
-        },
-        {
-          "mali": 2097
-        },
-        {
-          "nigeria": 2904
-        },
-        {
-          "gambia": 1741
-        },
-        {
-          "guinea-ecuatorial": 1531
-        },
-        {
-          "ghana": 1342
-        },
-        {
-          "guinea": 1219
-        },
-        {
-          "mauritania": 900
-        },
-        {
-          "china": 12174
-        },
-        {
-          "pakistan": 6137
-        },
-        {
-          "india": 4232
-        },
-        {
-          "filipinas": 3060
-        },
-        {
-          "bangladesh": 1631
-        }
-      ]
-    },
-    {
-      "year": "2010",
-      "value": [
-        {
-          "total": 360704
-        },
-        {
-          "colombia": 14122
-        },
-        {
-          "venezuela": 10623
-        },
-        {
-          "peru": 8495
-        },
-        {
-          "argentina": 8398
-        },
-        {
-          "honduras": 4758
-        },
-        {
-          "ecuador": 7238
-        },
-        {
-          "cuba": 9414
-        },
-        {
-          "paraguay": 9477
-        },
-        {
-          "republica-dominicana": 7415
-        },
-        {
-          "bolivia": 4201
-        },
-        {
-          "chile": 3265
-        },
-        {
-          "mexico": 4990
-        },
-        {
-          "nicaragua": 3029
-        },
-        {
-          "uruguay": 2010
-        },
-        {
-          "brasil": 9114
-        },
-        {
-          "estados-unidos-de-america": 6226
-        },
-        {
-          "canada": 678
-        },
-        {
-          "alemania": 10249
-        },
-        {
-          "rumania": 51819
-        },
-        {
-          "reino-unido": 18670
-        },
-        {
-          "italia": 10378
-        },
-        {
-          "ucrania": 4846
-        },
-        {
-          "francia": 10544
-        },
-        {
-          "rusia": 6490
-        },
-        {
-          "portugal": 6843
-        },
-        {
-          "bulgaria": 8395
-        },
-        {
-          "belgica": 2800
-        },
-        {
-          "dinamarca": 750
-        },
-        {
-          "finlandia": 940
-        },
-        {
-          "irlanda": 1617
-        },
-        {
-          "lituania": 1272
-        },
-        {
-          "moldavia": 851
-        },
-        {
-          "noruega": 1495
-        },
-        {
-          "paises-bajos": 3518
-        },
-        {
-          "polonia": 3352
-        },
-        {
-          "suecia": 1783
-        },
-        {
-          "suiza": 2177
-        },
-        {
-          "marruecos": 30231
-        },
-        {
-          "argelia": 3748
-        },
-        {
-          "senegal": 3774
-        },
-        {
-          "mali": 1299
-        },
-        {
-          "nigeria": 2416
-        },
-        {
-          "gambia": 1464
-        },
-        {
-          "guinea-ecuatorial": 1418
-        },
-        {
-          "ghana": 1201
-        },
-        {
-          "guinea": 827
-        },
-        {
-          "mauritania": 693
-        },
-        {
-          "china": 10495
-        },
-        {
-          "pakistan": 14849
-        },
-        {
-          "india": 3275
-        },
-        {
-          "filipinas": 1972
-        },
-        {
-          "bangladesh": 1331
-        }
-      ]
-    },
-    {
-      "year": "2011",
-      "value": [
-        {
-          "total": 371335
-        },
-        {
-          "colombia": 13673
-        },
-        {
-          "venezuela": 10762
-        },
-        {
-          "peru": 8071
-        },
-        {
-          "argentina": 7527
-        },
-        {
-          "honduras": 6362
-        },
-        {
-          "ecuador": 7093
-        },
-        {
-          "cuba": 12099
-        },
-        {
-          "paraguay": 8306
-        },
-        {
-          "republica-dominicana": 10985
-        },
-        {
-          "bolivia": 4758
-        },
-        {
-          "chile": 3105
-        },
-        {
-          "mexico": 5873
-        },
-        {
-          "nicaragua": 3646
-        },
-        {
-          "uruguay": 1844
-        },
-        {
-          "brasil": 8389
-        },
-        {
-          "estados-unidos-de-america": 7911
-        },
-        {
-          "canada": 899
-        },
-        {
-          "alemania": 10054
-        },
-        {
-          "rumania": 50747
-        },
-        {
-          "reino-unido": 18828
-        },
-        {
-          "italia": 11558
-        },
-        {
-          "ucrania": 5000
-        },
-        {
-          "francia": 11143
-        },
-        {
-          "rusia": 7887
-        },
-        {
-          "portugal": 7006
-        },
-        {
-          "bulgaria": 9931
-        },
-        {
-          "belgica": 2982
-        },
-        {
-          "dinamarca": 780
-        },
-        {
-          "finlandia": 985
-        },
-        {
-          "irlanda": 1713
-        },
-        {
-          "lituania": 1065
-        },
-        {
-          "moldavia": 791
-        },
-        {
-          "noruega": 1565
-        },
-        {
-          "paises-bajos": 3751
-        },
-        {
-          "polonia": 3270
-        },
-        {
-          "suecia": 1800
-        },
-        {
-          "suiza": 2416
-        },
-        {
-          "marruecos": 28415
-        },
-        {
-          "argelia": 4240
-        },
-        {
-          "senegal": 3602
-        },
-        {
-          "mali": 1068
-        },
-        {
-          "nigeria": 2097
-        },
-        {
-          "gambia": 1368
-        },
-        {
-          "guinea-ecuatorial": 1333
-        },
-        {
-          "ghana": 1254
-        },
-        {
-          "guinea": 663
-        },
-        {
-          "mauritania": 631
-        },
-        {
-          "china": 10778
-        },
-        {
-          "pakistan": 10871
-        },
-        {
-          "india": 3586
-        },
-        {
-          "filipinas": 2364
-        },
-        {
-          "bangladesh": 1448
-        }
-      ]
-    },
-    {
-      "year": "2012",
-      "value": [
-        {
-          "total": 304054
-        },
-        {
-          "colombia": 10431
-        },
-        {
-          "venezuela": 7578
-        },
-        {
-          "peru": 6040
-        },
-        {
-          "argentina": 5738
-        },
-        {
-          "honduras": 5399
-        },
-        {
-          "ecuador": 6421
-        },
-        {
-          "cuba": 8944
-        },
-        {
-          "paraguay": 4903
-        },
-        {
-          "republica-dominicana": 10771
-        },
-        {
-          "bolivia": 4054
-        },
-        {
-          "chile": 2374
-        },
-        {
-          "mexico": 5316
-        },
-        {
-          "nicaragua": 2836
-        },
-        {
-          "uruguay": 1317
-        },
-        {
-          "brasil": 6928
-        },
-        {
-          "estados-unidos-de-america": 7492
-        },
-        {
-          "canada": 908
-        },
-        {
-          "alemania": 9896
-        },
-        {
-          "rumania": 27244
-        },
-        {
-          "reino-unido": 19219
-        },
-        {
-          "italia": 12436
-        },
-        {
-          "ucrania": 3623
-        },
-        {
-          "francia": 10407
-        },
-        {
-          "rusia": 7820
-        },
-        {
-          "portugal": 5837
-        },
-        {
-          "bulgaria": 6268
-        },
-        {
-          "belgica": 3285
-        },
-        {
-          "dinamarca": 890
-        },
-        {
-          "finlandia": 941
-        },
-        {
-          "irlanda": 1752
-        },
-        {
-          "lituania": 808
-        },
-        {
-          "moldavia": 647
-        },
-        {
-          "noruega": 1460
-        },
-        {
-          "paises-bajos": 3413
-        },
-        {
-          "polonia": 2693
-        },
-        {
-          "suecia": 1886
-        },
-        {
-          "suiza": 2452
-        },
-        {
-          "marruecos": 23017
-        },
-        {
-          "argelia": 4572
-        },
-        {
-          "senegal": 2920
-        },
-        {
-          "mali": 1074
-        },
-        {
-          "nigeria": 1659
-        },
-        {
-          "gambia": 1148
-        },
-        {
-          "guinea-ecuatorial": 1199
-        },
-        {
-          "ghana": 1059
-        },
-        {
-          "guinea": 607
-        },
-        {
-          "mauritania": 510
-        },
-        {
-          "china": 9348
-        },
-        {
-          "pakistan": 7794
-        },
-        {
-          "india": 2839
-        },
-        {
-          "filipinas": 2092
-        },
-        {
-          "bangladesh": 1749
-        }
-      ]
-    },
-    {
-      "year": "2013",
-      "value": [
-        {
-          "total": 280772
-        },
-        {
-          "colombia": 9268
-        },
-        {
-          "venezuela": 7725
-        },
-        {
-          "peru": 5402
-        },
-        {
-          "argentina": 6021
-        },
-        {
-          "honduras": 4424
-        },
-        {
-          "ecuador": 6329
-        },
-        {
-          "cuba": 8103
-        },
-        {
-          "paraguay": 3828
-        },
-        {
-          "republica-dominicana": 8866
-        },
-        {
-          "bolivia": 3832
-        },
-        {
-          "chile": 2142
-        },
-        {
-          "mexico": 4239
-        },
-        {
-          "nicaragua": 2201
-        },
-        {
-          "uruguay": 1255
-        },
-        {
-          "brasil": 5625
-        },
-        {
-          "estados-unidos-de-america": 7930
-        },
-        {
-          "canada": 973
-        },
-        {
-          "alemania": 9208
-        },
-        {
-          "rumania": 22747
-        },
-        {
-          "reino-unido": 16782
-        },
-        {
-          "italia": 12606
-        },
-        {
-          "ucrania": 3250
-        },
-        {
-          "francia": 10548
-        },
-        {
-          "rusia": 8617
-        },
-        {
-          "portugal": 5182
-        },
-        {
-          "bulgaria": 4981
-        },
-        {
-          "belgica": 3573
-        },
-        {
-          "dinamarca": 812
-        },
-        {
-          "finlandia": 906
-        },
-        {
-          "irlanda": 1605
-        },
-        {
-          "lituania": 736
-        },
-        {
-          "moldavia": 493
-        },
-        {
-          "noruega": 1393
-        },
-        {
-          "paises-bajos": 3450
-        },
-        {
-          "polonia": 2556
-        },
-        {
-          "suecia": 1759
-        },
-        {
-          "suiza": 2285
-        },
-        {
-          "marruecos": 21034
-        },
-        {
-          "argelia": 4737
-        },
-        {
-          "senegal": 3146
-        },
-        {
-          "mali": 1145
-        },
-        {
-          "nigeria": 1404
-        },
-        {
-          "gambia": 1135
-        },
-        {
-          "guinea-ecuatorial": 1231
-        },
-        {
-          "ghana": 1007
-        },
-        {
-          "guinea": 559
-        },
-        {
-          "mauritania": 502
-        },
-        {
-          "china": 9322
-        },
-        {
-          "pakistan": 6098
-        },
-        {
-          "india": 2835
-        },
-        {
-          "filipinas": 2008
-        },
-        {
-          "bangladesh": 1276
-        }
-      ]
-    },
-    {
-      "year": "2014",
-      "value": [
-        {
-          "total": 305454
-        },
-        {
-          "colombia": 9378
-        },
-        {
-          "venezuela": 12842
-        },
-        {
-          "peru": 5696
-        },
-        {
-          "argentina": 7082
-        },
-        {
-          "honduras": 5781
-        },
-        {
-          "ecuador": 6873
-        },
-        {
-          "cuba": 7586
-        },
-        {
-          "paraguay": 4349
-        },
-        {
-          "republica-dominicana": 8706
-        },
-        {
-          "bolivia": 4539
-        },
-        {
-          "chile": 2528
-        },
-        {
-          "mexico": 4579
-        },
-        {
-          "nicaragua": 2769
-        },
-        {
-          "uruguay": 1512
-        },
-        {
-          "brasil": 6643
-        },
-        {
-          "estados-unidos-de-america": 8054
-        },
-        {
-          "canada": 1098
-        },
-        {
-          "alemania": 8913
-        },
-        {
-          "rumania": 29531
-        },
-        {
-          "reino-unido": 17746
-        },
-        {
-          "italia": 14781
-        },
-        {
-          "ucrania": 5665
-        },
-        {
-          "francia": 11985
-        },
-        {
-          "rusia": 8286
-        },
-        {
-          "portugal": 4939
-        },
-        {
-          "bulgaria": 4689
-        },
-        {
-          "belgica": 3665
-        },
-        {
-          "dinamarca": 827
-        },
-        {
-          "finlandia": 889
-        },
-        {
-          "irlanda": 1524
-        },
-        {
-          "lituania": 673
-        },
-        {
-          "moldavia": 815
-        },
-        {
-          "noruega": 1468
-        },
-        {
-          "paises-bajos": 3703
-        },
-        {
-          "polonia": 2307
-        },
-        {
-          "suecia": 1925
-        },
-        {
-          "suiza": 2546
-        },
-        {
-          "marruecos": 20284
-        },
-        {
-          "argelia": 4488
-        },
-        {
-          "senegal": 2984
-        },
-        {
-          "mali": 1214
-        },
-        {
-          "nigeria": 1201
-        },
-        {
-          "gambia": 1203
-        },
-        {
-          "guinea-ecuatorial": 1505
-        },
-        {
-          "ghana": 873
-        },
-        {
-          "guinea": 564
-        },
-        {
-          "mauritania": 534
-        },
-        {
-          "china": 9589
-        },
-        {
-          "pakistan": 4980
-        },
-        {
-          "india": 2900
-        },
-        {
-          "filipinas": 1883
-        },
-        {
-          "bangladesh": 970
-        }
-      ]
-    },
-    {
-      "year": "2015",
-      "value": [
-        {
-          "total": 342114
-        },
-        {
-          "colombia": 10928
-        },
-        {
-          "venezuela": 19652
-        },
-        {
-          "peru": 6685
-        },
-        {
-          "argentina": 8768
-        },
-        {
-          "honduras": 7754
-        },
-        {
-          "ecuador": 8355
-        },
-        {
-          "cuba": 7365
-        },
-        {
-          "paraguay": 4848
-        },
-        {
-          "republica-dominicana": 7988
-        },
-        {
-          "bolivia": 4977
-        },
-        {
-          "chile": 3236
-        },
-        {
-          "mexico": 5188
-        },
-        {
-          "nicaragua": 3200
-        },
-        {
-          "uruguay": 1992
-        },
-        {
-          "brasil": 8770
-        },
-        {
-          "estados-unidos-de-america": 9170
-        },
-        {
-          "canada": 1140
-        },
-        {
-          "alemania": 9605
-        },
-        {
-          "rumania": 28382
-        },
-        {
-          "reino-unido": 19284
-        },
-        {
-          "italia": 17350
-        },
-        {
-          "ucrania": 8827
-        },
-        {
-          "francia": 13507
-        },
-        {
-          "rusia": 7113
-        },
-        {
-          "portugal": 5010
-        },
-        {
-          "bulgaria": 4915
-        },
-        {
-          "belgica": 4047
-        },
-        {
-          "dinamarca": 902
-        },
-        {
-          "finlandia": 925
-        },
-        {
-          "irlanda": 1684
-        },
-        {
-          "lituania": 763
-        },
-        {
-          "moldavia": 1025
-        },
-        {
-          "noruega": 1313
-        },
-        {
-          "paises-bajos": 3937
-        },
-        {
-          "polonia": 2343
-        },
-        {
-          "suecia": 1872
-        },
-        {
-          "suiza": 2939
-        },
-        {
-          "marruecos": 24208
-        },
-        {
-          "argelia": 4167
-        },
-        {
-          "senegal": 3419
-        },
-        {
-          "mali": 1131
-        },
-        {
-          "nigeria": 1175
-        },
-        {
-          "gambia": 1158
-        },
-        {
-          "guinea-ecuatorial": 1823
-        },
-        {
-          "ghana": 866
-        },
-        {
-          "guinea": 649
-        },
-        {
-          "mauritania": 676
-        },
-        {
-          "china": 10327
-        },
-        {
-          "pakistan": 4483
-        },
-        {
-          "india": 3003
-        },
-        {
-          "filipinas": 2307
-        },
-        {
-          "bangladesh": 1201
-        }
-      ]
-    },
-    {
-      "year": "2016",
-      "value": [
-        {
-          "total": 414746
-        },
-        {
-          "colombia": 24844
-        },
-        {
-          "venezuela": 31553
-        },
-        {
-          "peru": 9711
-        },
-        {
-          "argentina": 10852
-        },
-        {
-          "honduras": 11074
-        },
-        {
-          "ecuador": 12349
-        },
-        {
-          "cuba": 8122
-        },
-        {
-          "paraguay": 7500
-        },
-        {
-          "republica-dominicana": 9709
-        },
-        {
-          "bolivia": 6202
-        },
-        {
-          "chile": 4304
-        },
-        {
-          "mexico": 5301
-        },
-        {
-          "nicaragua": 4250
-        },
-        {
-          "uruguay": 2782
-        },
-        {
-          "brasil": 11954
-        },
-        {
-          "estados-unidos-de-america": 9942
-        },
-        {
-          "canada": 1167
-        },
-        {
-          "alemania": 10505
-        },
-        {
-          "rumania": 27860
-        },
-        {
-          "reino-unido": 23876
-        },
-        {
-          "italia": 18526
-        },
-        {
-          "ucrania": 6835
-        },
-        {
-          "francia": 13341
-        },
-        {
-          "rusia": 6350
-        },
-        {
-          "portugal": 5257
-        },
-        {
-          "bulgaria": 5297
-        },
-        {
-          "belgica": 4511
-        },
-        {
-          "dinamarca": 968
-        },
-        {
-          "finlandia": 971
-        },
-        {
-          "irlanda": 1973
-        },
-        {
-          "lituania": 942
-        },
-        {
-          "moldavia": 1096
-        },
-        {
-          "noruega": 1422
-        },
-        {
-          "paises-bajos": 4373
-        },
-        {
-          "polonia": 2445
-        },
-        {
-          "suecia": 2101
-        },
-        {
-          "suiza": 3310
-        },
-        {
-          "marruecos": 30097
-        },
-        {
-          "argelia": 4512
-        },
-        {
-          "senegal": 3918
-        },
-        {
-          "mali": 1128
-        },
-        {
-          "nigeria": 1188
-        },
-        {
-          "gambia": 1280
-        },
-        {
-          "guinea-ecuatorial": 1983
-        },
-        {
-          "ghana": 959
-        },
-        {
-          "guinea": 773
-        },
-        {
-          "mauritania": 724
-        },
-        {
-          "china": 10552
-        },
-        {
-          "pakistan": 6225
-        },
-        {
-          "india": 3734
-        },
-        {
-          "filipinas": 2369
-        },
-        {
-          "bangladesh": 1596
-        }
-      ]
-    },
-    {
-      "year": "2017",
-      "value": [
-        {
-          "total": 532132
-        },
-        {
-          "colombia": 36678
-        },
-        {
-          "venezuela": 52385
-        },
-        {
-          "peru": 15945
-        },
-        {
-          "argentina": 14904
-        },
-        {
-          "honduras": 18573
-        },
-        {
-          "ecuador": 15600
-        },
-        {
-          "cuba": 10280
-        },
-        {
-          "paraguay": 8659
-        },
-        {
-          "republica-dominicana": 11324
-        },
-        {
-          "bolivia": 7689
-        },
-        {
-          "chile": 5348
-        },
-        {
-          "mexico": 7068
-        },
-        {
-          "nicaragua": 6330
-        },
-        {
-          "uruguay": 3827
-        },
-        {
-          "brasil": 14816
-        },
-        {
-          "estados-unidos-de-america": 12719
-        },
-        {
-          "canada": 1301
-        },
-        {
-          "alemania": 12714
-        },
-        {
-          "rumania": 30235
-        },
-        {
-          "reino-unido": 28875
-        },
-        {
-          "italia": 22203
-        },
-        {
-          "ucrania": 7806
-        },
-        {
-          "francia": 16290
-        },
-        {
-          "rusia": 7051
-        },
-        {
-          "portugal": 5888
-        },
-        {
-          "bulgaria": 5942
-        },
-        {
-          "belgica": 5358
-        },
-        {
-          "dinamarca": 1179
-        },
-        {
-          "finlandia": 1141
-        },
-        {
-          "irlanda": 2234
-        },
-        {
-          "lituania": 1219
-        },
-        {
-          "moldavia": 1240
-        },
-        {
-          "noruega": 1603
-        },
-        {
-          "paises-bajos": 5030
-        },
-        {
-          "polonia": 3041
-        },
-        {
-          "suecia": 2552
-        },
-        {
-          "suiza": 4372
-        },
-        {
-          "marruecos": 40372
-        },
-        {
-          "argelia": 4899
-        },
-        {
-          "senegal": 4362
-        },
-        {
-          "mali": 1118
-        },
-        {
-          "nigeria": 1400
-        },
-        {
-          "gambia": 1362
-        },
-        {
-          "guinea-ecuatorial": 1963
-        },
-        {
-          "ghana": 1227
-        },
-        {
-          "guinea": 734
-        },
-        {
-          "mauritania": 510
-        },
-        {
-          "china": 11779
-        },
-        {
-          "pakistan": 6560
-        },
-        {
-          "india": 4664
-        },
-        {
-          "filipinas": 2674
-        },
-        {
-          "bangladesh": 1960
-        }
-      ]
-    },
-    {
-      "year": "2018",
-      "value": [
-        {
-          "total": 643684
-        },
-        {
-          "colombia": 56253
-        },
-        {
-          "venezuela": 71666
-        },
-        {
-          "peru": 21463
-        },
-        {
-          "argentina": 19166
-        },
-        {
-          "honduras": 23671
-        },
-        {
-          "ecuador": 15893
-        },
-        {
-          "cuba": 14265
-        },
-        {
-          "paraguay": 9533
-        },
-        {
-          "republica-dominicana": 10813
-        },
-        {
-          "bolivia": 7632
-        },
-        {
-          "chile": 6256
-        },
-        {
-          "mexico": 7834
-        },
-        {
-          "nicaragua": 11732
-        },
-        {
-          "uruguay": 4435
-        },
-        {
-          "brasil": 17863
-        },
-        {
-          "estados-unidos-de-america": 13853
-        },
-        {
-          "canada": 1503
-        },
-        {
-          "alemania": 13314
-        },
-        {
-          "rumania": 28030
-        },
-        {
-          "reino-unido": 31276
-        },
-        {
-          "italia": 22002
-        },
-        {
-          "ucrania": 8152
-        },
-        {
-          "francia": 16210
-        },
-        {
-          "rusia": 8091
-        },
-        {
-          "portugal": 6369
-        },
-        {
-          "bulgaria": 5173
-        },
-        {
-          "belgica": 5495
-        },
-        {
-          "dinamarca": 1201
-        },
-        {
-          "finlandia": 1115
-        },
-        {
-          "irlanda": 2597
-        },
-        {
-          "lituania": 1247
-        },
-        {
-          "moldavia": 1478
-        },
-        {
-          "noruega": 1648
-        },
-        {
-          "paises-bajos": 5506
-        },
-        {
-          "polonia": 3211
-        },
-        {
-          "suecia": 2985
-        },
-        {
-          "suiza": 4246
-        },
-        {
-          "marruecos": 61715
-        },
-        {
-          "argelia": 6687
-        },
-        {
-          "senegal": 6797
-        },
-        {
-          "mali": 1776
-        },
-        {
-          "nigeria": 1513
-        },
-        {
-          "gambia": 1646
-        },
-        {
-          "guinea-ecuatorial": 1915
-        },
-        {
-          "ghana": 1822
-        },
-        {
-          "guinea": 1132
-        },
-        {
-          "mauritania": 740
-        },
-        {
-          "china": 12182
-        },
-        {
-          "pakistan": 8673
-        },
-        {
-          "india": 6858
-        },
-        {
-          "filipinas": 2561
-        },
-        {
-          "bangladesh": 2438
-        }
-      ]
-    },
-    {
-      "year": "2019",
-      "value": [
-        {
-          "total": 750480
-        },
-        {
-          "colombia": 80324
-        },
-        {
-          "venezuela": 74344
-        },
-        {
-          "peru": 31390
-        },
-        {
-          "argentina": 31306
-        },
-        {
-          "honduras": 29312
-        },
-        {
-          "ecuador": 17663
-        },
-        {
-          "cuba": 17660
-        },
-        {
-          "paraguay": 12231
-        },
-        {
-          "republica-dominicana": 11058
-        },
-        {
-          "bolivia": 7705
-        },
-        {
-          "chile": 7171
-        },
-        {
-          "mexico": 9088
-        },
-        {
-          "nicaragua": 17452
-        },
-        {
-          "uruguay": 6008
-        },
-        {
-          "brasil": 18711
-        },
-        {
-          "estados-unidos-de-america": 15032
-        },
-        {
-          "canada": 1578
-        },
-        {
-          "alemania": 13633
-        },
-        {
-          "rumania": 25576
-        },
-        {
-          "reino-unido": 37720
-        },
-        {
-          "italia": 21559
-        },
-        {
-          "ucrania": 7965
-        },
-        {
-          "francia": 16550
-        },
-        {
-          "rusia": 9032
-        },
-        {
-          "portugal": 7068
-        },
-        {
-          "bulgaria": 5392
-        },
-        {
-          "belgica": 5605
-        },
-        {
-          "dinamarca": 1235
-        },
-        {
-          "finlandia": 999
-        },
-        {
-          "irlanda": 2824
-        },
-        {
-          "lituania": 1102
-        },
-        {
-          "moldavia": 1534
-        },
-        {
-          "noruega": 1711
-        },
-        {
-          "paises-bajos": 5648
-        },
-        {
-          "polonia": 3133
-        },
-        {
-          "suecia": 3250
-        },
-        {
-          "suiza": 4134
-        },
-        {
-          "marruecos": 73348
-        },
-        {
-          "argelia": 7572
-        },
-        {
-          "senegal": 7963
-        },
-        {
-          "mali": 2634
-        },
-        {
-          "nigeria": 1496
-        },
-        {
-          "gambia": 2033
-        },
-        {
-          "guinea-ecuatorial": 1659
-        },
-        {
-          "ghana": 2435
-        },
-        {
-          "guinea": 1469
-        },
-        {
-          "mauritania": 930
-        },
-        {
-          "china": 12646
-        },
-        {
-          "pakistan": 11513
-        },
-        {
-          "india": 7013
-        },
-        {
-          "filipinas": 3070
-        },
-        {
-          "bangladesh": 2482
-        }
-      ]
-    },
-    {
-      "year": "2020",
-      "value": [
-        {
-          "total": 467918
-        },
-        {
-          "colombia": 52921
-        },
-        {
-          "venezuela": 32927
-        },
-        {
-          "peru": 19737
-        },
-        {
-          "argentina": 19857
-        },
-        {
-          "honduras": 18856
-        },
-        {
-          "ecuador": 10058
-        },
-        {
-          "cuba": 7784
-        },
-        {
-          "paraguay": 6596
-        },
-        {
-          "republica-dominicana": 6470
-        },
-        {
-          "bolivia": 4085
-        },
-        {
-          "chile": 5052
-        },
-        {
-          "mexico": 5867
-        },
-        {
-          "nicaragua": 9416
-        },
-        {
-          "uruguay": 3475
-        },
-        {
-          "brasil": 9541
-        },
-        {
-          "estados-unidos-de-america": 9909
-        },
-        {
-          "canada": 1208
-        },
-        {
-          "alemania": 10670
-        },
-        {
-          "rumania": 14891
-        },
-        {
-          "reino-unido": 36374
-        },
-        {
-          "italia": 14258
-        },
-        {
-          "ucrania": 4145
-        },
-        {
-          "francia": 14086
-        },
-        {
-          "rusia": 4640
-        },
-        {
-          "portugal": 5555
-        },
-        {
-          "bulgaria": 3274
-        },
-        {
-          "belgica": 4667
-        },
-        {
-          "dinamarca": 842
-        },
-        {
-          "finlandia": 671
-        },
-        {
-          "irlanda": 2201
-        },
-        {
-          "lituania": 673
-        },
-        {
-          "moldavia": 906
-        },
-        {
-          "noruega": 1198
-        },
-        {
-          "paises-bajos": 4493
-        },
-        {
-          "polonia": 2268
-        },
-        {
-          "suecia": 2198
-        },
-        {
-          "suiza": 3226
-        },
-        {
-          "marruecos": 45464
-        },
-        {
-          "argelia": 4388
-        },
-        {
-          "senegal": 5132
-        },
-        {
-          "mali": 2191
-        },
-        {
-          "nigeria": 1091
-        },
-        {
-          "gambia": 1556
-        },
-        {
-          "guinea-ecuatorial": 842
-        },
-        {
-          "ghana": 1314
-        },
-        {
-          "guinea": 761
-        },
-        {
-          "mauritania": 609
-        },
-        {
-          "china": 5670
-        },
-        {
-          "pakistan": 7340
-        },
-        {
-          "india": 2946
-        },
-        {
-          "filipinas": 1706
-        },
-        {
-          "bangladesh": 1198
-        }
-      ]
-    },
-    {
-      "year": "2021",
-      "value": [
-        {
-          "total": 887960
-        },
-        {
-          "colombia": 69757
-        },
-        {
-          "venezuela": 43698
-        },
-        {
-          "peru": 31346
-        },
-        {
-          "argentina": 43747
-        },
-        {
-          "honduras": 20310
-        },
-        {
-          "ecuador": 22407
-        },
-        {
-          "cuba": 18107
-        },
-        {
-          "paraguay": 11036
-        },
-        {
-          "republica-dominicana": 13143
-        },
-        {
-          "bolivia": 10286
-        },
-        {
-          "chile": 10453
-        },
-        {
-          "mexico": 11921
-        },
-        {
-          "nicaragua": 7323
-        },
-        {
-          "uruguay": 5270
-        },
-        {
-          "brasil": 14612
-        },
-        {
-          "estados-unidos-de-america": 20911
-        },
-        {
-          "canada": 2498
-        },
-        {
-          "alemania": 28544
-        },
-        {
-          "rumania": 45619
-        },
-        {
-          "reino-unido": 50845
-        },
-        {
-          "italia": 25084
-        },
-        {
-          "ucrania": 9811
-        },
-        {
-          "francia": 27894
-        },
-        {
-          "rusia": 12874
-        },
-        {
-          "portugal": 10789
-        },
-        {
-          "bulgaria": 8434
-        },
-        {
-          "belgica": 9865
-        },
-        {
-          "dinamarca": 2024
-        },
-        {
-          "finlandia": 1643
-        },
-        {
-          "irlanda": 6200
-        },
-        {
-          "lituania": 1519
-        },
-        {
-          "moldavia": 1840
-        },
-        {
-          "noruega": 3160
-        },
-        {
-          "paises-bajos": 11286
-        },
-        {
-          "polonia": 5360
-        },
-        {
-          "suecia": 5249
-        },
-        {
-          "suiza": 7181
-        },
-        {
-          "marruecos": 101234
-        },
-        {
-          "argelia": 9744
-        },
-        {
-          "senegal": 12582
-        },
-        {
-          "mali": 6329
-        },
-        {
-          "nigeria": 2998
-        },
-        {
-          "gambia": 3804
-        },
-        {
-          "guinea-ecuatorial": 2738
-        },
-        {
-          "ghana": 2892
-        },
-        {
-          "guinea": 1698
-        },
-        {
-          "mauritania": 2104
-        },
-        {
-          "china": 18910
-        },
-        {
-          "pakistan": 16057
-        },
-        {
-          "india": 5850
-        },
-        {
-          "filipinas": 3524
-        },
-        {
-          "bangladesh": 2074
-        }
-      ]
-    },
-    {
-      "year": "2022",
-      "value": [
-        {
-          "total": 1258894
-        },
-        {
-          "colombia": 178088
-        },
-        {
-          "venezuela": 85299
-        },
-        {
-          "peru": 70921
-        },
-        {
-          "argentina": 59452
-        },
-        {
-          "honduras": 34948
-        },
-        {
-          "ecuador": 27982
-        },
-        {
-          "cuba": 27080
-        },
-        {
-          "paraguay": 24078
-        },
-        {
-          "republica-dominicana": 14436
-        },
-        {
-          "bolivia": 11229
-        },
-        {
-          "chile": 12977
-        },
-        {
-          "mexico": 13308
-        },
-        {
-          "nicaragua": 16588
-        },
-        {
-          "uruguay": 6759
-        },
-        {
-          "brasil": 22454
-        },
-        {
-          "estados-unidos-de-america": 20646
-        },
-        {
-          "canada": 2820
-        },
-        {
-          "alemania": 26468
-        },
-        {
-          "rumania": 45591
-        },
-        {
-          "reino-unido": 35084
-        },
-        {
-          "italia": 30400
-        },
-        {
-          "ucrania": 93191
-        },
-        {
-          "francia": 26265
-        },
-        {
-          "rusia": 20120
-        },
-        {
-          "portugal": 10696
-        },
-        {
-          "bulgaria": 8333
-        },
-        {
-          "belgica": 9023
-        },
-        {
-          "dinamarca": 1769
-        },
-        {
-          "finlandia": 1627
-        },
-        {
-          "irlanda": 5018
-        },
-        {
-          "lituania": 1912
-        },
-        {
-          "moldavia": 2553
-        },
-        {
-          "noruega": 2425
-        },
-        {
-          "paises-bajos": 11095
-        },
-        {
-          "polonia": 6707
-        },
-        {
-          "suecia": 4890
-        },
-        {
-          "suiza": 6874
-        },
-        {
-          "marruecos": 115172
-        },
-        {
-          "argelia": 12704
-        },
-        {
-          "senegal": 11785
-        },
-        {
-          "mali": 4637
-        },
-        {
-          "nigeria": 2951
-        },
-        {
-          "gambia": 3763
-        },
-        {
-          "guinea-ecuatorial": 3478
-        },
-        {
-          "ghana": 2870
-        },
-        {
-          "guinea": 1691
-        },
-        {
-          "mauritania": 1772
-        },
-        {
-          "china": 15334
-        },
-        {
-          "pakistan": 16496
-        },
-        {
-          "india": 8126
-        },
-        {
-          "filipinas": 3903
-        },
-        {
-          "bangladesh": 2480
-        }
-      ]
-    },
-    {
-      "year": "2023",
-      "value": [
-        {
-          "total": 1250991
-        },
-        {
-          "colombia": 176124
-        },
-        {
-          "venezuela": 92771
-        },
-        {
-          "peru": 72138
-        },
-        {
-          "argentina": 58266
-        },
-        {
-          "honduras": 32983
-        },
-        {
-          "ecuador": 34221
-        },
-        {
-          "cuba": 30812
-        },
-        {
-          "paraguay": 25223
-        },
-        {
-          "republica-dominicana": 15570
-        },
-        {
-          "bolivia": 12065
-        },
-        {
-          "chile": 13700
-        },
-        {
-          "mexico": 14475
-        },
-        {
-          "nicaragua": 14148
-        },
-        {
-          "uruguay": 6915
-        },
-        {
-          "brasil": 21741
-        },
-        {
-          "estados-unidos-de-america": 23221
-        },
-        {
-          "canada": 3245
-        },
-        {
-          "alemania": 27608
-        },
-        {
-          "rumania": 43480
-        },
-        {
-          "reino-unido": 35286
-        },
-        {
-          "italia": 30602
-        },
-        {
-          "ucrania": 34199
-        },
-        {
-          "francia": 28326
-        },
-        {
-          "rusia": 20600
-        },
-        {
-          "portugal": 12208
-        },
-        {
-          "bulgaria": 8159
-        },
-        {
-          "belgica": 9364
-        },
-        {
-          "dinamarca": 2083
-        },
-        {
-          "finlandia": 1643
-        },
-        {
-          "irlanda": 5573
-        },
-        {
-          "lituania": 1953
-        },
-        {
-          "moldavia": 1907
-        },
-        {
-          "noruega": 2645
-        },
-        {
-          "paises-bajos": 11445
-        },
-        {
-          "polonia": 7357
-        },
-        {
-          "suecia": 5043
-        },
-        {
-          "suiza": 7551
-        },
-        {
-          "marruecos": 124832
-        },
-        {
-          "argelia": 15457
-        },
-        {
-          "senegal": 11751
-        },
-        {
-          "mali": 3760
-        },
-        {
-          "nigeria": 3149
-        },
-        {
-          "gambia": 3579
-        },
-        {
-          "guinea-ecuatorial": 3525
-        },
-        {
-          "ghana": 2597
-        },
-        {
-          "guinea": 1737
-        },
-        {
-          "mauritania": 1813
-        },
-        {
-          "china": 21084
-        },
-        {
-          "pakistan": 18221
-        },
-        {
-          "india": 10033
-        },
-        {
-          "filipinas": 4708
-        },
-        {
-          "bangladesh": 3458
-        }
-      ]
-    },
-    {
-      "year": "2024",
-      "value": [
-        {
-          "total": 1288562
-        },
-        {
-          "colombia": 172599
-        },
-        {
-          "venezuela": 107223
-        },
-        {
-          "peru": 74232
-        },
-        {
-          "argentina": 53660
-        },
-        {
-          "honduras": 29868
-        },
-        {
-          "ecuador": 36684
-        },
-        {
-          "cuba": 35741
-        },
-        {
-          "paraguay": 25565
-        },
-        {
-          "republica-dominicana": 15002
-        },
-        {
-          "bolivia": 10594
-        },
-        {
-          "chile": 13642
-        },
-        {
-          "mexico": 15434
-        },
-        {
-          "nicaragua": 12736
-        },
-        {
-          "uruguay": 5891
-        },
-        {
-          "brasil": 21481
-        },
-        {
-          "estados-unidos-de-america": 25559
-        },
-        {
-          "canada": 3508
-        },
-        {
-          "alemania": 26123
-        },
-        {
-          "rumania": 35747
-        },
-        {
-          "reino-unido": 34791
-        },
-        {
-          "italia": 28945
-        },
-        {
-          "ucrania": 30000
-        },
-        {
-          "francia": 29053
-        },
-        {
-          "rusia": 14067
-        },
-        {
-          "portugal": 12459
-        },
-        {
-          "bulgaria": 6465
-        },
-        {
-          "belgica": 9492
-        },
-        {
-          "dinamarca": 2013
-        },
-        {
-          "finlandia": 1509
-        },
-        {
-          "irlanda": 5968
-        },
-        {
-          "lituania": 1833
-        },
-        {
-          "moldavia": 1561
-        },
-        {
-          "noruega": 2734
-        },
-        {
-          "paises-bajos": 13130
-        },
-        {
-          "polonia": 7344
-        },
-        {
-          "suecia": 5182
-        },
-        {
-          "suiza": 7137
-        },
-        {
-          "marruecos": 132998
-        },
-        {
-          "argelia": 22847
-        },
-        {
-          "senegal": 20880
-        },
-        {
-          "mali": 8810
-        },
-        {
-          "nigeria": 3059
-        },
-        {
-          "gambia": 5455
-        },
-        {
-          "guinea-ecuatorial": 3295
-        },
-        {
-          "ghana": 2916
-        },
-        {
-          "guinea": 1950
-        },
-        {
-          "mauritania": 2976
-        },
-        {
-          "china": 24619
-        },
-        {
-          "pakistan": 20067
-        },
-        {
-          "india": 13039
-        },
-        {
-          "filipinas": 5125
-        },
-        {
-          "bangladesh": 5797
-        }
-      ]
-    }
-  ],
-  "continentsDataPoints": [
-    {
-      "year": "2008",
-      "value": [
-        {
-          "total": 599074
-        },
-        {
-          "america-hispanohablante": 207808
-        },
-        {
-          "america-no-hispanohablante": 28285
-        },
-        {
-          "europa": 191655
-        },
-        {
-          "africa": 105720
-        },
-        {
-          "asia": 40031
-        },
-        {
-          "oceania": 0
-        }
-      ]
-    },
-    {
-      "year": "2009",
-      "value": [
-        {
-          "total": 392963
-        },
-        {
-          "america-hispanohablante": 117899
-        },
-        {
-          "america-no-hispanohablante": 17907
-        },
-        {
-          "europa": 143466
-        },
-        {
-          "africa": 66603
-        },
-        {
-          "asia": 27234
-        },
-        {
-          "oceania": 0
-        }
-      ]
-    },
-    {
-      "year": "2010",
-      "value": [
-        {
-          "total": 360704
-        },
-        {
-          "america-hispanohablante": 97435
-        },
-        {
-          "america-no-hispanohablante": 16018
-        },
-        {
-          "europa": 148789
-        },
-        {
-          "africa": 47071
-        },
-        {
-          "asia": 31922
-        },
-        {
-          "oceania": 0
-        }
-      ]
-    },
-    {
-      "year": "2011",
-      "value": [
-        {
-          "total": 371335
-        },
-        {
-          "america-hispanohablante": 104104
-        },
-        {
-          "america-no-hispanohablante": 17199
-        },
-        {
-          "europa": 153272
-        },
-        {
-          "africa": 44671
-        },
-        {
-          "asia": 29047
-        },
-        {
-          "oceania": 0
-        }
-      ]
-    },
-    {
-      "year": "2012",
-      "value": [
-        {
-          "total": 304054
-        },
-        {
-          "america-hispanohablante": 82122
-        },
-        {
-          "america-no-hispanohablante": 15328
-        },
-        {
-          "europa": 122977
-        },
-        {
-          "africa": 37765
-        },
-        {
-          "asia": 23822
-        },
-        {
-          "oceania": 0
-        }
-      ]
-    },
-    {
-      "year": "2013",
-      "value": [
-        {
-          "total": 280772
-        },
-        {
-          "america-hispanohablante": 73635
-        },
-        {
-          "america-no-hispanohablante": 14528
-        },
-        {
-          "europa": 113489
-        },
-        {
-          "africa": 35900
-        },
-        {
-          "asia": 21539
-        },
-        {
-          "oceania": 0
-        }
-      ]
-    },
-    {
-      "year": "2014",
-      "value": [
-        {
-          "total": 305454
-        },
-        {
-          "america-hispanohablante": 84220
-        },
-        {
-          "america-no-hispanohablante": 15795
-        },
-        {
-          "europa": 126877
-        },
-        {
-          "africa": 34850
-        },
-        {
-          "asia": 20322
-        },
-        {
-          "oceania": 0
-        }
-      ]
-    },
-    {
-      "year": "2015",
-      "value": [
-        {
-          "total": 342114
-        },
-        {
-          "america-hispanohablante": 100936
-        },
-        {
-          "america-no-hispanohablante": 19080
-        },
-        {
-          "europa": 135743
-        },
-        {
-          "africa": 39272
-        },
-        {
-          "asia": 21321
-        },
-        {
-          "oceania": 0
-        }
-      ]
-    },
-    {
-      "year": "2016",
-      "value": [
-        {
-          "total": 414746
-        },
-        {
-          "america-hispanohablante": 148553
-        },
-        {
-          "america-no-hispanohablante": 23063
-        },
-        {
-          "europa": 141959
-        },
-        {
-          "africa": 46562
-        },
-        {
-          "asia": 24476
-        },
-        {
-          "oceania": 0
-        }
-      ]
-    },
-    {
-      "year": "2017",
-      "value": [
-        {
-          "total": 532132
-        },
-        {
-          "america-hispanohablante": 214610
-        },
-        {
-          "america-no-hispanohablante": 28836
-        },
-        {
-          "europa": 165973
-        },
-        {
-          "africa": 57947
-        },
-        {
-          "asia": 27637
-        },
-        {
-          "oceania": 0
-        }
-      ]
-    },
-    {
-      "year": "2018",
-      "value": [
-        {
-          "total": 643684
-        },
-        {
-          "america-hispanohablante": 280612
-        },
-        {
-          "america-no-hispanohablante": 33219
-        },
-        {
-          "europa": 169346
-        },
-        {
-          "africa": 85743
-        },
-        {
-          "asia": 32712
-        },
-        {
-          "oceania": 0
-        }
-      ]
-    },
-    {
-      "year": "2019",
-      "value": [
-        {
-          "total": 750480
-        },
-        {
-          "america-hispanohablante": 352712
-        },
-        {
-          "america-no-hispanohablante": 35321
-        },
-        {
-          "europa": 175670
-        },
-        {
-          "africa": 101539
-        },
-        {
-          "asia": 36724
-        },
-        {
-          "oceania": 0
-        }
-      ]
-    },
-    {
-      "year": "2020",
-      "value": [
-        {
-          "total": 467918
-        },
-        {
-          "america-hispanohablante": 203101
-        },
-        {
-          "america-no-hispanohablante": 20658
-        },
-        {
-          "europa": 131236
-        },
-        {
-          "africa": 63348
-        },
-        {
-          "asia": 18860
-        },
-        {
-          "oceania": 0
-        }
-      ]
-    },
-    {
-      "year": "2021",
-      "value": [
-        {
-          "total": 887960
-        },
-        {
-          "america-hispanohablante": 318804
-        },
-        {
-          "america-no-hispanohablante": 38021
-        },
-        {
-          "europa": 275221
-        },
-        {
-          "africa": 146123
-        },
-        {
-          "asia": 46415
-        },
-        {
-          "oceania": 0
-        }
-      ]
-    },
-    {
-      "year": "2022",
-      "value": [
-        {
-          "total": 1258894
-        },
-        {
-          "america-hispanohablante": 583145
-        },
-        {
-          "america-no-hispanohablante": 45920
-        },
-        {
-          "europa": 350041
-        },
-        {
-          "africa": 160823
-        },
-        {
-          "asia": 46339
-        },
-        {
-          "oceania": 0
-        }
-      ]
-    },
-    {
-      "year": "2023",
-      "value": [
-        {
-          "total": 1250991
-        },
-        {
-          "america-hispanohablante": 599411
-        },
-        {
-          "america-no-hispanohablante": 48207
-        },
-        {
-          "europa": 297032
-        },
-        {
-          "africa": 172200
-        },
-        {
-          "asia": 57504
-        },
-        {
-          "oceania": 0
-        }
-      ]
-    },
-    {
-      "year": "2024",
-      "value": [
-        {
-          "total": 1288562
-        },
-        {
-          "america-hispanohablante": 608871
-        },
-        {
-          "america-no-hispanohablante": 50548
-        },
-        {
-          "europa": 275553
-        },
-        {
-          "africa": 205186
-        },
-        {
-          "asia": 68647
-        },
-        {
-          "oceania": 0
-        }
-      ]
-    }
-  ],
-  "contextNotes": [
-    "Flujo anual total de inmigraciones procedentes del extranjero (ambos sexos) desde 2008 hasta 2024, enlazando la Estadística de Migraciones (2008-2020) y la EMCR (2021-2024) del INE.",
-    "Agrupación en bloques continentales/lingüísticos con desglose de todos los países individuales procedentes de fuentes oficiales, sin agrupaciones artificiales en 'Resto de...'."
-  ],
+  "category": "pensions-demography",
+  "question": {
+    "es": "¿Cuál es la evolución de la inmigración procedente del extranjero en España?",
+    "en": "What is the evolution of immigration from abroad into Spain?"
+  },
+  "unit": {
+    "es": "personas",
+    "en": "people"
+  },
+  "valueFormat": "number",
+  "contextNotes": {
+    "es": [
+      "Flujo anual de inmigraciones procedentes del extranjero registrado por el Instituto Nacional de Estadística (INE).",
+      "Combina la serie histórica 2008-2020 (Tabla 24295) y la serie actual 2021-2024 (Tabla 69690) de la Estadística de Migraciones y Cambios de Residencia (EMCR).",
+      "Incluye el desglose individual de los 52 países de mayor flujo hacia España y la agregación por macro-regiones continentales."
+    ],
+    "en": [
+      "Annual immigration flows from abroad registered by the National Statistics Institute (INE).",
+      "Combines historical series 2008-2020 (Table 24295) and current series 2021-2024 (Table 69690) from the Migration and Residence Changes Statistics (EMCR).",
+      "Includes granular breakdown for 52 top origin countries and continental macro-regions."
+    ]
+  },
   "sources": [
     {
-      "institution": "Instituto Nacional de Estadística (INE)",
-      "title": "Estadística de Migraciones y Cambios de Residencia (EMCR)",
+      "institution": {
+        "es": "Instituto Nacional de Estadística (INE)",
+        "en": "National Statistics Institute (INE)"
+      },
+      "title": {
+        "es": "Estadística de Migraciones y Cambios de Residencia (2008-2020)",
+        "en": "Migration and Residence Changes Statistics (2008-2020)"
+      },
+      "shortName": {
+        "es": "EMCR Histórica",
+        "en": "Historical EMCR"
+      },
+      "tableId": "24295",
+      "period": "2008-2020",
+      "lastUpdated": "2024-12-01",
+      "url": "https://www.ine.es/jaxiT3/Tabla.htm?t=24295"
+    },
+    {
+      "institution": {
+        "es": "Instituto Nacional de Estadística (INE)",
+        "en": "National Statistics Institute (INE)"
+      },
+      "title": {
+        "es": "Estadística de Migraciones y Cambios de Residencia (2021-2024)",
+        "en": "Migration and Residence Changes Statistics (2021-2024)"
+      },
+      "shortName": {
+        "es": "EMCR Actual",
+        "en": "Current EMCR"
+      },
       "tableId": "69690",
       "period": "2021-2024",
       "lastUpdated": "2024-12-01",
       "url": "https://www.ine.es/jaxiT3/Tabla.htm?t=69690"
-    },
-    {
-      "institution": "Instituto Nacional de Estadística (INE)",
-      "title": "Estadística de Migraciones (Serie histórica)",
-      "tableId": "24295",
-      "period": "2008-2020",
-      "lastUpdated": "2021-12-01",
-      "url": "https://www.ine.es/jaxiT3/Tabla.htm?t=24295"
     }
   ],
-  "last_updated": "2026-11-19"
+  "lastUpdated": "2024-12-01",
+  "kind": "immigration-flow",
+  "years": [
+    {
+      "year": "2008",
+      "declaredTotal": 599074,
+      "byCountryIso2": {
+        "CO": 36416,
+        "VE": 12969,
+        "PE": 27968,
+        "AR": 18190,
+        "HN": 4584,
+        "EC": 32617,
+        "CU": 10161,
+        "PY": 17558,
+        "DO": 16829,
+        "BO": 10549,
+        "CL": 5695,
+        "MX": 5650,
+        "NI": 2941,
+        "UY": 5681,
+        "BR": 21099,
+        "US": 6512,
+        "CA": 674,
+        "DE": 14047,
+        "RO": 61027,
+        "GB": 26631,
+        "IT": 13075,
+        "UA": 6726,
+        "FR": 12407,
+        "RU": 6122,
+        "PT": 15440,
+        "BG": 10719,
+        "BE": 2718,
+        "DK": 861,
+        "FI": 712,
+        "IE": 1525,
+        "LT": 1101,
+        "MD": 2195,
+        "NO": 1159,
+        "NL": 4323,
+        "PL": 6597,
+        "SE": 1633,
+        "CH": 2637,
+        "MA": 71660,
+        "DZ": 5435,
+        "SN": 10553,
+        "ML": 3503,
+        "NG": 4726,
+        "GM": 2532,
+        "GQ": 2171,
+        "GH": 1834,
+        "GN": 1697,
+        "MR": 1609,
+        "CN": 20261,
+        "PK": 8495,
+        "IN": 4907,
+        "PH": 4797,
+        "BD": 1571
+      },
+      "residualByRegion": {
+        "america-hispanohablante": 3427,
+        "america-no-hispanohablante": 0,
+        "europa": 10681,
+        "africa": 5365,
+        "asia": 5395,
+        "oceania": 707
+      }
+    },
+    {
+      "year": "2009",
+      "declaredTotal": 392963,
+      "byCountryIso2": {
+        "CO": 20946,
+        "VE": 9077,
+        "PE": 13972,
+        "AR": 9813,
+        "HN": 3757,
+        "EC": 13747,
+        "CU": 6881,
+        "PY": 10871,
+        "DO": 9944,
+        "BO": 5973,
+        "CL": 3499,
+        "MX": 4818,
+        "NI": 2391,
+        "UY": 2210,
+        "BR": 10923,
+        "US": 6345,
+        "CA": 639,
+        "DE": 11048,
+        "RO": 43988,
+        "GB": 20355,
+        "IT": 10557,
+        "UA": 4725,
+        "FR": 10558,
+        "RU": 5650,
+        "PT": 8648,
+        "BG": 7687,
+        "BE": 2554,
+        "DK": 690,
+        "FI": 691,
+        "IE": 1589,
+        "LT": 1154,
+        "MD": 1269,
+        "NO": 1260,
+        "NL": 3452,
+        "PL": 3653,
+        "SE": 1556,
+        "CH": 2382,
+        "MA": 43436,
+        "DZ": 4291,
+        "SN": 7142,
+        "ML": 2097,
+        "NG": 2904,
+        "GM": 1741,
+        "GQ": 1531,
+        "GH": 1342,
+        "GN": 1219,
+        "MR": 900,
+        "CN": 12174,
+        "PK": 6137,
+        "IN": 4232,
+        "PH": 3060,
+        "BD": 1631
+      },
+      "residualByRegion": {
+        "america-hispanohablante": 2579,
+        "america-no-hispanohablante": 0,
+        "europa": 7894,
+        "africa": 4191,
+        "asia": 4616,
+        "oceania": 574
+      }
+    },
+    {
+      "year": "2010",
+      "declaredTotal": 360704,
+      "byCountryIso2": {
+        "CO": 14122,
+        "VE": 10623,
+        "PE": 8495,
+        "AR": 8398,
+        "HN": 4758,
+        "EC": 7238,
+        "CU": 9414,
+        "PY": 9477,
+        "DO": 7415,
+        "BO": 4201,
+        "CL": 3265,
+        "MX": 4990,
+        "NI": 3029,
+        "UY": 2010,
+        "BR": 9114,
+        "US": 6226,
+        "CA": 678,
+        "DE": 10249,
+        "RO": 51819,
+        "GB": 18670,
+        "IT": 10378,
+        "UA": 4846,
+        "FR": 10544,
+        "RU": 6490,
+        "PT": 6843,
+        "BG": 8395,
+        "BE": 2800,
+        "DK": 750,
+        "FI": 940,
+        "IE": 1617,
+        "LT": 1272,
+        "MD": 851,
+        "NO": 1495,
+        "NL": 3518,
+        "PL": 3352,
+        "SE": 1783,
+        "CH": 2177,
+        "MA": 30231,
+        "DZ": 3748,
+        "SN": 3774,
+        "ML": 1299,
+        "NG": 2416,
+        "GM": 1464,
+        "GQ": 1418,
+        "GH": 1201,
+        "GN": 827,
+        "MR": 693,
+        "CN": 10495,
+        "PK": 14849,
+        "IN": 3275,
+        "PH": 1972,
+        "BD": 1331
+      },
+      "residualByRegion": {
+        "america-hispanohablante": 2680,
+        "america-no-hispanohablante": 0,
+        "europa": 7969,
+        "africa": 3291,
+        "asia": 4930,
+        "oceania": 599
+      }
+    },
+    {
+      "year": "2011",
+      "declaredTotal": 371335,
+      "byCountryIso2": {
+        "CO": 13673,
+        "VE": 10762,
+        "PE": 8071,
+        "AR": 7527,
+        "HN": 6362,
+        "EC": 7093,
+        "CU": 12099,
+        "PY": 8306,
+        "DO": 10985,
+        "BO": 4758,
+        "CL": 3105,
+        "MX": 5873,
+        "NI": 3646,
+        "UY": 1844,
+        "BR": 8389,
+        "US": 7911,
+        "CA": 899,
+        "DE": 10054,
+        "RO": 50747,
+        "GB": 18828,
+        "IT": 11558,
+        "UA": 5000,
+        "FR": 11143,
+        "RU": 7887,
+        "PT": 7006,
+        "BG": 9931,
+        "BE": 2982,
+        "DK": 780,
+        "FI": 985,
+        "IE": 1713,
+        "LT": 1065,
+        "MD": 791,
+        "NO": 1565,
+        "NL": 3751,
+        "PL": 3270,
+        "SE": 1800,
+        "CH": 2416,
+        "MA": 28415,
+        "DZ": 4240,
+        "SN": 3602,
+        "ML": 1068,
+        "NG": 2097,
+        "GM": 1368,
+        "GQ": 1333,
+        "GH": 1254,
+        "GN": 663,
+        "MR": 631,
+        "CN": 10778,
+        "PK": 10871,
+        "IN": 3586,
+        "PH": 2364,
+        "BD": 1448
+      },
+      "residualByRegion": {
+        "america-hispanohablante": 3155,
+        "america-no-hispanohablante": 0,
+        "europa": 9116,
+        "africa": 3730,
+        "asia": 6263,
+        "oceania": 778
+      }
+    },
+    {
+      "year": "2012",
+      "declaredTotal": 304054,
+      "byCountryIso2": {
+        "CO": 10431,
+        "VE": 7578,
+        "PE": 6040,
+        "AR": 5738,
+        "HN": 5399,
+        "EC": 6421,
+        "CU": 8944,
+        "PY": 4903,
+        "DO": 10771,
+        "BO": 4054,
+        "CL": 2374,
+        "MX": 5316,
+        "NI": 2836,
+        "UY": 1317,
+        "BR": 6928,
+        "US": 7492,
+        "CA": 908,
+        "DE": 9896,
+        "RO": 27244,
+        "GB": 19219,
+        "IT": 12436,
+        "UA": 3623,
+        "FR": 10407,
+        "RU": 7820,
+        "PT": 5837,
+        "BG": 6268,
+        "BE": 3285,
+        "DK": 890,
+        "FI": 941,
+        "IE": 1752,
+        "LT": 808,
+        "MD": 647,
+        "NO": 1460,
+        "NL": 3413,
+        "PL": 2693,
+        "SE": 1886,
+        "CH": 2452,
+        "MA": 23017,
+        "DZ": 4572,
+        "SN": 2920,
+        "ML": 1074,
+        "NG": 1659,
+        "GM": 1148,
+        "GQ": 1199,
+        "GH": 1059,
+        "GN": 607,
+        "MR": 510,
+        "CN": 9348,
+        "PK": 7794,
+        "IN": 2839,
+        "PH": 2092,
+        "BD": 1749
+      },
+      "residualByRegion": {
+        "america-hispanohablante": 2681,
+        "america-no-hispanohablante": 0,
+        "europa": 8234,
+        "africa": 3499,
+        "asia": 6841,
+        "oceania": 785
+      }
+    },
+    {
+      "year": "2013",
+      "declaredTotal": 280772,
+      "byCountryIso2": {
+        "CO": 9268,
+        "VE": 7725,
+        "PE": 5402,
+        "AR": 6021,
+        "HN": 4424,
+        "EC": 6329,
+        "CU": 8103,
+        "PY": 3828,
+        "DO": 8866,
+        "BO": 3832,
+        "CL": 2142,
+        "MX": 4239,
+        "NI": 2201,
+        "UY": 1255,
+        "BR": 5625,
+        "US": 7930,
+        "CA": 973,
+        "DE": 9208,
+        "RO": 22747,
+        "GB": 16782,
+        "IT": 12606,
+        "UA": 3250,
+        "FR": 10548,
+        "RU": 8617,
+        "PT": 5182,
+        "BG": 4981,
+        "BE": 3573,
+        "DK": 812,
+        "FI": 906,
+        "IE": 1605,
+        "LT": 736,
+        "MD": 493,
+        "NO": 1393,
+        "NL": 3450,
+        "PL": 2556,
+        "SE": 1759,
+        "CH": 2285,
+        "MA": 21034,
+        "DZ": 4737,
+        "SN": 3146,
+        "ML": 1145,
+        "NG": 1404,
+        "GM": 1135,
+        "GQ": 1231,
+        "GH": 1007,
+        "GN": 559,
+        "MR": 502,
+        "CN": 9322,
+        "PK": 6098,
+        "IN": 2835,
+        "PH": 2008,
+        "BD": 1276
+      },
+      "residualByRegion": {
+        "america-hispanohablante": 2442,
+        "america-no-hispanohablante": 0,
+        "europa": 7820,
+        "africa": 3504,
+        "asia": 7070,
+        "oceania": 845
+      }
+    },
+    {
+      "year": "2014",
+      "declaredTotal": 305454,
+      "byCountryIso2": {
+        "CO": 9378,
+        "VE": 12842,
+        "PE": 5696,
+        "AR": 7082,
+        "HN": 5781,
+        "EC": 6873,
+        "CU": 7586,
+        "PY": 4349,
+        "DO": 8706,
+        "BO": 4539,
+        "CL": 2528,
+        "MX": 4579,
+        "NI": 2769,
+        "UY": 1512,
+        "BR": 6643,
+        "US": 8054,
+        "CA": 1098,
+        "DE": 8913,
+        "RO": 29531,
+        "GB": 17746,
+        "IT": 14781,
+        "UA": 5665,
+        "FR": 11985,
+        "RU": 8286,
+        "PT": 4939,
+        "BG": 4689,
+        "BE": 3665,
+        "DK": 827,
+        "FI": 889,
+        "IE": 1524,
+        "LT": 673,
+        "MD": 815,
+        "NO": 1468,
+        "NL": 3703,
+        "PL": 2307,
+        "SE": 1925,
+        "CH": 2546,
+        "MA": 20284,
+        "DZ": 4488,
+        "SN": 2984,
+        "ML": 1214,
+        "NG": 1201,
+        "GM": 1203,
+        "GQ": 1505,
+        "GH": 873,
+        "GN": 564,
+        "MR": 534,
+        "CN": 9589,
+        "PK": 4980,
+        "IN": 2900,
+        "PH": 1883,
+        "BD": 970
+      },
+      "residualByRegion": {
+        "america-hispanohablante": 3140,
+        "america-no-hispanohablante": 0,
+        "europa": 8128,
+        "africa": 3632,
+        "asia": 7577,
+        "oceania": 913
+      }
+    },
+    {
+      "year": "2015",
+      "declaredTotal": 342114,
+      "byCountryIso2": {
+        "CO": 10928,
+        "VE": 19652,
+        "PE": 6685,
+        "AR": 8768,
+        "HN": 7754,
+        "EC": 8355,
+        "CU": 7365,
+        "PY": 4848,
+        "DO": 7988,
+        "BO": 4977,
+        "CL": 3236,
+        "MX": 5188,
+        "NI": 3200,
+        "UY": 1992,
+        "BR": 8770,
+        "US": 9170,
+        "CA": 1140,
+        "DE": 9605,
+        "RO": 28382,
+        "GB": 19284,
+        "IT": 17350,
+        "UA": 8827,
+        "FR": 13507,
+        "RU": 7113,
+        "PT": 5010,
+        "BG": 4915,
+        "BE": 4047,
+        "DK": 902,
+        "FI": 925,
+        "IE": 1684,
+        "LT": 763,
+        "MD": 1025,
+        "NO": 1313,
+        "NL": 3937,
+        "PL": 2343,
+        "SE": 1872,
+        "CH": 2939,
+        "MA": 24208,
+        "DZ": 4167,
+        "SN": 3419,
+        "ML": 1131,
+        "NG": 1175,
+        "GM": 1158,
+        "GQ": 1823,
+        "GH": 866,
+        "GN": 649,
+        "MR": 676,
+        "CN": 10327,
+        "PK": 4483,
+        "IN": 3003,
+        "PH": 2307,
+        "BD": 1201
+      },
+      "residualByRegion": {
+        "america-hispanohablante": 3835,
+        "america-no-hispanohablante": 0,
+        "europa": 8629,
+        "africa": 4027,
+        "asia": 8219,
+        "oceania": 1052
+      }
+    },
+    {
+      "year": "2016",
+      "declaredTotal": 414746,
+      "byCountryIso2": {
+        "CO": 24844,
+        "VE": 31553,
+        "PE": 9711,
+        "AR": 10852,
+        "HN": 11074,
+        "EC": 12349,
+        "CU": 8122,
+        "PY": 7500,
+        "DO": 9709,
+        "BO": 6202,
+        "CL": 4304,
+        "MX": 5301,
+        "NI": 4250,
+        "UY": 2782,
+        "BR": 11954,
+        "US": 9942,
+        "CA": 1167,
+        "DE": 10505,
+        "RO": 27860,
+        "GB": 23876,
+        "IT": 18526,
+        "UA": 6835,
+        "FR": 13341,
+        "RU": 6350,
+        "PT": 5257,
+        "BG": 5297,
+        "BE": 4511,
+        "DK": 968,
+        "FI": 971,
+        "IE": 1973,
+        "LT": 942,
+        "MD": 1096,
+        "NO": 1422,
+        "NL": 4373,
+        "PL": 2445,
+        "SE": 2101,
+        "CH": 3310,
+        "MA": 30097,
+        "DZ": 4512,
+        "SN": 3918,
+        "ML": 1128,
+        "NG": 1188,
+        "GM": 1280,
+        "GQ": 1983,
+        "GH": 959,
+        "GN": 773,
+        "MR": 724,
+        "CN": 10552,
+        "PK": 6225,
+        "IN": 3734,
+        "PH": 2369,
+        "BD": 1596
+      },
+      "residualByRegion": {
+        "america-hispanohablante": 5300,
+        "america-no-hispanohablante": 0,
+        "europa": 9560,
+        "africa": 4024,
+        "asia": 10055,
+        "oceania": 1194
+      }
+    },
+    {
+      "year": "2017",
+      "declaredTotal": 532132,
+      "byCountryIso2": {
+        "CO": 36678,
+        "VE": 52385,
+        "PE": 15945,
+        "AR": 14904,
+        "HN": 18573,
+        "EC": 15600,
+        "CU": 10280,
+        "PY": 8659,
+        "DO": 11324,
+        "BO": 7689,
+        "CL": 5348,
+        "MX": 7068,
+        "NI": 6330,
+        "UY": 3827,
+        "BR": 14816,
+        "US": 12719,
+        "CA": 1301,
+        "DE": 12714,
+        "RO": 30235,
+        "GB": 28875,
+        "IT": 22203,
+        "UA": 7806,
+        "FR": 16290,
+        "RU": 7051,
+        "PT": 5888,
+        "BG": 5942,
+        "BE": 5358,
+        "DK": 1179,
+        "FI": 1141,
+        "IE": 2234,
+        "LT": 1219,
+        "MD": 1240,
+        "NO": 1603,
+        "NL": 5030,
+        "PL": 3041,
+        "SE": 2552,
+        "CH": 4372,
+        "MA": 40372,
+        "DZ": 4899,
+        "SN": 4362,
+        "ML": 1118,
+        "NG": 1400,
+        "GM": 1362,
+        "GQ": 1963,
+        "GH": 1227,
+        "GN": 734,
+        "MR": 510,
+        "CN": 11779,
+        "PK": 6560,
+        "IN": 4664,
+        "PH": 2674,
+        "BD": 1960
+      },
+      "residualByRegion": {
+        "america-hispanohablante": 7099,
+        "america-no-hispanohablante": 0,
+        "europa": 11427,
+        "africa": 4771,
+        "asia": 12375,
+        "oceania": 1457
+      }
+    },
+    {
+      "year": "2018",
+      "declaredTotal": 643684,
+      "byCountryIso2": {
+        "CO": 56253,
+        "VE": 71666,
+        "PE": 21463,
+        "AR": 19166,
+        "HN": 23671,
+        "EC": 15893,
+        "CU": 14265,
+        "PY": 9533,
+        "DO": 10813,
+        "BO": 7632,
+        "CL": 6256,
+        "MX": 7834,
+        "NI": 11732,
+        "UY": 4435,
+        "BR": 17863,
+        "US": 13853,
+        "CA": 1503,
+        "DE": 13314,
+        "RO": 28030,
+        "GB": 31276,
+        "IT": 22002,
+        "UA": 8152,
+        "FR": 16210,
+        "RU": 8091,
+        "PT": 6369,
+        "BG": 5173,
+        "BE": 5495,
+        "DK": 1201,
+        "FI": 1115,
+        "IE": 2597,
+        "LT": 1247,
+        "MD": 1478,
+        "NO": 1648,
+        "NL": 5506,
+        "PL": 3211,
+        "SE": 2985,
+        "CH": 4246,
+        "MA": 61715,
+        "DZ": 6687,
+        "SN": 6797,
+        "ML": 1776,
+        "NG": 1513,
+        "GM": 1646,
+        "GQ": 1915,
+        "GH": 1822,
+        "GN": 1132,
+        "MR": 740,
+        "CN": 12182,
+        "PK": 8673,
+        "IN": 6858,
+        "PH": 2561,
+        "BD": 2438
+      },
+      "residualByRegion": {
+        "america-hispanohablante": 9082,
+        "america-no-hispanohablante": 0,
+        "europa": 12873,
+        "africa": 5314,
+        "asia": 13212,
+        "oceania": 1571
+      }
+    },
+    {
+      "year": "2019",
+      "declaredTotal": 750480,
+      "byCountryIso2": {
+        "CO": 80324,
+        "VE": 74344,
+        "PE": 31390,
+        "AR": 31306,
+        "HN": 29312,
+        "EC": 17663,
+        "CU": 17660,
+        "PY": 12231,
+        "DO": 11058,
+        "BO": 7705,
+        "CL": 7171,
+        "MX": 9088,
+        "NI": 17452,
+        "UY": 6008,
+        "BR": 18711,
+        "US": 15032,
+        "CA": 1578,
+        "DE": 13633,
+        "RO": 25576,
+        "GB": 37720,
+        "IT": 21559,
+        "UA": 7965,
+        "FR": 16550,
+        "RU": 9032,
+        "PT": 7068,
+        "BG": 5392,
+        "BE": 5605,
+        "DK": 1235,
+        "FI": 999,
+        "IE": 2824,
+        "LT": 1102,
+        "MD": 1534,
+        "NO": 1711,
+        "NL": 5648,
+        "PL": 3133,
+        "SE": 3250,
+        "CH": 4134,
+        "MA": 73348,
+        "DZ": 7572,
+        "SN": 7963,
+        "ML": 2634,
+        "NG": 1496,
+        "GM": 2033,
+        "GQ": 1659,
+        "GH": 2435,
+        "GN": 1469,
+        "MR": 930,
+        "CN": 12646,
+        "PK": 11513,
+        "IN": 7013,
+        "PH": 3070,
+        "BD": 2482
+      },
+      "residualByRegion": {
+        "america-hispanohablante": 12389,
+        "america-no-hispanohablante": 0,
+        "europa": 14026,
+        "africa": 6004,
+        "asia": 14296,
+        "oceania": 1799
+      }
+    },
+    {
+      "year": "2020",
+      "declaredTotal": 467918,
+      "byCountryIso2": {
+        "CO": 52921,
+        "VE": 32927,
+        "PE": 19737,
+        "AR": 19857,
+        "HN": 18856,
+        "EC": 10058,
+        "CU": 7784,
+        "PY": 6596,
+        "DO": 6470,
+        "BO": 4085,
+        "CL": 5052,
+        "MX": 5867,
+        "NI": 9416,
+        "UY": 3475,
+        "BR": 9541,
+        "US": 9909,
+        "CA": 1208,
+        "DE": 10670,
+        "RO": 14891,
+        "GB": 36374,
+        "IT": 14258,
+        "UA": 4145,
+        "FR": 14086,
+        "RU": 4640,
+        "PT": 5555,
+        "BG": 3274,
+        "BE": 4667,
+        "DK": 842,
+        "FI": 671,
+        "IE": 2201,
+        "LT": 673,
+        "MD": 906,
+        "NO": 1198,
+        "NL": 4493,
+        "PL": 2268,
+        "SE": 2198,
+        "CH": 3226,
+        "MA": 45464,
+        "DZ": 4388,
+        "SN": 5132,
+        "ML": 2191,
+        "NG": 1091,
+        "GM": 1556,
+        "GQ": 842,
+        "GH": 1314,
+        "GN": 761,
+        "MR": 609,
+        "CN": 5670,
+        "PK": 7340,
+        "IN": 2946,
+        "PH": 1706,
+        "BD": 1198
+      },
+      "residualByRegion": {
+        "america-hispanohablante": 7741,
+        "america-no-hispanohablante": 0,
+        "europa": 9318,
+        "africa": 3665,
+        "asia": 8853,
+        "oceania": 1138
+      }
+    },
+    {
+      "year": "2021",
+      "declaredTotal": 887960,
+      "byCountryIso2": {
+        "CO": 69757,
+        "VE": 43698,
+        "PE": 31346,
+        "AR": 43747,
+        "HN": 20310,
+        "EC": 22407,
+        "CU": 18107,
+        "PY": 11036,
+        "DO": 13143,
+        "BO": 10286,
+        "CL": 10453,
+        "MX": 11921,
+        "NI": 7323,
+        "UY": 5270,
+        "BR": 14612,
+        "US": 20911,
+        "CA": 2498,
+        "DE": 28544,
+        "RO": 45619,
+        "GB": 50845,
+        "IT": 25084,
+        "UA": 9811,
+        "FR": 27894,
+        "RU": 12874,
+        "PT": 10789,
+        "BG": 8434,
+        "BE": 9865,
+        "DK": 2024,
+        "FI": 1643,
+        "IE": 6200,
+        "LT": 1519,
+        "MD": 1840,
+        "NO": 3160,
+        "NL": 11286,
+        "PL": 5360,
+        "SE": 5249,
+        "CH": 7181,
+        "MA": 101234,
+        "DZ": 9744,
+        "SN": 12582,
+        "ML": 6329,
+        "NG": 2998,
+        "GM": 3804,
+        "GQ": 2738,
+        "GH": 2892,
+        "GN": 1698,
+        "MR": 2104,
+        "CN": 18910,
+        "PK": 16057,
+        "IN": 5850,
+        "PH": 3524,
+        "BD": 2074
+      },
+      "residualByRegion": {
+        "america-hispanohablante": 10837,
+        "america-no-hispanohablante": 0,
+        "europa": 22117,
+        "africa": 8993,
+        "asia": 19378,
+        "oceania": 2051
+      }
+    },
+    {
+      "year": "2022",
+      "declaredTotal": 1258894,
+      "byCountryIso2": {
+        "CO": 178088,
+        "VE": 85299,
+        "PE": 70921,
+        "AR": 59452,
+        "HN": 34948,
+        "EC": 27982,
+        "CU": 27080,
+        "PY": 24078,
+        "DO": 14436,
+        "BO": 11229,
+        "CL": 12977,
+        "MX": 13308,
+        "NI": 16588,
+        "UY": 6759,
+        "BR": 22454,
+        "US": 20646,
+        "CA": 2820,
+        "DE": 26468,
+        "RO": 45591,
+        "GB": 35084,
+        "IT": 30400,
+        "UA": 93191,
+        "FR": 26265,
+        "RU": 20120,
+        "PT": 10696,
+        "BG": 8333,
+        "BE": 9023,
+        "DK": 1769,
+        "FI": 1627,
+        "IE": 5018,
+        "LT": 1912,
+        "MD": 2553,
+        "NO": 2425,
+        "NL": 11095,
+        "PL": 6707,
+        "SE": 4890,
+        "CH": 6874,
+        "MA": 115172,
+        "DZ": 12704,
+        "SN": 11785,
+        "ML": 4637,
+        "NG": 2951,
+        "GM": 3763,
+        "GQ": 3478,
+        "GH": 2870,
+        "GN": 1691,
+        "MR": 1772,
+        "CN": 15334,
+        "PK": 16496,
+        "IN": 8126,
+        "PH": 3903,
+        "BD": 2480
+      },
+      "residualByRegion": {
+        "america-hispanohablante": 14509,
+        "america-no-hispanohablante": 0,
+        "europa": 26612,
+        "africa": 9468,
+        "asia": 18849,
+        "oceania": 3188
+      }
+    },
+    {
+      "year": "2023",
+      "declaredTotal": 1250991,
+      "byCountryIso2": {
+        "CO": 176124,
+        "VE": 92771,
+        "PE": 72138,
+        "AR": 58266,
+        "HN": 32983,
+        "EC": 34221,
+        "CU": 30812,
+        "PY": 25223,
+        "DO": 15570,
+        "BO": 12065,
+        "CL": 13700,
+        "MX": 14475,
+        "NI": 14148,
+        "UY": 6915,
+        "BR": 21741,
+        "US": 23221,
+        "CA": 3245,
+        "DE": 27608,
+        "RO": 43480,
+        "GB": 35286,
+        "IT": 30602,
+        "UA": 34199,
+        "FR": 28326,
+        "RU": 20600,
+        "PT": 12208,
+        "BG": 8159,
+        "BE": 9364,
+        "DK": 2083,
+        "FI": 1643,
+        "IE": 5573,
+        "LT": 1953,
+        "MD": 1907,
+        "NO": 2645,
+        "NL": 11445,
+        "PL": 7357,
+        "SE": 5043,
+        "CH": 7551,
+        "MA": 124832,
+        "DZ": 15457,
+        "SN": 11751,
+        "ML": 3760,
+        "NG": 3149,
+        "GM": 3579,
+        "GQ": 3525,
+        "GH": 2597,
+        "GN": 1737,
+        "MR": 1813,
+        "CN": 21084,
+        "PK": 18221,
+        "IN": 10033,
+        "PH": 4708,
+        "BD": 3458
+      },
+      "residualByRegion": {
+        "america-hispanohablante": 13939,
+        "america-no-hispanohablante": 0,
+        "europa": 29066,
+        "africa": 10359,
+        "asia": 20230,
+        "oceania": 3043
+      }
+    },
+    {
+      "year": "2024",
+      "declaredTotal": 1288562,
+      "byCountryIso2": {
+        "CO": 172599,
+        "VE": 107223,
+        "PE": 74232,
+        "AR": 53660,
+        "HN": 29868,
+        "EC": 36684,
+        "CU": 35741,
+        "PY": 25565,
+        "DO": 15002,
+        "BO": 10594,
+        "CL": 13642,
+        "MX": 15434,
+        "NI": 12736,
+        "UY": 5891,
+        "BR": 21481,
+        "US": 25559,
+        "CA": 3508,
+        "DE": 26123,
+        "RO": 35747,
+        "GB": 34791,
+        "IT": 28945,
+        "UA": 30000,
+        "FR": 29053,
+        "RU": 14067,
+        "PT": 12459,
+        "BG": 6465,
+        "BE": 9492,
+        "DK": 2013,
+        "FI": 1509,
+        "IE": 5968,
+        "LT": 1833,
+        "MD": 1561,
+        "NO": 2734,
+        "NL": 13130,
+        "PL": 7344,
+        "SE": 5182,
+        "CH": 7137,
+        "MA": 132998,
+        "DZ": 22847,
+        "SN": 20880,
+        "ML": 8810,
+        "NG": 3059,
+        "GM": 5455,
+        "GQ": 3295,
+        "GH": 2916,
+        "GN": 1950,
+        "MR": 2976,
+        "CN": 24619,
+        "PK": 20067,
+        "IN": 13039,
+        "PH": 5125,
+        "BD": 5797
+      },
+      "residualByRegion": {
+        "america-hispanohablante": 13450,
+        "america-no-hispanohablante": 0,
+        "europa": 27931,
+        "africa": 11555,
+        "asia": 23288,
+        "oceania": 3533
+      }
+    }
+  ]
 }

@@ -1,3 +1,5 @@
+export * from "@/src/domain/indicator.schema";
+
 export const CATEGORIES = [
   "Todas",
   "Vivienda",

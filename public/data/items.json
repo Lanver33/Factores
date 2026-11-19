@@ -1,20 +1,83 @@
 [
   {
     "id": "inmigracion-procedencia",
-    "category": "Pensiones y Demografía",
-    "question": "¿Cuál es la evolución de la inmigración procedente del extranjero en España?",
-    "unit": "personas",
+    "kind": "immigration-flow",
+    "category": "pensions-demography",
+    "question": {
+      "es": "¿Cuál es la evolución de la inmigración procedente del extranjero en España?",
+      "en": "What is the evolution of immigration from abroad into Spain?"
+    },
+    "unit": {
+      "es": "personas",
+      "en": "people"
+    },
+    "valueFormat": "number",
     "latestValue": 1288562,
-    "latestYear": "2024",
-    "lastUpdated": "2024-12-01"
+    "latestPeriod": "2024",
+    "timeHorizon": "2008–2024",
+    "primarySource": {
+      "es": "Instituto Nacional de Estadística (INE)",
+      "en": "National Statistics Institute (INE)"
+    },
+    "searchSummary": {
+      "es": "Flujo anual de inmigraciones procedentes del extranjero registrado por el Instituto Nacional de Estadística (INE).",
+      "en": "Annual immigration flows from abroad registered by the National Statistics Institute (INE)."
+    },
+    "sparkline": [
+      599074,
+      392963,
+      360704,
+      371335,
+      304054,
+      280772,
+      305454,
+      342114,
+      414746,
+      532132,
+      643684,
+      750480,
+      467918,
+      887960,
+      1258894,
+      1250991,
+      1288562
+    ]
   },
   {
     "id": "saldo-fiscal-nacionalidad",
-    "category": "Economía y Empleo",
-    "question": "Saldo fiscal y ratio contribución / gasto",
-    "unit": "% / € hab / MM€",
+    "kind": "fiscal-balance",
+    "category": "economy-employment",
+    "question": {
+      "es": "Saldo fiscal y ratio contribución / gasto por nacionalidad",
+      "en": "Fiscal balance and contribution / spending ratio by nationality"
+    },
+    "unit": {
+      "es": "% / € hab / MM€",
+      "en": "% / € per capita / MM€"
+    },
+    "valueFormat": "percent",
     "latestValue": 187,
-    "latestYear": "2024",
-    "lastUpdated": "2024-12-01"
+    "latestPeriod": "2024",
+    "timeHorizon": "2015–2024",
+    "primarySource": {
+      "es": "Intervención General de la Administración del Estado (IGAE) / Banco de España",
+      "en": "General Intervention Board of the State Administration (IGAE) / Bank of Spain"
+    },
+    "searchSummary": {
+      "es": "Pestaña 1 (Comparativa Ratio %): Compara el ratio Contribución / Gasto (Cotizaciones SS + IRPF + IVA imputado sobre Gasto público COFOG e imputaciones). Un valor por encima del 100% indica superávit fiscal; por debajo, déficit.",
+      "en": "Tab 1 (Ratio % Comparison): Compares the Contribution / Spending ratio (SS contributions + IRPF + imputed VAT over COFOG public spending). Values above 100% indicate fiscal surplus; below 100%, deficit."
+    },
+    "sparkline": [
+      160.4,
+      164.4,
+      169.5,
+      176,
+      180.5,
+      153.9,
+      161.2,
+      172,
+      181.6,
+      187
+    ]
   }
 ]

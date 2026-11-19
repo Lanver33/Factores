@@ -11,7 +11,9 @@ const IGNORE_FILES = [
   "package-lock.json",
   "uv.lock",
   "countriesGeo.json",
-  "landGeo.json"
+  "landGeo.json",
+  "world-natural-earth.raw.json",
+  "projected-world.json"
 ];
 
 const ALLOWED_EXTENSIONS = [".ts", ".tsx", ".js", ".py", ".css", ".json", ".md", ".toml", ".mjs"];
