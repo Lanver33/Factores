@@ -4,7 +4,8 @@ import { useState, useMemo, useEffect } from "react";
 import { ImmigrationItem, AnnualBlock } from "@/types";
 import WebGisChronoArcs from "./WebGisChronoArcs";
 import TimelineScrubber from "./TimelineScrubber";
-import ConcentricSunburstRanking from "./ConcentricSunburstRanking";
+import ContinentCountrySplitView from "./ContinentCountrySplitView";
+import { Lang } from "@/lib/i18n";
 
 type TimeframeMode = "single" | "range";
 type YearRange = [string, string];
@@ -16,6 +17,7 @@ const DEFAULT_RANGE_SPAN = 5;
 
 interface ImmigrationViewProps {
   item: ImmigrationItem;
+  lang?: Lang;
 }
 
 interface AggregatedMetrics {
@@ -43,7 +45,7 @@ function aggregateAnnualBlocks(blocks: AnnualBlock[]): {
   return { dataMap, total };
 }
 
-export default function ImmigrationView({ item }: ImmigrationViewProps) {
+export default function ImmigrationView({ item, lang = "es" }: ImmigrationViewProps) {
   const years = useMemo(
     () => item.annualBlocks.map((block) => block.year),
     [item.annualBlocks]
@@ -143,8 +145,8 @@ export default function ImmigrationView({ item }: ImmigrationViewProps) {
         />
       </div>
 
-      {/* 2. Concentric Sunburst Ranking Component */}
-      <ConcentricSunburstRanking
+      {/* 2. Continent Donut & Country Ranking Split View */}
+      <ContinentCountrySplitView
         item={item}
         activeDataMap={activeDataMap}
         totalArrivals={totalArrivals}
@@ -153,6 +155,7 @@ export default function ImmigrationView({ item }: ImmigrationViewProps) {
         hoveredCountryId={hoveredCountryId}
         setHoveredCountryId={setHoveredCountryId}
         selectedTimeframeLabel={timeframeLabel}
+        lang={lang}
       />
     </div>
   );

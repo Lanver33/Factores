@@ -137,6 +137,7 @@ export default function DatoClientView({ slug, lang = "es" }: DatoClientViewProp
                 chartType={dato.chartType || "line"}
                 unit={dato.unit}
                 item={dato}
+                lang={lang}
               />
             </section>
 

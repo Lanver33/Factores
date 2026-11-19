@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { MetricSeriesPoint } from "@/types";
 import ImmigrationView from "./immigration/ImmigrationView";
+import { Lang } from "@/lib/i18n";
 import {
   ResponsiveContainer,
   LineChart,
@@ -29,6 +30,7 @@ interface InteractiveChartProps {
   unit: string;
   title?: string;
   item?: any;
+  lang?: Lang;
 }
 
 const ITEM_LABELS: Record<string, string> = {
@@ -250,9 +252,10 @@ export default function InteractiveChart({
   unit,
   title,
   item,
+  lang = "es",
 }: InteractiveChartProps) {
   if (item && (item.id === "inmigracion-procedencia" || item.annualBlocks)) {
-    return <ImmigrationView item={item} />;
+    return <ImmigrationView item={item} lang={lang} />;
   }
   const isFiscalCard = rawPoints.some((p) =>
     Array.isArray(p.value) && p.value.some((v) => "ratio-extranjeros" in v)
