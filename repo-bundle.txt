@@ -1,6 +1,6 @@
 /**
  * FACTORES REPOSITORY SOURCE CODE BUNDLE
- * Generated on: 2026-11-19T07:42:09.533Z
+ * Generated on: 2026-11-19T07:52:01.760Z
  */
 
 // ==========================================
@@ -441,6 +441,24 @@ export default function DatoClientView({ slug, lang = "es" }: DatoClientViewProp
             />
           </section>
 
+          {/* Notas Metodológicas y Contexto */}
+          {Array.isArray(dato.contextNotes) && dato.contextNotes.length > 0 && (
+            <section className="bg-slate-900 rounded-2xl border border-slate-800 p-5 space-y-3">
+              <h3 className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-blue-500" />
+                {lang === "en" ? "Methodological Notes & Context" : "Notas Metodológicas y Contexto"}
+              </h3>
+              <ul className="space-y-2 text-xs text-slate-400">
+                {dato.contextNotes.map((note, idx) => (
+                  <li key={idx} className="flex items-start gap-2">
+                    <span className="text-blue-400 font-mono mt-0.5">•</span>
+                    <span className="leading-relaxed">{note}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
           {/* 3. Trazabilidad y Fuentes Oficiales */}
           <section>
             <SourceCard
@@ -618,16 +636,16 @@ import { ArrowLeft, AlertCircle } from "lucide-react";
 export default function NotFound() {
   return (
     <div className="min-h-[60vh] flex flex-col items-center justify-center text-center space-y-4 px-4">
-      <div className="w-12 h-12 rounded-2xl bg-slate-100 text-slate-600 flex items-center justify-center">
-        <AlertCircle className="w-6 h-6 text-blue-600" />
+      <div className="w-12 h-12 rounded-2xl bg-slate-900 text-slate-300 border border-slate-800 flex items-center justify-center">
+        <AlertCircle className="w-6 h-6 text-blue-400" />
       </div>
-      <h1 className="text-xl font-bold text-slate-900">Página no encontrada</h1>
-      <p className="text-xs text-slate-500 max-w-sm">
+      <h1 className="text-xl font-bold text-slate-100">Página no encontrada</h1>
+      <p className="text-xs text-slate-400 max-w-sm">
         El dato o página que buscas no existe o ha sido movido.
       </p>
       <Link
         href="/"
-        className="inline-flex items-center gap-2 text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 px-4 py-2.5 rounded-xl transition-colors"
+        className="inline-flex items-center gap-2 text-xs font-semibold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 px-4 py-2.5 rounded-xl transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>Volver al explorador</span>
@@ -674,6 +692,7 @@ import {
 interface RawDataPoint {
   year: string;
   value: number | Array<Record<string, number>>;
+  date?: string;
 }
 
 interface InteractiveChartProps {
@@ -807,7 +826,7 @@ function formatSpanishNumber(val: number): string {
   return val.toLocaleString("es-ES");
 }
 
-function CustomFiscalTooltip({ active, payload, label, fiscalTab }: any) {
+function CustomFiscalTooltip({ active, payload, label, fiscalTab, unit = "MM€" }: any) {
   if (!active || !payload || !payload.length) return null;
 
   return (
@@ -832,7 +851,7 @@ function CustomFiscalTooltip({ active, payload, label, fiscalTab }: any) {
           } else if (fiscalTab === "capita") {
             displayVal = `${val >= 0 ? "+" : ""}${val.toLocaleString("es-ES")} €/hab`;
           } else {
-            displayVal = `${val.toLocaleString("es-ES")} MM€`;
+            displayVal = `${val.toLocaleString("es-ES")} ${unit}`;
           }
 
           return (
@@ -908,9 +927,6 @@ export default function InteractiveChart({
   item,
   lang = "es",
 }: InteractiveChartProps) {
-  if (item && (item.id === "inmigracion-procedencia" || item.annualBlocks)) {
-    return <ImmigrationView item={item} lang={lang} />;
-  }
   const isFiscalCard = rawPoints.some((p) =>
     Array.isArray(p.value) && p.value.some((v) => "ratio-extranjeros" in v)
   );
@@ -931,7 +947,7 @@ export default function InteractiveChart({
     const cData: any[] = [];
 
     rawPoints.forEach((p) => {
-      const yearStr = String(p.year);
+      const yearStr = String(p.year || p.date || "");
       const row: Record<string, any> = { year: yearStr, date: yearStr };
 
       if (Array.isArray(p.value)) {
@@ -944,6 +960,8 @@ export default function InteractiveChart({
             }
           }
         });
+      } else if (typeof p.value === "number") {
+        row["value"] = p.value;
       }
       cData.push(row);
 
@@ -970,6 +988,10 @@ export default function InteractiveChart({
     const sortedKeys = Array.from(keysSet);
     return { chartData: cData, itemKeys: sortedKeys, fiscalAbsData: fAbsData, fiscalPctData: fPctData };
   }, [rawPoints, series]);
+
+  if (item && (item.id === "inmigracion-procedencia" || item.annualBlocks)) {
+    return <ImmigrationView item={item} lang={lang} />;
+  }
 
   if (!series || series.length === 0) {
     return (
@@ -4405,8 +4427,8 @@ export default function TimelineScrubber({
         <div className="space-y-2">
           <input
             type="range"
-            min="2008"
-            max="2024"
+            min={years[0] || "2008"}
+            max={years[years.length - 1] || "2024"}
             step="1"
             value={selectedYear}
             onChange={(e) => {
@@ -4487,6 +4509,7 @@ import {
   font_dest,
   projectCoordinates,
   formatSpanishNumber,
+  COUNTRY_GEO_MAP,
 } from "./utils";
 import { getChoroplethCountryPolygons } from "./worldMapRenderer";
 import { getJenksBreaks } from "./jenks";
@@ -4741,7 +4764,7 @@ export default function WebGisChronoArcs({
             <div className="flex items-center justify-between border-b border-slate-800 pb-1.5">
               <span className="font-extrabold text-sm flex items-center gap-1.5 text-blue-400">
                 <MapPin className="w-4 h-4 text-pink-500" />
-                {activeHighlightId}
+                {COUNTRY_GEO_MAP[activeHighlightId]?.name || activeHighlightId}
               </span>
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                 {timeframeLabel}
@@ -5204,32 +5227,51 @@ const COUNTRY_NAME_MAPPING: Record<string, string[]> = {
   ecuador: ["Ecuador"],
   cuba: ["Cuba"],
   paraguay: ["Paraguay"],
-  "rep-dominicana": ["Dominican Rep.", "Dominican Republic"],
+  "republica-dominicana": ["Dominican Rep.", "Dominican Republic", "República Dominicana"],
+  "rep-dominicana": ["Dominican Rep.", "Dominican Republic", "República Dominicana"],
+  bolivia: ["Bolivia"],
+  chile: ["Chile"],
+  mexico: ["Mexico", "México"],
+  nicaragua: ["Nicaragua"],
+  uruguay: ["Uruguay"],
   brasil: ["Brazil", "Brasil"],
-  "estados-unidos": ["United States of America", "United States"],
-  canada: ["Canada"],
+  "estados-unidos-de-america": ["United States of America", "United States", "US"],
+  "estados-unidos": ["United States of America", "United States", "US"],
+  canada: ["Canada", "Canadá"],
+  alemania: ["Germany", "Alemania"],
   rumania: ["Romania", "Rumanía"],
   "reino-unido": ["United Kingdom"],
   italia: ["Italy", "Italia"],
   ucrania: ["Ukraine", "Ucrania"],
   francia: ["France", "Francia"],
-  alemania: ["Germany", "Alemania"],
   rusia: ["Russia", "Rusia"],
   portugal: ["Portugal"],
   bulgaria: ["Bulgaria"],
+  belgica: ["Belgium", "Bélgica"],
+  dinamarca: ["Denmark", "Dinamarca"],
+  finlandia: ["Finland", "Finlandia"],
+  irlanda: ["Ireland", "Irlanda"],
+  lituania: ["Lithuania", "Lituania"],
+  moldavia: ["Moldova", "Moldavia"],
+  noruega: ["Norway", "Noruega"],
+  "paises-bajos": ["Netherlands", "Países Bajos"],
+  polonia: ["Poland", "Polonia"],
+  suecia: ["Sweden", "Suecia"],
+  suiza: ["Switzerland", "Suiza"],
   marruecos: ["Morocco", "Marruecos"],
   argelia: ["Algeria", "Argelia"],
   senegal: ["Senegal"],
   mali: ["Mali"],
   nigeria: ["Nigeria"],
   gambia: ["Gambia"],
-  "guinea-ecuatorial": ["Eq. Guinea", "Equatorial Guinea"],
+  "guinea-ecuatorial": ["Eq. Guinea", "Equatorial Guinea", "Guinea Ecuatorial"],
   ghana: ["Ghana"],
   guinea: ["Guinea"],
+  mauritania: ["Mauritania"],
   china: ["China"],
-  pakistan: ["Pakistan"],
+  pakistan: ["Pakistan", "Pakistán"],
   india: ["India"],
-  filipinas: ["Philippines"],
+  filipinas: ["Philippines", "Filipinas"],
   bangladesh: ["Bangladesh"],
 };
 
@@ -5275,7 +5317,7 @@ export function getChoroplethCountryPolygons(
       });
     }
 
-    polygons.forEach((ring) => {
+    polygons.forEach((ring, ringIdx) => {
       const coords: string[] = [];
       ring.forEach(([lng, lat]: [number, number], index: number) => {
         const pt = projectCoordinates(lng, lat, width, height, zoom, panX, panY);
@@ -5285,7 +5327,7 @@ export function getChoroplethCountryPolygons(
 
       if (coords.length > 2) {
         result.push({
-          featureId: `${fIdx}_${Math.random()}`,
+          featureId: `${fIdx}_${ringIdx}`,
           countryId: matchedCountryId,
           name,
           pathD: `${coords.join(" ")} Z`,
@@ -7462,11 +7504,14 @@ def compute_fiscal_balance(pop_esp: dict, pop_ext: dict) -> dict:
             "Categorías Específicas de Gastos: Gasto Imputado Extranjeros, Gasto Imputado Españoles, Intereses de la Deuda Pública, Defensa/Fuerzas Armadas, Seguridad Ciudadana/Justicia, Infraestructuras/Transportes, Medio Ambiente/I+D+i y Servicios Generales de la Administración Pública.",
             "Fuentes oficiales cruzadas: IGAE & Banco de España (Contabilidad Nacional S.13 SEC-2010), INE (ECP Tabla 56951), Seguridad Social (Afiliación y Pensiones por Nacionalidad) y AEAT (Informes de Recaudación Tributaria)."
         ],
-        "source": {
-            "institution": "IGAE, Banco de España, INE, Seguridad Social y AEAT",
-            "lastUpdated": f"{max_year}-12-01",
-            "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177003"
-        },
+        "sources": [
+            {
+                "institution": "IGAE, Banco de España, INE, Seguridad Social y AEAT",
+                "title": "Contabilidad Nacional de España (S.13 SEC-2010) y Estadística Continua de Población",
+                "lastUpdated": f"{max_year}-12-01",
+                "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177003"
+            }
+        ],
         "last_updated": today_str,
     }
 
