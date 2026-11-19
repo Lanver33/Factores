@@ -44,6 +44,9 @@ export function ConceptGuideProvider({ guide = null, children }: ConceptGuidePro
     if (guide?.terms) {
       for (const term of guide.terms) {
         map.set(term.code, term);
+        map.set(term.code.trim().toUpperCase(), term);
+        map.set(term.displayCode, term);
+        map.set(term.displayCode.trim().toUpperCase(), term);
       }
     }
     return map;
@@ -51,7 +54,13 @@ export function ConceptGuideProvider({ guide = null, children }: ConceptGuidePro
 
   const getTerm = useCallback(
     (code: string) => {
-      return termMap.get(code);
+      if (!code) return undefined;
+      return (
+        termMap.get(code) ||
+        termMap.get(code.trim().toUpperCase()) ||
+        termMap.get(code.replace(".", "")) ||
+        termMap.get(code.replace(".", "").toUpperCase())
+      );
     },
     [termMap]
   );

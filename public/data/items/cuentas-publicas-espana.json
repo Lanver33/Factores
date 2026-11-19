@@ -257,6 +257,72 @@
         ]
       },
       {
+        "code": "D212",
+        "displayCode": "D.212",
+        "categoryId": "revenues",
+        "title": "Impuestos sobre las importaciones (exc. IVA)",
+        "shortDefinition": "Derechos de aduana y aranceles sobre productos importados de fuera de la UE.",
+        "explanation": "Tributos devengados en el momento de la entrada de mercancías procedentes de terceros países.",
+        "relatedCodes": [
+          "D2"
+        ]
+      },
+      {
+        "code": "D29",
+        "displayCode": "D.29",
+        "categoryId": "revenues",
+        "title": "Otros impuestos sobre la producción",
+        "shortDefinition": "Impuestos periódicos sobre bienes inmuebles y actividad empresarial (IBI, IAE, tasas de actividad).",
+        "explanation": "Gravámenes municipales y estatales exigibles por el ejercicio de actividades productivas o la propiedad inmobiliaria vinculada a la producción.",
+        "relatedCodes": [
+          "D2"
+        ]
+      },
+      {
+        "code": "D59",
+        "displayCode": "D.59",
+        "categoryId": "revenues",
+        "title": "Otros impuestos corrientes",
+        "shortDefinition": "Tributos corrientes sobre propiedad, patrimonio, vehículos de tracción mecánica y licencias.",
+        "explanation": "Gravámenes periódicos no vinculados al beneficio empresarial directo ni al consumo diario.",
+        "relatedCodes": [
+          "D5"
+        ]
+      },
+      {
+        "code": "D611",
+        "displayCode": "D.611",
+        "categoryId": "revenues",
+        "title": "Cotizaciones efectivas de empleadores",
+        "shortDefinition": "Aportaciones a la Seguridad Social a cargo de las empresas y empleadores.",
+        "explanation": "Cuota patronal destinada a financiar contingencias comunes, accidentes de trabajo y formación.",
+        "relatedCodes": [
+          "D61"
+        ]
+      },
+      {
+        "code": "D612",
+        "displayCode": "D.612",
+        "categoryId": "revenues",
+        "title": "Cotizaciones sociales imputadas",
+        "shortDefinition": "Contrapartida contable de prestaciones pagadas directamente por empleadores públicos.",
+        "explanation": "Valor contable atribuido a regímenes especiales como Clases Pasivas o prestaciones por incapacidad pagadas directamente por la Administración.",
+        "relatedCodes": [
+          "D61"
+        ]
+      },
+      {
+        "code": "D613",
+        "displayCode": "D.613",
+        "categoryId": "revenues",
+        "title": "Cotizaciones efectivas de hogares",
+        "shortDefinition": "Aportaciones de trabajadores por cuenta ajena, autónomos y desempleados a la Seguridad Social.",
+        "explanation": "Cuotas deducidas de las nóminas o abonadas por trabajadores por cuenta propia para coberturas sociales.",
+        "relatedCodes": [
+          "D61"
+        ]
+      },
+      {
         "code": "D995",
         "displayCode": "D.995",
         "categoryId": "revenues",
@@ -291,7 +357,32 @@
         "explanation": "Incluye todas las prestaciones económicas y servicios sociales de protección frente a riesgos de vejez (GF1002), desempleo (GF1005), enfermedad/incapacidad, familia y exclusión social.",
         "relatedCodes": [
           "D61",
-          "COFOG"
+          "COFOG",
+          "GF1002",
+          "GF1005"
+        ]
+      },
+      {
+        "code": "GF1002",
+        "displayCode": "GF1002",
+        "categoryId": "expenditures",
+        "title": "Vejez (pensiones de jubilación)",
+        "shortDefinition": "Prestaciones de jubilación contributiva y no contributiva pagadas por el sistema público.",
+        "explanation": "Principal concepto dentro del gasto en protección social en España, destinado a mantener los ingresos de las personas retiradas.",
+        "relatedCodes": [
+          "GF10",
+          "D61"
+        ]
+      },
+      {
+        "code": "GF1005",
+        "displayCode": "GF1005",
+        "categoryId": "expenditures",
+        "title": "Desempleo",
+        "shortDefinition": "Prestaciones contributivas, subsidios de desempleo y programas de inserción laboral.",
+        "explanation": "Gasto en protección frente a la pérdida de empleo. Varía fuertemente según la posición del ciclo económico.",
+        "relatedCodes": [
+          "GF10"
         ]
       },
       {
@@ -317,6 +408,17 @@
         "relatedCodes": [
           "GF01",
           "B9"
+        ]
+      },
+      {
+        "code": "GF0101",
+        "displayCode": "GF0101",
+        "categoryId": "expenditures",
+        "title": "Órganos ejecutivos, legislativos y asuntos fiscales",
+        "shortDefinition": "Gastos de funcionamiento de jefatura del Estado, cortes, gobierno y administración tributaria.",
+        "explanation": "Costes de personal y funcionamiento de los poderes del Estado y la gestión censal y tributaria.",
+        "relatedCodes": [
+          "GF01"
         ]
       },
       {
@@ -351,7 +453,19 @@
         "shortDefinition": "Inversión y subvenciones en transporte (carreteras, ferrocarril), energía, agricultura, industria e I+D económica.",
         "explanation": "Abarca la obra pública en infraestructuras de transporte (GF0405), ayudas al sector primario, políticas energéticas y apoyo a la actividad empresarial. También incluye ayudas extraordinarias de capital en crisis (como rescates financieros en 2012 o ayudas a empresas en 2020-2021).",
         "relatedCodes": [
-          "COFOG"
+          "COFOG",
+          "GF0405"
+        ]
+      },
+      {
+        "code": "GF0405",
+        "displayCode": "GF0405",
+        "categoryId": "expenditures",
+        "title": "Transporte e infraestructuras",
+        "shortDefinition": "Construcción, mantenimiento y conservación de carreteras, red ferroviaria, puertos y aeropuertos.",
+        "explanation": "Inversión pública en redes de transporte estatal, autonómica y local para la movilidad de personas y mercancías.",
+        "relatedCodes": [
+          "GF04"
         ]
       },
       {
@@ -362,7 +476,31 @@
         "shortDefinition": "Fuerzas y cuerpos de seguridad (policía), tribunales de justicia, prisiones y protección civil/bomberos.",
         "explanation": "Combina policía estatal, autonómica y local (GF0301), administración de justicia (GF0303), servicios de extinción de incendios e instituciones penitenciarias.",
         "relatedCodes": [
-          "COFOG"
+          "COFOG",
+          "GF0301",
+          "GF0303"
+        ]
+      },
+      {
+        "code": "GF0301",
+        "displayCode": "GF0301",
+        "categoryId": "expenditures",
+        "title": "Servicios de policía y seguridad ciudadana",
+        "shortDefinition": "Policía Nacional, Guardia Civil, policías autonómicas (Mossos, Ertzaintza, Foral) y policías locales.",
+        "explanation": "Gastos de personal y mantenimiento operativo de la seguridad ciudadana.",
+        "relatedCodes": [
+          "GF03"
+        ]
+      },
+      {
+        "code": "GF0303",
+        "displayCode": "GF0303",
+        "categoryId": "expenditures",
+        "title": "Tribunales de justicia y administración judicial",
+        "shortDefinition": "Juzgados, tribunales, fiscalía, registro civil y administración judicial.",
+        "explanation": "Funcionamiento de la administración de justicia en todo el territorio nacional.",
+        "relatedCodes": [
+          "GF03"
         ]
       },
       {

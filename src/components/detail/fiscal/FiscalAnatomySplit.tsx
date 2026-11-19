@@ -188,11 +188,11 @@ export function FiscalAnatomySplit({
                           key={child.code}
                           className="flex items-center justify-between gap-2 text-xs font-mono tabular-nums"
                         >
-                          <div className="flex items-center gap-1.5 text-slate-400 min-w-0">
+                          <div className="flex items-center gap-1.5 text-slate-400 min-w-0 flex-1">
                             <span className="text-[10px] text-slate-400 font-semibold shrink-0">
                               [{child.code}]
                             </span>
-                            <span className="truncate">{child.label}</span>
+                            <span className="truncate min-w-0 flex-1">{child.label}</span>
                             <ConceptHelpTrigger code={child.code} lang={lang} />
                           </div>
                           <div className="text-right text-slate-300 shrink-0 text-[11px]">
