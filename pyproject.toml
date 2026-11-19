@@ -8,5 +8,8 @@ dependencies = [
     "tqdm>=4.66.0",
 ]
 
+[tool.setuptools]
+packages = []
+
 [tool.uv]
 package = false
