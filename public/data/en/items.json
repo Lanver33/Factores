@@ -1,0 +1,20 @@
+[
+  {
+    "id": "inmigracion-procedencia",
+    "category": "Pensiones y Demografía",
+    "question": "Inmigración exterior anual",
+    "unit": "personas",
+    "latestValue": 1288562,
+    "latestYear": "2024",
+    "lastUpdated": "2024-12-01"
+  },
+  {
+    "id": "saldo-fiscal-nacionalidad",
+    "category": "Economía y Empleo",
+    "question": "Saldo fiscal y ratio contribución / gasto",
+    "unit": "% / € hab / MM€",
+    "latestValue": 187,
+    "latestYear": "2024",
+    "lastUpdated": "2024-12-01"
+  }
+]

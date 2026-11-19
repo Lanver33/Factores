@@ -3,12 +3,14 @@
 import { useState } from "react";
 import { ItemIndexItem, DatoItem, Category } from "@/types";
 import DirectoryRow from "./DirectoryRow";
-import { ChevronDown, ChevronUp, Layers } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import { translateCategory, t } from "@/lib/i18n";
 
 interface DirectorySectionProps {
   category: Category;
   items: ItemIndexItem[];
   detailsMap: Record<string, DatoItem>;
+  lang?: "es" | "en";
 }
 
 const CATEGORY_ICONS: Record<Category, string> = {
@@ -23,10 +25,14 @@ export default function DirectorySection({
   category,
   items,
   detailsMap,
+  lang = "es",
 }: DirectorySectionProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   if (items.length === 0) return null;
+
+  const translatedCategoryName = translateCategory(category, lang);
+  const indicatorLabel = items.length === 1 ? t("indicatorCount", lang) : t("indicatorsCount", lang);
 
   return (
     <section id={`section-${category}`} className="scroll-mt-24 space-y-3">
@@ -38,10 +44,10 @@ export default function DirectorySection({
         <div className="flex items-center gap-2.5">
           <span className="text-base">{CATEGORY_ICONS[category] || "📁"}</span>
           <h3 className="text-xs font-black uppercase tracking-wider text-[#F1F5F9]">
-            {category}
+            {translatedCategoryName}
           </h3>
           <span className="text-[10px] font-bold text-[#64748B] bg-white/[0.06] px-2 py-0.5 rounded-full">
-            {items.length} {items.length === 1 ? "indicador" : "indicadores"}
+            {items.length} {indicatorLabel}
           </span>
         </div>
 
@@ -58,6 +64,7 @@ export default function DirectorySection({
               key={item.id}
               item={item}
               detail={detailsMap[item.id]}
+              lang={lang}
             />
           ))}
         </div>

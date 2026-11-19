@@ -5,13 +5,15 @@ import { formatSpanishCompact, formatSpanishExact } from "./utils";
 import Sparkline from "./Sparkline";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { formatCompactNumber, formatNumber } from "@/lib/i18n";
 
 interface DirectoryRowProps {
   item: ItemIndexItem;
   detail?: DatoItem | null;
+  lang?: "es" | "en";
 }
 
-export default function DirectoryRow({ item, detail }: DirectoryRowProps) {
+export default function DirectoryRow({ item, detail, lang = "es" }: DirectoryRowProps) {
   let latestYear = item.latestYear || "";
   let latestValue = item.latestValue ?? 0;
 
@@ -28,14 +30,14 @@ export default function DirectoryRow({ item, detail }: DirectoryRowProps) {
     }
   }
 
-  const compactVal = formatSpanishCompact(latestValue);
-  const exactVal = formatSpanishExact(latestValue);
+  const compactVal = formatCompactNumber(latestValue, lang);
+  const exactVal = formatNumber(latestValue, lang);
   const sourceName = detail?.sources?.[0]?.institution || detail?.source?.institution || "INE";
-  const unit = item.unit || "personas";
+  const unit = item.unit || (lang === "en" ? "people" : "personas");
 
   return (
     <Link
-      href={`/dato/${item.id}`}
+      href={lang === "en" ? `/en/dato/${item.id}` : `/dato/${item.id}`}
       className="group flex flex-col sm:flex-row sm:items-center justify-between py-3.5 px-3 rounded-xl hover:bg-white/[0.02] border-b border-white/[0.06] transition-all cursor-pointer gap-3 sm:gap-4 no-underline"
     >
       {/* Left Editorial Content */}

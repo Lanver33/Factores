@@ -1,23 +1,30 @@
 import Link from "next/link";
 import { ShieldCheck, Mail } from "lucide-react";
+import { t } from "@/lib/i18n";
 
-export default function Footer() {
+interface FooterProps {
+  lang?: "es" | "en";
+}
+
+export default function Footer({ lang = "es" }: FooterProps) {
   return (
     <footer className="border-t border-slate-800 bg-slate-900/90 py-8 px-4 mt-16 text-slate-400 text-xs">
       <div className="max-w-3xl mx-auto flex flex-col gap-4 text-center sm:text-left sm:flex-row sm:justify-between sm:items-center">
         <div className="space-y-1">
           <p className="font-semibold text-slate-200 flex items-center justify-center sm:justify-start gap-1.5">
             <ShieldCheck className="w-4 h-4 text-blue-400 inline" />
-            Transparencia y Neutralidad Radical
+            {lang === "en" ? "Transparency & Radical Neutrality" : "Transparencia y Neutralidad Radical"}
           </p>
           <p className="text-slate-400">
-            Proyecto independiente y sin ánimo de lucro. Fuentes oficiales: INE, CIS, Banco de España y Ministerios.
+            {lang === "en"
+              ? "Independent non-profit project. Official sources: INE, CIS, Bank of Spain & Ministries."
+              : "Proyecto independiente y sin ánimo de lucro. Fuentes oficiales: INE, CIS, Banco de España y Ministerios."}
           </p>
         </div>
         <div className="flex flex-col sm:items-end gap-2 text-slate-400">
           <div className="flex justify-center gap-4">
-            <Link href="/" className="hover:text-white underline">
-              Inicio
+            <Link href={lang === "en" ? "/en" : "/"} className="hover:text-white underline">
+              {lang === "en" ? "Home" : "Inicio"}
             </Link>
           </div>
           <a

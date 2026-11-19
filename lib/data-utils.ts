@@ -5,9 +5,12 @@ export const DATA_BASE_URL =
 
 const cleanBaseUrl = DATA_BASE_URL.replace(/\/$/, "");
 
-export async function fetchMetadata(): Promise<GlobalMetadata> {
+export async function fetchMetadata(lang: "es" | "en" = "es"): Promise<GlobalMetadata> {
   try {
-    const res = await fetch(`${cleanBaseUrl}/metadata.json`);
+    let res = await fetch(`${cleanBaseUrl}/${lang}/metadata.json`);
+    if (!res.ok) {
+      res = await fetch(`${cleanBaseUrl}/metadata.json`);
+    }
     if (!res.ok) {
       return { last_updated: new Date().toISOString().split("T")[0], total_items: 0 };
     }
@@ -18,9 +21,12 @@ export async function fetchMetadata(): Promise<GlobalMetadata> {
   }
 }
 
-export async function fetchItems(): Promise<ItemIndexItem[]> {
+export async function fetchItems(lang: "es" | "en" = "es"): Promise<ItemIndexItem[]> {
   try {
-    const res = await fetch(`${cleanBaseUrl}/items.json`);
+    let res = await fetch(`${cleanBaseUrl}/${lang}/items.json`);
+    if (!res.ok) {
+      res = await fetch(`${cleanBaseUrl}/items.json`);
+    }
     if (!res.ok) {
       const fallbackRes = await fetch(`${cleanBaseUrl}/counties.json`);
       if (!fallbackRes.ok) return [];
@@ -44,9 +50,18 @@ export async function fetchItems(): Promise<ItemIndexItem[]> {
 
 export const fetchCounties = fetchItems;
 
-export async function fetchItemDetail(id: string): Promise<DatoItem | null> {
+export async function fetchItemDetail(id: string, lang: "es" | "en" = "es"): Promise<DatoItem | null> {
   try {
-    let res = await fetch(`${cleanBaseUrl}/items/${id}.json`);
+    let res = await fetch(`${cleanBaseUrl}/${lang}/items/${id}.json`);
+    if (!res.ok && lang === "en") {
+      // Automatic Fallback to Spanish if English translation is missing
+      res = await fetch(`${cleanBaseUrl}/es/items/${id}.json`);
+      if (!res.ok) {
+        res = await fetch(`${cleanBaseUrl}/items/${id}.json`);
+      }
+    } else if (!res.ok) {
+      res = await fetch(`${cleanBaseUrl}/items/${id}.json`);
+    }
     if (!res.ok) {
       res = await fetch(`${cleanBaseUrl}/counties/${id}.json`);
     }

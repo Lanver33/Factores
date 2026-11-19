@@ -8,7 +8,11 @@ const PUBLIC_DATA_DIR = path.join(process.cwd(), "public", "data");
 function ensureDirs() {
   fs.mkdirSync(path.join(STAGING_DIR, "items"), { recursive: true });
   fs.mkdirSync(path.join(DATA_DIR, "items"), { recursive: true });
+  fs.mkdirSync(path.join(DATA_DIR, "es", "items"), { recursive: true });
+  fs.mkdirSync(path.join(DATA_DIR, "en", "items"), { recursive: true });
   fs.mkdirSync(path.join(PUBLIC_DATA_DIR, "items"), { recursive: true });
+  fs.mkdirSync(path.join(PUBLIC_DATA_DIR, "es", "items"), { recursive: true });
+  fs.mkdirSync(path.join(PUBLIC_DATA_DIR, "en", "items"), { recursive: true });
 }
 
 function validateAndBuildIndex() {
@@ -138,6 +142,8 @@ function copyRecursive(src, dest) {
 function sync() {
   console.log("[Sync] Syncing ./staging to ./data...");
   copyRecursive(STAGING_DIR, DATA_DIR);
+  copyRecursive(STAGING_DIR, path.join(DATA_DIR, "es"));
+  copyRecursive(STAGING_DIR, path.join(DATA_DIR, "en"));
 
   console.log("[Sync] Syncing ./data to ./public/data...");
   copyRecursive(DATA_DIR, PUBLIC_DATA_DIR);

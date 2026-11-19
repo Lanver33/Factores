@@ -1,6 +1,6 @@
 /**
  * CONSOLIDATED TYPESCRIPT & TSX CODE DUMP
- * Generated on: 2026-11-18T13:21:06.201Z
+ * Generated on: 2026-11-19T05:17:45.786Z
  */
 
 // ==========================================
@@ -179,7 +179,7 @@ export default function CountyClientView({ countyId }: CountyClientViewProps) {
       {/* Source Attribution & Traceability Card */}
       <section>
         <SourceCard
-          source={currentMetricMeta?.source}
+          sources={county.sources}
           lastUpdated={county.last_updated || metadata?.last_updated}
         />
       </section>
@@ -360,16 +360,13 @@ export default function DatoClientView({ slug }: DatoClientViewProps) {
         />
       </section>
 
-      {/* 3. Trazabilidad (solo si no lo renderiza ya ImmigrationView) */}
-      {!isImmigrationItem && (dato.sources?.length || dato.source) && (
-        <section>
-          <SourceCard
-            sources={dato.sources}
-            source={dato.source}
-            lastUpdated={dato.source?.lastUpdated || dato.last_updated}
-          />
-        </section>
-      )}
+      {/* 3. Trazabilidad y Fuentes Oficiales */}
+      <section>
+        <SourceCard
+          sources={dato.sources}
+          lastUpdated={dato.sources?.[0]?.lastUpdated || dato.last_updated}
+        />
+      </section>
     </article>
   );
 }
@@ -1536,12 +1533,13 @@ export default function InteractiveChart({
 // FILE: components/detail/SourceCard.tsx
 // ==========================================
 
-import { ExternalLink, ShieldCheck, Calendar } from "lucide-react";
+import { ExternalLink, ShieldCheck, Calendar, AlertCircle } from "lucide-react";
 import { SourceInfo, TraceableSource } from "@/types";
 
 interface SourceCardProps extends TraceableSource {
   lastUpdated?: string;
   defaultInstitution?: string;
+  description?: string;
 }
 
 const DEFAULT_INSTITUTION = "Instituto Nacional de Estadística (INE)";
@@ -1553,9 +1551,7 @@ function normalizeSources(source?: SourceInfo, sources?: SourceInfo[]): SourceIn
 }
 
 function resolveShortName(source: SourceInfo): string {
-  if (source.shortName) return source.shortName;
-  const isEmcr = source.title?.includes("EMCR") || source.tableId === "69690";
-  return isEmcr ? "EMCR" : "Estadística de Migraciones";
+  return source.shortName || source.title || source.institution || "Ver fuente oficial";
 }
 
 function buildSourceKey(source: SourceInfo, fallbackIdx: number): string {
@@ -1567,11 +1563,45 @@ export default function SourceCard({
   sources,
   lastUpdated,
   defaultInstitution = DEFAULT_INSTITUTION,
+  description,
 }: SourceCardProps) {
   const sourceList = normalizeSources(source, sources);
-  if (sourceList.length === 0) return null;
 
-  const institutionName = sourceList[0]?.institution || defaultInstitution;
+  if (sourceList.length === 0) {
+    return (
+      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-sm space-y-4">
+        <div className="flex items-center justify-between flex-wrap gap-2">
+          <span className="text-[11px] uppercase tracking-wider font-bold text-slate-400 flex items-center gap-1.5">
+            <ShieldCheck className="w-4 h-4 text-blue-400" />
+            Fuente Oficial de Datos y Trazabilidad
+          </span>
+        </div>
+        <div className="p-5 rounded-xl border border-dashed border-slate-800 bg-slate-950/50 text-center space-y-2">
+          <AlertCircle className="w-5 h-5 text-amber-400 mx-auto" />
+          <p className="text-xs font-semibold text-white">
+            Pendiente de vinculación con tabla oficial
+          </p>
+          <p className="text-[11px] text-slate-400">
+            No hay fuentes oficiales vinculadas a este registro actualmente.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  const uniqueInstitutions = Array.from(
+    new Set(sourceList.map((s) => s.institution).filter(Boolean))
+  );
+  const headerInstitution =
+    uniqueInstitutions.length > 1
+      ? uniqueInstitutions.join(" / ")
+      : sourceList[0]?.institution || defaultInstitution;
+
+  const defaultSubtitle =
+    sourceList.length === 1
+      ? "Enlace directo a la publicación original para auditar y contrastar la serie histórica oficial:"
+      : "Series enlazadas para auditar y contrastar directamente los tramos o registros oficiales que componen este indicador:";
+  const subtitleText = description || defaultSubtitle;
 
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-sm space-y-4">
@@ -1585,10 +1615,10 @@ export default function SourceCard({
 
       <div className="space-y-1">
         <p className="text-sm font-semibold text-white">
-          {institutionName}
+          {headerInstitution}
         </p>
         <p className="text-xs text-slate-400">
-          Serie enlazada para auditar y contrastar directamente los dos tramos oficiales de la serie histórica:
+          {subtitleText}
         </p>
       </div>
 
@@ -1605,8 +1635,13 @@ export default function SourceCard({
             >
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 flex-wrap">
+                  {uniqueInstitutions.length > 1 && s.institution && (
+                    <span className="text-[11px] font-semibold text-amber-400 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800/80">
+                      {s.institution}
+                    </span>
+                  )}
                   <span className="text-xs font-bold text-white">
-                    {s.title || s.institution}
+                    {s.title}
                   </span>
                   {s.period && (
                     <span className="text-[11px] font-semibold text-blue-400 bg-blue-950 px-2 py-0.5 rounded border border-blue-800/80">
@@ -2186,7 +2221,6 @@ import { ImmigrationItem, AnnualBlock } from "@/types";
 import WebGisChronoArcs from "./WebGisChronoArcs";
 import TimelineScrubber from "./TimelineScrubber";
 import ConcentricSunburstRanking from "./ConcentricSunburstRanking";
-import SourceCard from "@/components/detail/SourceCard";
 
 type TimeframeMode = "single" | "range";
 type YearRange = [string, string];
@@ -2294,8 +2328,6 @@ export default function ImmigrationView({ item }: ImmigrationViewProps) {
     };
   }, [item.annualBlocks, mode, selectedYear, yearRange, years]);
 
-  const hasSources = Boolean(item.sources?.length || item.source);
-
   return (
     <div className="space-y-6">
       {/* Top Timeline Scrubber (Placed right at the top) */}
@@ -2338,16 +2370,6 @@ export default function ImmigrationView({ item }: ImmigrationViewProps) {
         setHoveredCountryId={setHoveredCountryId}
         selectedTimeframeLabel={timeframeLabel}
       />
-
-      {/* 3. Trazabilidad y Fuentes por tramos */}
-      {hasSources && (
-        <section>
-          <SourceCard
-            sources={item.sources}
-            source={item.source}
-          />
-        </section>
-      )}
     </div>
   );
 }
@@ -4743,7 +4765,7 @@ export default function DirectoryRow({ item, detail }: DirectoryRowProps) {
 
   const compactVal = formatSpanishCompact(latestValue);
   const exactVal = formatSpanishExact(latestValue);
-  const sourceName = detail?.source?.institution || "INE";
+  const sourceName = detail?.sources?.[0]?.institution || detail?.source?.institution || "INE";
   const unit = item.unit || "personas";
 
   return (
@@ -5290,7 +5312,7 @@ export default function Header() {
 // FILE: lib/data-utils.ts
 // ==========================================
 
-import { GlobalMetadata, DatoItem, ItemIndexItem, Category } from "@/types";
+import { GlobalMetadata, DatoItem, ItemIndexItem, Category, SourceInfo } from "@/types";
 
 export const DATA_BASE_URL =
   process.env.NEXT_PUBLIC_DATA_BASE_URL || "/data";
@@ -5345,6 +5367,37 @@ export async function fetchItemDetail(id: string): Promise<DatoItem | null> {
     if (!res.ok) return null;
     const raw = await res.json();
 
+    const normalizeSourcesList = (r: any): SourceInfo[] => {
+      if (Array.isArray(r.sources) && r.sources.length > 0) {
+        return r.sources.map((s: any) => ({
+          institution: s.institution || "Fuente Oficial",
+          title: s.title || r.question || "Fuente Oficial de Datos",
+          url: s.url || "#",
+          shortName: s.shortName,
+          tableId: s.tableId,
+          period: s.period,
+          lastUpdated: s.lastUpdated || r.last_updated || r.lastUpdated
+        }));
+      }
+      if (r.source) {
+        return [{
+          institution: r.source.institution || "Fuente Oficial",
+          title: r.source.title || r.question || "Fuente Oficial de Datos",
+          url: r.source.url || "#",
+          shortName: r.source.shortName,
+          tableId: r.source.tableId,
+          period: r.source.period,
+          lastUpdated: r.source.lastUpdated || r.last_updated || r.lastUpdated
+        }];
+      }
+      return [{
+        institution: "Fuente Oficial",
+        title: r.question || "Fuente Oficial de Datos",
+        url: "#",
+        lastUpdated: r.last_updated || r.lastUpdated
+      }];
+    };
+
     if (raw.metrics) {
       const metricKey = Object.keys(raw.metrics)[0];
       const metric = raw.metrics[metricKey];
@@ -5359,11 +5412,14 @@ export async function fetchItemDetail(id: string): Promise<DatoItem | null> {
           value: s.value
         })),
         contextNotes: raw.contextNotes || [],
-        source: raw.source || { institution: "Fuente Oficial", url: "#", lastUpdated: raw.last_updated }
+        sources: normalizeSourcesList(raw)
       };
     }
 
-    return raw as DatoItem;
+    return {
+      ...raw,
+      sources: normalizeSourcesList(raw)
+    } as DatoItem;
   } catch (err) {
     console.warn(`Could not fetch item detail for ${id}:`, err);
     return null;
@@ -5436,22 +5492,21 @@ export interface DataPoint {
 
 export type MetricSeriesPoint = DataPoint;
 
-export interface MetricSource {
+export interface SourceInfo {
   institution: string;
+  title: string;
   url: string;
-  lastUpdated?: string;
-}
-
-export interface SourceInfo extends MetricSource {
-  title?: string;
   shortName?: string;
   tableId?: string;
   period?: string;
+  lastUpdated?: string;
 }
 
+export type MetricSource = SourceInfo;
+
 export interface TraceableSource {
-  source?: SourceInfo;
   sources?: SourceInfo[];
+  source?: SourceInfo;
 }
 
 export interface BaseEntityItem {
