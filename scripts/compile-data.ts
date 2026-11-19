@@ -194,13 +194,14 @@ export function compileGeoMap(): void {
 
   for (const [fIdx, f] of rawFeatures.entries()) {
     const props = f.properties || {};
-    const iso2 =
+    let iso2 =
       (props.ISO_A2 && props.ISO_A2 !== "-99" ? props.ISO_A2 : null) ||
       (props.ISO_A2_EH && props.ISO_A2_EH !== "-99" ? props.ISO_A2_EH : null) ||
-      (props.ISO_A3 && props.ISO_A3 !== "-99" ? props.ISO_A3 : null) ||
-      props.POSTAL ||
-      `FEATURE_${fIdx}`;
-    if (!iso2) continue;
+      (props.ISO_A3 && props.ISO_A3 !== "-99" ? props.ISO_A3 : null);
+
+    if (!iso2 || iso2 === "-99" || iso2.length > 2) {
+      iso2 = `FEAT_${fIdx}`;
+    }
 
     const pathD = pathGenerator(f as any);
     if (pathD) {
