@@ -10,7 +10,8 @@
     "lint": "next lint",
     "ingest": "node scripts/ingest.js",
     "validate": "node scripts/validate-and-sync.js",
-    "pipeline": "node scripts/ingest.js && node scripts/validate-and-sync.js"
+    "pipeline": "node scripts/ingest.js && node scripts/validate-and-sync.js",
+    "bundle": "node scripts/dump-typescript.js"
   },
   "dependencies": {
     "clsx": "^2.1.1",
