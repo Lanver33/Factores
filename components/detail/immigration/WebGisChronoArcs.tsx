@@ -5,6 +5,7 @@ import {
   font_dest,
   projectCoordinates,
   formatSpanishNumber,
+  COUNTRY_GEO_MAP,
 } from "./utils";
 import { getChoroplethCountryPolygons } from "./worldMapRenderer";
 import { getJenksBreaks } from "./jenks";
@@ -259,7 +260,7 @@ export default function WebGisChronoArcs({
             <div className="flex items-center justify-between border-b border-slate-800 pb-1.5">
               <span className="font-extrabold text-sm flex items-center gap-1.5 text-blue-400">
                 <MapPin className="w-4 h-4 text-pink-500" />
-                {activeHighlightId}
+                {COUNTRY_GEO_MAP[activeHighlightId]?.name || activeHighlightId}
               </span>
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                 {timeframeLabel}

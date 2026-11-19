@@ -4,7 +4,7 @@ import path from "node:path";
 const ROOT_DIR = process.cwd();
 const OUTPUT_FILE = path.join(ROOT_DIR, "repo-bundle.txt");
 
-const IGNORE_DIRS = ["node_modules", ".next", "out", ".git", "data", "public", "staging"];
+const IGNORE_DIRS = ["node_modules", ".next", "out", ".git", "data", "public", "staging", ".venv", ".opencode"];
 const IGNORE_FILES = [
   "all-typescript-code.ts",
   "repo-bundle.txt",

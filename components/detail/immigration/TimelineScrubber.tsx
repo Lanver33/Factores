@@ -153,8 +153,8 @@ export default function TimelineScrubber({
         <div className="space-y-2">
           <input
             type="range"
-            min="2008"
-            max="2024"
+            min={years[0] || "2008"}
+            max={years[years.length - 1] || "2024"}
             step="1"
             value={selectedYear}
             onChange={(e) => {

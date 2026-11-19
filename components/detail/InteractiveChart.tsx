@@ -20,6 +20,7 @@ import {
 interface RawDataPoint {
   year: string;
   value: number | Array<Record<string, number>>;
+  date?: string;
 }
 
 interface InteractiveChartProps {
@@ -153,7 +154,7 @@ function formatSpanishNumber(val: number): string {
   return val.toLocaleString("es-ES");
 }
 
-function CustomFiscalTooltip({ active, payload, label, fiscalTab }: any) {
+function CustomFiscalTooltip({ active, payload, label, fiscalTab, unit = "MM€" }: any) {
   if (!active || !payload || !payload.length) return null;
 
   return (
@@ -178,7 +179,7 @@ function CustomFiscalTooltip({ active, payload, label, fiscalTab }: any) {
           } else if (fiscalTab === "capita") {
             displayVal = `${val >= 0 ? "+" : ""}${val.toLocaleString("es-ES")} €/hab`;
           } else {
-            displayVal = `${val.toLocaleString("es-ES")} MM€`;
+            displayVal = `${val.toLocaleString("es-ES")} ${unit}`;
           }
 
           return (
@@ -254,9 +255,6 @@ export default function InteractiveChart({
   item,
   lang = "es",
 }: InteractiveChartProps) {
-  if (item && (item.id === "inmigracion-procedencia" || item.annualBlocks)) {
-    return <ImmigrationView item={item} lang={lang} />;
-  }
   const isFiscalCard = rawPoints.some((p) =>
     Array.isArray(p.value) && p.value.some((v) => "ratio-extranjeros" in v)
   );
@@ -277,7 +275,7 @@ export default function InteractiveChart({
     const cData: any[] = [];
 
     rawPoints.forEach((p) => {
-      const yearStr = String(p.year);
+      const yearStr = String(p.year || p.date || "");
       const row: Record<string, any> = { year: yearStr, date: yearStr };
 
       if (Array.isArray(p.value)) {
@@ -290,6 +288,8 @@ export default function InteractiveChart({
             }
           }
         });
+      } else if (typeof p.value === "number") {
+        row["value"] = p.value;
       }
       cData.push(row);
 
@@ -316,6 +316,10 @@ export default function InteractiveChart({
     const sortedKeys = Array.from(keysSet);
     return { chartData: cData, itemKeys: sortedKeys, fiscalAbsData: fAbsData, fiscalPctData: fPctData };
   }, [rawPoints, series]);
+
+  if (item && (item.id === "inmigracion-procedencia" || item.annualBlocks)) {
+    return <ImmigrationView item={item} lang={lang} />;
+  }
 
   if (!series || series.length === 0) {
     return (

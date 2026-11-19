@@ -218,11 +218,14 @@ def compute_fiscal_balance(pop_esp: dict, pop_ext: dict) -> dict:
             "Categorías Específicas de Gastos: Gasto Imputado Extranjeros, Gasto Imputado Españoles, Intereses de la Deuda Pública, Defensa/Fuerzas Armadas, Seguridad Ciudadana/Justicia, Infraestructuras/Transportes, Medio Ambiente/I+D+i y Servicios Generales de la Administración Pública.",
             "Fuentes oficiales cruzadas: IGAE & Banco de España (Contabilidad Nacional S.13 SEC-2010), INE (ECP Tabla 56951), Seguridad Social (Afiliación y Pensiones por Nacionalidad) y AEAT (Informes de Recaudación Tributaria)."
         ],
-        "source": {
-            "institution": "IGAE, Banco de España, INE, Seguridad Social y AEAT",
-            "lastUpdated": f"{max_year}-12-01",
-            "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177003"
-        },
+        "sources": [
+            {
+                "institution": "IGAE, Banco de España, INE, Seguridad Social y AEAT",
+                "title": "Contabilidad Nacional de España (S.13 SEC-2010) y Estadística Continua de Población",
+                "lastUpdated": f"{max_year}-12-01",
+                "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177003"
+            }
+        ],
         "last_updated": today_str,
     }
 

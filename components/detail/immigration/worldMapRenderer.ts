@@ -39,32 +39,51 @@ const COUNTRY_NAME_MAPPING: Record<string, string[]> = {
   ecuador: ["Ecuador"],
   cuba: ["Cuba"],
   paraguay: ["Paraguay"],
-  "rep-dominicana": ["Dominican Rep.", "Dominican Republic"],
+  "republica-dominicana": ["Dominican Rep.", "Dominican Republic", "República Dominicana"],
+  "rep-dominicana": ["Dominican Rep.", "Dominican Republic", "República Dominicana"],
+  bolivia: ["Bolivia"],
+  chile: ["Chile"],
+  mexico: ["Mexico", "México"],
+  nicaragua: ["Nicaragua"],
+  uruguay: ["Uruguay"],
   brasil: ["Brazil", "Brasil"],
-  "estados-unidos": ["United States of America", "United States"],
-  canada: ["Canada"],
+  "estados-unidos-de-america": ["United States of America", "United States", "US"],
+  "estados-unidos": ["United States of America", "United States", "US"],
+  canada: ["Canada", "Canadá"],
+  alemania: ["Germany", "Alemania"],
   rumania: ["Romania", "Rumanía"],
   "reino-unido": ["United Kingdom"],
   italia: ["Italy", "Italia"],
   ucrania: ["Ukraine", "Ucrania"],
   francia: ["France", "Francia"],
-  alemania: ["Germany", "Alemania"],
   rusia: ["Russia", "Rusia"],
   portugal: ["Portugal"],
   bulgaria: ["Bulgaria"],
+  belgica: ["Belgium", "Bélgica"],
+  dinamarca: ["Denmark", "Dinamarca"],
+  finlandia: ["Finland", "Finlandia"],
+  irlanda: ["Ireland", "Irlanda"],
+  lituania: ["Lithuania", "Lituania"],
+  moldavia: ["Moldova", "Moldavia"],
+  noruega: ["Norway", "Noruega"],
+  "paises-bajos": ["Netherlands", "Países Bajos"],
+  polonia: ["Poland", "Polonia"],
+  suecia: ["Sweden", "Suecia"],
+  suiza: ["Switzerland", "Suiza"],
   marruecos: ["Morocco", "Marruecos"],
   argelia: ["Algeria", "Argelia"],
   senegal: ["Senegal"],
   mali: ["Mali"],
   nigeria: ["Nigeria"],
   gambia: ["Gambia"],
-  "guinea-ecuatorial": ["Eq. Guinea", "Equatorial Guinea"],
+  "guinea-ecuatorial": ["Eq. Guinea", "Equatorial Guinea", "Guinea Ecuatorial"],
   ghana: ["Ghana"],
   guinea: ["Guinea"],
+  mauritania: ["Mauritania"],
   china: ["China"],
-  pakistan: ["Pakistan"],
+  pakistan: ["Pakistan", "Pakistán"],
   india: ["India"],
-  filipinas: ["Philippines"],
+  filipinas: ["Philippines", "Filipinas"],
   bangladesh: ["Bangladesh"],
 };
 
@@ -110,7 +129,7 @@ export function getChoroplethCountryPolygons(
       });
     }
 
-    polygons.forEach((ring) => {
+    polygons.forEach((ring, ringIdx) => {
       const coords: string[] = [];
       ring.forEach(([lng, lat]: [number, number], index: number) => {
         const pt = projectCoordinates(lng, lat, width, height, zoom, panX, panY);
@@ -120,7 +139,7 @@ export function getChoroplethCountryPolygons(
 
       if (coords.length > 2) {
         result.push({
-          featureId: `${fIdx}_${Math.random()}`,
+          featureId: `${fIdx}_${ringIdx}`,
           countryId: matchedCountryId,
           name,
           pathD: `${coords.join(" ")} Z`,

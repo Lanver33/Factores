@@ -137,6 +137,24 @@ export default function DatoClientView({ slug, lang = "es" }: DatoClientViewProp
             />
           </section>
 
+          {/* Notas Metodológicas y Contexto */}
+          {Array.isArray(dato.contextNotes) && dato.contextNotes.length > 0 && (
+            <section className="bg-slate-900 rounded-2xl border border-slate-800 p-5 space-y-3">
+              <h3 className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-blue-500" />
+                {lang === "en" ? "Methodological Notes & Context" : "Notas Metodológicas y Contexto"}
+              </h3>
+              <ul className="space-y-2 text-xs text-slate-400">
+                {dato.contextNotes.map((note, idx) => (
+                  <li key={idx} className="flex items-start gap-2">
+                    <span className="text-blue-400 font-mono mt-0.5">•</span>
+                    <span className="leading-relaxed">{note}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
           {/* 3. Trazabilidad y Fuentes Oficiales */}
           <section>
             <SourceCard
