@@ -69,7 +69,7 @@ export function ConceptHelpTrigger({
   }, [isOpen]);
 
   return (
-    <div className={`relative inline-flex items-center ${className}`}>
+    <div className={`relative inline-flex items-center shrink-0 z-30 ${className}`}>
       <button
         ref={triggerRef}
         type="button"
@@ -77,7 +77,7 @@ export function ConceptHelpTrigger({
         aria-expanded={isOpen}
         aria-controls={popoverId}
         aria-label={`${t("conceptHelpAria", lang)} ${term.displayCode}: ${term.title}`}
-        className="p-0.5 rounded-full text-slate-500 hover:text-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400/80 transition-colors"
+        className="p-0.5 rounded-full text-slate-500 hover:text-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400/80 transition-colors shrink-0"
       >
         <HelpCircle className="w-3.5 h-3.5" />
       </button>
@@ -89,7 +89,7 @@ export function ConceptHelpTrigger({
           role="dialog"
           aria-modal="false"
           aria-label={term.title}
-          className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 sm:w-72 bg-slate-950 border border-slate-700 rounded-xl p-3 shadow-2xl z-50 text-xs space-y-2 font-sans animate-in fade-in duration-150"
+          className="absolute bottom-full left-0 sm:-left-2 mb-2 w-64 sm:w-72 bg-slate-950 border border-slate-700 rounded-xl p-3 shadow-2xl z-50 text-xs space-y-2 font-sans animate-in fade-in duration-150"
         >
           {/* Popover Header */}
           <div className="flex items-center gap-2 border-b border-slate-800 pb-1.5">

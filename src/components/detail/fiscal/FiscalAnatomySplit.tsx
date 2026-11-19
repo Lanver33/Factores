@@ -188,7 +188,7 @@ export function FiscalAnatomySplit({
                           key={child.code}
                           className="flex items-center justify-between gap-2 text-xs font-mono tabular-nums"
                         >
-                          <div className="flex items-center gap-1.5 text-slate-400 truncate min-w-0">
+                          <div className="flex items-center gap-1.5 text-slate-400 min-w-0">
                             <span className="text-[10px] text-slate-400 font-semibold shrink-0">
                               [{child.code}]
                             </span>
@@ -368,7 +368,7 @@ export function FiscalAnatomySplit({
                             key={child.code}
                             className="flex items-center justify-between gap-2 text-xs font-mono tabular-nums"
                           >
-                            <div className="flex items-center gap-1.5 text-slate-400 truncate min-w-0">
+                            <div className="flex items-center gap-1.5 text-slate-400 min-w-0">
                               <span className="text-[10px] text-slate-400 font-semibold shrink-0">
                                 [{child.code}]
                               </span>
