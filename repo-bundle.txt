@@ -1,6 +1,6 @@
 /**
  * FACTORES REPOSITORY SOURCE CODE BUNDLE
- * Generated on: 2026-11-19T10:55:02.599Z
+ * Generated on: 2026-11-19T13:57:32.521Z
  */
 
 // ==========================================
@@ -443,6 +443,14 @@ export { InteractiveChart as default } from "@/src/components/detail/Interactive
 
 export * from "@/src/components/detail/SourceCard";
 export { SourceCard as default } from "@/src/components/detail/SourceCard";
+
+
+// ==========================================
+// FILE: components/detail/admin-registers/AdminRegistersChart.tsx
+// ==========================================
+
+export * from "@/src/components/detail/admin-registers/AdminRegistersChart";
+export { default } from "@/src/components/detail/admin-registers/AdminRegistersChart";
 
 
 // ==========================================
@@ -13184,6 +13192,152 @@ export { Header as default } from "@/src/components/layout/Header";
     }
   ]
 }
+
+// ==========================================
+// FILE: content/indicators/registros-administrativos-nacionalidad.json
+// ==========================================
+
+{
+  "id": "registros-administrativos-nacionalidad",
+  "kind": "admin-registers-nationality",
+  "category": "economy-employment",
+  "valueFormat": "percent",
+  "question": {
+    "es": "¿Cómo se comparan los salarios, las cotizaciones y las pensiones por edad, sexo y nacionalidad en España?",
+    "en": "How do wages, Social Security contributions, and pensions compare by age, sex, and citizenship in Spain?"
+  },
+  "unit": {
+    "es": "% cotizantes extranjeros",
+    "en": "% foreign contributors"
+  },
+  "contextNotes": {
+    "es": [
+      "Los registros administrativos tributarios (AEAT) y de Seguridad Social clasifican a las personas estrictamente por su nacionalidad legal (pasaporte), sin tener en cuenta el país de nacimiento ni el origen familiar.",
+      "Los datos de la AEAT cubren el Régimen Común, excluyendo País Vasco y Navarra.",
+      "El ratio de cotizantes por perceptor de pensión es un modelo ilustrativo. Los registros administrativos no publican un saldo fiscal neto, ya que no atribuyen impuestos indirectos (IVA, especiales) ni gastos públicos indivisibles al pasaporte."
+    ],
+    "en": [
+      "Tax (AEAT) and Social Security administrative registers classify individuals strictly by legal passport (citizenship), excluding country of birth or parental origin.",
+      "AEAT data covers the Common Tax Regime, excluding Basque Country and Navarre.",
+      "The contributor-to-pensioner ratio is an illustrative model. Administrative registers do not publish a net fiscal balance, as they cannot attribute indirect taxes (VAT, excises) or indivisible public spending to specific passports."
+    ]
+  },
+  "sources": [
+    {
+      "institution": {
+        "es": "AEAT",
+        "en": "AEAT"
+      },
+      "title": {
+        "es": "Mercado de Trabajo y Pensiones en las Fuentes Tributarias",
+        "en": "Labor Market and Pensions in Tax Sources"
+      },
+      "lastUpdated": "2026-11-19",
+      "url": "https://sede.agenciatributaria.gob.es/"
+    },
+    {
+      "institution": {
+        "es": "Seguridad Social",
+        "en": "Social Security"
+      },
+      "title": {
+        "es": "Estadística de Afiliación de Extranjeros",
+        "en": "Statistics on Foreign Affiliation"
+      },
+      "lastUpdated": "2026-11-19",
+      "url": "https://www.seg-social.es/"
+    }
+  ],
+  "lastUpdated": "2026-11-19",
+  "dataPoints": [
+    { "year": "2024", "value": 13.6 }
+  ],
+  "annualRecords": [
+    {
+      "year": "2024",
+      "isMock": true,
+      "metrics": {
+        "avgGrossWageEur": {
+          "allAges": {
+            "total": {"spanish": 25420, "foreign": 16820},
+            "male": {"spanish": 28150, "foreign": 18240},
+            "female": {"spanish": 22480, "foreign": 15120}
+          },
+          "byAge": {
+            "total": [
+              {"ageBand": "18–25", "spanish": 10450, "foreign": 8920},
+              {"ageBand": "26–35", "spanish": 20850, "foreign": 15340},
+              {"ageBand": "36–45", "spanish": 26120, "foreign": 17580},
+              {"ageBand": "46–55", "spanish": 28450, "foreign": 18320},
+              {"ageBand": "56–65", "spanish": 29310, "foreign": 18750},
+              {"ageBand": ">65", "spanish": 22650, "foreign": 14910}
+            ],
+            "male": [],
+            "female": []
+          }
+        },
+        "contributorsThousands": {
+          "allAges": {
+            "total": {"spanish": 18250.4, "foreign": 2880.6},
+            "male": {"spanish": 9620.2, "foreign": 1620.4},
+            "female": {"spanish": 8630.2, "foreign": 1260.2}
+          },
+          "byAge": {
+            "total": [
+              {"ageBand": "18–25", "spanish": 1480.2, "foreign": 388.4},
+              {"ageBand": "26–35", "spanish": 4190.6, "foreign": 928.2},
+              {"ageBand": "36–45", "spanish": 4910.1, "foreign": 852.4},
+              {"ageBand": "46–55", "spanish": 4680.5, "foreign": 518.6},
+              {"ageBand": "56–65", "spanish": 2780.2, "foreign": 174.2},
+              {"ageBand": ">65", "spanish": 208.8, "foreign": 18.8}
+            ],
+            "male": [],
+            "female": []
+          }
+        },
+        "pensionersThousands": {
+          "allAges": {
+            "total": {"spanish": 9680.5, "foreign": 320.4},
+            "male": {"spanish": 4610.2, "foreign": 152.1},
+            "female": {"spanish": 5070.3, "foreign": 168.3}
+          },
+          "byAge": {
+            "total": [
+              {"ageBand": "18–25", "spanish": 35.8, "foreign": 5.1},
+              {"ageBand": "26–35", "spanish": 66.1, "foreign": 12.1},
+              {"ageBand": "36–45", "spanish": 141.7, "foreign": 28.1},
+              {"ageBand": "46–55", "spanish": 314.1, "foreign": 44.9},
+              {"ageBand": "56–65", "spanish": 1193.2, "foreign": 78.2},
+              {"ageBand": ">65", "spanish": 7929.6, "foreign": 152.0}
+            ],
+            "male": [],
+            "female": []
+          }
+        },
+        "givenReceivedRatio": {
+          "allAges": {
+            "total": {"spanish": 1.89, "foreign": 8.99},
+            "male": {"spanish": 2.09, "foreign": 10.65},
+            "female": {"spanish": 1.70, "foreign": 7.49}
+          },
+          "byAge": {
+            "total": [
+              {"ageBand": "18–25", "spanish": 41.35, "foreign": 76.16},
+              {"ageBand": "26–35", "spanish": 63.40, "foreign": 76.71},
+              {"ageBand": "36–45", "spanish": 34.65, "foreign": 30.33},
+              {"ageBand": "46–55", "spanish": 14.90, "foreign": 11.55},
+              {"ageBand": "56–65", "spanish": 2.33, "foreign": 2.23},
+              {"ageBand": ">65", "spanish": 0.03, "foreign": 0.12}
+            ],
+            "male": [],
+            "female": []
+          }
+        }
+      }
+    }
+  ]
+}
+
 
 // ==========================================
 // FILE: data/en/items/inmigracion-procedencia.json
@@ -38400,6 +38554,207 @@ export function SourceCard({ sources, lastUpdated, locale, lang }: SourceCardPro
 }
 
 export default SourceCard;
+
+
+// ==========================================
+// FILE: src/components/detail/admin-registers/AdminRegistersChart.tsx
+// ==========================================
+
+"use client";
+
+import React, { useState } from "react";
+import { Database, Info, Layers, Tag } from "lucide-react";
+import type { AdminMetricKey, AdminSexFilter, AdminRegisterMetricSeries, Lang } from "@/types";
+import { getMetricViewData } from "./adminRegisterSelectors";
+import { NATIONALS_COLOR, FOREIGNERS_COLOR } from "../nationality/nationalityPalette";
+import { formatCurrencyEur, formatHeadcount, formatPercent } from "../nationality/nationalitySelectors";
+import { t } from "@/lib/i18n";
+import { ConceptHelpTrigger } from "@/components/detail/guide/ConceptHelpTrigger";
+
+interface AdminRegistersChartProps {
+  records: { year: string; metrics: Record<AdminMetricKey, AdminRegisterMetricSeries> }[];
+  lang?: Lang;
+}
+
+export function AdminRegistersChart({
+  records,
+  lang = "es",
+}: AdminRegistersChartProps) {
+  const [metricKey, setMetricKey] = useState<AdminMetricKey>("avgGrossWageEur");
+  const [sexFilter, setSexFilter] = useState<AdminSexFilter>("total");
+  const selectedYear = records[0]?.year ?? "2024";
+
+  const viewData = getMetricViewData(records as any, selectedYear, metricKey, sexFilter);
+
+  if (!viewData) return null;
+
+  const { allAges, byAge, maxScaleValue } = viewData;
+
+  const formatMetricVal = (val: number, key: AdminMetricKey) => {
+    if (key === "avgGrossWageEur") return formatCurrencyEur(val, lang);
+    if (key === "givenReceivedRatio") return val.toFixed(2).replace(".", ",");
+    return formatHeadcount(val * 1000, lang);
+  };
+
+  return (
+    <section className="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-6 shadow-xl space-y-5">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-800 gap-3">
+        <div className="space-y-1">
+          <div className="flex items-center gap-2 flex-wrap">
+            <Database className="w-5 h-5 text-sky-400" />
+            <h2 className="text-base sm:text-lg font-bold text-white tracking-tight">
+              {lang === "en"
+                ? "4. Administrative Tax & Social Security Registers"
+                : "4. Registros Administrativos Tributarios y de Seguridad Social"}
+            </h2>
+          </div>
+          <div className="text-xs text-slate-400">
+            {lang === "en"
+              ? "AEAT Labor Market & Pensions in Tax Sources + Social Security Foreign Affiliation (2024)"
+              : "AEAT Mercado de Trabajo y Pensiones + Seguridad Social Afiliación de Extranjeros (2024)"}
+          </div>
+        </div>
+
+        {/* Scope Pill Badge */}
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-sky-300 font-semibold self-start sm:self-auto">
+          <Tag className="w-3.5 h-3.5 text-sky-400" />
+          <span>
+            {lang === "en"
+              ? "Administrative registers · Citizenship (passport)"
+              : "Registros administrativos · Nacionalidad (pasaporte)"}
+          </span>
+          <ConceptHelpTrigger code="NO_DIRECT_FISCAL_SPLIT" lang={lang} />
+        </div>
+      </div>
+
+      {/* Controls */}
+      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+        <div
+          role="group"
+          aria-label="Selección de indicador administrativo"
+          className="inline-flex items-center p-1 bg-slate-950 border border-slate-800 rounded-xl flex-wrap"
+        >
+          {(["avgGrossWageEur", "contributorsThousands", "pensionersThousands", "givenReceivedRatio"] as AdminMetricKey[]).map((m) => (
+            <button
+              key={m}
+              type="button"
+              onClick={() => setMetricKey(m)}
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                metricKey === m
+                  ? (m === "givenReceivedRatio" ? "bg-purple-600 text-white" : "bg-blue-600 text-white")
+                  : "text-slate-400 hover:text-slate-200"
+              }`}
+            >
+              {m === "avgGrossWageEur" && (lang === "en" ? "Mean gross wage" : "Salario bruto medio")}
+              {m === "contributorsThousands" && (lang === "en" ? "Contributors" : "Afiliados")}
+              {m === "pensionersThousands" && (lang === "en" ? "Pensioners" : "Perceptores pensión")}
+              {m === "givenReceivedRatio" && (lang === "en" ? "Ratio (Modelled)" : "Ratio (Modelo)")}
+            </button>
+          ))}
+        </div>
+        <div
+          role="group"
+          aria-label="Filtro de sexo"
+          className="inline-flex items-center p-1 bg-slate-950 border border-slate-800 rounded-xl self-start lg:self-auto"
+        >
+          {(["total", "male", "female"] as AdminSexFilter[]).map((s) => (
+            <button
+              key={s}
+              type="button"
+              onClick={() => setSexFilter(s)}
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                sexFilter === s ? "bg-slate-800 text-white" : "text-slate-400"
+              }`}
+            >
+              {s === "total" ? (lang === "en" ? "Total" : "Total") : (s === "male" ? (lang === "en" ? "Men" : "Hombres") : (lang === "en" ? "Women" : "Mujeres"))}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Chart content */}
+      <div className="bg-slate-950/60 border border-slate-800/80 rounded-xl p-4 sm:p-5 space-y-3">
+        <div className="p-3.5 bg-slate-900/90 border border-slate-800 rounded-xl space-y-2">
+           <div className="flex items-center justify-between text-xs font-bold text-white uppercase tracking-wider">
+             <span>{lang === "en" ? "All ages" : "Todas las edades"}</span>
+             <span className="font-mono">{formatMetricVal(allAges.spanish, metricKey)} vs {formatMetricVal(allAges.foreign, metricKey)}</span>
+           </div>
+           {/* Spanish Bar */}
+           <div className="flex items-center gap-3 text-xs">
+             <span className="w-20 text-slate-400">ES</span>
+             <div className="flex-1 h-3.5 bg-slate-950 rounded-full overflow-hidden">
+               <div className="h-full rounded-full" style={{ width: `${Math.min(100, Math.max(2, (allAges.spanish / maxScaleValue) * 100))}%`, backgroundColor: NATIONALS_COLOR }} />
+             </div>
+             <span className="w-24 text-right font-mono font-bold text-white tabular-nums">{formatMetricVal(allAges.spanish, metricKey)}</span>
+           </div>
+           {/* Foreign Bar */}
+           <div className="flex items-center gap-3 text-xs">
+             <span className="w-20 text-slate-400">EXT</span>
+             <div className="flex-1 h-3.5 bg-slate-950 rounded-full overflow-hidden">
+               <div className="h-full rounded-full" style={{ width: `${Math.min(100, Math.max(2, (allAges.foreign / maxScaleValue) * 100))}%`, backgroundColor: FOREIGNERS_COLOR }} />
+             </div>
+             <span className="w-24 text-right font-mono font-bold text-amber-400 tabular-nums">{formatMetricVal(allAges.foreign, metricKey)}</span>
+           </div>
+        </div>
+        
+        {byAge.map((row) => (
+            <div key={row.ageBand} className="grid grid-cols-12 items-center gap-2 p-2 bg-slate-900/40 rounded-lg">
+                <span className="col-span-2 text-xs font-mono text-slate-300">{row.ageBand}</span>
+                <div className="col-span-10 space-y-1">
+                    <div className="flex items-center gap-2">
+                        <div className="h-2 flex-1 bg-slate-950 rounded-full"><div className="h-full rounded-full" style={{ width: `${Math.min(100, Math.max(2, (row.spanish / maxScaleValue) * 100))}%`, backgroundColor: NATIONALS_COLOR }}/></div>
+                        <span className="text-[10px] font-mono w-16 text-right">{formatMetricVal(row.spanish, metricKey)}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <div className="h-2 flex-1 bg-slate-950 rounded-full"><div className="h-full rounded-full" style={{ width: `${Math.min(100, Math.max(2, (row.foreign / maxScaleValue) * 100))}%`, backgroundColor: FOREIGNERS_COLOR }}/></div>
+                        <span className="text-[10px] font-mono w-16 text-right text-amber-400">{formatMetricVal(row.foreign, metricKey)}</span>
+                    </div>
+                </div>
+            </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+export default AdminRegistersChart;
+
+
+// ==========================================
+// FILE: src/components/detail/admin-registers/adminRegisterSelectors.ts
+// ==========================================
+
+import type { AdminMetricKey, AdminRegisterMetricData, AdminSexFilter } from "@/types";
+
+export function getMetricViewData(
+  records: any[], // Will refine type based on AdminRegisterYearRecord
+  year: string,
+  metric: AdminMetricKey,
+  sex: AdminSexFilter
+): {
+  allAges: { spanish: number; foreign: number };
+  byAge: { ageBand: string; spanish: number; foreign: number }[];
+  maxScaleValue: number;
+} | null {
+  const record = records.find((r) => r.year === year);
+  if (!record || !record.metrics || !record.metrics[metric]) {
+    return null;
+  }
+
+  const metrics: AdminRegisterMetricData = record.metrics[metric];
+  const allAges = metrics.allAges[sex];
+  const byAge = metrics.byAge[sex];
+
+  const maxVal = Math.max(
+    allAges.spanish,
+    allAges.foreign,
+    ...byAge.map((r) => Math.max(r.spanish, r.foreign)),
+    1
+  );
+
+  return { allAges, byAge, maxScaleValue: maxVal };
+}
 
 
 // ==========================================
