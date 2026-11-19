@@ -8,8 +8,10 @@ interface HeaderProps {
   lang?: "es" | "en";
 }
 
-export default function Header({ lang = "es" }: HeaderProps) {
-  const pathname = usePathname() || (lang === "en" ? "/en" : "/");
+export default function Header({ lang: propLang }: HeaderProps) {
+  const pathname = usePathname() || "/";
+  const lang: "es" | "en" =
+    propLang ?? (pathname === "/en" || pathname.startsWith("/en/") ? "en" : "es");
 
   const getTogglePath = () => {
     if (lang === "es") {
@@ -27,7 +29,7 @@ export default function Header({ lang = "es" }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 shadow-sm">
-      <div className="max-w-3xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
         <Link 
           href={lang === "en" ? "/en" : "/"} 
           className="flex items-center gap-2 text-white hover:opacity-80 transition-opacity"
@@ -36,9 +38,9 @@ export default function Header({ lang = "es" }: HeaderProps) {
             <BarChart3 className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h1 className="font-bold text-lg leading-none text-white tracking-tight">
+            <span className="font-bold text-lg leading-none text-white tracking-tight">
               Factor<span className="text-blue-400">.es</span>
-            </h1>
+            </span>
           </div>
         </Link>
 

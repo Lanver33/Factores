@@ -7,7 +7,7 @@ import {
   formatCompactSpanish,
   describeArc,
 } from "./utils";
-import { PieChart, Search, X, ChevronDown, ChevronUp, Sparkles } from "lucide-react";
+import { PieChart, Search, X, Sparkles } from "lucide-react";
 import { t, Lang } from "@/lib/i18n";
 
 interface ContinentCountrySplitViewProps {
@@ -53,7 +53,6 @@ export default function ContinentCountrySplitView({
 }: ContinentCountrySplitViewProps) {
   const [activeBlockFilter, setActiveBlockFilter] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [showAllLongTail, setShowAllLongTail] = useState<boolean>(false);
   const [hoveredSectorId, setHoveredSectorId] = useState<string | null>(null);
 
   // 1. Process block and country data
@@ -82,6 +81,9 @@ export default function ContinentCountrySplitView({
       });
 
       block.countries.forEach((c) => {
+        // Exclude residual "Rest of..." aggregate categories from individual country ranking list
+        if (c.id.startsWith("resto-de-")) return;
+
         const val = activeDataMap[c.id] || 0;
         if (val > 0) {
           const gPct = (val / totalGlobal) * 100;
@@ -137,6 +139,7 @@ export default function ContinentCountrySplitView({
       });
 
       block.countries.forEach((c) => {
+        if (c.id.startsWith("resto-de-")) return;
         flatCountries.push({
           ...c,
           blockId: block.id,
@@ -153,8 +156,8 @@ export default function ContinentCountrySplitView({
     return { blockSectors: bSectors, allCountriesList: flatCountries };
   }, [item, activeDataMap, totalArrivals]);
 
-  // 2. Filtered countries for the right panel
-  const { visibleCountries, longTailCountries, longTailSum, longTailCount, maxCountryVal } = useMemo(() => {
+  // 2. Filtered countries for the right panel (showing all individual countries without residual aggregate groups)
+  const { visibleCountries, maxCountryVal } = useMemo(() => {
     let filtered = allCountriesList;
 
     if (activeBlockFilter) {
@@ -168,30 +171,11 @@ export default function ContinentCountrySplitView({
 
     const mVal = filtered[0]?.value || 1;
 
-    // If search or continent filter is active, show all matching without long-tail collapsing
-    if (activeBlockFilter || searchQuery.trim().length > 0 || showAllLongTail) {
-      return {
-        visibleCountries: filtered,
-        longTailCountries: [],
-        longTailSum: 0,
-        longTailCount: 0,
-        maxCountryVal: mVal,
-      };
-    }
-
-    // Default long-tail grouping: top 10 countries individually, rest in Otros
-    const mainList = filtered.slice(0, 10);
-    const tailList = filtered.slice(10);
-    const tSum = tailList.reduce((acc, c) => acc + c.value, 0);
-
     return {
-      visibleCountries: mainList,
-      longTailCountries: tailList,
-      longTailSum: tSum,
-      longTailCount: tailList.length,
+      visibleCountries: filtered,
       maxCountryVal: mVal,
     };
-  }, [allCountriesList, activeBlockFilter, searchQuery, showAllLongTail]);
+  }, [allCountriesList, activeBlockFilter, searchQuery]);
 
   const formatPct = (val: number) => {
     const formatted = val.toFixed(1);
@@ -340,7 +324,7 @@ export default function ContinentCountrySplitView({
           </div>
         </div>
 
-        {/* RIGHT PANEL: Ranked Countries & Long-Tail Grouping (7 columns) */}
+        {/* RIGHT PANEL: Ranked Countries (7 columns) */}
         <div className="lg:col-span-7 bg-slate-950/40 border border-slate-800/80 rounded-2xl p-4 flex flex-col space-y-4">
           
           {/* Header & Search Bar */}
@@ -350,7 +334,7 @@ export default function ContinentCountrySplitView({
                 {t("originCountriesRanking", lang)}
               </h4>
               <p className="text-[11px] text-slate-400 mt-0.5">
-                {visibleCountries.length + longTailCount} {lang === "en" ? "countries listed" : "países listados"}
+                {visibleCountries.length} {lang === "en" ? "countries listed" : "países listados"}
                 {activeBlockFilter ? ` • ${BLOCK_NAMES_MAP[activeBlockFilter]}` : ""}
               </p>
             </div>
@@ -437,50 +421,6 @@ export default function ContinentCountrySplitView({
                   </div>
                 );
               })
-            )}
-
-            {/* Long-Tail Summary Footer Row (< 1,5%) */}
-            {longTailCountries.length > 0 && (
-              <div className="border border-slate-800 bg-slate-900/80 rounded-xl p-3 space-y-2 mt-3">
-                <div className="flex items-center justify-between text-xs">
-                  <div className="font-semibold text-slate-300">
-                    Otros países (&lt;1,5%):{" "}
-                    <span className="font-mono text-white">{formatSpanishNumber(longTailSum)} {t("pers", lang)}</span>{" "}
-                    <span className="font-mono text-purple-400">({formatPct((longTailSum / totalArrivals) * 100)})</span>{" "}
-                    · <span className="text-slate-400">{longTailCount} {t("countriesGrouped", lang)}</span>
-                  </div>
-                  <button
-                    onClick={() => setShowAllLongTail(!showAllLongTail)}
-                    className="text-xs font-bold text-blue-400 hover:text-blue-300 flex items-center gap-1 transition-colors"
-                  >
-                    {showAllLongTail ? t("collapse", lang) : t("showMore", lang)}
-                    {showAllLongTail ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-                  </button>
-                </div>
-
-                {/* Expanded Long-Tail Individual Rows */}
-                {showAllLongTail && (
-                  <div className="space-y-1.5 pt-2 border-t border-slate-800 max-h-48 overflow-y-auto pr-1">
-                    {longTailCountries.map((country) => (
-                      <div
-                        key={country.id}
-                        onMouseEnter={() => setHoveredCountryId(country.id)}
-                        onMouseLeave={() => setHoveredCountryId(null)}
-                        onClick={() => setPinnedCountryId(pinnedCountryId === country.id ? null : country.id)}
-                        className="py-2 px-3 rounded-lg bg-slate-950/60 border border-slate-800 flex items-center justify-between text-xs cursor-pointer hover:border-slate-700"
-                      >
-                        <div className="flex items-center gap-2 truncate">
-                          <span className="font-mono text-slate-400 text-[11px] truncate">{country.name}</span>
-                        </div>
-                        <div className="flex items-center gap-3 font-mono">
-                          <span className="text-slate-400 text-[11px]">{formatSpanishNumber(country.value)} {t("pers", lang)}</span>
-                          <span className="text-white font-bold">{formatPct(country.globalPct)}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
             )}
           </div>
         </div>

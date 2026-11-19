@@ -141,12 +141,30 @@ function copyRecursive(src, dest) {
 
 function sync() {
   console.log("[Sync] Syncing ./staging to ./data...");
-  copyRecursive(STAGING_DIR, DATA_DIR);
-  copyRecursive(STAGING_DIR, path.join(DATA_DIR, "es"));
-  copyRecursive(STAGING_DIR, path.join(DATA_DIR, "en"));
+  fs.mkdirSync(path.join(DATA_DIR, "items"), { recursive: true });
+  fs.mkdirSync(path.join(DATA_DIR, "es", "items"), { recursive: true });
+
+  copyRecursive(path.join(STAGING_DIR, "items"), path.join(DATA_DIR, "items"));
+  copyRecursive(path.join(STAGING_DIR, "items"), path.join(DATA_DIR, "es", "items"));
+
+  if (fs.existsSync(path.join(STAGING_DIR, "metadata.json"))) {
+    fs.copyFileSync(path.join(STAGING_DIR, "metadata.json"), path.join(DATA_DIR, "metadata.json"));
+    fs.copyFileSync(path.join(STAGING_DIR, "metadata.json"), path.join(DATA_DIR, "es", "metadata.json"));
+  }
+  if (fs.existsSync(path.join(STAGING_DIR, "items.json"))) {
+    fs.copyFileSync(path.join(STAGING_DIR, "items.json"), path.join(DATA_DIR, "items.json"));
+    fs.copyFileSync(path.join(STAGING_DIR, "items.json"), path.join(DATA_DIR, "es", "items.json"));
+  }
 
   console.log("[Sync] Syncing ./data to ./public/data...");
+  fs.mkdirSync(PUBLIC_DATA_DIR, { recursive: true });
   copyRecursive(DATA_DIR, PUBLIC_DATA_DIR);
+
+  const publicEnDir = path.join(PUBLIC_DATA_DIR, "en");
+  const dataEnDir = path.join(DATA_DIR, "en");
+  if (fs.existsSync(dataEnDir)) {
+    copyRecursive(dataEnDir, publicEnDir);
+  }
 
   console.log("[Sync] Data sync complete!");
 }

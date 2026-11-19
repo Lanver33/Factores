@@ -1,9 +1,9 @@
 {
   "id": "inmigracion-procedencia",
   "category": "Pensiones y Demografía",
-  "question": "Inmigración exterior anual",
+  "question": "Annual external immigration",
   "chartType": "bar",
-  "unit": "personas",
+  "unit": "people",
   "blocks": [
     {
       "id": "america-hispanohablante",
@@ -45,10 +45,6 @@
         {
           "id": "rep-dominicana",
           "name": "República Dominicana"
-        },
-        {
-          "id": "resto-de-america-hispanohablante",
-          "name": "Resto de América (Hispanohablante)"
         }
       ]
     },
@@ -68,10 +64,6 @@
         {
           "id": "canada",
           "name": "Canadá"
-        },
-        {
-          "id": "resto-de-america-no-hispanohablante",
-          "name": "Resto de América (No Hispanohablante)"
         }
       ]
     },
@@ -115,10 +107,6 @@
         {
           "id": "bulgaria",
           "name": "Bulgaria"
-        },
-        {
-          "id": "resto-de-europa",
-          "name": "Resto de Europa"
         }
       ]
     },
@@ -162,10 +150,6 @@
         {
           "id": "guinea",
           "name": "Guinea"
-        },
-        {
-          "id": "resto-de-africa",
-          "name": "Resto de África"
         }
       ]
     },
@@ -193,10 +177,6 @@
         {
           "id": "bangladesh",
           "name": "Bangladesh"
-        },
-        {
-          "id": "resto-de-asia",
-          "name": "Resto de Asia"
         }
       ]
     },
@@ -204,12 +184,7 @@
       "id": "oceania",
       "name": "Oceanía",
       "color": "#64748B",
-      "countries": [
-        {
-          "id": "resto-de-oceania",
-          "name": "Resto de Oceanía"
-        }
-      ]
+      "countries": []
     }
   ],
   "annualBlocks": [
@@ -228,8 +203,7 @@
             "ecuador": 32617,
             "cuba": 10161,
             "paraguay": 17558,
-            "rep-dominicana": 16829,
-            "resto-de-america-hispanohablante": 33943
+            "rep-dominicana": 16829
           }
         },
         "america-no-hispanohablante": {
@@ -237,8 +211,7 @@
           "countries": {
             "brasil": 21099,
             "estados-unidos": 6512,
-            "canada": 674,
-            "resto-de-america-no-hispanohablante": 0
+            "canada": 674
           }
         },
         "europa": {
@@ -252,8 +225,7 @@
             "alemania": 14047,
             "rusia": 6122,
             "portugal": 15440,
-            "bulgaria": 10719,
-            "resto-de-europa": 36142
+            "bulgaria": 10719
           }
         },
         "africa": {
@@ -267,8 +239,7 @@
             "gambia": 2532,
             "guinea-ecuatorial": 2171,
             "ghana": 1834,
-            "guinea": 1697,
-            "resto-de-africa": 6974
+            "guinea": 1697
           }
         },
         "asia": {
@@ -278,15 +249,12 @@
             "pakistan": 8495,
             "india": 4907,
             "filipinas": 4797,
-            "bangladesh": 1571,
-            "resto-de-asia": 5395
+            "bangladesh": 1571
           }
         },
         "oceania": {
           "total": 705,
-          "countries": {
-            "resto-de-oceania": 705
-          }
+          "countries": {}
         }
       }
     },
@@ -305,8 +273,7 @@
             "ecuador": 13747,
             "cuba": 6881,
             "paraguay": 10871,
-            "rep-dominicana": 9944,
-            "resto-de-america-hispanohablante": 21470
+            "rep-dominicana": 9944
           }
         },
         "america-no-hispanohablante": {
@@ -314,8 +281,7 @@
           "countries": {
             "brasil": 10923,
             "estados-unidos": 6345,
-            "canada": 639,
-            "resto-de-america-no-hispanohablante": 0
+            "canada": 639
           }
         },
         "europa": {
@@ -329,8 +295,7 @@
             "alemania": 11048,
             "rusia": 5650,
             "portugal": 8648,
-            "bulgaria": 7687,
-            "resto-de-europa": 28144
+            "bulgaria": 7687
           }
         },
         "africa": {
@@ -344,8 +309,7 @@
             "gambia": 1741,
             "guinea-ecuatorial": 1531,
             "ghana": 1342,
-            "guinea": 1219,
-            "resto-de-africa": 5091
+            "guinea": 1219
           }
         },
         "asia": {
@@ -355,15 +319,12 @@
             "pakistan": 6137,
             "india": 4232,
             "filipinas": 3060,
-            "bangladesh": 1631,
-            "resto-de-asia": 4616
+            "bangladesh": 1631
           }
         },
         "oceania": {
           "total": 574,
-          "countries": {
-            "resto-de-oceania": 574
-          }
+          "countries": {}
         }
       }
     },
@@ -382,8 +343,7 @@
             "ecuador": 7238,
             "cuba": 9414,
             "paraguay": 9477,
-            "rep-dominicana": 7415,
-            "resto-de-america-hispanohablante": 20175
+            "rep-dominicana": 7415
           }
         },
         "america-no-hispanohablante": {
@@ -391,8 +351,7 @@
           "countries": {
             "brasil": 9114,
             "estados-unidos": 6226,
-            "canada": 678,
-            "resto-de-america-no-hispanohablante": 0
+            "canada": 678
           }
         },
         "europa": {
@@ -406,8 +365,7 @@
             "alemania": 10249,
             "rusia": 6490,
             "portugal": 6843,
-            "bulgaria": 8395,
-            "resto-de-europa": 28524
+            "bulgaria": 8395
           }
         },
         "africa": {
@@ -421,8 +379,7 @@
             "gambia": 1464,
             "guinea-ecuatorial": 1418,
             "ghana": 1201,
-            "guinea": 827,
-            "resto-de-africa": 3984
+            "guinea": 827
           }
         },
         "asia": {
@@ -432,15 +389,12 @@
             "pakistan": 14849,
             "india": 3275,
             "filipinas": 1972,
-            "bangladesh": 1331,
-            "resto-de-asia": 4930
+            "bangladesh": 1331
           }
         },
         "oceania": {
           "total": 600,
-          "countries": {
-            "resto-de-oceania": 600
-          }
+          "countries": {}
         }
       }
     },
@@ -459,8 +413,7 @@
             "ecuador": 7093,
             "cuba": 12099,
             "paraguay": 8306,
-            "rep-dominicana": 10985,
-            "resto-de-america-hispanohablante": 22381
+            "rep-dominicana": 10985
           }
         },
         "america-no-hispanohablante": {
@@ -468,8 +421,7 @@
           "countries": {
             "brasil": 8389,
             "estados-unidos": 7911,
-            "canada": 899,
-            "resto-de-america-no-hispanohablante": 0
+            "canada": 899
           }
         },
         "europa": {
@@ -483,8 +435,7 @@
             "alemania": 10054,
             "rusia": 7887,
             "portugal": 7006,
-            "bulgaria": 9931,
-            "resto-de-europa": 30234
+            "bulgaria": 9931
           }
         },
         "africa": {
@@ -498,8 +449,7 @@
             "gambia": 1368,
             "guinea-ecuatorial": 1333,
             "ghana": 1254,
-            "guinea": 663,
-            "resto-de-africa": 4361
+            "guinea": 663
           }
         },
         "asia": {
@@ -509,15 +459,12 @@
             "pakistan": 10871,
             "india": 3586,
             "filipinas": 2364,
-            "bangladesh": 1448,
-            "resto-de-asia": 6263
+            "bangladesh": 1448
           }
         },
         "oceania": {
           "total": 779,
-          "countries": {
-            "resto-de-oceania": 779
-          }
+          "countries": {}
         }
       }
     },
@@ -536,8 +483,7 @@
             "ecuador": 6421,
             "cuba": 8944,
             "paraguay": 4903,
-            "rep-dominicana": 10771,
-            "resto-de-america-hispanohablante": 18578
+            "rep-dominicana": 10771
           }
         },
         "america-no-hispanohablante": {
@@ -545,8 +491,7 @@
           "countries": {
             "brasil": 6928,
             "estados-unidos": 7492,
-            "canada": 908,
-            "resto-de-america-no-hispanohablante": 0
+            "canada": 908
           }
         },
         "europa": {
@@ -560,8 +505,7 @@
             "alemania": 9896,
             "rusia": 7820,
             "portugal": 5837,
-            "bulgaria": 6268,
-            "resto-de-europa": 28461
+            "bulgaria": 6268
           }
         },
         "africa": {
@@ -575,8 +519,7 @@
             "gambia": 1148,
             "guinea-ecuatorial": 1199,
             "ghana": 1059,
-            "guinea": 607,
-            "resto-de-africa": 4009
+            "guinea": 607
           }
         },
         "asia": {
@@ -586,15 +529,12 @@
             "pakistan": 7794,
             "india": 2839,
             "filipinas": 2092,
-            "bangladesh": 1749,
-            "resto-de-asia": 6841
+            "bangladesh": 1749
           }
         },
         "oceania": {
           "total": 785,
-          "countries": {
-            "resto-de-oceania": 785
-          }
+          "countries": {}
         }
       }
     },
@@ -613,8 +553,7 @@
             "ecuador": 6329,
             "cuba": 8103,
             "paraguay": 3828,
-            "rep-dominicana": 8866,
-            "resto-de-america-hispanohablante": 16111
+            "rep-dominicana": 8866
           }
         },
         "america-no-hispanohablante": {
@@ -622,8 +561,7 @@
           "countries": {
             "brasil": 5625,
             "estados-unidos": 7930,
-            "canada": 973,
-            "resto-de-america-no-hispanohablante": 0
+            "canada": 973
           }
         },
         "europa": {
@@ -637,8 +575,7 @@
             "alemania": 9208,
             "rusia": 8617,
             "portugal": 5182,
-            "bulgaria": 4981,
-            "resto-de-europa": 27388
+            "bulgaria": 4981
           }
         },
         "africa": {
@@ -652,8 +589,7 @@
             "gambia": 1135,
             "guinea-ecuatorial": 1231,
             "ghana": 1007,
-            "guinea": 559,
-            "resto-de-africa": 4006
+            "guinea": 559
           }
         },
         "asia": {
@@ -663,15 +599,12 @@
             "pakistan": 6098,
             "india": 2835,
             "filipinas": 2008,
-            "bangladesh": 1276,
-            "resto-de-asia": 7070
+            "bangladesh": 1276
           }
         },
         "oceania": {
           "total": 845,
-          "countries": {
-            "resto-de-oceania": 845
-          }
+          "countries": {}
         }
       }
     },
@@ -690,8 +623,7 @@
             "ecuador": 6873,
             "cuba": 7586,
             "paraguay": 4349,
-            "rep-dominicana": 8706,
-            "resto-de-america-hispanohablante": 19067
+            "rep-dominicana": 8706
           }
         },
         "america-no-hispanohablante": {
@@ -699,8 +631,7 @@
           "countries": {
             "brasil": 6643,
             "estados-unidos": 8054,
-            "canada": 1098,
-            "resto-de-america-no-hispanohablante": 0
+            "canada": 1098
           }
         },
         "europa": {
@@ -714,8 +645,7 @@
             "alemania": 8913,
             "rusia": 8286,
             "portugal": 4939,
-            "bulgaria": 4689,
-            "resto-de-europa": 28470
+            "bulgaria": 4689
           }
         },
         "africa": {
@@ -729,8 +659,7 @@
             "gambia": 1203,
             "guinea-ecuatorial": 1505,
             "ghana": 873,
-            "guinea": 564,
-            "resto-de-africa": 4166
+            "guinea": 564
           }
         },
         "asia": {
@@ -740,15 +669,12 @@
             "pakistan": 4980,
             "india": 2900,
             "filipinas": 1883,
-            "bangladesh": 970,
-            "resto-de-asia": 7577
+            "bangladesh": 970
           }
         },
         "oceania": {
           "total": 912,
-          "countries": {
-            "resto-de-oceania": 912
-          }
+          "countries": {}
         }
       }
     },
@@ -767,8 +693,7 @@
             "ecuador": 8355,
             "cuba": 7365,
             "paraguay": 4848,
-            "rep-dominicana": 7988,
-            "resto-de-america-hispanohablante": 22428
+            "rep-dominicana": 7988
           }
         },
         "america-no-hispanohablante": {
@@ -776,8 +701,7 @@
           "countries": {
             "brasil": 8770,
             "estados-unidos": 9170,
-            "canada": 1140,
-            "resto-de-america-no-hispanohablante": 0
+            "canada": 1140
           }
         },
         "europa": {
@@ -791,8 +715,7 @@
             "alemania": 9605,
             "rusia": 7113,
             "portugal": 5010,
-            "bulgaria": 4915,
-            "resto-de-europa": 30379
+            "bulgaria": 4915
           }
         },
         "africa": {
@@ -806,8 +729,7 @@
             "gambia": 1158,
             "guinea-ecuatorial": 1823,
             "ghana": 866,
-            "guinea": 649,
-            "resto-de-africa": 4703
+            "guinea": 649
           }
         },
         "asia": {
@@ -817,15 +739,12 @@
             "pakistan": 4483,
             "india": 3003,
             "filipinas": 2307,
-            "bangladesh": 1201,
-            "resto-de-asia": 8219
+            "bangladesh": 1201
           }
         },
         "oceania": {
           "total": 1053,
-          "countries": {
-            "resto-de-oceania": 1053
-          }
+          "countries": {}
         }
       }
     },
@@ -844,8 +763,7 @@
             "ecuador": 12349,
             "cuba": 8122,
             "paraguay": 7500,
-            "rep-dominicana": 9709,
-            "resto-de-america-hispanohablante": 28139
+            "rep-dominicana": 9709
           }
         },
         "america-no-hispanohablante": {
@@ -853,8 +771,7 @@
           "countries": {
             "brasil": 11954,
             "estados-unidos": 9942,
-            "canada": 1167,
-            "resto-de-america-no-hispanohablante": 0
+            "canada": 1167
           }
         },
         "europa": {
@@ -868,8 +785,7 @@
             "alemania": 10505,
             "rusia": 6350,
             "portugal": 5257,
-            "bulgaria": 5297,
-            "resto-de-europa": 33672
+            "bulgaria": 5297
           }
         },
         "africa": {
@@ -883,8 +799,7 @@
             "gambia": 1280,
             "guinea-ecuatorial": 1983,
             "ghana": 959,
-            "guinea": 773,
-            "resto-de-africa": 4748
+            "guinea": 773
           }
         },
         "asia": {
@@ -894,15 +809,12 @@
             "pakistan": 6225,
             "india": 3734,
             "filipinas": 2369,
-            "bangladesh": 1596,
-            "resto-de-asia": 10055
+            "bangladesh": 1596
           }
         },
         "oceania": {
           "total": 1194,
-          "countries": {
-            "resto-de-oceania": 1194
-          }
+          "countries": {}
         }
       }
     },
@@ -921,8 +833,7 @@
             "ecuador": 15600,
             "cuba": 10280,
             "paraguay": 8659,
-            "rep-dominicana": 11324,
-            "resto-de-america-hispanohablante": 37361
+            "rep-dominicana": 11324
           }
         },
         "america-no-hispanohablante": {
@@ -930,8 +841,7 @@
           "countries": {
             "brasil": 14816,
             "estados-unidos": 12719,
-            "canada": 1301,
-            "resto-de-america-no-hispanohablante": 0
+            "canada": 1301
           }
         },
         "europa": {
@@ -945,8 +855,7 @@
             "alemania": 12714,
             "rusia": 7051,
             "portugal": 5888,
-            "bulgaria": 5942,
-            "resto-de-europa": 40396
+            "bulgaria": 5942
           }
         },
         "africa": {
@@ -960,8 +869,7 @@
             "gambia": 1362,
             "guinea-ecuatorial": 1963,
             "ghana": 1227,
-            "guinea": 734,
-            "resto-de-africa": 5281
+            "guinea": 734
           }
         },
         "asia": {
@@ -971,15 +879,12 @@
             "pakistan": 6560,
             "india": 4664,
             "filipinas": 2674,
-            "bangladesh": 1960,
-            "resto-de-asia": 12375
+            "bangladesh": 1960
           }
         },
         "oceania": {
           "total": 1457,
-          "countries": {
-            "resto-de-oceania": 1457
-          }
+          "countries": {}
         }
       }
     },
@@ -998,8 +903,7 @@
             "ecuador": 15893,
             "cuba": 14265,
             "paraguay": 9533,
-            "rep-dominicana": 10813,
-            "resto-de-america-hispanohablante": 46971
+            "rep-dominicana": 10813
           }
         },
         "america-no-hispanohablante": {
@@ -1007,8 +911,7 @@
           "countries": {
             "brasil": 17863,
             "estados-unidos": 13853,
-            "canada": 1503,
-            "resto-de-america-no-hispanohablante": 0
+            "canada": 1503
           }
         },
         "europa": {
@@ -1022,8 +925,7 @@
             "alemania": 13314,
             "rusia": 8091,
             "portugal": 6369,
-            "bulgaria": 5173,
-            "resto-de-europa": 43602
+            "bulgaria": 5173
           }
         },
         "africa": {
@@ -1037,8 +939,7 @@
             "gambia": 1646,
             "guinea-ecuatorial": 1915,
             "ghana": 1822,
-            "guinea": 1132,
-            "resto-de-africa": 6054
+            "guinea": 1132
           }
         },
         "asia": {
@@ -1048,15 +949,12 @@
             "pakistan": 8673,
             "india": 6858,
             "filipinas": 2561,
-            "bangladesh": 2438,
-            "resto-de-asia": 13212
+            "bangladesh": 2438
           }
         },
         "oceania": {
           "total": 1571,
-          "countries": {
-            "resto-de-oceania": 1571
-          }
+          "countries": {}
         }
       }
     },
@@ -1075,8 +973,7 @@
             "ecuador": 17663,
             "cuba": 17660,
             "paraguay": 12231,
-            "rep-dominicana": 11058,
-            "resto-de-america-hispanohablante": 59813
+            "rep-dominicana": 11058
           }
         },
         "america-no-hispanohablante": {
@@ -1084,8 +981,7 @@
           "countries": {
             "brasil": 18711,
             "estados-unidos": 15032,
-            "canada": 1578,
-            "resto-de-america-no-hispanohablante": 0
+            "canada": 1578
           }
         },
         "europa": {
@@ -1099,8 +995,7 @@
             "alemania": 13633,
             "rusia": 9032,
             "portugal": 7068,
-            "bulgaria": 5392,
-            "resto-de-europa": 45201
+            "bulgaria": 5392
           }
         },
         "africa": {
@@ -1114,8 +1009,7 @@
             "gambia": 2033,
             "guinea-ecuatorial": 1659,
             "ghana": 2435,
-            "guinea": 1469,
-            "resto-de-africa": 6934
+            "guinea": 1469
           }
         },
         "asia": {
@@ -1125,15 +1019,12 @@
             "pakistan": 11513,
             "india": 7013,
             "filipinas": 3070,
-            "bangladesh": 2482,
-            "resto-de-asia": 14296
+            "bangladesh": 2482
           }
         },
         "oceania": {
           "total": 1799,
-          "countries": {
-            "resto-de-oceania": 1799
-          }
+          "countries": {}
         }
       }
     },
@@ -1152,8 +1043,7 @@
             "ecuador": 10058,
             "cuba": 7784,
             "paraguay": 6596,
-            "rep-dominicana": 6470,
-            "resto-de-america-hispanohablante": 35636
+            "rep-dominicana": 6470
           }
         },
         "america-no-hispanohablante": {
@@ -1161,8 +1051,7 @@
           "countries": {
             "brasil": 9541,
             "estados-unidos": 9909,
-            "canada": 1208,
-            "resto-de-america-no-hispanohablante": 0
+            "canada": 1208
           }
         },
         "europa": {
@@ -1176,8 +1065,7 @@
             "alemania": 10670,
             "rusia": 4640,
             "portugal": 5555,
-            "bulgaria": 3274,
-            "resto-de-europa": 32661
+            "bulgaria": 3274
           }
         },
         "africa": {
@@ -1191,8 +1079,7 @@
             "gambia": 1556,
             "guinea-ecuatorial": 842,
             "ghana": 1314,
-            "guinea": 761,
-            "resto-de-africa": 4274
+            "guinea": 761
           }
         },
         "asia": {
@@ -1202,15 +1089,12 @@
             "pakistan": 7340,
             "india": 2946,
             "filipinas": 1706,
-            "bangladesh": 1198,
-            "resto-de-asia": 8853
+            "bangladesh": 1198
           }
         },
         "oceania": {
           "total": 1138,
-          "countries": {
-            "resto-de-oceania": 1138
-          }
+          "countries": {}
         }
       }
     },
@@ -1229,8 +1113,7 @@
             "ecuador": 22407,
             "cuba": 18107,
             "paraguay": 11036,
-            "rep-dominicana": 13143,
-            "resto-de-america-hispanohablante": 56090
+            "rep-dominicana": 13143
           }
         },
         "america-no-hispanohablante": {
@@ -1238,8 +1121,7 @@
           "countries": {
             "brasil": 14612,
             "estados-unidos": 20911,
-            "canada": 2498,
-            "resto-de-america-no-hispanohablante": 0
+            "canada": 2498
           }
         },
         "europa": {
@@ -1253,8 +1135,7 @@
             "alemania": 28544,
             "rusia": 12874,
             "portugal": 10789,
-            "bulgaria": 8434,
-            "resto-de-europa": 77444
+            "bulgaria": 8434
           }
         },
         "africa": {
@@ -1268,8 +1149,7 @@
             "gambia": 3804,
             "guinea-ecuatorial": 2738,
             "ghana": 2892,
-            "guinea": 1698,
-            "resto-de-africa": 11097
+            "guinea": 1698
           }
         },
         "asia": {
@@ -1279,15 +1159,12 @@
             "pakistan": 16057,
             "india": 5850,
             "filipinas": 3524,
-            "bangladesh": 2074,
-            "resto-de-asia": 19378
+            "bangladesh": 2074
           }
         },
         "oceania": {
           "total": 2051,
-          "countries": {
-            "resto-de-oceania": 2051
-          }
+          "countries": {}
         }
       }
     },
@@ -1306,8 +1183,7 @@
             "ecuador": 27982,
             "cuba": 27080,
             "paraguay": 24078,
-            "rep-dominicana": 14436,
-            "resto-de-america-hispanohablante": 75370
+            "rep-dominicana": 14436
           }
         },
         "america-no-hispanohablante": {
@@ -1315,8 +1191,7 @@
           "countries": {
             "brasil": 22454,
             "estados-unidos": 20646,
-            "canada": 2820,
-            "resto-de-america-no-hispanohablante": 0
+            "canada": 2820
           }
         },
         "europa": {
@@ -1330,8 +1205,7 @@
             "alemania": 26468,
             "rusia": 20120,
             "portugal": 10696,
-            "bulgaria": 8333,
-            "resto-de-europa": 80505
+            "bulgaria": 8333
           }
         },
         "africa": {
@@ -1345,8 +1219,7 @@
             "gambia": 3763,
             "guinea-ecuatorial": 3478,
             "ghana": 2870,
-            "guinea": 1691,
-            "resto-de-africa": 11240
+            "guinea": 1691
           }
         },
         "asia": {
@@ -1356,15 +1229,12 @@
             "pakistan": 16496,
             "india": 8126,
             "filipinas": 3903,
-            "bangladesh": 2480,
-            "resto-de-asia": 18849
+            "bangladesh": 2480
           }
         },
         "oceania": {
           "total": 3188,
-          "countries": {
-            "resto-de-oceania": 3188
-          }
+          "countries": {}
         }
       }
     },
@@ -1383,8 +1253,7 @@
             "ecuador": 34221,
             "cuba": 30812,
             "paraguay": 25223,
-            "rep-dominicana": 15570,
-            "resto-de-america-hispanohablante": 75242
+            "rep-dominicana": 15570
           }
         },
         "america-no-hispanohablante": {
@@ -1392,8 +1261,7 @@
           "countries": {
             "brasil": 21741,
             "estados-unidos": 23221,
-            "canada": 3245,
-            "resto-de-america-no-hispanohablante": 0
+            "canada": 3245
           }
         },
         "europa": {
@@ -1407,8 +1275,7 @@
             "alemania": 27608,
             "rusia": 20600,
             "portugal": 12208,
-            "bulgaria": 8159,
-            "resto-de-europa": 85630
+            "bulgaria": 8159
           }
         },
         "africa": {
@@ -1422,8 +1289,7 @@
             "gambia": 3579,
             "guinea-ecuatorial": 3525,
             "ghana": 2597,
-            "guinea": 1737,
-            "resto-de-africa": 12172
+            "guinea": 1737
           }
         },
         "asia": {
@@ -1433,15 +1299,12 @@
             "pakistan": 18221,
             "india": 10033,
             "filipinas": 4708,
-            "bangladesh": 3458,
-            "resto-de-asia": 20230
+            "bangladesh": 3458
           }
         },
         "oceania": {
           "total": 3043,
-          "countries": {
-            "resto-de-oceania": 3043
-          }
+          "countries": {}
         }
       }
     },
@@ -1460,8 +1323,7 @@
             "ecuador": 36684,
             "cuba": 35741,
             "paraguay": 25565,
-            "rep-dominicana": 15002,
-            "resto-de-america-hispanohablante": 71747
+            "rep-dominicana": 15002
           }
         },
         "america-no-hispanohablante": {
@@ -1469,8 +1331,7 @@
           "countries": {
             "brasil": 21481,
             "estados-unidos": 25559,
-            "canada": 3508,
-            "resto-de-america-no-hispanohablante": 0
+            "canada": 3508
           }
         },
         "europa": {
@@ -1484,8 +1345,7 @@
             "alemania": 26123,
             "rusia": 14067,
             "portugal": 12459,
-            "bulgaria": 6465,
-            "resto-de-europa": 85834
+            "bulgaria": 6465
           }
         },
         "africa": {
@@ -1499,8 +1359,7 @@
             "gambia": 5455,
             "guinea-ecuatorial": 3295,
             "ghana": 2916,
-            "guinea": 1950,
-            "resto-de-africa": 14531
+            "guinea": 1950
           }
         },
         "asia": {
@@ -1510,15 +1369,12 @@
             "pakistan": 20067,
             "india": 13039,
             "filipinas": 5125,
-            "bangladesh": 5797,
-            "resto-de-asia": 23288
+            "bangladesh": 5797
           }
         },
         "oceania": {
           "total": 3533,
-          "countries": {
-            "resto-de-oceania": 3533
-          }
+          "countries": {}
         }
       }
     }
@@ -4197,28 +4053,18 @@
     }
   ],
   "contextNotes": [
-    "Flujo anual total de inmigraciones procedentes del extranjero (ambos sexos) desde 2008 hasta 2024, enlazando la Estadística de Migraciones (2008-2020) y la EMCR (2021-2024) del INE.",
-    "Agrupación en 6 bloques continentales/lingüísticos: América (Hispanohablante), América (No Hispanohablante), Europa, África, Asia y Oceanía.",
-    "Desglose de hasta 10 series individuales por bloque (Top países + Resto de bloque) con 100% de conciliación matemática respecto a subtotales y total global."
+    "Tab 1 (Annual Immigration): Tracks annual foreign immigration inflows to Spain from 2008 to 2024 by continent and country of origin.",
+    "Official Source: National Statistics Institute (INE) - Continuous Municipal Census & Migration Statistics."
   ],
   "sources": [
     {
-      "institution": "Instituto Nacional de Estadística (INE)",
-      "title": "Estadística de Migraciones (EM)",
-      "shortName": "Estadística de Migraciones",
-      "tableId": "24312",
-      "period": "2008-2020",
+      "institution": "National Statistics Institute (INE)",
+      "title": "Migration Statistics / Continuous Municipal Census",
+      "shortName": "Migration Statistics",
+      "tableId": "INE-MIGR",
+      "period": "2008-2024",
       "lastUpdated": "2024-12-01",
-      "url": "https://www.ine.es/jaxiT3/Tabla.htm?t=24312"
-    },
-    {
-      "institution": "Instituto Nacional de Estadística (INE)",
-      "title": "Estadística de Migraciones y Cambios de Residencia (EMCR)",
-      "shortName": "EMCR",
-      "tableId": "69690",
-      "period": "2021-2024",
-      "lastUpdated": "2024-12-01",
-      "url": "https://www.ine.es/jaxiT3/Tabla.htm?t=69690"
+      "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177003"
     }
   ],
   "last_updated": "2026-11-18"

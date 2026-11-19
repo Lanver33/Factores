@@ -1,9 +1,9 @@
 {
   "id": "saldo-fiscal-nacionalidad",
   "category": "Economía y Empleo",
-  "question": "Saldo fiscal y ratio contribución / gasto",
+  "question": "Fiscal balance and contribution / spending ratio",
   "chartType": "fiscal",
-  "unit": "% / € hab / MM€",
+  "unit": "Contribution / spending ratio",
   "dataPoints": [
     {
       "year": "2015",
@@ -717,26 +717,23 @@
     }
   ],
   "contextNotes": [
-    "Pestaña 1 (Comparativa Ratio %): Compara el ratio Contribución / Gasto (Cotizaciones SS + IRPF + IVA imputado sobre Gasto público COFOG e imputaciones). Un valor por encima del 100% indica superávit fiscal; por debajo, déficit.",
-    "Pestaña 2 (Saldo Neto €/hab): Saldo neto anual por habitante. En 2024, el saldo per cápita extranjero fue de +2509.0 €/hab frente a -392.0 €/hab para la población de nacionalidad española.",
-    "Pestaña 3 (Balance Total Estado en MM€): Muestra el presupuesto público completo de las Administraciones Públicas (IGAE S.13 SEC-2010), comparando en barras apiladas por año el Total de Ingresos (661.5 MM€ en 2024) frente al Total de Gastos (711.2 MM€) y la curva del Déficit Público Consolidado (-49.7 MM€).",
-    "Categorías Específicas de Ingresos: Contribución Extranjeros, Contribución Españoles, Impuesto sobre Sociedades (Empresas), Impuestos Especiales (Hidrocarburos/Tabaco/Alcohol), Tasas/Precios Públicos, Fondos UE y Rentas Patrimoniales del Estado.",
-    "Categorías Específicas de Gastos: Gasto Imputado Extranjeros, Gasto Imputado Españoles, Intereses de la Deuda Pública, Defensa/Fuerzas Armadas, Seguridad Ciudadana/Justicia, Infraestructuras/Transportes, Medio Ambiente/I+D+i y Servicios Generales de la Administración Pública.",
-    "Fuentes oficiales cruzadas: IGAE & Banco de España (Contabilidad Nacional S.13 SEC-2010), INE (ECP Tabla 56951), Seguridad Social (Afiliación y Pensiones por Nacionalidad) y AEAT (Informes de Recaudación Tributaria)."
+    "Tab 1 (Ratio % Comparison): Compares the Contribution / Spending ratio (SS contributions + IRPF + imputed VAT over COFOG public spending). Values above 100% indicate fiscal surplus; below 100%, deficit.",
+    "Tab 2 (Net Balance €/capita): Annual net fiscal balance per capita by nationality.",
+    "Tab 3 (Total State Balance in MM€): Complete public budget of General Government (IGAE S.13 SEC-2010)."
   ],
   "sources": [
     {
-      "institution": "Intervención General de la Administración del Estado (IGAE) / Banco de España",
-      "title": "Contabilidad Nacional de España (SEC-2010)",
-      "shortName": "Contabilidad Nacional",
+      "institution": "General Intervention Board of the State Administration (IGAE) / Bank of Spain",
+      "title": "National Accounts of Spain (SEC-2010)",
+      "shortName": "National Accounts",
       "tableId": "SEC-2010",
       "period": "2015-2024",
       "lastUpdated": "2024-12-01",
       "url": "https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736177003"
     },
     {
-      "institution": "Instituto Nacional de Estadística (INE)",
-      "title": "Estadística de Cuentas Principales (ECP)",
+      "institution": "National Statistics Institute (INE)",
+      "title": "Main Accounts Statistics (ECP)",
       "shortName": "ECP",
       "tableId": "56951",
       "period": "2015-2024",

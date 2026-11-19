@@ -1,7 +1,7 @@
 {
   "id": "inmigracion-procedencia",
   "category": "Pensiones y Demografía",
-  "question": "Inmigración exterior anual",
+  "question": "¿Cuál es la evolución de la inmigración procedente del extranjero en España?",
   "chartType": "bar",
   "unit": "personas",
   "blocks": [
@@ -43,12 +43,28 @@
           "name": "Paraguay"
         },
         {
-          "id": "rep-dominicana",
+          "id": "republica-dominicana",
           "name": "República Dominicana"
         },
         {
-          "id": "resto-de-america-hispanohablante",
-          "name": "Resto de América (Hispanohablante)"
+          "id": "bolivia",
+          "name": "Bolivia"
+        },
+        {
+          "id": "chile",
+          "name": "Chile"
+        },
+        {
+          "id": "mexico",
+          "name": "México"
+        },
+        {
+          "id": "nicaragua",
+          "name": "Nicaragua"
+        },
+        {
+          "id": "uruguay",
+          "name": "Uruguay"
         }
       ]
     },
@@ -62,16 +78,12 @@
           "name": "Brasil"
         },
         {
-          "id": "estados-unidos",
-          "name": "Estados Unidos"
+          "id": "estados-unidos-de-america",
+          "name": "Estados Unidos de América"
         },
         {
           "id": "canada",
           "name": "Canadá"
-        },
-        {
-          "id": "resto-de-america-no-hispanohablante",
-          "name": "Resto de América (No Hispanohablante)"
         }
       ]
     },
@@ -80,6 +92,10 @@
       "name": "Europa",
       "color": "#0891B2",
       "countries": [
+        {
+          "id": "alemania",
+          "name": "Alemania"
+        },
         {
           "id": "rumania",
           "name": "Rumanía"
@@ -101,10 +117,6 @@
           "name": "Francia"
         },
         {
-          "id": "alemania",
-          "name": "Alemania"
-        },
-        {
           "id": "rusia",
           "name": "Rusia"
         },
@@ -117,8 +129,48 @@
           "name": "Bulgaria"
         },
         {
-          "id": "resto-de-europa",
-          "name": "Resto de Europa"
+          "id": "belgica",
+          "name": "Bélgica"
+        },
+        {
+          "id": "dinamarca",
+          "name": "Dinamarca"
+        },
+        {
+          "id": "finlandia",
+          "name": "Finlandia"
+        },
+        {
+          "id": "irlanda",
+          "name": "Irlanda"
+        },
+        {
+          "id": "lituania",
+          "name": "Lituania"
+        },
+        {
+          "id": "moldavia",
+          "name": "Moldavia"
+        },
+        {
+          "id": "noruega",
+          "name": "Noruega"
+        },
+        {
+          "id": "paises-bajos",
+          "name": "Países Bajos"
+        },
+        {
+          "id": "polonia",
+          "name": "Polonia"
+        },
+        {
+          "id": "suecia",
+          "name": "Suecia"
+        },
+        {
+          "id": "suiza",
+          "name": "Suiza"
         }
       ]
     },
@@ -164,8 +216,8 @@
           "name": "Guinea"
         },
         {
-          "id": "resto-de-africa",
-          "name": "Resto de África"
+          "id": "mauritania",
+          "name": "Mauritania"
         }
       ]
     },
@@ -193,10 +245,6 @@
         {
           "id": "bangladesh",
           "name": "Bangladesh"
-        },
-        {
-          "id": "resto-de-asia",
-          "name": "Resto de Asia"
         }
       ]
     },
@@ -204,12 +252,7 @@
       "id": "oceania",
       "name": "Oceanía",
       "color": "#64748B",
-      "countries": [
-        {
-          "id": "resto-de-oceania",
-          "name": "Resto de Oceanía"
-        }
-      ]
+      "countries": []
     }
   ],
   "annualBlocks": [
@@ -218,7 +261,7 @@
       "total": 599074,
       "blocks": {
         "america-hispanohablante": {
-          "total": 211235,
+          "total": 207808,
           "countries": {
             "colombia": 36416,
             "venezuela": 12969,
@@ -228,36 +271,49 @@
             "ecuador": 32617,
             "cuba": 10161,
             "paraguay": 17558,
-            "rep-dominicana": 16829,
-            "resto-de-america-hispanohablante": 33943
+            "republica-dominicana": 16829,
+            "bolivia": 10549,
+            "chile": 5695,
+            "mexico": 5650,
+            "nicaragua": 2941,
+            "uruguay": 5681
           }
         },
         "america-no-hispanohablante": {
           "total": 28285,
           "countries": {
             "brasil": 21099,
-            "estados-unidos": 6512,
-            "canada": 674,
-            "resto-de-america-no-hispanohablante": 0
+            "estados-unidos-de-america": 6512,
+            "canada": 674
           }
         },
         "europa": {
-          "total": 202336,
+          "total": 191655,
           "countries": {
+            "alemania": 14047,
             "rumania": 61027,
             "reino-unido": 26631,
             "italia": 13075,
             "ucrania": 6726,
             "francia": 12407,
-            "alemania": 14047,
             "rusia": 6122,
             "portugal": 15440,
             "bulgaria": 10719,
-            "resto-de-europa": 36142
+            "belgica": 2718,
+            "dinamarca": 861,
+            "finlandia": 712,
+            "irlanda": 1525,
+            "lituania": 1101,
+            "moldavia": 2195,
+            "noruega": 1159,
+            "paises-bajos": 4323,
+            "polonia": 6597,
+            "suecia": 1633,
+            "suiza": 2637
           }
         },
         "africa": {
-          "total": 111085,
+          "total": 105720,
           "countries": {
             "marruecos": 71660,
             "argelia": 5435,
@@ -268,25 +324,22 @@
             "guinea-ecuatorial": 2171,
             "ghana": 1834,
             "guinea": 1697,
-            "resto-de-africa": 6974
+            "mauritania": 1609
           }
         },
         "asia": {
-          "total": 45426,
+          "total": 40031,
           "countries": {
             "china": 20261,
             "pakistan": 8495,
             "india": 4907,
             "filipinas": 4797,
-            "bangladesh": 1571,
-            "resto-de-asia": 5395
+            "bangladesh": 1571
           }
         },
         "oceania": {
-          "total": 705,
-          "countries": {
-            "resto-de-oceania": 705
-          }
+          "total": 0,
+          "countries": {}
         }
       }
     },
@@ -295,7 +348,7 @@
       "total": 392963,
       "blocks": {
         "america-hispanohablante": {
-          "total": 120478,
+          "total": 117899,
           "countries": {
             "colombia": 20946,
             "venezuela": 9077,
@@ -305,36 +358,49 @@
             "ecuador": 13747,
             "cuba": 6881,
             "paraguay": 10871,
-            "rep-dominicana": 9944,
-            "resto-de-america-hispanohablante": 21470
+            "republica-dominicana": 9944,
+            "bolivia": 5973,
+            "chile": 3499,
+            "mexico": 4818,
+            "nicaragua": 2391,
+            "uruguay": 2210
           }
         },
         "america-no-hispanohablante": {
           "total": 17907,
           "countries": {
             "brasil": 10923,
-            "estados-unidos": 6345,
-            "canada": 639,
-            "resto-de-america-no-hispanohablante": 0
+            "estados-unidos-de-america": 6345,
+            "canada": 639
           }
         },
         "europa": {
-          "total": 151360,
+          "total": 143466,
           "countries": {
+            "alemania": 11048,
             "rumania": 43988,
             "reino-unido": 20355,
             "italia": 10557,
             "ucrania": 4725,
             "francia": 10558,
-            "alemania": 11048,
             "rusia": 5650,
             "portugal": 8648,
             "bulgaria": 7687,
-            "resto-de-europa": 28144
+            "belgica": 2554,
+            "dinamarca": 690,
+            "finlandia": 691,
+            "irlanda": 1589,
+            "lituania": 1154,
+            "moldavia": 1269,
+            "noruega": 1260,
+            "paises-bajos": 3452,
+            "polonia": 3653,
+            "suecia": 1556,
+            "suiza": 2382
           }
         },
         "africa": {
-          "total": 70794,
+          "total": 66603,
           "countries": {
             "marruecos": 43436,
             "argelia": 4291,
@@ -345,25 +411,22 @@
             "guinea-ecuatorial": 1531,
             "ghana": 1342,
             "guinea": 1219,
-            "resto-de-africa": 5091
+            "mauritania": 900
           }
         },
         "asia": {
-          "total": 31850,
+          "total": 27234,
           "countries": {
             "china": 12174,
             "pakistan": 6137,
             "india": 4232,
             "filipinas": 3060,
-            "bangladesh": 1631,
-            "resto-de-asia": 4616
+            "bangladesh": 1631
           }
         },
         "oceania": {
-          "total": 574,
-          "countries": {
-            "resto-de-oceania": 574
-          }
+          "total": 0,
+          "countries": {}
         }
       }
     },
@@ -372,7 +435,7 @@
       "total": 360704,
       "blocks": {
         "america-hispanohablante": {
-          "total": 100115,
+          "total": 97435,
           "countries": {
             "colombia": 14122,
             "venezuela": 10623,
@@ -382,36 +445,49 @@
             "ecuador": 7238,
             "cuba": 9414,
             "paraguay": 9477,
-            "rep-dominicana": 7415,
-            "resto-de-america-hispanohablante": 20175
+            "republica-dominicana": 7415,
+            "bolivia": 4201,
+            "chile": 3265,
+            "mexico": 4990,
+            "nicaragua": 3029,
+            "uruguay": 2010
           }
         },
         "america-no-hispanohablante": {
           "total": 16018,
           "countries": {
             "brasil": 9114,
-            "estados-unidos": 6226,
-            "canada": 678,
-            "resto-de-america-no-hispanohablante": 0
+            "estados-unidos-de-america": 6226,
+            "canada": 678
           }
         },
         "europa": {
-          "total": 156758,
+          "total": 148789,
           "countries": {
+            "alemania": 10249,
             "rumania": 51819,
             "reino-unido": 18670,
             "italia": 10378,
             "ucrania": 4846,
             "francia": 10544,
-            "alemania": 10249,
             "rusia": 6490,
             "portugal": 6843,
             "bulgaria": 8395,
-            "resto-de-europa": 28524
+            "belgica": 2800,
+            "dinamarca": 750,
+            "finlandia": 940,
+            "irlanda": 1617,
+            "lituania": 1272,
+            "moldavia": 851,
+            "noruega": 1495,
+            "paises-bajos": 3518,
+            "polonia": 3352,
+            "suecia": 1783,
+            "suiza": 2177
           }
         },
         "africa": {
-          "total": 50362,
+          "total": 47071,
           "countries": {
             "marruecos": 30231,
             "argelia": 3748,
@@ -422,25 +498,22 @@
             "guinea-ecuatorial": 1418,
             "ghana": 1201,
             "guinea": 827,
-            "resto-de-africa": 3984
+            "mauritania": 693
           }
         },
         "asia": {
-          "total": 36852,
+          "total": 31922,
           "countries": {
             "china": 10495,
             "pakistan": 14849,
             "india": 3275,
             "filipinas": 1972,
-            "bangladesh": 1331,
-            "resto-de-asia": 4930
+            "bangladesh": 1331
           }
         },
         "oceania": {
-          "total": 600,
-          "countries": {
-            "resto-de-oceania": 600
-          }
+          "total": 0,
+          "countries": {}
         }
       }
     },
@@ -449,7 +522,7 @@
       "total": 371335,
       "blocks": {
         "america-hispanohablante": {
-          "total": 107259,
+          "total": 104104,
           "countries": {
             "colombia": 13673,
             "venezuela": 10762,
@@ -459,36 +532,49 @@
             "ecuador": 7093,
             "cuba": 12099,
             "paraguay": 8306,
-            "rep-dominicana": 10985,
-            "resto-de-america-hispanohablante": 22381
+            "republica-dominicana": 10985,
+            "bolivia": 4758,
+            "chile": 3105,
+            "mexico": 5873,
+            "nicaragua": 3646,
+            "uruguay": 1844
           }
         },
         "america-no-hispanohablante": {
           "total": 17199,
           "countries": {
             "brasil": 8389,
-            "estados-unidos": 7911,
-            "canada": 899,
-            "resto-de-america-no-hispanohablante": 0
+            "estados-unidos-de-america": 7911,
+            "canada": 899
           }
         },
         "europa": {
-          "total": 162388,
+          "total": 153272,
           "countries": {
+            "alemania": 10054,
             "rumania": 50747,
             "reino-unido": 18828,
             "italia": 11558,
             "ucrania": 5000,
             "francia": 11143,
-            "alemania": 10054,
             "rusia": 7887,
             "portugal": 7006,
             "bulgaria": 9931,
-            "resto-de-europa": 30234
+            "belgica": 2982,
+            "dinamarca": 780,
+            "finlandia": 985,
+            "irlanda": 1713,
+            "lituania": 1065,
+            "moldavia": 791,
+            "noruega": 1565,
+            "paises-bajos": 3751,
+            "polonia": 3270,
+            "suecia": 1800,
+            "suiza": 2416
           }
         },
         "africa": {
-          "total": 48401,
+          "total": 44671,
           "countries": {
             "marruecos": 28415,
             "argelia": 4240,
@@ -499,25 +585,22 @@
             "guinea-ecuatorial": 1333,
             "ghana": 1254,
             "guinea": 663,
-            "resto-de-africa": 4361
+            "mauritania": 631
           }
         },
         "asia": {
-          "total": 35310,
+          "total": 29047,
           "countries": {
             "china": 10778,
             "pakistan": 10871,
             "india": 3586,
             "filipinas": 2364,
-            "bangladesh": 1448,
-            "resto-de-asia": 6263
+            "bangladesh": 1448
           }
         },
         "oceania": {
-          "total": 779,
-          "countries": {
-            "resto-de-oceania": 779
-          }
+          "total": 0,
+          "countries": {}
         }
       }
     },
@@ -526,7 +609,7 @@
       "total": 304054,
       "blocks": {
         "america-hispanohablante": {
-          "total": 84803,
+          "total": 82122,
           "countries": {
             "colombia": 10431,
             "venezuela": 7578,
@@ -536,36 +619,49 @@
             "ecuador": 6421,
             "cuba": 8944,
             "paraguay": 4903,
-            "rep-dominicana": 10771,
-            "resto-de-america-hispanohablante": 18578
+            "republica-dominicana": 10771,
+            "bolivia": 4054,
+            "chile": 2374,
+            "mexico": 5316,
+            "nicaragua": 2836,
+            "uruguay": 1317
           }
         },
         "america-no-hispanohablante": {
           "total": 15328,
           "countries": {
             "brasil": 6928,
-            "estados-unidos": 7492,
-            "canada": 908,
-            "resto-de-america-no-hispanohablante": 0
+            "estados-unidos-de-america": 7492,
+            "canada": 908
           }
         },
         "europa": {
-          "total": 131211,
+          "total": 122977,
           "countries": {
+            "alemania": 9896,
             "rumania": 27244,
             "reino-unido": 19219,
             "italia": 12436,
             "ucrania": 3623,
             "francia": 10407,
-            "alemania": 9896,
             "rusia": 7820,
             "portugal": 5837,
             "bulgaria": 6268,
-            "resto-de-europa": 28461
+            "belgica": 3285,
+            "dinamarca": 890,
+            "finlandia": 941,
+            "irlanda": 1752,
+            "lituania": 808,
+            "moldavia": 647,
+            "noruega": 1460,
+            "paises-bajos": 3413,
+            "polonia": 2693,
+            "suecia": 1886,
+            "suiza": 2452
           }
         },
         "africa": {
-          "total": 41264,
+          "total": 37765,
           "countries": {
             "marruecos": 23017,
             "argelia": 4572,
@@ -576,25 +672,22 @@
             "guinea-ecuatorial": 1199,
             "ghana": 1059,
             "guinea": 607,
-            "resto-de-africa": 4009
+            "mauritania": 510
           }
         },
         "asia": {
-          "total": 30663,
+          "total": 23822,
           "countries": {
             "china": 9348,
             "pakistan": 7794,
             "india": 2839,
             "filipinas": 2092,
-            "bangladesh": 1749,
-            "resto-de-asia": 6841
+            "bangladesh": 1749
           }
         },
         "oceania": {
-          "total": 785,
-          "countries": {
-            "resto-de-oceania": 785
-          }
+          "total": 0,
+          "countries": {}
         }
       }
     },
@@ -603,7 +696,7 @@
       "total": 280772,
       "blocks": {
         "america-hispanohablante": {
-          "total": 76077,
+          "total": 73635,
           "countries": {
             "colombia": 9268,
             "venezuela": 7725,
@@ -613,36 +706,49 @@
             "ecuador": 6329,
             "cuba": 8103,
             "paraguay": 3828,
-            "rep-dominicana": 8866,
-            "resto-de-america-hispanohablante": 16111
+            "republica-dominicana": 8866,
+            "bolivia": 3832,
+            "chile": 2142,
+            "mexico": 4239,
+            "nicaragua": 2201,
+            "uruguay": 1255
           }
         },
         "america-no-hispanohablante": {
           "total": 14528,
           "countries": {
             "brasil": 5625,
-            "estados-unidos": 7930,
-            "canada": 973,
-            "resto-de-america-no-hispanohablante": 0
+            "estados-unidos-de-america": 7930,
+            "canada": 973
           }
         },
         "europa": {
-          "total": 121309,
+          "total": 113489,
           "countries": {
+            "alemania": 9208,
             "rumania": 22747,
             "reino-unido": 16782,
             "italia": 12606,
             "ucrania": 3250,
             "francia": 10548,
-            "alemania": 9208,
             "rusia": 8617,
             "portugal": 5182,
             "bulgaria": 4981,
-            "resto-de-europa": 27388
+            "belgica": 3573,
+            "dinamarca": 812,
+            "finlandia": 906,
+            "irlanda": 1605,
+            "lituania": 736,
+            "moldavia": 493,
+            "noruega": 1393,
+            "paises-bajos": 3450,
+            "polonia": 2556,
+            "suecia": 1759,
+            "suiza": 2285
           }
         },
         "africa": {
-          "total": 39404,
+          "total": 35900,
           "countries": {
             "marruecos": 21034,
             "argelia": 4737,
@@ -653,25 +759,22 @@
             "guinea-ecuatorial": 1231,
             "ghana": 1007,
             "guinea": 559,
-            "resto-de-africa": 4006
+            "mauritania": 502
           }
         },
         "asia": {
-          "total": 28609,
+          "total": 21539,
           "countries": {
             "china": 9322,
             "pakistan": 6098,
             "india": 2835,
             "filipinas": 2008,
-            "bangladesh": 1276,
-            "resto-de-asia": 7070
+            "bangladesh": 1276
           }
         },
         "oceania": {
-          "total": 845,
-          "countries": {
-            "resto-de-oceania": 845
-          }
+          "total": 0,
+          "countries": {}
         }
       }
     },
@@ -680,7 +783,7 @@
       "total": 305454,
       "blocks": {
         "america-hispanohablante": {
-          "total": 87360,
+          "total": 84220,
           "countries": {
             "colombia": 9378,
             "venezuela": 12842,
@@ -690,36 +793,49 @@
             "ecuador": 6873,
             "cuba": 7586,
             "paraguay": 4349,
-            "rep-dominicana": 8706,
-            "resto-de-america-hispanohablante": 19067
+            "republica-dominicana": 8706,
+            "bolivia": 4539,
+            "chile": 2528,
+            "mexico": 4579,
+            "nicaragua": 2769,
+            "uruguay": 1512
           }
         },
         "america-no-hispanohablante": {
           "total": 15795,
           "countries": {
             "brasil": 6643,
-            "estados-unidos": 8054,
-            "canada": 1098,
-            "resto-de-america-no-hispanohablante": 0
+            "estados-unidos-de-america": 8054,
+            "canada": 1098
           }
         },
         "europa": {
-          "total": 135005,
+          "total": 126877,
           "countries": {
+            "alemania": 8913,
             "rumania": 29531,
             "reino-unido": 17746,
             "italia": 14781,
             "ucrania": 5665,
             "francia": 11985,
-            "alemania": 8913,
             "rusia": 8286,
             "portugal": 4939,
             "bulgaria": 4689,
-            "resto-de-europa": 28470
+            "belgica": 3665,
+            "dinamarca": 827,
+            "finlandia": 889,
+            "irlanda": 1524,
+            "lituania": 673,
+            "moldavia": 815,
+            "noruega": 1468,
+            "paises-bajos": 3703,
+            "polonia": 2307,
+            "suecia": 1925,
+            "suiza": 2546
           }
         },
         "africa": {
-          "total": 38482,
+          "total": 34850,
           "countries": {
             "marruecos": 20284,
             "argelia": 4488,
@@ -730,25 +846,22 @@
             "guinea-ecuatorial": 1505,
             "ghana": 873,
             "guinea": 564,
-            "resto-de-africa": 4166
+            "mauritania": 534
           }
         },
         "asia": {
-          "total": 27899,
+          "total": 20322,
           "countries": {
             "china": 9589,
             "pakistan": 4980,
             "india": 2900,
             "filipinas": 1883,
-            "bangladesh": 970,
-            "resto-de-asia": 7577
+            "bangladesh": 970
           }
         },
         "oceania": {
-          "total": 912,
-          "countries": {
-            "resto-de-oceania": 912
-          }
+          "total": 0,
+          "countries": {}
         }
       }
     },
@@ -757,7 +870,7 @@
       "total": 342114,
       "blocks": {
         "america-hispanohablante": {
-          "total": 104771,
+          "total": 100936,
           "countries": {
             "colombia": 10928,
             "venezuela": 19652,
@@ -767,36 +880,49 @@
             "ecuador": 8355,
             "cuba": 7365,
             "paraguay": 4848,
-            "rep-dominicana": 7988,
-            "resto-de-america-hispanohablante": 22428
+            "republica-dominicana": 7988,
+            "bolivia": 4977,
+            "chile": 3236,
+            "mexico": 5188,
+            "nicaragua": 3200,
+            "uruguay": 1992
           }
         },
         "america-no-hispanohablante": {
           "total": 19080,
           "countries": {
             "brasil": 8770,
-            "estados-unidos": 9170,
-            "canada": 1140,
-            "resto-de-america-no-hispanohablante": 0
+            "estados-unidos-de-america": 9170,
+            "canada": 1140
           }
         },
         "europa": {
-          "total": 144372,
+          "total": 135743,
           "countries": {
+            "alemania": 9605,
             "rumania": 28382,
             "reino-unido": 19284,
             "italia": 17350,
             "ucrania": 8827,
             "francia": 13507,
-            "alemania": 9605,
             "rusia": 7113,
             "portugal": 5010,
             "bulgaria": 4915,
-            "resto-de-europa": 30379
+            "belgica": 4047,
+            "dinamarca": 902,
+            "finlandia": 925,
+            "irlanda": 1684,
+            "lituania": 763,
+            "moldavia": 1025,
+            "noruega": 1313,
+            "paises-bajos": 3937,
+            "polonia": 2343,
+            "suecia": 1872,
+            "suiza": 2939
           }
         },
         "africa": {
-          "total": 43299,
+          "total": 39272,
           "countries": {
             "marruecos": 24208,
             "argelia": 4167,
@@ -807,25 +933,22 @@
             "guinea-ecuatorial": 1823,
             "ghana": 866,
             "guinea": 649,
-            "resto-de-africa": 4703
+            "mauritania": 676
           }
         },
         "asia": {
-          "total": 29540,
+          "total": 21321,
           "countries": {
             "china": 10327,
             "pakistan": 4483,
             "india": 3003,
             "filipinas": 2307,
-            "bangladesh": 1201,
-            "resto-de-asia": 8219
+            "bangladesh": 1201
           }
         },
         "oceania": {
-          "total": 1053,
-          "countries": {
-            "resto-de-oceania": 1053
-          }
+          "total": 0,
+          "countries": {}
         }
       }
     },
@@ -834,7 +957,7 @@
       "total": 414746,
       "blocks": {
         "america-hispanohablante": {
-          "total": 153853,
+          "total": 148553,
           "countries": {
             "colombia": 24844,
             "venezuela": 31553,
@@ -844,36 +967,49 @@
             "ecuador": 12349,
             "cuba": 8122,
             "paraguay": 7500,
-            "rep-dominicana": 9709,
-            "resto-de-america-hispanohablante": 28139
+            "republica-dominicana": 9709,
+            "bolivia": 6202,
+            "chile": 4304,
+            "mexico": 5301,
+            "nicaragua": 4250,
+            "uruguay": 2782
           }
         },
         "america-no-hispanohablante": {
           "total": 23063,
           "countries": {
             "brasil": 11954,
-            "estados-unidos": 9942,
-            "canada": 1167,
-            "resto-de-america-no-hispanohablante": 0
+            "estados-unidos-de-america": 9942,
+            "canada": 1167
           }
         },
         "europa": {
-          "total": 151519,
+          "total": 141959,
           "countries": {
+            "alemania": 10505,
             "rumania": 27860,
             "reino-unido": 23876,
             "italia": 18526,
             "ucrania": 6835,
             "francia": 13341,
-            "alemania": 10505,
             "rusia": 6350,
             "portugal": 5257,
             "bulgaria": 5297,
-            "resto-de-europa": 33672
+            "belgica": 4511,
+            "dinamarca": 968,
+            "finlandia": 971,
+            "irlanda": 1973,
+            "lituania": 942,
+            "moldavia": 1096,
+            "noruega": 1422,
+            "paises-bajos": 4373,
+            "polonia": 2445,
+            "suecia": 2101,
+            "suiza": 3310
           }
         },
         "africa": {
-          "total": 50586,
+          "total": 46562,
           "countries": {
             "marruecos": 30097,
             "argelia": 4512,
@@ -884,25 +1020,22 @@
             "guinea-ecuatorial": 1983,
             "ghana": 959,
             "guinea": 773,
-            "resto-de-africa": 4748
+            "mauritania": 724
           }
         },
         "asia": {
-          "total": 34531,
+          "total": 24476,
           "countries": {
             "china": 10552,
             "pakistan": 6225,
             "india": 3734,
             "filipinas": 2369,
-            "bangladesh": 1596,
-            "resto-de-asia": 10055
+            "bangladesh": 1596
           }
         },
         "oceania": {
-          "total": 1194,
-          "countries": {
-            "resto-de-oceania": 1194
-          }
+          "total": 0,
+          "countries": {}
         }
       }
     },
@@ -911,7 +1044,7 @@
       "total": 532132,
       "blocks": {
         "america-hispanohablante": {
-          "total": 221709,
+          "total": 214610,
           "countries": {
             "colombia": 36678,
             "venezuela": 52385,
@@ -921,36 +1054,49 @@
             "ecuador": 15600,
             "cuba": 10280,
             "paraguay": 8659,
-            "rep-dominicana": 11324,
-            "resto-de-america-hispanohablante": 37361
+            "republica-dominicana": 11324,
+            "bolivia": 7689,
+            "chile": 5348,
+            "mexico": 7068,
+            "nicaragua": 6330,
+            "uruguay": 3827
           }
         },
         "america-no-hispanohablante": {
           "total": 28836,
           "countries": {
             "brasil": 14816,
-            "estados-unidos": 12719,
-            "canada": 1301,
-            "resto-de-america-no-hispanohablante": 0
+            "estados-unidos-de-america": 12719,
+            "canada": 1301
           }
         },
         "europa": {
-          "total": 177400,
+          "total": 165973,
           "countries": {
+            "alemania": 12714,
             "rumania": 30235,
             "reino-unido": 28875,
             "italia": 22203,
             "ucrania": 7806,
             "francia": 16290,
-            "alemania": 12714,
             "rusia": 7051,
             "portugal": 5888,
             "bulgaria": 5942,
-            "resto-de-europa": 40396
+            "belgica": 5358,
+            "dinamarca": 1179,
+            "finlandia": 1141,
+            "irlanda": 2234,
+            "lituania": 1219,
+            "moldavia": 1240,
+            "noruega": 1603,
+            "paises-bajos": 5030,
+            "polonia": 3041,
+            "suecia": 2552,
+            "suiza": 4372
           }
         },
         "africa": {
-          "total": 62718,
+          "total": 57947,
           "countries": {
             "marruecos": 40372,
             "argelia": 4899,
@@ -961,25 +1107,22 @@
             "guinea-ecuatorial": 1963,
             "ghana": 1227,
             "guinea": 734,
-            "resto-de-africa": 5281
+            "mauritania": 510
           }
         },
         "asia": {
-          "total": 40012,
+          "total": 27637,
           "countries": {
             "china": 11779,
             "pakistan": 6560,
             "india": 4664,
             "filipinas": 2674,
-            "bangladesh": 1960,
-            "resto-de-asia": 12375
+            "bangladesh": 1960
           }
         },
         "oceania": {
-          "total": 1457,
-          "countries": {
-            "resto-de-oceania": 1457
-          }
+          "total": 0,
+          "countries": {}
         }
       }
     },
@@ -988,7 +1131,7 @@
       "total": 643684,
       "blocks": {
         "america-hispanohablante": {
-          "total": 289694,
+          "total": 280612,
           "countries": {
             "colombia": 56253,
             "venezuela": 71666,
@@ -998,36 +1141,49 @@
             "ecuador": 15893,
             "cuba": 14265,
             "paraguay": 9533,
-            "rep-dominicana": 10813,
-            "resto-de-america-hispanohablante": 46971
+            "republica-dominicana": 10813,
+            "bolivia": 7632,
+            "chile": 6256,
+            "mexico": 7834,
+            "nicaragua": 11732,
+            "uruguay": 4435
           }
         },
         "america-no-hispanohablante": {
           "total": 33219,
           "countries": {
             "brasil": 17863,
-            "estados-unidos": 13853,
-            "canada": 1503,
-            "resto-de-america-no-hispanohablante": 0
+            "estados-unidos-de-america": 13853,
+            "canada": 1503
           }
         },
         "europa": {
-          "total": 182219,
+          "total": 169346,
           "countries": {
+            "alemania": 13314,
             "rumania": 28030,
             "reino-unido": 31276,
             "italia": 22002,
             "ucrania": 8152,
             "francia": 16210,
-            "alemania": 13314,
             "rusia": 8091,
             "portugal": 6369,
             "bulgaria": 5173,
-            "resto-de-europa": 43602
+            "belgica": 5495,
+            "dinamarca": 1201,
+            "finlandia": 1115,
+            "irlanda": 2597,
+            "lituania": 1247,
+            "moldavia": 1478,
+            "noruega": 1648,
+            "paises-bajos": 5506,
+            "polonia": 3211,
+            "suecia": 2985,
+            "suiza": 4246
           }
         },
         "africa": {
-          "total": 91057,
+          "total": 85743,
           "countries": {
             "marruecos": 61715,
             "argelia": 6687,
@@ -1038,25 +1194,22 @@
             "guinea-ecuatorial": 1915,
             "ghana": 1822,
             "guinea": 1132,
-            "resto-de-africa": 6054
+            "mauritania": 740
           }
         },
         "asia": {
-          "total": 45924,
+          "total": 32712,
           "countries": {
             "china": 12182,
             "pakistan": 8673,
             "india": 6858,
             "filipinas": 2561,
-            "bangladesh": 2438,
-            "resto-de-asia": 13212
+            "bangladesh": 2438
           }
         },
         "oceania": {
-          "total": 1571,
-          "countries": {
-            "resto-de-oceania": 1571
-          }
+          "total": 0,
+          "countries": {}
         }
       }
     },
@@ -1065,7 +1218,7 @@
       "total": 750480,
       "blocks": {
         "america-hispanohablante": {
-          "total": 365101,
+          "total": 352712,
           "countries": {
             "colombia": 80324,
             "venezuela": 74344,
@@ -1075,36 +1228,49 @@
             "ecuador": 17663,
             "cuba": 17660,
             "paraguay": 12231,
-            "rep-dominicana": 11058,
-            "resto-de-america-hispanohablante": 59813
+            "republica-dominicana": 11058,
+            "bolivia": 7705,
+            "chile": 7171,
+            "mexico": 9088,
+            "nicaragua": 17452,
+            "uruguay": 6008
           }
         },
         "america-no-hispanohablante": {
           "total": 35321,
           "countries": {
             "brasil": 18711,
-            "estados-unidos": 15032,
-            "canada": 1578,
-            "resto-de-america-no-hispanohablante": 0
+            "estados-unidos-de-america": 15032,
+            "canada": 1578
           }
         },
         "europa": {
-          "total": 189696,
+          "total": 175670,
           "countries": {
+            "alemania": 13633,
             "rumania": 25576,
             "reino-unido": 37720,
             "italia": 21559,
             "ucrania": 7965,
             "francia": 16550,
-            "alemania": 13633,
             "rusia": 9032,
             "portugal": 7068,
             "bulgaria": 5392,
-            "resto-de-europa": 45201
+            "belgica": 5605,
+            "dinamarca": 1235,
+            "finlandia": 999,
+            "irlanda": 2824,
+            "lituania": 1102,
+            "moldavia": 1534,
+            "noruega": 1711,
+            "paises-bajos": 5648,
+            "polonia": 3133,
+            "suecia": 3250,
+            "suiza": 4134
           }
         },
         "africa": {
-          "total": 107543,
+          "total": 101539,
           "countries": {
             "marruecos": 73348,
             "argelia": 7572,
@@ -1115,25 +1281,22 @@
             "guinea-ecuatorial": 1659,
             "ghana": 2435,
             "guinea": 1469,
-            "resto-de-africa": 6934
+            "mauritania": 930
           }
         },
         "asia": {
-          "total": 51020,
+          "total": 36724,
           "countries": {
             "china": 12646,
             "pakistan": 11513,
             "india": 7013,
             "filipinas": 3070,
-            "bangladesh": 2482,
-            "resto-de-asia": 14296
+            "bangladesh": 2482
           }
         },
         "oceania": {
-          "total": 1799,
-          "countries": {
-            "resto-de-oceania": 1799
-          }
+          "total": 0,
+          "countries": {}
         }
       }
     },
@@ -1142,7 +1305,7 @@
       "total": 467918,
       "blocks": {
         "america-hispanohablante": {
-          "total": 210842,
+          "total": 203101,
           "countries": {
             "colombia": 52921,
             "venezuela": 32927,
@@ -1152,36 +1315,49 @@
             "ecuador": 10058,
             "cuba": 7784,
             "paraguay": 6596,
-            "rep-dominicana": 6470,
-            "resto-de-america-hispanohablante": 35636
+            "republica-dominicana": 6470,
+            "bolivia": 4085,
+            "chile": 5052,
+            "mexico": 5867,
+            "nicaragua": 9416,
+            "uruguay": 3475
           }
         },
         "america-no-hispanohablante": {
           "total": 20658,
           "countries": {
             "brasil": 9541,
-            "estados-unidos": 9909,
-            "canada": 1208,
-            "resto-de-america-no-hispanohablante": 0
+            "estados-unidos-de-america": 9909,
+            "canada": 1208
           }
         },
         "europa": {
-          "total": 140554,
+          "total": 131236,
           "countries": {
+            "alemania": 10670,
             "rumania": 14891,
             "reino-unido": 36374,
             "italia": 14258,
             "ucrania": 4145,
             "francia": 14086,
-            "alemania": 10670,
             "rusia": 4640,
             "portugal": 5555,
             "bulgaria": 3274,
-            "resto-de-europa": 32661
+            "belgica": 4667,
+            "dinamarca": 842,
+            "finlandia": 671,
+            "irlanda": 2201,
+            "lituania": 673,
+            "moldavia": 906,
+            "noruega": 1198,
+            "paises-bajos": 4493,
+            "polonia": 2268,
+            "suecia": 2198,
+            "suiza": 3226
           }
         },
         "africa": {
-          "total": 67013,
+          "total": 63348,
           "countries": {
             "marruecos": 45464,
             "argelia": 4388,
@@ -1192,25 +1368,22 @@
             "guinea-ecuatorial": 842,
             "ghana": 1314,
             "guinea": 761,
-            "resto-de-africa": 4274
+            "mauritania": 609
           }
         },
         "asia": {
-          "total": 27713,
+          "total": 18860,
           "countries": {
             "china": 5670,
             "pakistan": 7340,
             "india": 2946,
             "filipinas": 1706,
-            "bangladesh": 1198,
-            "resto-de-asia": 8853
+            "bangladesh": 1198
           }
         },
         "oceania": {
-          "total": 1138,
-          "countries": {
-            "resto-de-oceania": 1138
-          }
+          "total": 0,
+          "countries": {}
         }
       }
     },
@@ -1219,7 +1392,7 @@
       "total": 887960,
       "blocks": {
         "america-hispanohablante": {
-          "total": 329641,
+          "total": 318804,
           "countries": {
             "colombia": 69757,
             "venezuela": 43698,
@@ -1229,36 +1402,49 @@
             "ecuador": 22407,
             "cuba": 18107,
             "paraguay": 11036,
-            "rep-dominicana": 13143,
-            "resto-de-america-hispanohablante": 56090
+            "republica-dominicana": 13143,
+            "bolivia": 10286,
+            "chile": 10453,
+            "mexico": 11921,
+            "nicaragua": 7323,
+            "uruguay": 5270
           }
         },
         "america-no-hispanohablante": {
           "total": 38021,
           "countries": {
             "brasil": 14612,
-            "estados-unidos": 20911,
-            "canada": 2498,
-            "resto-de-america-no-hispanohablante": 0
+            "estados-unidos-de-america": 20911,
+            "canada": 2498
           }
         },
         "europa": {
-          "total": 297338,
+          "total": 275221,
           "countries": {
+            "alemania": 28544,
             "rumania": 45619,
             "reino-unido": 50845,
             "italia": 25084,
             "ucrania": 9811,
             "francia": 27894,
-            "alemania": 28544,
             "rusia": 12874,
             "portugal": 10789,
             "bulgaria": 8434,
-            "resto-de-europa": 77444
+            "belgica": 9865,
+            "dinamarca": 2024,
+            "finlandia": 1643,
+            "irlanda": 6200,
+            "lituania": 1519,
+            "moldavia": 1840,
+            "noruega": 3160,
+            "paises-bajos": 11286,
+            "polonia": 5360,
+            "suecia": 5249,
+            "suiza": 7181
           }
         },
         "africa": {
-          "total": 155116,
+          "total": 146123,
           "countries": {
             "marruecos": 101234,
             "argelia": 9744,
@@ -1269,25 +1455,22 @@
             "guinea-ecuatorial": 2738,
             "ghana": 2892,
             "guinea": 1698,
-            "resto-de-africa": 11097
+            "mauritania": 2104
           }
         },
         "asia": {
-          "total": 65793,
+          "total": 46415,
           "countries": {
             "china": 18910,
             "pakistan": 16057,
             "india": 5850,
             "filipinas": 3524,
-            "bangladesh": 2074,
-            "resto-de-asia": 19378
+            "bangladesh": 2074
           }
         },
         "oceania": {
-          "total": 2051,
-          "countries": {
-            "resto-de-oceania": 2051
-          }
+          "total": 0,
+          "countries": {}
         }
       }
     },
@@ -1296,7 +1479,7 @@
       "total": 1258894,
       "blocks": {
         "america-hispanohablante": {
-          "total": 597654,
+          "total": 583145,
           "countries": {
             "colombia": 178088,
             "venezuela": 85299,
@@ -1306,36 +1489,49 @@
             "ecuador": 27982,
             "cuba": 27080,
             "paraguay": 24078,
-            "rep-dominicana": 14436,
-            "resto-de-america-hispanohablante": 75370
+            "republica-dominicana": 14436,
+            "bolivia": 11229,
+            "chile": 12977,
+            "mexico": 13308,
+            "nicaragua": 16588,
+            "uruguay": 6759
           }
         },
         "america-no-hispanohablante": {
           "total": 45920,
           "countries": {
             "brasil": 22454,
-            "estados-unidos": 20646,
-            "canada": 2820,
-            "resto-de-america-no-hispanohablante": 0
+            "estados-unidos-de-america": 20646,
+            "canada": 2820
           }
         },
         "europa": {
-          "total": 376653,
+          "total": 350041,
           "countries": {
+            "alemania": 26468,
             "rumania": 45591,
             "reino-unido": 35084,
             "italia": 30400,
             "ucrania": 93191,
             "francia": 26265,
-            "alemania": 26468,
             "rusia": 20120,
             "portugal": 10696,
             "bulgaria": 8333,
-            "resto-de-europa": 80505
+            "belgica": 9023,
+            "dinamarca": 1769,
+            "finlandia": 1627,
+            "irlanda": 5018,
+            "lituania": 1912,
+            "moldavia": 2553,
+            "noruega": 2425,
+            "paises-bajos": 11095,
+            "polonia": 6707,
+            "suecia": 4890,
+            "suiza": 6874
           }
         },
         "africa": {
-          "total": 170291,
+          "total": 160823,
           "countries": {
             "marruecos": 115172,
             "argelia": 12704,
@@ -1346,25 +1542,22 @@
             "guinea-ecuatorial": 3478,
             "ghana": 2870,
             "guinea": 1691,
-            "resto-de-africa": 11240
+            "mauritania": 1772
           }
         },
         "asia": {
-          "total": 65188,
+          "total": 46339,
           "countries": {
             "china": 15334,
             "pakistan": 16496,
             "india": 8126,
             "filipinas": 3903,
-            "bangladesh": 2480,
-            "resto-de-asia": 18849
+            "bangladesh": 2480
           }
         },
         "oceania": {
-          "total": 3188,
-          "countries": {
-            "resto-de-oceania": 3188
-          }
+          "total": 0,
+          "countries": {}
         }
       }
     },
@@ -1373,7 +1566,7 @@
       "total": 1250991,
       "blocks": {
         "america-hispanohablante": {
-          "total": 613350,
+          "total": 599411,
           "countries": {
             "colombia": 176124,
             "venezuela": 92771,
@@ -1383,36 +1576,49 @@
             "ecuador": 34221,
             "cuba": 30812,
             "paraguay": 25223,
-            "rep-dominicana": 15570,
-            "resto-de-america-hispanohablante": 75242
+            "republica-dominicana": 15570,
+            "bolivia": 12065,
+            "chile": 13700,
+            "mexico": 14475,
+            "nicaragua": 14148,
+            "uruguay": 6915
           }
         },
         "america-no-hispanohablante": {
           "total": 48207,
           "countries": {
             "brasil": 21741,
-            "estados-unidos": 23221,
-            "canada": 3245,
-            "resto-de-america-no-hispanohablante": 0
+            "estados-unidos-de-america": 23221,
+            "canada": 3245
           }
         },
         "europa": {
-          "total": 326098,
+          "total": 297032,
           "countries": {
+            "alemania": 27608,
             "rumania": 43480,
             "reino-unido": 35286,
             "italia": 30602,
             "ucrania": 34199,
             "francia": 28326,
-            "alemania": 27608,
             "rusia": 20600,
             "portugal": 12208,
             "bulgaria": 8159,
-            "resto-de-europa": 85630
+            "belgica": 9364,
+            "dinamarca": 2083,
+            "finlandia": 1643,
+            "irlanda": 5573,
+            "lituania": 1953,
+            "moldavia": 1907,
+            "noruega": 2645,
+            "paises-bajos": 11445,
+            "polonia": 7357,
+            "suecia": 5043,
+            "suiza": 7551
           }
         },
         "africa": {
-          "total": 182559,
+          "total": 172200,
           "countries": {
             "marruecos": 124832,
             "argelia": 15457,
@@ -1423,25 +1629,22 @@
             "guinea-ecuatorial": 3525,
             "ghana": 2597,
             "guinea": 1737,
-            "resto-de-africa": 12172
+            "mauritania": 1813
           }
         },
         "asia": {
-          "total": 77734,
+          "total": 57504,
           "countries": {
             "china": 21084,
             "pakistan": 18221,
             "india": 10033,
             "filipinas": 4708,
-            "bangladesh": 3458,
-            "resto-de-asia": 20230
+            "bangladesh": 3458
           }
         },
         "oceania": {
-          "total": 3043,
-          "countries": {
-            "resto-de-oceania": 3043
-          }
+          "total": 0,
+          "countries": {}
         }
       }
     },
@@ -1450,7 +1653,7 @@
       "total": 1288562,
       "blocks": {
         "america-hispanohablante": {
-          "total": 622321,
+          "total": 608871,
           "countries": {
             "colombia": 172599,
             "venezuela": 107223,
@@ -1460,36 +1663,49 @@
             "ecuador": 36684,
             "cuba": 35741,
             "paraguay": 25565,
-            "rep-dominicana": 15002,
-            "resto-de-america-hispanohablante": 71747
+            "republica-dominicana": 15002,
+            "bolivia": 10594,
+            "chile": 13642,
+            "mexico": 15434,
+            "nicaragua": 12736,
+            "uruguay": 5891
           }
         },
         "america-no-hispanohablante": {
           "total": 50548,
           "countries": {
             "brasil": 21481,
-            "estados-unidos": 25559,
-            "canada": 3508,
-            "resto-de-america-no-hispanohablante": 0
+            "estados-unidos-de-america": 25559,
+            "canada": 3508
           }
         },
         "europa": {
-          "total": 303484,
+          "total": 275553,
           "countries": {
+            "alemania": 26123,
             "rumania": 35747,
             "reino-unido": 34791,
             "italia": 28945,
             "ucrania": 30000,
             "francia": 29053,
-            "alemania": 26123,
             "rusia": 14067,
             "portugal": 12459,
             "bulgaria": 6465,
-            "resto-de-europa": 85834
+            "belgica": 9492,
+            "dinamarca": 2013,
+            "finlandia": 1509,
+            "irlanda": 5968,
+            "lituania": 1833,
+            "moldavia": 1561,
+            "noruega": 2734,
+            "paises-bajos": 13130,
+            "polonia": 7344,
+            "suecia": 5182,
+            "suiza": 7137
           }
         },
         "africa": {
-          "total": 216741,
+          "total": 205186,
           "countries": {
             "marruecos": 132998,
             "argelia": 22847,
@@ -1500,25 +1716,22 @@
             "guinea-ecuatorial": 3295,
             "ghana": 2916,
             "guinea": 1950,
-            "resto-de-africa": 14531
+            "mauritania": 2976
           }
         },
         "asia": {
-          "total": 91935,
+          "total": 68647,
           "countries": {
             "china": 24619,
             "pakistan": 20067,
             "india": 13039,
             "filipinas": 5125,
-            "bangladesh": 5797,
-            "resto-de-asia": 23288
+            "bangladesh": 5797
           }
         },
         "oceania": {
-          "total": 3533,
-          "countries": {
-            "resto-de-oceania": 3533
-          }
+          "total": 0,
+          "countries": {}
         }
       }
     }
@@ -1555,22 +1768,34 @@
           "paraguay": 17558
         },
         {
-          "rep-dominicana": 16829
+          "republica-dominicana": 16829
         },
         {
-          "resto-de-america-hispanohablante": 33943
+          "bolivia": 10549
+        },
+        {
+          "chile": 5695
+        },
+        {
+          "mexico": 5650
+        },
+        {
+          "nicaragua": 2941
+        },
+        {
+          "uruguay": 5681
         },
         {
           "brasil": 21099
         },
         {
-          "estados-unidos": 6512
+          "estados-unidos-de-america": 6512
         },
         {
           "canada": 674
         },
         {
-          "resto-de-america-no-hispanohablante": 0
+          "alemania": 14047
         },
         {
           "rumania": 61027
@@ -1588,9 +1813,6 @@
           "francia": 12407
         },
         {
-          "alemania": 14047
-        },
-        {
           "rusia": 6122
         },
         {
@@ -1600,7 +1822,37 @@
           "bulgaria": 10719
         },
         {
-          "resto-de-europa": 36142
+          "belgica": 2718
+        },
+        {
+          "dinamarca": 861
+        },
+        {
+          "finlandia": 712
+        },
+        {
+          "irlanda": 1525
+        },
+        {
+          "lituania": 1101
+        },
+        {
+          "moldavia": 2195
+        },
+        {
+          "noruega": 1159
+        },
+        {
+          "paises-bajos": 4323
+        },
+        {
+          "polonia": 6597
+        },
+        {
+          "suecia": 1633
+        },
+        {
+          "suiza": 2637
         },
         {
           "marruecos": 71660
@@ -1630,7 +1882,7 @@
           "guinea": 1697
         },
         {
-          "resto-de-africa": 6974
+          "mauritania": 1609
         },
         {
           "china": 20261
@@ -1646,12 +1898,6 @@
         },
         {
           "bangladesh": 1571
-        },
-        {
-          "resto-de-asia": 5395
-        },
-        {
-          "resto-de-oceania": 705
         }
       ]
     },
@@ -1686,22 +1932,34 @@
           "paraguay": 10871
         },
         {
-          "rep-dominicana": 9944
+          "republica-dominicana": 9944
         },
         {
-          "resto-de-america-hispanohablante": 21470
+          "bolivia": 5973
+        },
+        {
+          "chile": 3499
+        },
+        {
+          "mexico": 4818
+        },
+        {
+          "nicaragua": 2391
+        },
+        {
+          "uruguay": 2210
         },
         {
           "brasil": 10923
         },
         {
-          "estados-unidos": 6345
+          "estados-unidos-de-america": 6345
         },
         {
           "canada": 639
         },
         {
-          "resto-de-america-no-hispanohablante": 0
+          "alemania": 11048
         },
         {
           "rumania": 43988
@@ -1719,9 +1977,6 @@
           "francia": 10558
         },
         {
-          "alemania": 11048
-        },
-        {
           "rusia": 5650
         },
         {
@@ -1731,7 +1986,37 @@
           "bulgaria": 7687
         },
         {
-          "resto-de-europa": 28144
+          "belgica": 2554
+        },
+        {
+          "dinamarca": 690
+        },
+        {
+          "finlandia": 691
+        },
+        {
+          "irlanda": 1589
+        },
+        {
+          "lituania": 1154
+        },
+        {
+          "moldavia": 1269
+        },
+        {
+          "noruega": 1260
+        },
+        {
+          "paises-bajos": 3452
+        },
+        {
+          "polonia": 3653
+        },
+        {
+          "suecia": 1556
+        },
+        {
+          "suiza": 2382
         },
         {
           "marruecos": 43436
@@ -1761,7 +2046,7 @@
           "guinea": 1219
         },
         {
-          "resto-de-africa": 5091
+          "mauritania": 900
         },
         {
           "china": 12174
@@ -1777,12 +2062,6 @@
         },
         {
           "bangladesh": 1631
-        },
-        {
-          "resto-de-asia": 4616
-        },
-        {
-          "resto-de-oceania": 574
         }
       ]
     },
@@ -1817,22 +2096,34 @@
           "paraguay": 9477
         },
         {
-          "rep-dominicana": 7415
+          "republica-dominicana": 7415
         },
         {
-          "resto-de-america-hispanohablante": 20175
+          "bolivia": 4201
+        },
+        {
+          "chile": 3265
+        },
+        {
+          "mexico": 4990
+        },
+        {
+          "nicaragua": 3029
+        },
+        {
+          "uruguay": 2010
         },
         {
           "brasil": 9114
         },
         {
-          "estados-unidos": 6226
+          "estados-unidos-de-america": 6226
         },
         {
           "canada": 678
         },
         {
-          "resto-de-america-no-hispanohablante": 0
+          "alemania": 10249
         },
         {
           "rumania": 51819
@@ -1850,9 +2141,6 @@
           "francia": 10544
         },
         {
-          "alemania": 10249
-        },
-        {
           "rusia": 6490
         },
         {
@@ -1862,7 +2150,37 @@
           "bulgaria": 8395
         },
         {
-          "resto-de-europa": 28524
+          "belgica": 2800
+        },
+        {
+          "dinamarca": 750
+        },
+        {
+          "finlandia": 940
+        },
+        {
+          "irlanda": 1617
+        },
+        {
+          "lituania": 1272
+        },
+        {
+          "moldavia": 851
+        },
+        {
+          "noruega": 1495
+        },
+        {
+          "paises-bajos": 3518
+        },
+        {
+          "polonia": 3352
+        },
+        {
+          "suecia": 1783
+        },
+        {
+          "suiza": 2177
         },
         {
           "marruecos": 30231
@@ -1892,7 +2210,7 @@
           "guinea": 827
         },
         {
-          "resto-de-africa": 3984
+          "mauritania": 693
         },
         {
           "china": 10495
@@ -1908,12 +2226,6 @@
         },
         {
           "bangladesh": 1331
-        },
-        {
-          "resto-de-asia": 4930
-        },
-        {
-          "resto-de-oceania": 600
         }
       ]
     },
@@ -1948,22 +2260,34 @@
           "paraguay": 8306
         },
         {
-          "rep-dominicana": 10985
+          "republica-dominicana": 10985
         },
         {
-          "resto-de-america-hispanohablante": 22381
+          "bolivia": 4758
+        },
+        {
+          "chile": 3105
+        },
+        {
+          "mexico": 5873
+        },
+        {
+          "nicaragua": 3646
+        },
+        {
+          "uruguay": 1844
         },
         {
           "brasil": 8389
         },
         {
-          "estados-unidos": 7911
+          "estados-unidos-de-america": 7911
         },
         {
           "canada": 899
         },
         {
-          "resto-de-america-no-hispanohablante": 0
+          "alemania": 10054
         },
         {
           "rumania": 50747
@@ -1981,9 +2305,6 @@
           "francia": 11143
         },
         {
-          "alemania": 10054
-        },
-        {
           "rusia": 7887
         },
         {
@@ -1993,7 +2314,37 @@
           "bulgaria": 9931
         },
         {
-          "resto-de-europa": 30234
+          "belgica": 2982
+        },
+        {
+          "dinamarca": 780
+        },
+        {
+          "finlandia": 985
+        },
+        {
+          "irlanda": 1713
+        },
+        {
+          "lituania": 1065
+        },
+        {
+          "moldavia": 791
+        },
+        {
+          "noruega": 1565
+        },
+        {
+          "paises-bajos": 3751
+        },
+        {
+          "polonia": 3270
+        },
+        {
+          "suecia": 1800
+        },
+        {
+          "suiza": 2416
         },
         {
           "marruecos": 28415
@@ -2023,7 +2374,7 @@
           "guinea": 663
         },
         {
-          "resto-de-africa": 4361
+          "mauritania": 631
         },
         {
           "china": 10778
@@ -2039,12 +2390,6 @@
         },
         {
           "bangladesh": 1448
-        },
-        {
-          "resto-de-asia": 6263
-        },
-        {
-          "resto-de-oceania": 779
         }
       ]
     },
@@ -2079,22 +2424,34 @@
           "paraguay": 4903
         },
         {
-          "rep-dominicana": 10771
+          "republica-dominicana": 10771
         },
         {
-          "resto-de-america-hispanohablante": 18578
+          "bolivia": 4054
+        },
+        {
+          "chile": 2374
+        },
+        {
+          "mexico": 5316
+        },
+        {
+          "nicaragua": 2836
+        },
+        {
+          "uruguay": 1317
         },
         {
           "brasil": 6928
         },
         {
-          "estados-unidos": 7492
+          "estados-unidos-de-america": 7492
         },
         {
           "canada": 908
         },
         {
-          "resto-de-america-no-hispanohablante": 0
+          "alemania": 9896
         },
         {
           "rumania": 27244
@@ -2112,9 +2469,6 @@
           "francia": 10407
         },
         {
-          "alemania": 9896
-        },
-        {
           "rusia": 7820
         },
         {
@@ -2124,7 +2478,37 @@
           "bulgaria": 6268
         },
         {
-          "resto-de-europa": 28461
+          "belgica": 3285
+        },
+        {
+          "dinamarca": 890
+        },
+        {
+          "finlandia": 941
+        },
+        {
+          "irlanda": 1752
+        },
+        {
+          "lituania": 808
+        },
+        {
+          "moldavia": 647
+        },
+        {
+          "noruega": 1460
+        },
+        {
+          "paises-bajos": 3413
+        },
+        {
+          "polonia": 2693
+        },
+        {
+          "suecia": 1886
+        },
+        {
+          "suiza": 2452
         },
         {
           "marruecos": 23017
@@ -2154,7 +2538,7 @@
           "guinea": 607
         },
         {
-          "resto-de-africa": 4009
+          "mauritania": 510
         },
         {
           "china": 9348
@@ -2170,12 +2554,6 @@
         },
         {
           "bangladesh": 1749
-        },
-        {
-          "resto-de-asia": 6841
-        },
-        {
-          "resto-de-oceania": 785
         }
       ]
     },
@@ -2210,22 +2588,34 @@
           "paraguay": 3828
         },
         {
-          "rep-dominicana": 8866
+          "republica-dominicana": 8866
         },
         {
-          "resto-de-america-hispanohablante": 16111
+          "bolivia": 3832
+        },
+        {
+          "chile": 2142
+        },
+        {
+          "mexico": 4239
+        },
+        {
+          "nicaragua": 2201
+        },
+        {
+          "uruguay": 1255
         },
         {
           "brasil": 5625
         },
         {
-          "estados-unidos": 7930
+          "estados-unidos-de-america": 7930
         },
         {
           "canada": 973
         },
         {
-          "resto-de-america-no-hispanohablante": 0
+          "alemania": 9208
         },
         {
           "rumania": 22747
@@ -2243,9 +2633,6 @@
           "francia": 10548
         },
         {
-          "alemania": 9208
-        },
-        {
           "rusia": 8617
         },
         {
@@ -2255,7 +2642,37 @@
           "bulgaria": 4981
         },
         {
-          "resto-de-europa": 27388
+          "belgica": 3573
+        },
+        {
+          "dinamarca": 812
+        },
+        {
+          "finlandia": 906
+        },
+        {
+          "irlanda": 1605
+        },
+        {
+          "lituania": 736
+        },
+        {
+          "moldavia": 493
+        },
+        {
+          "noruega": 1393
+        },
+        {
+          "paises-bajos": 3450
+        },
+        {
+          "polonia": 2556
+        },
+        {
+          "suecia": 1759
+        },
+        {
+          "suiza": 2285
         },
         {
           "marruecos": 21034
@@ -2285,7 +2702,7 @@
           "guinea": 559
         },
         {
-          "resto-de-africa": 4006
+          "mauritania": 502
         },
         {
           "china": 9322
@@ -2301,12 +2718,6 @@
         },
         {
           "bangladesh": 1276
-        },
-        {
-          "resto-de-asia": 7070
-        },
-        {
-          "resto-de-oceania": 845
         }
       ]
     },
@@ -2341,22 +2752,34 @@
           "paraguay": 4349
         },
         {
-          "rep-dominicana": 8706
+          "republica-dominicana": 8706
         },
         {
-          "resto-de-america-hispanohablante": 19067
+          "bolivia": 4539
+        },
+        {
+          "chile": 2528
+        },
+        {
+          "mexico": 4579
+        },
+        {
+          "nicaragua": 2769
+        },
+        {
+          "uruguay": 1512
         },
         {
           "brasil": 6643
         },
         {
-          "estados-unidos": 8054
+          "estados-unidos-de-america": 8054
         },
         {
           "canada": 1098
         },
         {
-          "resto-de-america-no-hispanohablante": 0
+          "alemania": 8913
         },
         {
           "rumania": 29531
@@ -2374,9 +2797,6 @@
           "francia": 11985
         },
         {
-          "alemania": 8913
-        },
-        {
           "rusia": 8286
         },
         {
@@ -2386,7 +2806,37 @@
           "bulgaria": 4689
         },
         {
-          "resto-de-europa": 28470
+          "belgica": 3665
+        },
+        {
+          "dinamarca": 827
+        },
+        {
+          "finlandia": 889
+        },
+        {
+          "irlanda": 1524
+        },
+        {
+          "lituania": 673
+        },
+        {
+          "moldavia": 815
+        },
+        {
+          "noruega": 1468
+        },
+        {
+          "paises-bajos": 3703
+        },
+        {
+          "polonia": 2307
+        },
+        {
+          "suecia": 1925
+        },
+        {
+          "suiza": 2546
         },
         {
           "marruecos": 20284
@@ -2416,7 +2866,7 @@
           "guinea": 564
         },
         {
-          "resto-de-africa": 4166
+          "mauritania": 534
         },
         {
           "china": 9589
@@ -2432,12 +2882,6 @@
         },
         {
           "bangladesh": 970
-        },
-        {
-          "resto-de-asia": 7577
-        },
-        {
-          "resto-de-oceania": 912
         }
       ]
     },
@@ -2472,22 +2916,34 @@
           "paraguay": 4848
         },
         {
-          "rep-dominicana": 7988
+          "republica-dominicana": 7988
         },
         {
-          "resto-de-america-hispanohablante": 22428
+          "bolivia": 4977
+        },
+        {
+          "chile": 3236
+        },
+        {
+          "mexico": 5188
+        },
+        {
+          "nicaragua": 3200
+        },
+        {
+          "uruguay": 1992
         },
         {
           "brasil": 8770
         },
         {
-          "estados-unidos": 9170
+          "estados-unidos-de-america": 9170
         },
         {
           "canada": 1140
         },
         {
-          "resto-de-america-no-hispanohablante": 0
+          "alemania": 9605
         },
         {
           "rumania": 28382
@@ -2505,9 +2961,6 @@
           "francia": 13507
         },
         {
-          "alemania": 9605
-        },
-        {
           "rusia": 7113
         },
         {
@@ -2517,7 +2970,37 @@
           "bulgaria": 4915
         },
         {
-          "resto-de-europa": 30379
+          "belgica": 4047
+        },
+        {
+          "dinamarca": 902
+        },
+        {
+          "finlandia": 925
+        },
+        {
+          "irlanda": 1684
+        },
+        {
+          "lituania": 763
+        },
+        {
+          "moldavia": 1025
+        },
+        {
+          "noruega": 1313
+        },
+        {
+          "paises-bajos": 3937
+        },
+        {
+          "polonia": 2343
+        },
+        {
+          "suecia": 1872
+        },
+        {
+          "suiza": 2939
         },
         {
           "marruecos": 24208
@@ -2547,7 +3030,7 @@
           "guinea": 649
         },
         {
-          "resto-de-africa": 4703
+          "mauritania": 676
         },
         {
           "china": 10327
@@ -2563,12 +3046,6 @@
         },
         {
           "bangladesh": 1201
-        },
-        {
-          "resto-de-asia": 8219
-        },
-        {
-          "resto-de-oceania": 1053
         }
       ]
     },
@@ -2603,22 +3080,34 @@
           "paraguay": 7500
         },
         {
-          "rep-dominicana": 9709
+          "republica-dominicana": 9709
         },
         {
-          "resto-de-america-hispanohablante": 28139
+          "bolivia": 6202
+        },
+        {
+          "chile": 4304
+        },
+        {
+          "mexico": 5301
+        },
+        {
+          "nicaragua": 4250
+        },
+        {
+          "uruguay": 2782
         },
         {
           "brasil": 11954
         },
         {
-          "estados-unidos": 9942
+          "estados-unidos-de-america": 9942
         },
         {
           "canada": 1167
         },
         {
-          "resto-de-america-no-hispanohablante": 0
+          "alemania": 10505
         },
         {
           "rumania": 27860
@@ -2636,9 +3125,6 @@
           "francia": 13341
         },
         {
-          "alemania": 10505
-        },
-        {
           "rusia": 6350
         },
         {
@@ -2648,7 +3134,37 @@
           "bulgaria": 5297
         },
         {
-          "resto-de-europa": 33672
+          "belgica": 4511
+        },
+        {
+          "dinamarca": 968
+        },
+        {
+          "finlandia": 971
+        },
+        {
+          "irlanda": 1973
+        },
+        {
+          "lituania": 942
+        },
+        {
+          "moldavia": 1096
+        },
+        {
+          "noruega": 1422
+        },
+        {
+          "paises-bajos": 4373
+        },
+        {
+          "polonia": 2445
+        },
+        {
+          "suecia": 2101
+        },
+        {
+          "suiza": 3310
         },
         {
           "marruecos": 30097
@@ -2678,7 +3194,7 @@
           "guinea": 773
         },
         {
-          "resto-de-africa": 4748
+          "mauritania": 724
         },
         {
           "china": 10552
@@ -2694,12 +3210,6 @@
         },
         {
           "bangladesh": 1596
-        },
-        {
-          "resto-de-asia": 10055
-        },
-        {
-          "resto-de-oceania": 1194
         }
       ]
     },
@@ -2734,22 +3244,34 @@
           "paraguay": 8659
         },
         {
-          "rep-dominicana": 11324
+          "republica-dominicana": 11324
         },
         {
-          "resto-de-america-hispanohablante": 37361
+          "bolivia": 7689
+        },
+        {
+          "chile": 5348
+        },
+        {
+          "mexico": 7068
+        },
+        {
+          "nicaragua": 6330
+        },
+        {
+          "uruguay": 3827
         },
         {
           "brasil": 14816
         },
         {
-          "estados-unidos": 12719
+          "estados-unidos-de-america": 12719
         },
         {
           "canada": 1301
         },
         {
-          "resto-de-america-no-hispanohablante": 0
+          "alemania": 12714
         },
         {
           "rumania": 30235
@@ -2767,9 +3289,6 @@
           "francia": 16290
         },
         {
-          "alemania": 12714
-        },
-        {
           "rusia": 7051
         },
         {
@@ -2779,7 +3298,37 @@
           "bulgaria": 5942
         },
         {
-          "resto-de-europa": 40396
+          "belgica": 5358
+        },
+        {
+          "dinamarca": 1179
+        },
+        {
+          "finlandia": 1141
+        },
+        {
+          "irlanda": 2234
+        },
+        {
+          "lituania": 1219
+        },
+        {
+          "moldavia": 1240
+        },
+        {
+          "noruega": 1603
+        },
+        {
+          "paises-bajos": 5030
+        },
+        {
+          "polonia": 3041
+        },
+        {
+          "suecia": 2552
+        },
+        {
+          "suiza": 4372
         },
         {
           "marruecos": 40372
@@ -2809,7 +3358,7 @@
           "guinea": 734
         },
         {
-          "resto-de-africa": 5281
+          "mauritania": 510
         },
         {
           "china": 11779
@@ -2825,12 +3374,6 @@
         },
         {
           "bangladesh": 1960
-        },
-        {
-          "resto-de-asia": 12375
-        },
-        {
-          "resto-de-oceania": 1457
         }
       ]
     },
@@ -2865,22 +3408,34 @@
           "paraguay": 9533
         },
         {
-          "rep-dominicana": 10813
+          "republica-dominicana": 10813
         },
         {
-          "resto-de-america-hispanohablante": 46971
+          "bolivia": 7632
+        },
+        {
+          "chile": 6256
+        },
+        {
+          "mexico": 7834
+        },
+        {
+          "nicaragua": 11732
+        },
+        {
+          "uruguay": 4435
         },
         {
           "brasil": 17863
         },
         {
-          "estados-unidos": 13853
+          "estados-unidos-de-america": 13853
         },
         {
           "canada": 1503
         },
         {
-          "resto-de-america-no-hispanohablante": 0
+          "alemania": 13314
         },
         {
           "rumania": 28030
@@ -2898,9 +3453,6 @@
           "francia": 16210
         },
         {
-          "alemania": 13314
-        },
-        {
           "rusia": 8091
         },
         {
@@ -2910,7 +3462,37 @@
           "bulgaria": 5173
         },
         {
-          "resto-de-europa": 43602
+          "belgica": 5495
+        },
+        {
+          "dinamarca": 1201
+        },
+        {
+          "finlandia": 1115
+        },
+        {
+          "irlanda": 2597
+        },
+        {
+          "lituania": 1247
+        },
+        {
+          "moldavia": 1478
+        },
+        {
+          "noruega": 1648
+        },
+        {
+          "paises-bajos": 5506
+        },
+        {
+          "polonia": 3211
+        },
+        {
+          "suecia": 2985
+        },
+        {
+          "suiza": 4246
         },
         {
           "marruecos": 61715
@@ -2940,7 +3522,7 @@
           "guinea": 1132
         },
         {
-          "resto-de-africa": 6054
+          "mauritania": 740
         },
         {
           "china": 12182
@@ -2956,12 +3538,6 @@
         },
         {
           "bangladesh": 2438
-        },
-        {
-          "resto-de-asia": 13212
-        },
-        {
-          "resto-de-oceania": 1571
         }
       ]
     },
@@ -2996,22 +3572,34 @@
           "paraguay": 12231
         },
         {
-          "rep-dominicana": 11058
+          "republica-dominicana": 11058
         },
         {
-          "resto-de-america-hispanohablante": 59813
+          "bolivia": 7705
+        },
+        {
+          "chile": 7171
+        },
+        {
+          "mexico": 9088
+        },
+        {
+          "nicaragua": 17452
+        },
+        {
+          "uruguay": 6008
         },
         {
           "brasil": 18711
         },
         {
-          "estados-unidos": 15032
+          "estados-unidos-de-america": 15032
         },
         {
           "canada": 1578
         },
         {
-          "resto-de-america-no-hispanohablante": 0
+          "alemania": 13633
         },
         {
           "rumania": 25576
@@ -3029,9 +3617,6 @@
           "francia": 16550
         },
         {
-          "alemania": 13633
-        },
-        {
           "rusia": 9032
         },
         {
@@ -3041,7 +3626,37 @@
           "bulgaria": 5392
         },
         {
-          "resto-de-europa": 45201
+          "belgica": 5605
+        },
+        {
+          "dinamarca": 1235
+        },
+        {
+          "finlandia": 999
+        },
+        {
+          "irlanda": 2824
+        },
+        {
+          "lituania": 1102
+        },
+        {
+          "moldavia": 1534
+        },
+        {
+          "noruega": 1711
+        },
+        {
+          "paises-bajos": 5648
+        },
+        {
+          "polonia": 3133
+        },
+        {
+          "suecia": 3250
+        },
+        {
+          "suiza": 4134
         },
         {
           "marruecos": 73348
@@ -3071,7 +3686,7 @@
           "guinea": 1469
         },
         {
-          "resto-de-africa": 6934
+          "mauritania": 930
         },
         {
           "china": 12646
@@ -3087,12 +3702,6 @@
         },
         {
           "bangladesh": 2482
-        },
-        {
-          "resto-de-asia": 14296
-        },
-        {
-          "resto-de-oceania": 1799
         }
       ]
     },
@@ -3127,22 +3736,34 @@
           "paraguay": 6596
         },
         {
-          "rep-dominicana": 6470
+          "republica-dominicana": 6470
         },
         {
-          "resto-de-america-hispanohablante": 35636
+          "bolivia": 4085
+        },
+        {
+          "chile": 5052
+        },
+        {
+          "mexico": 5867
+        },
+        {
+          "nicaragua": 9416
+        },
+        {
+          "uruguay": 3475
         },
         {
           "brasil": 9541
         },
         {
-          "estados-unidos": 9909
+          "estados-unidos-de-america": 9909
         },
         {
           "canada": 1208
         },
         {
-          "resto-de-america-no-hispanohablante": 0
+          "alemania": 10670
         },
         {
           "rumania": 14891
@@ -3160,9 +3781,6 @@
           "francia": 14086
         },
         {
-          "alemania": 10670
-        },
-        {
           "rusia": 4640
         },
         {
@@ -3172,7 +3790,37 @@
           "bulgaria": 3274
         },
         {
-          "resto-de-europa": 32661
+          "belgica": 4667
+        },
+        {
+          "dinamarca": 842
+        },
+        {
+          "finlandia": 671
+        },
+        {
+          "irlanda": 2201
+        },
+        {
+          "lituania": 673
+        },
+        {
+          "moldavia": 906
+        },
+        {
+          "noruega": 1198
+        },
+        {
+          "paises-bajos": 4493
+        },
+        {
+          "polonia": 2268
+        },
+        {
+          "suecia": 2198
+        },
+        {
+          "suiza": 3226
         },
         {
           "marruecos": 45464
@@ -3202,7 +3850,7 @@
           "guinea": 761
         },
         {
-          "resto-de-africa": 4274
+          "mauritania": 609
         },
         {
           "china": 5670
@@ -3218,12 +3866,6 @@
         },
         {
           "bangladesh": 1198
-        },
-        {
-          "resto-de-asia": 8853
-        },
-        {
-          "resto-de-oceania": 1138
         }
       ]
     },
@@ -3258,22 +3900,34 @@
           "paraguay": 11036
         },
         {
-          "rep-dominicana": 13143
+          "republica-dominicana": 13143
         },
         {
-          "resto-de-america-hispanohablante": 56090
+          "bolivia": 10286
+        },
+        {
+          "chile": 10453
+        },
+        {
+          "mexico": 11921
+        },
+        {
+          "nicaragua": 7323
+        },
+        {
+          "uruguay": 5270
         },
         {
           "brasil": 14612
         },
         {
-          "estados-unidos": 20911
+          "estados-unidos-de-america": 20911
         },
         {
           "canada": 2498
         },
         {
-          "resto-de-america-no-hispanohablante": 0
+          "alemania": 28544
         },
         {
           "rumania": 45619
@@ -3291,9 +3945,6 @@
           "francia": 27894
         },
         {
-          "alemania": 28544
-        },
-        {
           "rusia": 12874
         },
         {
@@ -3303,7 +3954,37 @@
           "bulgaria": 8434
         },
         {
-          "resto-de-europa": 77444
+          "belgica": 9865
+        },
+        {
+          "dinamarca": 2024
+        },
+        {
+          "finlandia": 1643
+        },
+        {
+          "irlanda": 6200
+        },
+        {
+          "lituania": 1519
+        },
+        {
+          "moldavia": 1840
+        },
+        {
+          "noruega": 3160
+        },
+        {
+          "paises-bajos": 11286
+        },
+        {
+          "polonia": 5360
+        },
+        {
+          "suecia": 5249
+        },
+        {
+          "suiza": 7181
         },
         {
           "marruecos": 101234
@@ -3333,7 +4014,7 @@
           "guinea": 1698
         },
         {
-          "resto-de-africa": 11097
+          "mauritania": 2104
         },
         {
           "china": 18910
@@ -3349,12 +4030,6 @@
         },
         {
           "bangladesh": 2074
-        },
-        {
-          "resto-de-asia": 19378
-        },
-        {
-          "resto-de-oceania": 2051
         }
       ]
     },
@@ -3389,22 +4064,34 @@
           "paraguay": 24078
         },
         {
-          "rep-dominicana": 14436
+          "republica-dominicana": 14436
         },
         {
-          "resto-de-america-hispanohablante": 75370
+          "bolivia": 11229
+        },
+        {
+          "chile": 12977
+        },
+        {
+          "mexico": 13308
+        },
+        {
+          "nicaragua": 16588
+        },
+        {
+          "uruguay": 6759
         },
         {
           "brasil": 22454
         },
         {
-          "estados-unidos": 20646
+          "estados-unidos-de-america": 20646
         },
         {
           "canada": 2820
         },
         {
-          "resto-de-america-no-hispanohablante": 0
+          "alemania": 26468
         },
         {
           "rumania": 45591
@@ -3422,9 +4109,6 @@
           "francia": 26265
         },
         {
-          "alemania": 26468
-        },
-        {
           "rusia": 20120
         },
         {
@@ -3434,7 +4118,37 @@
           "bulgaria": 8333
         },
         {
-          "resto-de-europa": 80505
+          "belgica": 9023
+        },
+        {
+          "dinamarca": 1769
+        },
+        {
+          "finlandia": 1627
+        },
+        {
+          "irlanda": 5018
+        },
+        {
+          "lituania": 1912
+        },
+        {
+          "moldavia": 2553
+        },
+        {
+          "noruega": 2425
+        },
+        {
+          "paises-bajos": 11095
+        },
+        {
+          "polonia": 6707
+        },
+        {
+          "suecia": 4890
+        },
+        {
+          "suiza": 6874
         },
         {
           "marruecos": 115172
@@ -3464,7 +4178,7 @@
           "guinea": 1691
         },
         {
-          "resto-de-africa": 11240
+          "mauritania": 1772
         },
         {
           "china": 15334
@@ -3480,12 +4194,6 @@
         },
         {
           "bangladesh": 2480
-        },
-        {
-          "resto-de-asia": 18849
-        },
-        {
-          "resto-de-oceania": 3188
         }
       ]
     },
@@ -3520,22 +4228,34 @@
           "paraguay": 25223
         },
         {
-          "rep-dominicana": 15570
+          "republica-dominicana": 15570
         },
         {
-          "resto-de-america-hispanohablante": 75242
+          "bolivia": 12065
+        },
+        {
+          "chile": 13700
+        },
+        {
+          "mexico": 14475
+        },
+        {
+          "nicaragua": 14148
+        },
+        {
+          "uruguay": 6915
         },
         {
           "brasil": 21741
         },
         {
-          "estados-unidos": 23221
+          "estados-unidos-de-america": 23221
         },
         {
           "canada": 3245
         },
         {
-          "resto-de-america-no-hispanohablante": 0
+          "alemania": 27608
         },
         {
           "rumania": 43480
@@ -3553,9 +4273,6 @@
           "francia": 28326
         },
         {
-          "alemania": 27608
-        },
-        {
           "rusia": 20600
         },
         {
@@ -3565,7 +4282,37 @@
           "bulgaria": 8159
         },
         {
-          "resto-de-europa": 85630
+          "belgica": 9364
+        },
+        {
+          "dinamarca": 2083
+        },
+        {
+          "finlandia": 1643
+        },
+        {
+          "irlanda": 5573
+        },
+        {
+          "lituania": 1953
+        },
+        {
+          "moldavia": 1907
+        },
+        {
+          "noruega": 2645
+        },
+        {
+          "paises-bajos": 11445
+        },
+        {
+          "polonia": 7357
+        },
+        {
+          "suecia": 5043
+        },
+        {
+          "suiza": 7551
         },
         {
           "marruecos": 124832
@@ -3595,7 +4342,7 @@
           "guinea": 1737
         },
         {
-          "resto-de-africa": 12172
+          "mauritania": 1813
         },
         {
           "china": 21084
@@ -3611,12 +4358,6 @@
         },
         {
           "bangladesh": 3458
-        },
-        {
-          "resto-de-asia": 20230
-        },
-        {
-          "resto-de-oceania": 3043
         }
       ]
     },
@@ -3651,22 +4392,34 @@
           "paraguay": 25565
         },
         {
-          "rep-dominicana": 15002
+          "republica-dominicana": 15002
         },
         {
-          "resto-de-america-hispanohablante": 71747
+          "bolivia": 10594
+        },
+        {
+          "chile": 13642
+        },
+        {
+          "mexico": 15434
+        },
+        {
+          "nicaragua": 12736
+        },
+        {
+          "uruguay": 5891
         },
         {
           "brasil": 21481
         },
         {
-          "estados-unidos": 25559
+          "estados-unidos-de-america": 25559
         },
         {
           "canada": 3508
         },
         {
-          "resto-de-america-no-hispanohablante": 0
+          "alemania": 26123
         },
         {
           "rumania": 35747
@@ -3684,9 +4437,6 @@
           "francia": 29053
         },
         {
-          "alemania": 26123
-        },
-        {
           "rusia": 14067
         },
         {
@@ -3696,7 +4446,37 @@
           "bulgaria": 6465
         },
         {
-          "resto-de-europa": 85834
+          "belgica": 9492
+        },
+        {
+          "dinamarca": 2013
+        },
+        {
+          "finlandia": 1509
+        },
+        {
+          "irlanda": 5968
+        },
+        {
+          "lituania": 1833
+        },
+        {
+          "moldavia": 1561
+        },
+        {
+          "noruega": 2734
+        },
+        {
+          "paises-bajos": 13130
+        },
+        {
+          "polonia": 7344
+        },
+        {
+          "suecia": 5182
+        },
+        {
+          "suiza": 7137
         },
         {
           "marruecos": 132998
@@ -3726,7 +4506,7 @@
           "guinea": 1950
         },
         {
-          "resto-de-africa": 14531
+          "mauritania": 2976
         },
         {
           "china": 24619
@@ -3742,12 +4522,6 @@
         },
         {
           "bangladesh": 5797
-        },
-        {
-          "resto-de-asia": 23288
-        },
-        {
-          "resto-de-oceania": 3533
         }
       ]
     }
@@ -3760,22 +4534,22 @@
           "total": 599074
         },
         {
-          "america-hispanohablante": 211235
+          "america-hispanohablante": 207808
         },
         {
           "america-no-hispanohablante": 28285
         },
         {
-          "europa": 202336
+          "europa": 191655
         },
         {
-          "africa": 111085
+          "africa": 105720
         },
         {
-          "asia": 45426
+          "asia": 40031
         },
         {
-          "oceania": 705
+          "oceania": 0
         }
       ]
     },
@@ -3786,22 +4560,22 @@
           "total": 392963
         },
         {
-          "america-hispanohablante": 120478
+          "america-hispanohablante": 117899
         },
         {
           "america-no-hispanohablante": 17907
         },
         {
-          "europa": 151360
+          "europa": 143466
         },
         {
-          "africa": 70794
+          "africa": 66603
         },
         {
-          "asia": 31850
+          "asia": 27234
         },
         {
-          "oceania": 574
+          "oceania": 0
         }
       ]
     },
@@ -3812,22 +4586,22 @@
           "total": 360704
         },
         {
-          "america-hispanohablante": 100115
+          "america-hispanohablante": 97435
         },
         {
           "america-no-hispanohablante": 16018
         },
         {
-          "europa": 156758
+          "europa": 148789
         },
         {
-          "africa": 50362
+          "africa": 47071
         },
         {
-          "asia": 36852
+          "asia": 31922
         },
         {
-          "oceania": 600
+          "oceania": 0
         }
       ]
     },
@@ -3838,22 +4612,22 @@
           "total": 371335
         },
         {
-          "america-hispanohablante": 107259
+          "america-hispanohablante": 104104
         },
         {
           "america-no-hispanohablante": 17199
         },
         {
-          "europa": 162388
+          "europa": 153272
         },
         {
-          "africa": 48401
+          "africa": 44671
         },
         {
-          "asia": 35310
+          "asia": 29047
         },
         {
-          "oceania": 779
+          "oceania": 0
         }
       ]
     },
@@ -3864,22 +4638,22 @@
           "total": 304054
         },
         {
-          "america-hispanohablante": 84803
+          "america-hispanohablante": 82122
         },
         {
           "america-no-hispanohablante": 15328
         },
         {
-          "europa": 131211
+          "europa": 122977
         },
         {
-          "africa": 41264
+          "africa": 37765
         },
         {
-          "asia": 30663
+          "asia": 23822
         },
         {
-          "oceania": 785
+          "oceania": 0
         }
       ]
     },
@@ -3890,22 +4664,22 @@
           "total": 280772
         },
         {
-          "america-hispanohablante": 76077
+          "america-hispanohablante": 73635
         },
         {
           "america-no-hispanohablante": 14528
         },
         {
-          "europa": 121309
+          "europa": 113489
         },
         {
-          "africa": 39404
+          "africa": 35900
         },
         {
-          "asia": 28609
+          "asia": 21539
         },
         {
-          "oceania": 845
+          "oceania": 0
         }
       ]
     },
@@ -3916,22 +4690,22 @@
           "total": 305454
         },
         {
-          "america-hispanohablante": 87360
+          "america-hispanohablante": 84220
         },
         {
           "america-no-hispanohablante": 15795
         },
         {
-          "europa": 135005
+          "europa": 126877
         },
         {
-          "africa": 38482
+          "africa": 34850
         },
         {
-          "asia": 27899
+          "asia": 20322
         },
         {
-          "oceania": 912
+          "oceania": 0
         }
       ]
     },
@@ -3942,22 +4716,22 @@
           "total": 342114
         },
         {
-          "america-hispanohablante": 104771
+          "america-hispanohablante": 100936
         },
         {
           "america-no-hispanohablante": 19080
         },
         {
-          "europa": 144372
+          "europa": 135743
         },
         {
-          "africa": 43299
+          "africa": 39272
         },
         {
-          "asia": 29540
+          "asia": 21321
         },
         {
-          "oceania": 1053
+          "oceania": 0
         }
       ]
     },
@@ -3968,22 +4742,22 @@
           "total": 414746
         },
         {
-          "america-hispanohablante": 153853
+          "america-hispanohablante": 148553
         },
         {
           "america-no-hispanohablante": 23063
         },
         {
-          "europa": 151519
+          "europa": 141959
         },
         {
-          "africa": 50586
+          "africa": 46562
         },
         {
-          "asia": 34531
+          "asia": 24476
         },
         {
-          "oceania": 1194
+          "oceania": 0
         }
       ]
     },
@@ -3994,22 +4768,22 @@
           "total": 532132
         },
         {
-          "america-hispanohablante": 221709
+          "america-hispanohablante": 214610
         },
         {
           "america-no-hispanohablante": 28836
         },
         {
-          "europa": 177400
+          "europa": 165973
         },
         {
-          "africa": 62718
+          "africa": 57947
         },
         {
-          "asia": 40012
+          "asia": 27637
         },
         {
-          "oceania": 1457
+          "oceania": 0
         }
       ]
     },
@@ -4020,22 +4794,22 @@
           "total": 643684
         },
         {
-          "america-hispanohablante": 289694
+          "america-hispanohablante": 280612
         },
         {
           "america-no-hispanohablante": 33219
         },
         {
-          "europa": 182219
+          "europa": 169346
         },
         {
-          "africa": 91057
+          "africa": 85743
         },
         {
-          "asia": 45924
+          "asia": 32712
         },
         {
-          "oceania": 1571
+          "oceania": 0
         }
       ]
     },
@@ -4046,22 +4820,22 @@
           "total": 750480
         },
         {
-          "america-hispanohablante": 365101
+          "america-hispanohablante": 352712
         },
         {
           "america-no-hispanohablante": 35321
         },
         {
-          "europa": 189696
+          "europa": 175670
         },
         {
-          "africa": 107543
+          "africa": 101539
         },
         {
-          "asia": 51020
+          "asia": 36724
         },
         {
-          "oceania": 1799
+          "oceania": 0
         }
       ]
     },
@@ -4072,22 +4846,22 @@
           "total": 467918
         },
         {
-          "america-hispanohablante": 210842
+          "america-hispanohablante": 203101
         },
         {
           "america-no-hispanohablante": 20658
         },
         {
-          "europa": 140554
+          "europa": 131236
         },
         {
-          "africa": 67013
+          "africa": 63348
         },
         {
-          "asia": 27713
+          "asia": 18860
         },
         {
-          "oceania": 1138
+          "oceania": 0
         }
       ]
     },
@@ -4098,22 +4872,22 @@
           "total": 887960
         },
         {
-          "america-hispanohablante": 329641
+          "america-hispanohablante": 318804
         },
         {
           "america-no-hispanohablante": 38021
         },
         {
-          "europa": 297338
+          "europa": 275221
         },
         {
-          "africa": 155116
+          "africa": 146123
         },
         {
-          "asia": 65793
+          "asia": 46415
         },
         {
-          "oceania": 2051
+          "oceania": 0
         }
       ]
     },
@@ -4124,22 +4898,22 @@
           "total": 1258894
         },
         {
-          "america-hispanohablante": 597654
+          "america-hispanohablante": 583145
         },
         {
           "america-no-hispanohablante": 45920
         },
         {
-          "europa": 376653
+          "europa": 350041
         },
         {
-          "africa": 170291
+          "africa": 160823
         },
         {
-          "asia": 65188
+          "asia": 46339
         },
         {
-          "oceania": 3188
+          "oceania": 0
         }
       ]
     },
@@ -4150,22 +4924,22 @@
           "total": 1250991
         },
         {
-          "america-hispanohablante": 613350
+          "america-hispanohablante": 599411
         },
         {
           "america-no-hispanohablante": 48207
         },
         {
-          "europa": 326098
+          "europa": 297032
         },
         {
-          "africa": 182559
+          "africa": 172200
         },
         {
-          "asia": 77734
+          "asia": 57504
         },
         {
-          "oceania": 3043
+          "oceania": 0
         }
       ]
     },
@@ -4176,50 +4950,47 @@
           "total": 1288562
         },
         {
-          "america-hispanohablante": 622321
+          "america-hispanohablante": 608871
         },
         {
           "america-no-hispanohablante": 50548
         },
         {
-          "europa": 303484
+          "europa": 275553
         },
         {
-          "africa": 216741
+          "africa": 205186
         },
         {
-          "asia": 91935
+          "asia": 68647
         },
         {
-          "oceania": 3533
+          "oceania": 0
         }
       ]
     }
   ],
   "contextNotes": [
     "Flujo anual total de inmigraciones procedentes del extranjero (ambos sexos) desde 2008 hasta 2024, enlazando la Estadística de Migraciones (2008-2020) y la EMCR (2021-2024) del INE.",
-    "Agrupación en 6 bloques continentales/lingüísticos: América (Hispanohablante), América (No Hispanohablante), Europa, África, Asia y Oceanía.",
-    "Desglose de hasta 10 series individuales por bloque (Top países + Resto de bloque) con 100% de conciliación matemática respecto a subtotales y total global."
+    "Agrupación en bloques continentales/lingüísticos con desglose de todos los países individuales procedentes de fuentes oficiales, sin agrupaciones artificiales en 'Resto de...'."
   ],
   "sources": [
     {
       "institution": "Instituto Nacional de Estadística (INE)",
-      "title": "Estadística de Migraciones (EM)",
-      "shortName": "Estadística de Migraciones",
-      "tableId": "24312",
-      "period": "2008-2020",
-      "lastUpdated": "2024-12-01",
-      "url": "https://www.ine.es/jaxiT3/Tabla.htm?t=24312"
-    },
-    {
-      "institution": "Instituto Nacional de Estadística (INE)",
       "title": "Estadística de Migraciones y Cambios de Residencia (EMCR)",
-      "shortName": "EMCR",
       "tableId": "69690",
       "period": "2021-2024",
       "lastUpdated": "2024-12-01",
       "url": "https://www.ine.es/jaxiT3/Tabla.htm?t=69690"
+    },
+    {
+      "institution": "Instituto Nacional de Estadística (INE)",
+      "title": "Estadística de Migraciones (Serie histórica)",
+      "tableId": "24295",
+      "period": "2008-2020",
+      "lastUpdated": "2021-12-01",
+      "url": "https://www.ine.es/jaxiT3/Tabla.htm?t=24295"
     }
   ],
-  "last_updated": "2026-11-18"
+  "last_updated": "2026-11-19"
 }

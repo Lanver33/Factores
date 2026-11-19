@@ -13,13 +13,35 @@ interface DirectoryRowProps {
   lang?: "es" | "en";
 }
 
+const translateUnit = (u: string, l: "es" | "en") => {
+  if (l !== "en") return u;
+  const map: Record<string, string> = {
+    "personas": "people",
+    "persona": "person",
+    "Ratio contribución / gasto": "Contribution / spending ratio",
+    "ratio contribución / gasto": "Contribution / spending ratio",
+    "% / € hab / MM€": "Contribution / spending ratio",
+  };
+  return map[u] || map[u.toLowerCase()] || u;
+};
+
 export default function DirectoryRow({ item, detail, lang = "es" }: DirectoryRowProps) {
   let latestYear = item.latestYear || "";
   let latestValue = item.latestValue ?? 0;
+  let timeHorizon = latestYear;
 
   if (detail?.dataPoints && detail.dataPoints.length > 0) {
+    const firstPt = detail.dataPoints[0];
     const lastPt = detail.dataPoints[detail.dataPoints.length - 1];
     latestYear = lastPt.year || lastPt.date || latestYear;
+    const startYear = firstPt.year || firstPt.date || "";
+    const endYear = lastPt.year || lastPt.date || latestYear;
+    if (detail.dataPoints.length >= 2 && startYear && endYear) {
+      timeHorizon = `${startYear}–${endYear}`;
+    } else {
+      timeHorizon = latestYear;
+    }
+
     const rawVal = lastPt.value;
     if (typeof rawVal === "number") {
       latestValue = rawVal;
@@ -33,12 +55,14 @@ export default function DirectoryRow({ item, detail, lang = "es" }: DirectoryRow
   const compactVal = formatCompactNumber(latestValue, lang);
   const exactVal = formatNumber(latestValue, lang);
   const sourceName = detail?.sources?.[0]?.institution || detail?.source?.institution || "INE";
-  const unit = item.unit || (lang === "en" ? "people" : "personas");
+  const unit = translateUnit(item.unit || (lang === "en" ? "people" : "personas"), lang);
+  const displayVal = item.id === "saldo-fiscal-nacionalidad" ? `${compactVal}%` : compactVal;
+  const displayExact = item.id === "saldo-fiscal-nacionalidad" ? `${exactVal}%` : exactVal;
 
   return (
     <Link
       href={lang === "en" ? `/en/dato/${item.id}` : `/dato/${item.id}`}
-      className="group flex flex-col sm:flex-row sm:items-center justify-between py-3.5 px-3 rounded-xl hover:bg-white/[0.02] border-b border-white/[0.06] transition-all cursor-pointer gap-3 sm:gap-4 no-underline"
+      className="group flex flex-col sm:flex-row sm:items-center justify-between bg-slate-900/60 hover:bg-slate-900 border border-slate-800/90 hover:border-slate-700 rounded-xl px-4 py-3.5 transition-all cursor-pointer gap-3 sm:gap-4 no-underline"
     >
       {/* Left Editorial Content */}
       <div className="space-y-1 flex-1 min-w-0">
@@ -50,7 +74,7 @@ export default function DirectoryRow({ item, detail, lang = "es" }: DirectoryRow
         <div className="text-xs text-[#94A3B8] font-medium flex items-center gap-1.5">
           <span>{sourceName}</span>
           <span>·</span>
-          <span>{latestYear}</span>
+          <span>{timeHorizon}</span>
         </div>
       </div>
 
@@ -65,9 +89,9 @@ export default function DirectoryRow({ item, detail, lang = "es" }: DirectoryRow
         <div className="text-left sm:text-right">
           <div
             className="text-base font-bold text-white font-mono tabular-nums tracking-tight"
-            title={`${exactVal} ${unit}`}
+            title={`${displayExact} ${unit}`}
           >
-            {compactVal}
+            {displayVal}
           </div>
           <div className="text-[11px] text-[#64748B] font-medium">
             {unit}
