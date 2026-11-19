@@ -2,13 +2,18 @@
 
 import dynamic from "next/dynamic";
 import type { DatoItem, Lang } from "@/types";
-import { isFiscalBalanceItem } from "@/types";
+import { isFiscalBalanceItem, isNationalityIndicatorsItem } from "@/types";
 import { ChartSkeleton } from "@/src/components/visualizations/ChartSkeleton";
 import InteractiveChart from "./InteractiveChart";
 
 const FiscalBalanceView = dynamic(
   () => import("./fiscal/FiscalBalanceView"),
   { loading: () => <ChartSkeleton /> }
+);
+
+const NationalityIndicatorsView = dynamic(
+  () => import("./nationality/NationalityIndicatorsView"),
+  { ssr: false, loading: () => <ChartSkeleton /> }
 );
 
 const ImmigrationExplorer = dynamic(
@@ -27,6 +32,10 @@ export function ChartRenderer({ item, lang, locale = "es" }: ChartRendererProps)
 
   if (isFiscalBalanceItem(item)) {
     return <FiscalBalanceView item={item} lang={activeLang} locale={activeLang} />;
+  }
+
+  if (isNationalityIndicatorsItem(item)) {
+    return <NationalityIndicatorsView item={item} lang={activeLang} locale={activeLang} />;
   }
 
   if (item.chartType === "immigration-flow" || "annualBlocks" in item || "blocks" in item) {

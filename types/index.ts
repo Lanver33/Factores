@@ -12,7 +12,63 @@ export type Category = (typeof CATEGORIES)[number];
 
 export type Lang = "es" | "en";
 
-export type ChartType = "line" | "bar" | "fiscal-balance" | "immigration-flow";
+export type ChartType =
+  | "line"
+  | "bar"
+  | "fiscal-balance"
+  | "immigration-flow"
+  | "nationality-indicators";
+
+export type PopulationDefinition = "citizenship" | "birthplace";
+export type PopulationGroupKey =
+  | "total"
+  | "nationals"
+  | "foreigners"
+  | "euForeigners"
+  | "nonEuForeigners";
+
+export interface AgeBandBreakdown {
+  under15: number;
+  workingAge15to64: number;
+  senior65plus: number;
+  under15Pct: number;
+  workingAge15to64Pct: number;
+  senior65plusPct: number;
+}
+
+export interface DemographicGroupStats {
+  population: number;
+  shareOfTotalPct: number;
+  shareOfWorkingAgePct: number;
+  oldAgeDependencyRatio: number;
+  ageBands: AgeBandBreakdown;
+}
+
+export interface LaborGroupStats {
+  employedThousands: number | null;
+  shareOfEmployedPct: number | null;
+  activityRatePct: number | null;
+  employmentRatePct: number | null;
+  unemploymentRatePct: number | null;
+}
+
+export interface LivingConditionsGroupStats {
+  medianEquivalisedIncomeEur: number | null;
+  meanEquivalisedIncomeEur: number | null;
+  atRiskOfPovertyPct: number | null;
+}
+
+export interface DefinitionYearSlice {
+  demographics: Partial<Record<PopulationGroupKey, DemographicGroupStats>> | null;
+  laborMarket: Partial<Record<PopulationGroupKey, LaborGroupStats>> | null;
+}
+
+export interface NationalityAnnualRecord {
+  year: string;
+  naturalizations: number | null;
+  definitions: Record<PopulationDefinition, DefinitionYearSlice>;
+  livingConditions: Partial<Record<PopulationGroupKey, LivingConditionsGroupStats>> | null;
+}
 
 export interface DataPoint {
   year: string;
@@ -214,5 +270,20 @@ export function isFiscalBalanceItem(item: DatoItem): item is FiscalBalanceItem {
     item.chartType === "fiscal-balance" &&
     "annualBalances" in item &&
     Array.isArray((item as Partial<FiscalBalanceItem>).annualBalances)
+  );
+}
+
+export interface NationalityIndicatorsItem extends DatoItem {
+  chartType: "nationality-indicators";
+  annualRecords: NationalityAnnualRecord[];
+}
+
+export function isNationalityIndicatorsItem(
+  item: DatoItem
+): item is NationalityIndicatorsItem {
+  return (
+    item.chartType === "nationality-indicators" &&
+    "annualRecords" in item &&
+    Array.isArray((item as Partial<NationalityIndicatorsItem>).annualRecords)
   );
 }

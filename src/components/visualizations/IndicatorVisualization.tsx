@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import type { Indicator, Locale } from "@/domain/indicator.schema";
-import { isFiscalBalanceItem } from "@/types";
+import { isFiscalBalanceItem, isNationalityIndicatorsItem } from "@/types";
 import { ChartSkeleton } from "./ChartSkeleton";
 
 const TimeSeriesChart = dynamic(() => import("./TimeSeriesChart"), {
@@ -12,6 +12,9 @@ const FiscalBalanceDashboard = dynamic(() => import("./FiscalBalanceDashboard"),
   loading: () => <ChartSkeleton />,
 });
 const FiscalBalanceView = dynamic(() => import("../detail/fiscal/FiscalBalanceView"), {
+  loading: () => <ChartSkeleton />,
+});
+const NationalityIndicatorsView = dynamic(() => import("../detail/nationality/NationalityIndicatorsView"), {
   loading: () => <ChartSkeleton />,
 });
 const ImmigrationExplorer = dynamic(() => import("./immigration/ImmigrationExplorer"), {
@@ -27,6 +30,15 @@ export function IndicatorVisualization({
 }) {
   if (isFiscalBalanceItem(indicator as any) || (indicator && "annualBalances" in indicator)) {
     return <FiscalBalanceView item={indicator as any} lang={locale} locale={locale} />;
+  }
+
+  if (
+    isNationalityIndicatorsItem(indicator as any) ||
+    indicator?.kind === "nationality-indicators" ||
+    indicator?.chartType === "nationality-indicators" ||
+    (indicator && "annualRecords" in indicator)
+  ) {
+    return <NationalityIndicatorsView item={indicator as any} lang={locale} locale={locale} />;
   }
 
   switch (indicator.kind) {

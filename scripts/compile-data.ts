@@ -130,6 +130,14 @@ export function compileIndicators(): {
       latestValue = last.declaredTotal;
       timeHorizon = indicator.years.length > 1 ? `${first.year}–${last.year}` : last.year;
       sparkline = indicator.years.map((y) => y.declaredTotal);
+    } else if (indicator.kind === "nationality-indicators") {
+      const records = (indicator as any).annualRecords;
+      const first = records[0];
+      const last = records[records.length - 1];
+      latestPeriod = last.year;
+      latestValue = last.definitions?.citizenship?.demographics?.foreigners?.shareOfTotalPct ?? 0;
+      timeHorizon = records.length > 1 ? `${first.year}–${last.year}` : last.year;
+      sparkline = records.map((r: any) => r.definitions?.citizenship?.demographics?.foreigners?.shareOfTotalPct ?? 0);
     }
 
     const primarySource = {

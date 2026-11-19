@@ -58,6 +58,51 @@
     ]
   },
   {
+    "id": "indicadores-nacionalidad-espana",
+    "kind": "nationality-indicators",
+    "category": "economy-employment",
+    "question": {
+      "es": "¿Cómo se comparan la demografía, el empleo y la renta entre población española y extranjera en España?",
+      "en": "How do demographics, employment, and income compare between Spanish and foreign populations in Spain?"
+    },
+    "unit": {
+      "es": "% población extranjera",
+      "en": "% foreign population"
+    },
+    "valueFormat": "percent",
+    "latestValue": 14.07,
+    "latestPeriod": "2025",
+    "timeHorizon": "2008–2025",
+    "primarySource": {
+      "es": "INE / Eurostat",
+      "en": "INE / Eurostat"
+    },
+    "searchSummary": {
+      "es": "Todos los indicadores proceden directamente de estadísticas oficiales del INE remitidas a Eurostat (Padrón/ECP, EPA, ECV y Estadística de Adquisiciones de Nacionalidad), sin imputaciones sintéticas ni multiplicadores estimados.",
+      "en": "All indicators trace directly to official statistics from Spain's INE transmitted to Eurostat (Padrón/ECP, EPA, ECV, and Acquisitions of Citizenship), without synthetic imputations."
+    },
+    "sparkline": [
+      11.14,
+      11.65,
+      11.62,
+      11.38,
+      11.18,
+      10.84,
+      10.06,
+      9.59,
+      9.52,
+      9.5,
+      9.81,
+      10.34,
+      11.08,
+      11.4,
+      11.6,
+      12.66,
+      13.37,
+      14.07
+    ]
+  },
+  {
     "id": "inmigracion-procedencia",
     "kind": "immigration-flow",
     "category": "pensions-demography",

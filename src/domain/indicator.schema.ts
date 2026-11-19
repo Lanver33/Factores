@@ -139,17 +139,25 @@ export const ImmigrationFlowIndicatorSchema = BaseIndicatorSchema.extend({
     .min(1),
 });
 
+export const NationalityIndicatorsIndicatorSchema = BaseIndicatorSchema.extend({
+  kind: z.literal("nationality-indicators"),
+  annualRecords: z.array(z.any()),
+  dataPoints: z.array(z.object({ year: z.string(), value: z.number() })).optional(),
+});
+
 // Discriminated union by visualization kind
 export const IndicatorSchema = z.discriminatedUnion("kind", [
   TimeSeriesIndicatorSchema,
   FiscalBalanceIndicatorSchema,
   ImmigrationFlowIndicatorSchema,
+  NationalityIndicatorsIndicatorSchema,
 ]);
 
 export type Indicator = z.infer<typeof IndicatorSchema>;
 export type TimeSeriesIndicator = z.infer<typeof TimeSeriesIndicatorSchema>;
 export type FiscalBalanceIndicator = z.infer<typeof FiscalBalanceIndicatorSchema>;
 export type ImmigrationFlowIndicator = z.infer<typeof ImmigrationFlowIndicatorSchema>;
+export type NationalityIndicatorsIndicator = z.infer<typeof NationalityIndicatorsIndicatorSchema>;
 
 export type Locale = "es" | "en";
 

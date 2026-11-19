@@ -9,6 +9,15 @@
     "lastUpdated": "2026-10-21"
   },
   {
+    "id": "indicadores-nacionalidad-espana",
+    "category": "Economía y Empleo",
+    "question": "¿Cómo se comparan la demografía, el empleo y la renta entre población española y extranjera en España?",
+    "unit": "% población extranjera",
+    "latestValue": 14.07,
+    "latestYear": "2025",
+    "lastUpdated": "2026-11-15"
+  },
+  {
     "id": "inmigracion-procedencia",
     "category": "Pensiones y Demografía",
     "question": "¿Cuál es la evolución de la inmigración procedente del extranjero en España?",

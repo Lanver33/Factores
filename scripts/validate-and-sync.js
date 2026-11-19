@@ -193,6 +193,55 @@ function sync() {
     copyRecursive(dataEnDir, publicEnDir);
   }
 
+  // Sync canonical indicator to content/indicators for Next.js SSG
+  const nationalityStagingPath = path.join(STAGING_DIR, "items", "indicadores-nacionalidad-espana.json");
+  const contentIndicatorsDir = path.join(process.cwd(), "content", "indicators");
+  if (fs.existsSync(nationalityStagingPath) && fs.existsSync(contentIndicatorsDir)) {
+    const rawStaging = JSON.parse(fs.readFileSync(nationalityStagingPath, "utf-8"));
+    const contentPayload = {
+      id: rawStaging.id,
+      kind: "nationality-indicators",
+      category: "economy-employment",
+      valueFormat: "percent",
+      question: {
+        es: rawStaging.question,
+        en: "How do demographics, employment, and income compare between Spanish and foreign populations in Spain?",
+      },
+      unit: {
+        es: rawStaging.unit,
+        en: "% foreign population",
+      },
+      contextNotes: {
+        es: rawStaging.contextNotes,
+        en: [
+          "All indicators trace directly to official statistics from Spain's INE transmitted to Eurostat (Padrón/ECP, EPA, ECV, and Acquisitions of Citizenship), without synthetic imputations.",
+          "Classification by nationality (passport) reflects legal status in each year; annual acquisitions of Spanish citizenship transition foreign-born residents into the Spanish national group.",
+          "Labor market indicators (activity, employment, unemployment rates, and employed persons) correspond to the population aged 15 to 64 according to harmonized EPA / LFS criteria.",
+          "Equivalised net income (ECV / EU-SILC) adjusts disposable household income for household size and composition using the modified OECD equivalence scale to compare individual purchasing power.",
+        ],
+      },
+      sources: rawStaging.sources.map((s) => ({
+        institution: { es: s.institution, en: s.institution },
+        title: { es: s.title, en: s.title },
+        shortName: { es: s.shortName, en: s.shortName },
+        tableId: s.tableId,
+        period: s.period,
+        lastUpdated: s.lastUpdated,
+        url: s.url,
+      })),
+      lastUpdated: rawStaging.last_updated || new Date().toISOString().split("T")[0],
+      conceptGuide: rawStaging.conceptGuide,
+      annualRecords: rawStaging.annualRecords,
+      dataPoints: rawStaging.dataPoints,
+    };
+    fs.writeFileSync(
+      path.join(contentIndicatorsDir, "indicadores-nacionalidad-espana.json"),
+      JSON.stringify(contentPayload, null, 2),
+      "utf-8"
+    );
+    console.log("[Sync] Synced indicadores-nacionalidad-espana.json to content/indicators/");
+  }
+
   console.log("[Sync] Data sync complete!");
 }
 
