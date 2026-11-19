@@ -1,6 +1,6 @@
 /**
  * CONSOLIDATED TYPESCRIPT & TSX CODE DUMP
- * Generated on: 2026-11-19T05:17:45.786Z
+ * Generated on: 2026-11-19T05:35:21.349Z
  */
 
 // ==========================================
@@ -232,15 +232,25 @@ import { fetchItemDetail, DATA_BASE_URL } from "@/lib/data-utils";
 import InteractiveChart from "@/components/detail/InteractiveChart";
 import SourceCard from "@/components/detail/SourceCard";
 import { ArrowLeft, Tag, Loader2, AlertCircle } from "lucide-react";
+import { t, translateCategory } from "@/lib/i18n";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 interface DatoClientViewProps {
   slug: string;
+  lang?: "es" | "en";
 }
 
-export default function DatoClientView({ slug }: DatoClientViewProps) {
+export default function DatoClientView({ slug, lang = "es" }: DatoClientViewProps) {
   const [dato, setDato] = useState<DatoItem | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = lang;
+    }
+  }, [lang]);
 
   useEffect(() => {
     async function loadItem() {
@@ -251,123 +261,122 @@ export default function DatoClientView({ slug }: DatoClientViewProps) {
       try {
         setLoading(true);
         setError(null);
-        const item = await fetchItemDetail(slug);
+        const item = await fetchItemDetail(slug, lang);
         if (!item) {
-          setError(`No se encontró el dato '${slug}'.`);
+          setError(lang === "en" ? `Indicator '${slug}' not found.` : `No se encontró el dato '${slug}'.`);
         } else {
           setDato(item);
         }
       } catch (err) {
-        console.error("Error cargando el dato:", err);
-        setError(`Error al obtener el dato desde ${DATA_BASE_URL}/items/${slug}.json`);
+        console.error("Error loading item detail:", err);
+        setError(`Error fetching data from ${DATA_BASE_URL}/items/${slug}.json`);
       } finally {
         setLoading(false);
       }
     }
     loadItem();
-  }, [slug]);
+  }, [slug, lang]);
 
-  if (loading) {
-    return (
-      <div className="bg-slate-900 rounded-2xl border border-slate-800 p-12 text-center space-y-3">
-        <Loader2 className="w-6 h-6 animate-spin text-blue-400 mx-auto" />
-        <p className="text-sm font-semibold text-slate-300">Cargando dato vía HTTP...</p>
-      </div>
-    );
-  }
-
-  if (error || !dato || slug === "_none") {
-    return (
-      <div className="space-y-4">
-        <div>
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 px-3.5 py-2 rounded-full transition-colors shadow-xs"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Volver al explorador</span>
-          </Link>
-        </div>
-
-        <div className="bg-slate-900 rounded-2xl border border-slate-800 p-8 text-center space-y-3">
-          <AlertCircle className="w-6 h-6 text-red-500 mx-auto" />
-          <h2 className="text-base font-bold text-white">
-            {error || "No hay datos registrados aún"}
-          </h2>
-          <p className="text-xs text-slate-400">
-            Puedes añadir un nuevo dato JSON en <code className="bg-slate-800 px-1 py-0.5 rounded text-slate-300">data/items/{slug}.json</code>
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  const isImmigrationItem = dato.id === "inmigracion-procedencia" || Boolean((dato as any).annualBlocks);
-
-  const seriesPoints = dato.dataPoints.map((dp) => {
-    let val = 0;
-    const rawVal = dp.value as any;
-    if (typeof rawVal === "number") {
-      val = rawVal;
-    } else if (Array.isArray(rawVal)) {
-      const totalObj = rawVal.find((item: any) => item && typeof item === "object" && "total" in item) || rawVal[0];
-      val = totalObj ? (Object.values(totalObj)[0] as number) : 0;
-    }
-    return {
-      year: dp.year || dp.date || "",
-      date: dp.date || dp.year || "",
-      value: val,
-    };
-  });
+  const backUrl = lang === "en" ? "/en" : "/";
 
   return (
-    <article className="space-y-6 animate-in fade-in duration-200">
-      {/* Botón Volver */}
-      <div>
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 px-3.5 py-2 rounded-full transition-colors shadow-xs"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Volver al explorador</span>
-        </Link>
-      </div>
+    <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 antialiased selection:bg-blue-600 selection:text-white">
+      <Header lang={lang} />
+      <main className="flex-1 max-w-[900px] w-full mx-auto px-4 py-8 space-y-6">
+        {loading ? (
+          <div className="bg-slate-900 rounded-2xl border border-slate-800 p-12 text-center space-y-3">
+            <Loader2 className="w-6 h-6 animate-spin text-blue-400 mx-auto" />
+            <p className="text-sm font-semibold text-slate-300">{t("loadingData", lang)}</p>
+          </div>
+        ) : error || !dato || slug === "_none" ? (
+          <div className="space-y-4">
+            <div>
+              <Link
+                href={backUrl}
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 px-3.5 py-2 rounded-full transition-colors shadow-xs"
+              >
+                <ArrowLeft className="w-3.5 h-3.5" />
+                <span>{t("backToExplorer", lang)}</span>
+              </Link>
+            </div>
 
-      {/* Categoría Badge */}
-      <div>
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-950 text-blue-300 border border-blue-800/80 rounded-lg text-xs font-semibold">
-          <Tag className="w-3 h-3 text-blue-400" />
-          {dato.category}
-        </span>
-      </div>
+            <div className="bg-slate-900 rounded-2xl border border-slate-800 p-8 text-center space-y-3">
+              <AlertCircle className="w-6 h-6 text-red-500 mx-auto" />
+              <h2 className="text-base font-bold text-white">
+                {error || t("noDataYet", lang)}
+              </h2>
+              <p className="text-xs text-slate-400">
+                {lang === "en" ? "You can add a new JSON data file in" : "Puedes añadir un nuevo dato JSON en"}{" "}
+                <code className="bg-slate-800 px-1 py-0.5 rounded text-slate-300">data/items/{slug}.json</code>
+              </p>
+            </div>
+          </div>
+        ) : (
+          <article className="space-y-6 animate-in fade-in duration-200">
+            {/* Botón Volver */}
+            <div>
+              <Link
+                href={backUrl}
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 px-3.5 py-2 rounded-full transition-colors shadow-xs"
+              >
+                <ArrowLeft className="w-3.5 h-3.5" />
+                <span>{t("backToExplorer", lang)}</span>
+              </Link>
+            </div>
 
-      {/* 1. La Pregunta (H1) */}
-      <header className="space-y-2">
-        <h1 className="text-xl sm:text-2xl font-bold text-white leading-snug tracking-tight">
-          {dato.question}
-        </h1>
-      </header>
+            {/* Categoría Badge */}
+            <div>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-950 text-blue-300 border border-blue-800/80 rounded-lg text-xs font-semibold">
+                <Tag className="w-3 h-3 text-blue-400" />
+                {translateCategory(dato.category, lang)}
+              </span>
+            </div>
 
-      {/* 2. El Gráfico Interactivo */}
-      <section>
-        <InteractiveChart
-          series={seriesPoints}
-          rawPoints={dato.dataPoints}
-          continentsPoints={(dato as any).continentsDataPoints}
-          chartType={dato.chartType || "line"}
-          unit={dato.unit}
-          item={dato}
-        />
-      </section>
+            {/* 1. La Pregunta (H1) */}
+            <header className="space-y-2">
+              <h1 className="text-xl sm:text-2xl font-bold text-white leading-snug tracking-tight">
+                {dato.question}
+              </h1>
+            </header>
 
-      {/* 3. Trazabilidad y Fuentes Oficiales */}
-      <section>
-        <SourceCard
-          sources={dato.sources}
-          lastUpdated={dato.sources?.[0]?.lastUpdated || dato.last_updated}
-        />
-      </section>
-    </article>
+            {/* 2. El Gráfico Interactivo */}
+            <section>
+              <InteractiveChart
+                series={dato.dataPoints.map((dp) => {
+                  let val = 0;
+                  const rawVal = dp.value as any;
+                  if (typeof rawVal === "number") {
+                    val = rawVal;
+                  } else if (Array.isArray(rawVal)) {
+                    const totalObj = rawVal.find((item: any) => item && typeof item === "object" && "total" in item) || rawVal[0];
+                    val = totalObj ? (Object.values(totalObj)[0] as number) : 0;
+                  }
+                  return {
+                    year: dp.year || dp.date || "",
+                    date: dp.date || dp.year || "",
+                    value: val,
+                  };
+                })}
+                rawPoints={dato.dataPoints}
+                continentsPoints={(dato as any).continentsDataPoints}
+                chartType={dato.chartType || "line"}
+                unit={dato.unit}
+                item={dato}
+              />
+            </section>
+
+            {/* 3. Trazabilidad y Fuentes Oficiales */}
+            <section>
+              <SourceCard
+                sources={dato.sources}
+                lastUpdated={dato.sources?.[0]?.lastUpdated || dato.last_updated}
+              />
+            </section>
+          </article>
+        )}
+      </main>
+      <Footer lang={lang} />
+    </div>
   );
 }
 
@@ -402,6 +411,50 @@ export async function generateStaticParams() {
 export default async function DatoPage({ params }: PageProps) {
   const resolvedParams = await params;
   return <DatoClientView slug={resolvedParams.slug} />;
+}
+
+
+// ==========================================
+// FILE: app/en/dato/[slug]/page.tsx
+// ==========================================
+
+import fs from "node:fs";
+import path from "node:path";
+import DatoClientView from "@/app/dato/[slug]/DatoClientView";
+
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  try {
+    const itemsPath = path.join(process.cwd(), "data", "items.json");
+    if (fs.existsSync(itemsPath)) {
+      const items = JSON.parse(fs.readFileSync(itemsPath, "utf-8"));
+      if (Array.isArray(items) && items.length > 0) {
+        return items.map((item: { id: string }) => ({ slug: item.id }));
+      }
+    }
+  } catch (err) {
+    console.warn("Could not generate static params for items:", err);
+  }
+  return [{ slug: "_none" }];
+}
+
+export default async function EnglishDatoPage({ params }: PageProps) {
+  const resolvedParams = await params;
+  return <DatoClientView slug={resolvedParams.slug} lang="en" />;
+}
+
+
+// ==========================================
+// FILE: app/en/page.tsx
+// ==========================================
+
+import HomeClientView from "@/components/home/HomeClientView";
+
+export default function EnglishHomePage() {
+  return <HomeClientView lang="en" />;
 }
 
 
@@ -488,151 +541,10 @@ export default function NotFound() {
 // FILE: app/page.tsx
 // ==========================================
 
-"use client";
-
-import { useEffect, useState } from "react";
-import { ItemIndexItem, DatoItem, Category } from "@/types";
-import { fetchMetadata, fetchItems, fetchItemDetail } from "@/lib/data-utils";
-import DirectorySection from "@/components/directory/DirectorySection";
-import SearchBar from "@/components/home/SearchBar";
-import { Loader2, Database, BarChart3, ShieldCheck } from "lucide-react";
-
-const CATEGORIES: Category[] = [
-  "Pensiones y Demografía",
-  "Economía y Empleo",
-  "Vivienda",
-  "Sanidad",
-];
+import HomeClientView from "@/components/home/HomeClientView";
 
 export default function HomePage() {
-  const [items, setItems] = useState<ItemIndexItem[]>([]);
-  const [detailsMap, setDetailsMap] = useState<Record<string, DatoItem>>({});
-  const [searchQuery, setSearchQuery] = useState("");
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function loadData() {
-      try {
-        setLoading(true);
-        const indexItems = await fetchItems();
-        setItems(indexItems);
-
-        // Fetch details for all items to power sparklines and precise metadata
-        const details: Record<string, DatoItem> = {};
-        await Promise.all(
-          indexItems.map(async (i) => {
-            const detail = await fetchItemDetail(i.id);
-            if (detail) {
-              details[i.id] = detail;
-            }
-          })
-        );
-        setDetailsMap(details);
-      } catch (err) {
-        console.error("Error cargando directorio:", err);
-      } finally {
-        setLoading(false);
-      }
-    }
-    loadData();
-  }, []);
-
-  const filteredCategories = CATEGORIES.map((category) => {
-    const categoryItems = items.filter((item) => {
-      if (item.category !== category) return false;
-      const q = searchQuery.toLowerCase().trim();
-      if (!q) return true;
-      const detail = detailsMap[item.id];
-      const desc = detail?.contextNotes?.[0] || "";
-      return (
-        item.question.toLowerCase().includes(q) ||
-        item.category.toLowerCase().includes(q) ||
-        item.id.toLowerCase().includes(q) ||
-        desc.toLowerCase().includes(q)
-      );
-    });
-    return { category, items: categoryItems };
-  }).filter((sec) => sec.items.length > 0);
-
-  const scrollToSection = (cat: string) => {
-    const el = document.getElementById(`section-${cat}`);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
-  return (
-    <div className="max-w-[900px] w-full mx-auto px-4 py-8 space-y-8 animate-in fade-in duration-200">
-      {/* Top Editorial Header */}
-      <header className="space-y-4 text-center sm:text-left">
-        <div className="flex items-center justify-center sm:justify-start gap-2">
-          <div className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center shadow-md">
-            <BarChart3 className="w-5 h-5" />
-          </div>
-          <h1 className="text-xl font-bold text-white tracking-tight">
-            Factor<span className="text-blue-400">.es</span>
-          </h1>
-        </div>
-        <p className="text-sm text-slate-400 max-w-xl">
-          Directorio unificado de indicadores oficiales de España. Cifras abreviadas, trazabilidad directa y cero ruido político.
-        </p>
-      </header>
-
-      {/* Navigation Anchor Bar */}
-      <nav className="sticky top-16 z-30 bg-[#070B14]/90 backdrop-blur-md py-3 border-b border-white/[0.06] overflow-x-auto no-scrollbar">
-        <div className="flex items-center gap-2 min-w-max">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => scrollToSection(cat)}
-              className="px-3 py-1.5 rounded-lg text-xs font-bold bg-white/[0.04] hover:bg-white/[0.08] text-slate-300 hover:text-white border border-white/[0.06] transition-colors"
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-      </nav>
-
-      {/* Integrated Search Bar */}
-      <section>
-        <SearchBar value={searchQuery} onChange={setSearchQuery} />
-      </section>
-
-      {/* Main Unified Container */}
-      <main className="space-y-8">
-        {loading ? (
-          <div className="bg-[#0B101D] rounded-2xl border border-slate-800 p-12 text-center space-y-3">
-            <Loader2 className="w-6 h-6 animate-spin text-blue-500 mx-auto" />
-            <p className="text-sm font-semibold text-slate-300">Cargando directorio unificado...</p>
-          </div>
-        ) : filteredCategories.length > 0 ? (
-          <div className="space-y-8">
-            {filteredCategories.map(({ category, items }) => (
-              <DirectorySection
-                key={category}
-                category={category}
-                items={items}
-                detailsMap={detailsMap}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="bg-[#0B101D] rounded-2xl border border-slate-800 p-12 text-center space-y-3">
-            <Database className="w-8 h-8 text-slate-500 mx-auto" />
-            <p className="text-sm font-semibold text-white">
-              No se encontraron indicadores que coincidan con &quot;{searchQuery}&quot;.
-            </p>
-            <button
-              onClick={() => setSearchQuery("")}
-              className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold transition-colors mt-2"
-            >
-              Limpiar búsqueda
-            </button>
-          </div>
-        )}
-      </main>
-    </div>
-  );
+  return <HomeClientView lang="es" />;
 }
 
 
@@ -1721,6 +1633,20 @@ const BLOCK_COLORS: Record<string, string> = {
   oceania: "#64748B", // Slate
 };
 
+const SHORT_BLOCK_NAMES: Record<string, string> = {
+  "america-hispanohablante": "América Hisp.",
+  "america-no-hispanohablante": "América No Hisp.",
+  europa: "Europa",
+  africa: "África",
+  asia: "Asia",
+  oceania: "Oceanía",
+};
+
+function truncateCountryName(name: string, maxLen = 11): string {
+  if (name.length <= maxLen) return name;
+  return name.slice(0, maxLen - 1).trim() + "…";
+}
+
 export default function ConcentricSunburstRanking({
   item,
   activeDataMap,
@@ -1798,7 +1724,9 @@ export default function ConcentricSunburstRanking({
     const cSectors: any[] = [];
 
     blockTotals.forEach((block) => {
-      const angleSpan = (block.total / (filteredTotal || 1)) * (2 * Math.PI);
+      const angleSpan = activeDrillBlockId
+        ? 2 * Math.PI
+        : (block.total / (filteredTotal || 1)) * (2 * Math.PI);
       const startAngle = currentAngle;
       const endAngle = currentAngle + angleSpan;
 
@@ -1808,17 +1736,22 @@ export default function ConcentricSunburstRanking({
       bSectors.push({
         id: block.id,
         name: block.name,
+        shortName: SHORT_BLOCK_NAMES[block.id] || block.name,
         color: block.color,
         value: block.total,
         globalPct,
         startAngle,
         endAngle,
+        angleSpan,
         pathD,
       });
 
       let cCurrentAngle = startAngle;
       block.countries.forEach((country) => {
-        const cAngleSpan = (country.value / (block.total || 1)) * angleSpan;
+        const blockBaseTotal = block.total || 1;
+        const cAngleSpan = activeDrillBlockId
+          ? (country.value / blockBaseTotal) * (2 * Math.PI)
+          : (country.value / blockBaseTotal) * angleSpan;
         const cStartAngle = cCurrentAngle;
         const cEndAngle = cCurrentAngle + cAngleSpan;
 
@@ -1829,6 +1762,7 @@ export default function ConcentricSunburstRanking({
         cSectors.push({
           id: country.id,
           name: country.name,
+          displayName: truncateCountryName(country.name, 11),
           blockId: block.id,
           blockName: block.name,
           color: block.color,
@@ -1837,13 +1771,16 @@ export default function ConcentricSunburstRanking({
           parentPct: cParentPct,
           startAngle: cStartAngle,
           endAngle: cEndAngle,
+          angleSpan: cAngleSpan,
           pathD: cPathD,
         });
 
         cCurrentAngle = cEndAngle;
       });
 
-      currentAngle = endAngle;
+      if (!activeDrillBlockId) {
+        currentAngle = endAngle;
+      }
     });
 
     return { blockSectors: bSectors, countrySectors: cSectors, blockRankings: blockTotals };
@@ -1907,72 +1844,139 @@ export default function ConcentricSunburstRanking({
             {blockSectors.map((sector) => {
               const isHovered = hoveredSector?.id === sector.id;
               const isDrilled = activeDrillBlockId === sector.id;
+              const showLabel = sector.angleSpan >= 0.38;
+
+              const rMidBlock = (80 + 145) / 2; // 112.5
+              const midAngle = (sector.startAngle + sector.endAngle) / 2;
+              const x = 240 + rMidBlock * Math.cos(midAngle);
+              const y = 240 + rMidBlock * Math.sin(midAngle);
 
               return (
-                <path
-                  key={sector.id}
-                  d={sector.pathD}
-                  fill={sector.color}
-                  fillOpacity={isHovered || isDrilled ? 1 : 0.88}
-                  stroke="#060913"
-                  strokeWidth="2.5"
-                  className="cursor-pointer transition-all duration-200 hover:scale-[1.015] origin-center"
-                  onMouseEnter={() =>
-                    setHoveredSector({
-                      type: "block",
-                      name: sector.name,
-                      value: sector.value,
-                      globalPct: sector.globalPct,
-                      color: sector.color,
-                      id: sector.id,
-                    })
-                  }
-                  onMouseLeave={() => setHoveredSector(null)}
-                  onClick={() =>
-                    setActiveDrillBlockId(activeDrillBlockId === sector.id ? null : sector.id)
-                  }
-                >
-                  <title>
-                    {sector.name}: {formatSpanishNumber(sector.value)} ({sector.globalPct.toFixed(1)}%)
-                  </title>
-                </path>
+                <g key={`block-group-${sector.id}`}>
+                  <path
+                    d={sector.pathD}
+                    fill={sector.color}
+                    fillOpacity={isHovered || isDrilled ? 1 : 0.88}
+                    stroke="#060913"
+                    strokeWidth="2.5"
+                    className="cursor-pointer transition-all duration-200 hover:scale-[1.015] origin-center"
+                    onMouseEnter={() =>
+                      setHoveredSector({
+                        type: "block",
+                        name: sector.name,
+                        value: sector.value,
+                        globalPct: sector.globalPct,
+                        color: sector.color,
+                        id: sector.id,
+                      })
+                    }
+                    onMouseLeave={() => setHoveredSector(null)}
+                    onClick={() =>
+                      setActiveDrillBlockId(activeDrillBlockId === sector.id ? null : sector.id)
+                    }
+                  >
+                    <title>
+                      {sector.name}: {formatSpanishNumber(sector.value)} ({sector.globalPct.toFixed(1)}%)
+                    </title>
+                  </path>
+
+                  {showLabel && (
+                    <text
+                      x={x}
+                      y={y}
+                      textAnchor="middle"
+                      dominantBaseline="middle"
+                      className="text-[10px] font-bold fill-white select-none pointer-events-none"
+                      aria-hidden="true"
+                      stroke="#060913"
+                      strokeWidth="2.5"
+                      strokeOpacity="0.8"
+                      paint-order="stroke fill"
+                    >
+                      <tspan x={x} dy="-0.4em">{sector.shortName}</tspan>
+                      <tspan x={x} dy="1.1em">{sector.globalPct.toFixed(1)}%</tspan>
+                    </text>
+                  )}
+                </g>
               );
             })}
 
             {/* Outer Ring (Countries) */}
             {countrySectors.map((sector) => {
-              const isHovered = hoveredSector?.id === sector.id;
+              const isHovered = hoveredSector?.id === sector.id || hoveredCountryId === sector.id;
               const isPinned = pinnedCountryId === sector.id;
+              const showLabel = sector.angleSpan >= 0.21;
+
+              const rMidCountry = (152 + 220) / 2; // 186
+              const midAngle = (sector.startAngle + sector.endAngle) / 2;
+              const x = 240 + rMidCountry * Math.cos(midAngle);
+              const y = 240 + rMidCountry * Math.sin(midAngle);
+
+              const angleDeg = (midAngle * 180) / Math.PI;
+              const isLeftHalf = Math.cos(midAngle) < 0;
+              const textRotation = isLeftHalf ? angleDeg + 180 : angleDeg;
+
+              const hasActiveSelection = hoveredCountryId !== null || pinnedCountryId !== null || hoveredSector !== null;
+              const isSelected = isHovered || isPinned;
 
               return (
-                <path
-                  key={sector.id}
-                  d={sector.pathD}
-                  fill={sector.color}
-                  fillOpacity={isHovered || isPinned ? 1 : 0.8}
-                  stroke="#060913"
-                  strokeWidth="1.5"
-                  className="cursor-pointer transition-all duration-200 hover:scale-[1.02] origin-center"
-                  onMouseEnter={() =>
-                    setHoveredSector({
-                      type: "country",
-                      name: sector.name,
-                      value: sector.value,
-                      globalPct: sector.globalPct,
-                      parentPct: sector.parentPct,
-                      color: sector.color,
-                      id: sector.id,
-                    })
-                  }
-                  onMouseLeave={() => setHoveredSector(null)}
-                  onClick={() =>
-                    setPinnedCountryId(pinnedCountryId === sector.id ? null : sector.id)
-                  }
-                >
-                  <title>
-                    {sector.name}: {formatSpanishNumber(sector.value)} ({sector.globalPct.toFixed(1)}% del total, {sector.parentPct.toFixed(1)}% de {sector.blockName})
-                  </title>
-                </path>
+                <g key={`country-group-${sector.id}`}>
+                  <path
+                    d={sector.pathD}
+                    fill={sector.color}
+                    fillOpacity={isHovered || isPinned ? 1 : 0.8}
+                    stroke="#060913"
+                    strokeWidth="1.5"
+                    className="cursor-pointer transition-all duration-200 hover:scale-[1.02] origin-center"
+                    onMouseEnter={() => {
+                      setHoveredSector({
+                        type: "country",
+                        name: sector.name,
+                        value: sector.value,
+                        globalPct: sector.globalPct,
+                        parentPct: sector.parentPct,
+                        color: sector.color,
+                        id: sector.id,
+                      });
+                      setHoveredCountryId(sector.id);
+                    }}
+                    onMouseLeave={() => {
+                      setHoveredSector(null);
+                      setHoveredCountryId(null);
+                    }}
+                    onClick={() =>
+                      setPinnedCountryId(pinnedCountryId === sector.id ? null : sector.id)
+                    }
+                  >
+                    <title>
+                      {sector.name}: {formatSpanishNumber(sector.value)} ({sector.globalPct.toFixed(1)}% del total, {sector.parentPct.toFixed(1)}% de {sector.blockName})
+                    </title>
+                  </path>
+
+                  {showLabel && (
+                    <text
+                      x={x}
+                      y={y}
+                      textAnchor="middle"
+                      dominantBaseline="middle"
+                      transform={`rotate(${textRotation}, ${x}, ${y})`}
+                      className={`text-[10px] transition-opacity duration-200 select-none pointer-events-none ${
+                        isSelected
+                          ? "opacity-100 font-extrabold"
+                          : hasActiveSelection
+                          ? "opacity-45"
+                          : "opacity-90 font-bold"
+                      } fill-white`}
+                      aria-hidden="true"
+                      stroke="#060913"
+                      strokeWidth="2.5"
+                      strokeOpacity="0.8"
+                      paint-order="stroke fill"
+                    >
+                      {sector.displayName} {sector.globalPct.toFixed(0)}%
+                    </text>
+                  )}
+                </g>
               );
             })}
 
@@ -4740,13 +4744,15 @@ import { formatSpanishCompact, formatSpanishExact } from "./utils";
 import Sparkline from "./Sparkline";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { formatCompactNumber, formatNumber } from "@/lib/i18n";
 
 interface DirectoryRowProps {
   item: ItemIndexItem;
   detail?: DatoItem | null;
+  lang?: "es" | "en";
 }
 
-export default function DirectoryRow({ item, detail }: DirectoryRowProps) {
+export default function DirectoryRow({ item, detail, lang = "es" }: DirectoryRowProps) {
   let latestYear = item.latestYear || "";
   let latestValue = item.latestValue ?? 0;
 
@@ -4763,14 +4769,14 @@ export default function DirectoryRow({ item, detail }: DirectoryRowProps) {
     }
   }
 
-  const compactVal = formatSpanishCompact(latestValue);
-  const exactVal = formatSpanishExact(latestValue);
+  const compactVal = formatCompactNumber(latestValue, lang);
+  const exactVal = formatNumber(latestValue, lang);
   const sourceName = detail?.sources?.[0]?.institution || detail?.source?.institution || "INE";
-  const unit = item.unit || "personas";
+  const unit = item.unit || (lang === "en" ? "people" : "personas");
 
   return (
     <Link
-      href={`/dato/${item.id}`}
+      href={lang === "en" ? `/en/dato/${item.id}` : `/dato/${item.id}`}
       className="group flex flex-col sm:flex-row sm:items-center justify-between py-3.5 px-3 rounded-xl hover:bg-white/[0.02] border-b border-white/[0.06] transition-all cursor-pointer gap-3 sm:gap-4 no-underline"
     >
       {/* Left Editorial Content */}
@@ -4825,12 +4831,14 @@ export default function DirectoryRow({ item, detail }: DirectoryRowProps) {
 import { useState } from "react";
 import { ItemIndexItem, DatoItem, Category } from "@/types";
 import DirectoryRow from "./DirectoryRow";
-import { ChevronDown, ChevronUp, Layers } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import { translateCategory, t } from "@/lib/i18n";
 
 interface DirectorySectionProps {
   category: Category;
   items: ItemIndexItem[];
   detailsMap: Record<string, DatoItem>;
+  lang?: "es" | "en";
 }
 
 const CATEGORY_ICONS: Record<Category, string> = {
@@ -4845,10 +4853,14 @@ export default function DirectorySection({
   category,
   items,
   detailsMap,
+  lang = "es",
 }: DirectorySectionProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   if (items.length === 0) return null;
+
+  const translatedCategoryName = translateCategory(category, lang);
+  const indicatorLabel = items.length === 1 ? t("indicatorCount", lang) : t("indicatorsCount", lang);
 
   return (
     <section id={`section-${category}`} className="scroll-mt-24 space-y-3">
@@ -4860,10 +4872,10 @@ export default function DirectorySection({
         <div className="flex items-center gap-2.5">
           <span className="text-base">{CATEGORY_ICONS[category] || "📁"}</span>
           <h3 className="text-xs font-black uppercase tracking-wider text-[#F1F5F9]">
-            {category}
+            {translatedCategoryName}
           </h3>
           <span className="text-[10px] font-bold text-[#64748B] bg-white/[0.06] px-2 py-0.5 rounded-full">
-            {items.length} {items.length === 1 ? "indicador" : "indicadores"}
+            {items.length} {indicatorLabel}
           </span>
         </div>
 
@@ -4880,6 +4892,7 @@ export default function DirectorySection({
               key={item.id}
               item={item}
               detail={detailsMap[item.id]}
+              lang={lang}
             />
           ))}
         </div>
@@ -5067,6 +5080,176 @@ export default function CountyCard({ county, selectedMetric, metricMeta }: Count
 
 
 // ==========================================
+// FILE: components/home/HomeClientView.tsx
+// ==========================================
+
+"use client";
+
+import { useEffect, useState } from "react";
+import { ItemIndexItem, DatoItem, Category } from "@/types";
+import { fetchItems, fetchItemDetail } from "@/lib/data-utils";
+import DirectorySection from "@/components/directory/DirectorySection";
+import SearchBar from "@/components/home/SearchBar";
+import { Loader2, Database, BarChart3 } from "lucide-react";
+import { t } from "@/lib/i18n";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+
+const CATEGORIES: Category[] = [
+  "Pensiones y Demografía",
+  "Economía y Empleo",
+  "Vivienda",
+  "Sanidad",
+];
+
+interface HomeClientViewProps {
+  lang?: "es" | "en";
+}
+
+export default function HomeClientView({ lang = "es" }: HomeClientViewProps) {
+  const [items, setItems] = useState<ItemIndexItem[]>([]);
+  const [detailsMap, setDetailsMap] = useState<Record<string, DatoItem>>({});
+  const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Update document html lang attribute dynamically
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = lang;
+    }
+  }, [lang]);
+
+  useEffect(() => {
+    async function loadData() {
+      try {
+        setLoading(true);
+        const indexItems = await fetchItems(lang);
+        setItems(indexItems);
+
+        const details: Record<string, DatoItem> = {};
+        await Promise.all(
+          indexItems.map(async (i) => {
+            const detail = await fetchItemDetail(i.id, lang);
+            if (detail) {
+              details[i.id] = detail;
+            }
+          })
+        );
+        setDetailsMap(details);
+      } catch (err) {
+        console.error("Error loading directory:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadData();
+  }, [lang]);
+
+  const filteredCategories = CATEGORIES.map((category) => {
+    const categoryItems = items.filter((item) => {
+      if (item.category !== category) return false;
+      const q = searchQuery.toLowerCase().trim();
+      if (!q) return true;
+      const detail = detailsMap[item.id];
+      const desc = detail?.contextNotes?.[0] || "";
+      return (
+        item.question.toLowerCase().includes(q) ||
+        item.category.toLowerCase().includes(q) ||
+        item.id.toLowerCase().includes(q) ||
+        desc.toLowerCase().includes(q)
+      );
+    });
+    return { category, items: categoryItems };
+  }).filter((sec) => sec.items.length > 0);
+
+  const scrollToSection = (cat: string) => {
+    const el = document.getElementById(`section-${cat}`);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 antialiased selection:bg-blue-600 selection:text-white">
+      <Header lang={lang} />
+      <main className="flex-1 max-w-[900px] w-full mx-auto px-4 py-8 space-y-8 animate-in fade-in duration-200">
+        {/* Top Editorial Header */}
+        <header className="space-y-4 text-center sm:text-left">
+          <div className="flex items-center justify-center sm:justify-start gap-2">
+            <div className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center shadow-md">
+              <BarChart3 className="w-5 h-5" />
+            </div>
+            <h1 className="text-xl font-bold text-white tracking-tight">
+              Factor<span className="text-blue-400">.es</span>
+            </h1>
+          </div>
+          <p className="text-sm text-slate-400 max-w-xl">
+            {t("tagline", lang)}
+          </p>
+        </header>
+
+        {/* Navigation Anchor Bar */}
+        <nav className="sticky top-16 z-30 bg-[#070B14]/90 backdrop-blur-md py-3 border-b border-white/[0.06] overflow-x-auto no-scrollbar">
+          <div className="flex items-center gap-2 min-w-max">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => scrollToSection(cat)}
+                className="px-3 py-1.5 rounded-lg text-xs font-bold bg-white/[0.04] hover:bg-white/[0.08] text-slate-300 hover:text-white border border-white/[0.06] transition-colors"
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </nav>
+
+        {/* Integrated Search Bar */}
+        <section>
+          <SearchBar value={searchQuery} onChange={setSearchQuery} />
+        </section>
+
+        {/* Main Unified Container */}
+        <div className="space-y-8">
+          {loading ? (
+            <div className="bg-[#0B101D] rounded-2xl border border-slate-800 p-12 text-center space-y-3">
+              <Loader2 className="w-6 h-6 animate-spin text-blue-500 mx-auto" />
+              <p className="text-sm font-semibold text-slate-300">{t("loadingDirectory", lang)}</p>
+            </div>
+          ) : filteredCategories.length > 0 ? (
+            <div className="space-y-8">
+              {filteredCategories.map(({ category, items }) => (
+                <DirectorySection
+                  key={category}
+                  category={category}
+                  items={items}
+                  detailsMap={detailsMap}
+                  lang={lang}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="bg-[#0B101D] rounded-2xl border border-slate-800 p-12 text-center space-y-3">
+              <Database className="w-8 h-8 text-slate-500 mx-auto" />
+              <p className="text-sm font-semibold text-white">
+                {t("noResults", lang)} &quot;{searchQuery}&quot;.
+              </p>
+              <button
+                onClick={() => setSearchQuery("")}
+                className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold transition-colors mt-2"
+              >
+                {t("clearSearch", lang)}
+              </button>
+            </div>
+          )}
+        </div>
+      </main>
+      <Footer lang={lang} />
+    </div>
+  );
+}
+
+
+// ==========================================
 // FILE: components/home/QuestionCard.tsx
 // ==========================================
 
@@ -5244,24 +5427,31 @@ export default function TopicFilter({
 
 import Link from "next/link";
 import { ShieldCheck, Mail } from "lucide-react";
+import { t } from "@/lib/i18n";
 
-export default function Footer() {
+interface FooterProps {
+  lang?: "es" | "en";
+}
+
+export default function Footer({ lang = "es" }: FooterProps) {
   return (
     <footer className="border-t border-slate-800 bg-slate-900/90 py-8 px-4 mt-16 text-slate-400 text-xs">
       <div className="max-w-3xl mx-auto flex flex-col gap-4 text-center sm:text-left sm:flex-row sm:justify-between sm:items-center">
         <div className="space-y-1">
           <p className="font-semibold text-slate-200 flex items-center justify-center sm:justify-start gap-1.5">
             <ShieldCheck className="w-4 h-4 text-blue-400 inline" />
-            Transparencia y Neutralidad Radical
+            {lang === "en" ? "Transparency & Radical Neutrality" : "Transparencia y Neutralidad Radical"}
           </p>
           <p className="text-slate-400">
-            Proyecto independiente y sin ánimo de lucro. Fuentes oficiales: INE, CIS, Banco de España y Ministerios.
+            {lang === "en"
+              ? "Independent non-profit project. Official sources: INE, CIS, Bank of Spain & Ministries."
+              : "Proyecto independiente y sin ánimo de lucro. Fuentes oficiales: INE, CIS, Banco de España y Ministerios."}
           </p>
         </div>
         <div className="flex flex-col sm:items-end gap-2 text-slate-400">
           <div className="flex justify-center gap-4">
-            <Link href="/" className="hover:text-white underline">
-              Inicio
+            <Link href={lang === "en" ? "/en" : "/"} className="hover:text-white underline">
+              {lang === "en" ? "Home" : "Inicio"}
             </Link>
           </div>
           <a
@@ -5282,15 +5472,38 @@ export default function Footer() {
 // FILE: components/layout/Header.tsx
 // ==========================================
 
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { BarChart3 } from "lucide-react";
 
-export default function Header() {
+interface HeaderProps {
+  lang?: "es" | "en";
+}
+
+export default function Header({ lang = "es" }: HeaderProps) {
+  const pathname = usePathname() || (lang === "en" ? "/en" : "/");
+
+  const getTogglePath = () => {
+    if (lang === "es") {
+      if (pathname === "/" || pathname === "") return "/en";
+      if (pathname.startsWith("/dato/")) return `/en${pathname}`;
+      return "/en";
+    } else {
+      if (pathname === "/en" || pathname === "/en/") return "/";
+      if (pathname.startsWith("/en/dato/")) return pathname.replace(/^\/en/, "");
+      return "/";
+    }
+  };
+
+  const togglePath = getTogglePath();
+
   return (
     <header className="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 shadow-sm">
       <div className="max-w-3xl mx-auto px-4 h-16 flex items-center justify-between">
         <Link 
-          href="/" 
+          href={lang === "en" ? "/en" : "/"} 
           className="flex items-center gap-2 text-white hover:opacity-80 transition-opacity"
         >
           <div className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-base shadow-md">
@@ -5302,6 +5515,30 @@ export default function Header() {
             </h1>
           </div>
         </Link>
+
+        {/* Language Switcher ES | EN */}
+        <div className="flex items-center gap-1 bg-slate-800/80 p-1 rounded-xl border border-slate-700/60 text-xs font-bold">
+          <Link
+            href={lang === "es" ? "#" : togglePath}
+            className={`px-2.5 py-1 rounded-lg transition-colors ${
+              lang === "es"
+                ? "bg-blue-600 text-white shadow-sm"
+                : "text-slate-400 hover:text-white"
+            }`}
+          >
+            ES
+          </Link>
+          <Link
+            href={lang === "en" ? "#" : togglePath}
+            className={`px-2.5 py-1 rounded-lg transition-colors ${
+              lang === "en"
+                ? "bg-blue-600 text-white shadow-sm"
+                : "text-slate-400 hover:text-white"
+            }`}
+          >
+            EN
+          </Link>
+        </div>
       </div>
     </header>
   );
@@ -5319,9 +5556,12 @@ export const DATA_BASE_URL =
 
 const cleanBaseUrl = DATA_BASE_URL.replace(/\/$/, "");
 
-export async function fetchMetadata(): Promise<GlobalMetadata> {
+export async function fetchMetadata(lang: "es" | "en" = "es"): Promise<GlobalMetadata> {
   try {
-    const res = await fetch(`${cleanBaseUrl}/metadata.json`);
+    let res = await fetch(`${cleanBaseUrl}/${lang}/metadata.json`);
+    if (!res.ok) {
+      res = await fetch(`${cleanBaseUrl}/metadata.json`);
+    }
     if (!res.ok) {
       return { last_updated: new Date().toISOString().split("T")[0], total_items: 0 };
     }
@@ -5332,9 +5572,12 @@ export async function fetchMetadata(): Promise<GlobalMetadata> {
   }
 }
 
-export async function fetchItems(): Promise<ItemIndexItem[]> {
+export async function fetchItems(lang: "es" | "en" = "es"): Promise<ItemIndexItem[]> {
   try {
-    const res = await fetch(`${cleanBaseUrl}/items.json`);
+    let res = await fetch(`${cleanBaseUrl}/${lang}/items.json`);
+    if (!res.ok) {
+      res = await fetch(`${cleanBaseUrl}/items.json`);
+    }
     if (!res.ok) {
       const fallbackRes = await fetch(`${cleanBaseUrl}/counties.json`);
       if (!fallbackRes.ok) return [];
@@ -5358,9 +5601,18 @@ export async function fetchItems(): Promise<ItemIndexItem[]> {
 
 export const fetchCounties = fetchItems;
 
-export async function fetchItemDetail(id: string): Promise<DatoItem | null> {
+export async function fetchItemDetail(id: string, lang: "es" | "en" = "es"): Promise<DatoItem | null> {
   try {
-    let res = await fetch(`${cleanBaseUrl}/items/${id}.json`);
+    let res = await fetch(`${cleanBaseUrl}/${lang}/items/${id}.json`);
+    if (!res.ok && lang === "en") {
+      // Automatic Fallback to Spanish if English translation is missing
+      res = await fetch(`${cleanBaseUrl}/es/items/${id}.json`);
+      if (!res.ok) {
+        res = await fetch(`${cleanBaseUrl}/items/${id}.json`);
+      }
+    } else if (!res.ok) {
+      res = await fetch(`${cleanBaseUrl}/items/${id}.json`);
+    }
     if (!res.ok) {
       res = await fetch(`${cleanBaseUrl}/counties/${id}.json`);
     }
@@ -5436,6 +5688,120 @@ export function getAllCategories(): Category[] {
     "Sanidad",
     "Pensiones y Demografía",
   ];
+}
+
+
+// ==========================================
+// FILE: lib/i18n.ts
+// ==========================================
+
+export type Lang = "es" | "en";
+
+const DICTIONARY: Record<Lang, Record<string, string>> = {
+  es: {
+    appName: "Factor.es",
+    tagline: "Directorio unificado de indicadores oficiales de España. Cifras abreviadas, trazabilidad directa y cero ruido político.",
+    backToExplorer: "Volver al explorador",
+    loadingDirectory: "Cargando directorio unificado...",
+    loadingData: "Cargando dato vía HTTP...",
+    noResults: "No se encontraron indicadores que coincidan con",
+    clearSearch: "Limpiar búsqueda",
+    searchPlaceholder: "Buscar indicador, categoría o término (ej. paro, alquiler)...",
+    sourceTitle: "Fuente Oficial de Datos y Trazabilidad",
+    lastUpdated: "Última actualización",
+    period: "Período",
+    institution: "Institución",
+    officialTable: "Tabla oficial",
+    viewOriginalSource: "Ver fuente original",
+    noDataYet: "No hay datos registrados aún",
+    people: "personas",
+    totalGlobal: "Total Global",
+    continentsTitle: "Continentes (Anillo 1):",
+    showAllContinents: "Mostrar todos los continentes",
+    concentricTitle: "Distribución Concéntrica (Anillo 1: Continentes → Anillo 2: Países)",
+    rankingTitle: "Ranking de Países de Origen por Volumen e Intensidad Geográfica",
+    hoverHint: "Pasa el cursor sobre los anillos concéntricos o haz clic en un continente para filtrar.",
+    indicatorsCount: "indicadores",
+    indicatorCount: "indicador",
+  },
+  en: {
+    appName: "Factor.es",
+    tagline: "Unified directory of official Spanish indicators. Condensed figures, direct traceability, and zero political noise.",
+    backToExplorer: "Back to explorer",
+    loadingDirectory: "Loading unified directory...",
+    loadingData: "Loading data via HTTP...",
+    noResults: "No indicators found matching",
+    clearSearch: "Clear search",
+    searchPlaceholder: "Search indicator, category or term (e.g., unemployment, rent)...",
+    sourceTitle: "Official Data Source & Traceability",
+    lastUpdated: "Last updated",
+    period: "Period",
+    institution: "Institution",
+    officialTable: "Official table",
+    viewOriginalSource: "View original source",
+    noDataYet: "No data registered yet",
+    people: "people",
+    totalGlobal: "Total Global",
+    continentsTitle: "Continents (Ring 1):",
+    showAllContinents: "Show all continents",
+    concentricTitle: "Concentric Distribution (Ring 1: Continents → Ring 2: Countries)",
+    rankingTitle: "Origin Country Ranking by Volume & Geographic Intensity",
+    hoverHint: "Hover over concentric rings or click a continent to filter.",
+    indicatorsCount: "indicators",
+    indicatorCount: "indicator",
+  },
+};
+
+const CATEGORY_TRANSLATIONS: Record<string, Record<Lang, string>> = {
+  "Pensiones y Demografía": {
+    es: "Pensiones y Demografía",
+    en: "Pensions & Demographics",
+  },
+  "Economía y Empleo": {
+    es: "Economía y Empleo",
+    en: "Economy & Employment",
+  },
+  Vivienda: {
+    es: "Vivienda",
+    en: "Housing",
+  },
+  Sanidad: {
+    es: "Sanidad",
+    en: "Healthcare",
+  },
+  Todas: {
+    es: "Todas",
+    en: "All",
+  },
+};
+
+export function t(key: string, lang: Lang = "es"): string {
+  return DICTIONARY[lang]?.[key] || DICTIONARY.es[key] || key;
+}
+
+export function translateCategory(category: string, lang: Lang = "es"): string {
+  return CATEGORY_TRANSLATIONS[category]?.[lang] || category;
+}
+
+export function formatNumber(val: number, lang: Lang = "es"): string {
+  if (lang === "en") {
+    return val.toLocaleString("en-US");
+  }
+  return val.toLocaleString("es-ES");
+}
+
+export function formatCompactNumber(val: number, lang: Lang = "en"): string {
+  if (lang === "en") {
+    if (val >= 1e9) return (val / 1e9).toFixed(1) + "B";
+    if (val >= 1e6) return (val / 1e6).toFixed(1) + "M";
+    if (val >= 1e3) return (val / 1e3).toFixed(1) + "K";
+    return val.toLocaleString("en-US");
+  } else {
+    if (val >= 1e9) return (val / 1e9).toFixed(1).replace(".", ",") + " MM";
+    if (val >= 1e6) return (val / 1e6).toFixed(1).replace(".", ",") + " M";
+    if (val >= 1e3) return Math.round(val / 1e3).toLocaleString("es-ES") + " mil";
+    return val.toLocaleString("es-ES");
+  }
 }
 
 
