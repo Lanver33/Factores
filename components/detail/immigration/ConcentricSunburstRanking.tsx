@@ -29,6 +29,20 @@ const BLOCK_COLORS: Record<string, string> = {
   oceania: "#64748B", // Slate
 };
 
+const SHORT_BLOCK_NAMES: Record<string, string> = {
+  "america-hispanohablante": "América Hisp.",
+  "america-no-hispanohablante": "América No Hisp.",
+  europa: "Europa",
+  africa: "África",
+  asia: "Asia",
+  oceania: "Oceanía",
+};
+
+function truncateCountryName(name: string, maxLen = 11): string {
+  if (name.length <= maxLen) return name;
+  return name.slice(0, maxLen - 1).trim() + "…";
+}
+
 export default function ConcentricSunburstRanking({
   item,
   activeDataMap,
@@ -106,7 +120,9 @@ export default function ConcentricSunburstRanking({
     const cSectors: any[] = [];
 
     blockTotals.forEach((block) => {
-      const angleSpan = (block.total / (filteredTotal || 1)) * (2 * Math.PI);
+      const angleSpan = activeDrillBlockId
+        ? 2 * Math.PI
+        : (block.total / (filteredTotal || 1)) * (2 * Math.PI);
       const startAngle = currentAngle;
       const endAngle = currentAngle + angleSpan;
 
@@ -116,17 +132,22 @@ export default function ConcentricSunburstRanking({
       bSectors.push({
         id: block.id,
         name: block.name,
+        shortName: SHORT_BLOCK_NAMES[block.id] || block.name,
         color: block.color,
         value: block.total,
         globalPct,
         startAngle,
         endAngle,
+        angleSpan,
         pathD,
       });
 
       let cCurrentAngle = startAngle;
       block.countries.forEach((country) => {
-        const cAngleSpan = (country.value / (block.total || 1)) * angleSpan;
+        const blockBaseTotal = block.total || 1;
+        const cAngleSpan = activeDrillBlockId
+          ? (country.value / blockBaseTotal) * (2 * Math.PI)
+          : (country.value / blockBaseTotal) * angleSpan;
         const cStartAngle = cCurrentAngle;
         const cEndAngle = cCurrentAngle + cAngleSpan;
 
@@ -137,6 +158,7 @@ export default function ConcentricSunburstRanking({
         cSectors.push({
           id: country.id,
           name: country.name,
+          displayName: truncateCountryName(country.name, 11),
           blockId: block.id,
           blockName: block.name,
           color: block.color,
@@ -145,13 +167,16 @@ export default function ConcentricSunburstRanking({
           parentPct: cParentPct,
           startAngle: cStartAngle,
           endAngle: cEndAngle,
+          angleSpan: cAngleSpan,
           pathD: cPathD,
         });
 
         cCurrentAngle = cEndAngle;
       });
 
-      currentAngle = endAngle;
+      if (!activeDrillBlockId) {
+        currentAngle = endAngle;
+      }
     });
 
     return { blockSectors: bSectors, countrySectors: cSectors, blockRankings: blockTotals };
@@ -215,72 +240,139 @@ export default function ConcentricSunburstRanking({
             {blockSectors.map((sector) => {
               const isHovered = hoveredSector?.id === sector.id;
               const isDrilled = activeDrillBlockId === sector.id;
+              const showLabel = sector.angleSpan >= 0.38;
+
+              const rMidBlock = (80 + 145) / 2; // 112.5
+              const midAngle = (sector.startAngle + sector.endAngle) / 2;
+              const x = 240 + rMidBlock * Math.cos(midAngle);
+              const y = 240 + rMidBlock * Math.sin(midAngle);
 
               return (
-                <path
-                  key={sector.id}
-                  d={sector.pathD}
-                  fill={sector.color}
-                  fillOpacity={isHovered || isDrilled ? 1 : 0.88}
-                  stroke="#060913"
-                  strokeWidth="2.5"
-                  className="cursor-pointer transition-all duration-200 hover:scale-[1.015] origin-center"
-                  onMouseEnter={() =>
-                    setHoveredSector({
-                      type: "block",
-                      name: sector.name,
-                      value: sector.value,
-                      globalPct: sector.globalPct,
-                      color: sector.color,
-                      id: sector.id,
-                    })
-                  }
-                  onMouseLeave={() => setHoveredSector(null)}
-                  onClick={() =>
-                    setActiveDrillBlockId(activeDrillBlockId === sector.id ? null : sector.id)
-                  }
-                >
-                  <title>
-                    {sector.name}: {formatSpanishNumber(sector.value)} ({sector.globalPct.toFixed(1)}%)
-                  </title>
-                </path>
+                <g key={`block-group-${sector.id}`}>
+                  <path
+                    d={sector.pathD}
+                    fill={sector.color}
+                    fillOpacity={isHovered || isDrilled ? 1 : 0.88}
+                    stroke="#060913"
+                    strokeWidth="2.5"
+                    className="cursor-pointer transition-all duration-200 hover:scale-[1.015] origin-center"
+                    onMouseEnter={() =>
+                      setHoveredSector({
+                        type: "block",
+                        name: sector.name,
+                        value: sector.value,
+                        globalPct: sector.globalPct,
+                        color: sector.color,
+                        id: sector.id,
+                      })
+                    }
+                    onMouseLeave={() => setHoveredSector(null)}
+                    onClick={() =>
+                      setActiveDrillBlockId(activeDrillBlockId === sector.id ? null : sector.id)
+                    }
+                  >
+                    <title>
+                      {sector.name}: {formatSpanishNumber(sector.value)} ({sector.globalPct.toFixed(1)}%)
+                    </title>
+                  </path>
+
+                  {showLabel && (
+                    <text
+                      x={x}
+                      y={y}
+                      textAnchor="middle"
+                      dominantBaseline="middle"
+                      className="text-[10px] font-bold fill-white select-none pointer-events-none"
+                      aria-hidden="true"
+                      stroke="#060913"
+                      strokeWidth="2.5"
+                      strokeOpacity="0.8"
+                      paint-order="stroke fill"
+                    >
+                      <tspan x={x} dy="-0.4em">{sector.shortName}</tspan>
+                      <tspan x={x} dy="1.1em">{sector.globalPct.toFixed(1)}%</tspan>
+                    </text>
+                  )}
+                </g>
               );
             })}
 
             {/* Outer Ring (Countries) */}
             {countrySectors.map((sector) => {
-              const isHovered = hoveredSector?.id === sector.id;
+              const isHovered = hoveredSector?.id === sector.id || hoveredCountryId === sector.id;
               const isPinned = pinnedCountryId === sector.id;
+              const showLabel = sector.angleSpan >= 0.21;
+
+              const rMidCountry = (152 + 220) / 2; // 186
+              const midAngle = (sector.startAngle + sector.endAngle) / 2;
+              const x = 240 + rMidCountry * Math.cos(midAngle);
+              const y = 240 + rMidCountry * Math.sin(midAngle);
+
+              const angleDeg = (midAngle * 180) / Math.PI;
+              const isLeftHalf = Math.cos(midAngle) < 0;
+              const textRotation = isLeftHalf ? angleDeg + 180 : angleDeg;
+
+              const hasActiveSelection = hoveredCountryId !== null || pinnedCountryId !== null || hoveredSector !== null;
+              const isSelected = isHovered || isPinned;
 
               return (
-                <path
-                  key={sector.id}
-                  d={sector.pathD}
-                  fill={sector.color}
-                  fillOpacity={isHovered || isPinned ? 1 : 0.8}
-                  stroke="#060913"
-                  strokeWidth="1.5"
-                  className="cursor-pointer transition-all duration-200 hover:scale-[1.02] origin-center"
-                  onMouseEnter={() =>
-                    setHoveredSector({
-                      type: "country",
-                      name: sector.name,
-                      value: sector.value,
-                      globalPct: sector.globalPct,
-                      parentPct: sector.parentPct,
-                      color: sector.color,
-                      id: sector.id,
-                    })
-                  }
-                  onMouseLeave={() => setHoveredSector(null)}
-                  onClick={() =>
-                    setPinnedCountryId(pinnedCountryId === sector.id ? null : sector.id)
-                  }
-                >
-                  <title>
-                    {sector.name}: {formatSpanishNumber(sector.value)} ({sector.globalPct.toFixed(1)}% del total, {sector.parentPct.toFixed(1)}% de {sector.blockName})
-                  </title>
-                </path>
+                <g key={`country-group-${sector.id}`}>
+                  <path
+                    d={sector.pathD}
+                    fill={sector.color}
+                    fillOpacity={isHovered || isPinned ? 1 : 0.8}
+                    stroke="#060913"
+                    strokeWidth="1.5"
+                    className="cursor-pointer transition-all duration-200 hover:scale-[1.02] origin-center"
+                    onMouseEnter={() => {
+                      setHoveredSector({
+                        type: "country",
+                        name: sector.name,
+                        value: sector.value,
+                        globalPct: sector.globalPct,
+                        parentPct: sector.parentPct,
+                        color: sector.color,
+                        id: sector.id,
+                      });
+                      setHoveredCountryId(sector.id);
+                    }}
+                    onMouseLeave={() => {
+                      setHoveredSector(null);
+                      setHoveredCountryId(null);
+                    }}
+                    onClick={() =>
+                      setPinnedCountryId(pinnedCountryId === sector.id ? null : sector.id)
+                    }
+                  >
+                    <title>
+                      {sector.name}: {formatSpanishNumber(sector.value)} ({sector.globalPct.toFixed(1)}% del total, {sector.parentPct.toFixed(1)}% de {sector.blockName})
+                    </title>
+                  </path>
+
+                  {showLabel && (
+                    <text
+                      x={x}
+                      y={y}
+                      textAnchor="middle"
+                      dominantBaseline="middle"
+                      transform={`rotate(${textRotation}, ${x}, ${y})`}
+                      className={`text-[10px] transition-opacity duration-200 select-none pointer-events-none ${
+                        isSelected
+                          ? "opacity-100 font-extrabold"
+                          : hasActiveSelection
+                          ? "opacity-45"
+                          : "opacity-90 font-bold"
+                      } fill-white`}
+                      aria-hidden="true"
+                      stroke="#060913"
+                      strokeWidth="2.5"
+                      strokeOpacity="0.8"
+                      paint-order="stroke fill"
+                    >
+                      {sector.displayName} {sector.globalPct.toFixed(0)}%
+                    </text>
+                  )}
+                </g>
               );
             })}
 
