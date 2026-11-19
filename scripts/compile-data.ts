@@ -192,9 +192,14 @@ export function compileGeoMap(): void {
   const countries: ProjectedCountry[] = [];
   const rawFeatures = (rawGeo as { features: Array<{ properties: Record<string, any>; geometry: any }> }).features;
 
-  for (const f of rawFeatures) {
+  for (const [fIdx, f] of rawFeatures.entries()) {
     const props = f.properties || {};
-    const iso2 = (props.ISO_A2 !== "-99" ? props.ISO_A2 : props.ISO_A2_EH) || props.POSTAL;
+    const iso2 =
+      (props.ISO_A2 && props.ISO_A2 !== "-99" ? props.ISO_A2 : null) ||
+      (props.ISO_A2_EH && props.ISO_A2_EH !== "-99" ? props.ISO_A2_EH : null) ||
+      (props.ISO_A3 && props.ISO_A3 !== "-99" ? props.ISO_A3 : null) ||
+      props.POSTAL ||
+      `FEATURE_${fIdx}`;
     if (!iso2) continue;
 
     const pathD = pathGenerator(f as any);

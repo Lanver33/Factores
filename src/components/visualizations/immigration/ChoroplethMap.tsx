@@ -160,8 +160,10 @@ export default function ChoroplethMap({
           {/* Map Content Group Transform */}
           <g
             transform={`translate(${pan.x} ${pan.y}) scale(${zoom})`}
-            transform-origin="center"
-            style={{ transition: isPointerDown ? "none" : "transform 0.15s ease-out" }}
+            style={{
+              transformOrigin: "center",
+              transition: isPointerDown ? "none" : "transform 0.15s ease-out",
+            }}
           >
             {/* Graticule lines */}
             {graticulePath && (
