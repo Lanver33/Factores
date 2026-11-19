@@ -1,6 +1,8 @@
 "use client";
 
 import type { DatoItem, Lang } from "@/types";
+import { ConceptGuideProvider } from "./guide/ConceptGuideContext";
+import ConceptGuideSection from "./guide/ConceptGuideSection";
 import ChartRenderer from "./ChartRenderer";
 import ContextNotesCard from "./ContextNotesCard";
 import SourceCard from "./SourceCard";
@@ -13,18 +15,26 @@ interface DatoClientViewProps {
 
 export function DatoClientView({ dato, lang, locale = "es" }: DatoClientViewProps) {
   const activeLang = lang || locale || "es";
+  const notesArray = Array.isArray(dato.contextNotes)
+    ? dato.contextNotes
+    : typeof dato.contextNotes === "object" && dato.contextNotes !== null
+    ? dato.contextNotes[activeLang] || dato.contextNotes.es
+    : [];
 
   return (
-    <div className="space-y-6">
-      <ChartRenderer item={dato} lang={activeLang} locale={activeLang} />
-      <ContextNotesCard notes={dato.contextNotes} lang={activeLang} locale={activeLang} />
-      <SourceCard
-        sources={dato.sources || (dato.source ? [dato.source] : [])}
-        lastUpdated={dato.lastUpdated || dato.last_updated}
-        lang={activeLang}
-        locale={activeLang}
-      />
-    </div>
+    <ConceptGuideProvider guide={dato.conceptGuide}>
+      <div className="space-y-6">
+        <ChartRenderer item={dato} lang={activeLang} locale={activeLang} />
+        {dato.conceptGuide && <ConceptGuideSection lang={activeLang} />}
+        <ContextNotesCard notes={notesArray} lang={activeLang} locale={activeLang} />
+        <SourceCard
+          sources={dato.sources || (dato.source ? [dato.source] : [])}
+          lastUpdated={dato.lastUpdated || dato.last_updated}
+          lang={activeLang}
+          locale={activeLang}
+        />
+      </div>
+    </ConceptGuideProvider>
   );
 }
 

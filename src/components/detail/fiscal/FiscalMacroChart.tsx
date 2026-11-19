@@ -32,6 +32,7 @@ import {
   getTaxonColor,
 } from "./fiscalPalette";
 import { t } from "@/lib/i18n";
+import ConceptHelpTrigger from "@/components/detail/guide/ConceptHelpTrigger";
 
 interface FiscalMacroChartProps {
   balances: AnnualBalanceRecord[];
@@ -171,9 +172,11 @@ export function FiscalMacroChart({
         <div>
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <span>{t("historicalEvolution", lang)}</span>
+            <ConceptHelpTrigger code="SEC2010" lang={lang} />
           </h3>
-          <p className="text-xs text-slate-400 mt-0.5">
-            {t("clickYearHint", lang)}
+          <p className="text-xs text-slate-400 mt-0.5 flex items-center gap-1.5">
+            <span>{t("clickYearHint", lang)}</span>
+            {activeTab === "exp-comp" && <ConceptHelpTrigger code="COFOG" lang={lang} />}
           </p>
         </div>
 

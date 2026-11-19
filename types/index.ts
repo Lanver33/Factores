@@ -48,12 +48,45 @@ export interface BaseEntityItem {
   state?: string;
 }
 
+export interface KeyConceptCard {
+  id: string;
+  badge: string;
+  title: string;
+  summary: string;
+  example?: string;
+}
+
+export interface GlossaryCategory {
+  id: string;
+  label: string;
+}
+
+export interface GlossaryTerm {
+  code: string;
+  displayCode: string;
+  categoryId: string;
+  title: string;
+  shortDefinition: string;
+  explanation: string;
+  keyNote?: string;
+  relatedCodes?: string[];
+}
+
+export interface ConceptGuide {
+  title: string;
+  subtitle: string;
+  quickKeys: KeyConceptCard[];
+  categories: GlossaryCategory[];
+  terms: GlossaryTerm[];
+}
+
 export interface DatoItem extends BaseEntityItem, TraceableSource {
   chartType: ChartType;
   dataPoints: DataPoint[];
   contextNotes: string[];
+  conceptGuide?: ConceptGuide;
   last_updated?: string;
-  metrics?: Record<string, any>;
+  metrics?: Record<string, unknown>;
 }
 
 export type CountyDetail = DatoItem;

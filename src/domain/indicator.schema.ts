@@ -38,6 +38,38 @@ export const ValueFormatSchema = z.enum([
 ]);
 export type ValueFormat = z.infer<typeof ValueFormatSchema>;
 
+export const ConceptGuideSchema = z.object({
+  title: z.string().min(1),
+  subtitle: z.string().min(1),
+  quickKeys: z.array(
+    z.object({
+      id: z.string(),
+      badge: z.string(),
+      title: z.string(),
+      summary: z.string(),
+      example: z.string().optional(),
+    })
+  ),
+  categories: z.array(
+    z.object({
+      id: z.string(),
+      label: z.string(),
+    })
+  ),
+  terms: z.array(
+    z.object({
+      code: z.string(),
+      displayCode: z.string(),
+      categoryId: z.string(),
+      title: z.string(),
+      shortDefinition: z.string(),
+      explanation: z.string(),
+      keyNote: z.string().optional(),
+      relatedCodes: z.array(z.string()).optional(),
+    })
+  ),
+});
+
 export const BaseIndicatorSchema = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
   category: CategorySchema,
@@ -48,6 +80,7 @@ export const BaseIndicatorSchema = z.object({
     es: z.array(z.string().min(1)),
     en: z.array(z.string().min(1)),
   }),
+  conceptGuide: ConceptGuideSchema.optional(),
   sources: z.array(SourceSchema).min(1),
   lastUpdated: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
 });

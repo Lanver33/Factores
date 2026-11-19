@@ -55,6 +55,33 @@ function validateAndBuildIndex() {
       }
     }
 
+    if (item.conceptGuide) {
+      const g = item.conceptGuide;
+      if (!g.title || typeof g.title !== "string" || g.title.trim() === "") {
+        throw new Error(`Item ${file} conceptGuide.title must be a non-empty string.`);
+      }
+      if (!Array.isArray(g.terms)) {
+        throw new Error(`Item ${file} conceptGuide.terms must be an array.`);
+      }
+      const categoryIds = new Set(Array.isArray(g.categories) ? g.categories.map((c) => c.id) : []);
+      const seenCodes = new Set();
+      for (const t of g.terms) {
+        if (!t.code || typeof t.code !== "string" || t.code.trim() === "") {
+          throw new Error(`Term in ${file} missing non-empty code.`);
+        }
+        if (seenCodes.has(t.code)) {
+          throw new Error(`Duplicate term code '${t.code}' in ${file} conceptGuide.`);
+        }
+        seenCodes.add(t.code);
+        if (!t.displayCode || !t.title || !t.shortDefinition || !t.explanation) {
+          throw new Error(`Term '${t.code}' in ${file} is missing required strings (displayCode, title, shortDefinition, explanation).`);
+        }
+        if (t.categoryId && !categoryIds.has(t.categoryId)) {
+          throw new Error(`Term '${t.code}' in ${file} references unknown categoryId '${t.categoryId}'.`);
+        }
+      }
+    }
+
     const points = item.dataPoints || (item.metrics && Object.values(item.metrics)[0]?.series);
     if (!Array.isArray(points) || points.length === 0) {
       throw new Error(`Item ${file} must have a non-empty dataPoints or series array.`);

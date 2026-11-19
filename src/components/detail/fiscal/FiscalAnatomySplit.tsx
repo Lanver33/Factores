@@ -11,6 +11,7 @@ import {
 } from "./fiscalSelectors";
 import { getTaxonColor, DEFICIT_BRIDGE, SURPLUS_BRIDGE } from "./fiscalPalette";
 import { t } from "@/lib/i18n";
+import ConceptHelpTrigger from "@/components/detail/guide/ConceptHelpTrigger";
 
 interface FiscalAnatomySplitProps {
   record: AnnualBalanceRecord;
@@ -155,6 +156,7 @@ export function FiscalAnatomySplit({
                       <span className="text-[10px] font-mono text-slate-400 px-1.5 py-0.5 bg-slate-800 rounded">
                         {item.code}
                       </span>
+                      <ConceptHelpTrigger code={item.code} lang={lang} />
                     </div>
 
                     <div className="text-right shrink-0 font-mono tabular-nums text-xs">
@@ -191,6 +193,7 @@ export function FiscalAnatomySplit({
                               [{child.code}]
                             </span>
                             <span className="truncate">{child.label}</span>
+                            <ConceptHelpTrigger code={child.code} lang={lang} />
                           </div>
                           <div className="text-right text-slate-300 shrink-0 text-[11px]">
                             <span>
@@ -333,6 +336,7 @@ export function FiscalAnatomySplit({
                         <span className="text-[10px] font-mono text-slate-400 px-1.5 py-0.5 bg-slate-800 rounded">
                           {item.code}
                         </span>
+                        <ConceptHelpTrigger code={item.code} lang={lang} />
                       </div>
 
                       <div className="text-right shrink-0 font-mono tabular-nums text-xs">
@@ -369,6 +373,7 @@ export function FiscalAnatomySplit({
                                 [{child.code}]
                               </span>
                               <span className="truncate">{child.label}</span>
+                              <ConceptHelpTrigger code={child.code} lang={lang} />
                             </div>
                             <div className="text-right text-slate-300 shrink-0 text-[11px]">
                               <span>

@@ -331,7 +331,7 @@ def build_cuentas_publicas_payload(
     return payload_out
 
 
-def run_pipeline(config_path: Path, output_path: Path, dry_run: bool = False) -> dict:
+def run_pipeline(config_path: Path, output_path: Path, dry_run: bool = False, guide_path: Optional[Path] = None) -> dict:
     config = load_config(config_path)
     base_url = config["apiBaseUrl"]
     datasets_cfg = config["datasets"]
@@ -343,6 +343,23 @@ def run_pipeline(config_path: Path, output_path: Path, dry_run: bool = False) ->
 
     print("\n[2/3] ⚖️ Procesando, reconciliando y aplicando identidades contables SEC 2010...")
     payload = build_cuentas_publicas_payload(config, ds_main, ds_tax, ds_exp)
+
+    # Attach concept guide if provided and exists
+    if guide_path and guide_path.exists():
+        with open(guide_path, "r", encoding="utf-8") as f:
+            guide_json = json.load(f)
+        categories = {c["id"] for c in guide_json.get("categories", [])}
+        seen_codes = set()
+        for term in guide_json.get("terms", []):
+            code = term.get("code")
+            if not code or code in seen_codes:
+                raise ValueError(f"Código de concepto duplicado o inválido en guía: {code}")
+            seen_codes.add(code)
+            cat_id = term.get("categoryId")
+            if cat_id not in categories:
+                raise ValueError(f"Categoría inválida '{cat_id}' en término {code}")
+        payload["conceptGuide"] = guide_json
+        print(f"      ✓ Guía conceptual adjuntada correctamente ({len(guide_json.get('terms', []))} términos).")
 
     print(f"      ✓ Reconciliación exitosa para {len(payload['dataPoints'])} años ({payload['dataPoints'][0]['year']}–{payload['dataPoints'][-1]['year']}).")
     latest_pt = payload['dataPoints'][-1]
@@ -370,13 +387,14 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Pipeline de Ingesta: Cuentas Públicas de España (Eurostat ESA 2010)")
     parser.add_argument("--config", default="scrapers/config/cuentas_publicas_sources.json", type=Path, help="Ruta al archivo de configuración de fuentes")
+    parser.add_argument("--guide", default="scrapers/config/cuentas_publicas_guide.json", type=Path, help="Ruta al archivo de guía conceptual")
     parser.add_argument("--output", default="staging/items/cuentas-publicas-espana.json", type=Path, help="Ruta de salida en staging")
     parser.add_argument("--dry-run", action="store_true", help="Ejecuta descarga y reconciliación sin escribir en disco")
 
     args = parser.parse_args()
 
     try:
-        run_pipeline(args.config, args.output, dry_run=args.dry_run)
+        run_pipeline(args.config, args.output, dry_run=args.dry_run, guide_path=args.guide)
     except Exception as e:
         print(f"\n❌ ERROR CRÍTICO EN PIPELINE DE CUENTAS PÚBLICAS: {e}", file=sys.stderr)
         import traceback

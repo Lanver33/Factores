@@ -9,6 +9,7 @@ import {
   formatFiscalDelta,
 } from "./fiscalSelectors";
 import { t } from "@/lib/i18n";
+import ConceptHelpTrigger from "@/components/detail/guide/ConceptHelpTrigger";
 
 interface FiscalControlBarProps {
   balances: AnnualBalanceRecord[];
@@ -76,17 +77,17 @@ export function FiscalControlBar({
         <div
           role="group"
           aria-label="Selección de unidad fiscal"
-          className="inline-flex p-1 bg-slate-950 border border-slate-800 rounded-xl"
+          className="inline-flex items-center p-1 bg-slate-950 border border-slate-800 rounded-xl"
         >
           <button
             onClick={() => onSelectUnit("PC_GDP")}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+            className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all inline-flex items-center gap-1 ${
               unit === "PC_GDP"
                 ? "bg-blue-600 text-white shadow-sm"
                 : "text-slate-400 hover:text-slate-200"
             }`}
           >
-            {t("unitPcGdp", lang)}
+            <span>{t("unitPcGdp", lang)}</span>
           </button>
           <button
             onClick={() => onSelectUnit("MIO_EUR")}
@@ -98,6 +99,8 @@ export function FiscalControlBar({
           >
             {t("unitMioEur", lang)}
           </button>
+          <ConceptHelpTrigger code="PC_GDP" lang={lang} className="ml-1.5" />
+          <ConceptHelpTrigger code="S13" lang={lang} className="ml-1" />
         </div>
 
         {/* Year Stepper */}
@@ -142,8 +145,9 @@ export function FiscalControlBar({
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         {/* KPI 1: Revenues */}
         <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-3.5 space-y-1">
-          <div className="text-[11px] font-semibold tracking-wider text-slate-400 uppercase">
-            {t("totalRevenue", lang)}
+          <div className="text-[11px] font-semibold tracking-wider text-slate-400 uppercase flex items-center justify-between">
+            <span>{t("totalRevenue", lang)}</span>
+            <ConceptHelpTrigger code="TR" lang={lang} />
           </div>
           <div className="text-xl sm:text-2xl font-bold text-sky-400 font-mono tabular-nums">
             {formatFiscalValue(revVal, unit, lang, { compact: true })}
@@ -160,8 +164,9 @@ export function FiscalControlBar({
 
         {/* KPI 2: Expenditures */}
         <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-3.5 space-y-1">
-          <div className="text-[11px] font-semibold tracking-wider text-slate-400 uppercase">
-            {t("totalExpenditure", lang)}
+          <div className="text-[11px] font-semibold tracking-wider text-slate-400 uppercase flex items-center justify-between">
+            <span>{t("totalExpenditure", lang)}</span>
+            <ConceptHelpTrigger code="TE" lang={lang} />
           </div>
           <div className="text-xl sm:text-2xl font-bold text-indigo-400 font-mono tabular-nums">
             {formatFiscalValue(expVal, unit, lang, { compact: true })}
@@ -183,8 +188,9 @@ export function FiscalControlBar({
           }`}
         >
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-semibold tracking-wider text-slate-400 uppercase">
-              {t("fiscalBalance", lang)}
+            <span className="text-[11px] font-semibold tracking-wider text-slate-400 uppercase flex items-center gap-1">
+              <span>{t("fiscalBalance", lang)}</span>
+              <ConceptHelpTrigger code="B9" lang={lang} />
             </span>
             <span
               className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold ${
