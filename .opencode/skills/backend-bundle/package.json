@@ -1,0 +1,8 @@
+{
+  "name": "backend-bundle",
+  "version": "1.0.0",
+  "description": "Skill para empaquetar y consolidar el código fuente del backend y la estructura de directorios en backend-bundle.txt",
+  "scripts": {
+    "bundle": "node -e \"const fs = require('fs'), path = require('path'), root = process.env.INIT_CWD || path.resolve(__dirname, '../../..'), targetDir = path.resolve(root, 'backend'); function walk(dir, fileList = []) { fs.readdirSync(dir).forEach(file => { const filePath = path.join(dir, file); if (fs.statSync(filePath).isDirectory()) { walk(filePath, fileList); } else if (!filePath.includes('__pycache__')) { fileList.push(filePath); } }); return fileList; } const files = walk(targetDir); let out = '=== BACKEND BUNDLE ===\\n'; files.forEach(f => { const relPath = path.relative(root, f); out += '\\n--- FILE: ' + relPath + ' ---\\n' + fs.readFileSync(f, 'utf-8'); }); fs.writeFileSync(path.resolve(root, 'backend-bundle.txt'), out); console.log('backend-bundle.txt generated successfully.');\""
+  }
+}

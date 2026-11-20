@@ -1,0 +1,8 @@
+{
+  "name": "frontend-structure-bundle",
+  "version": "1.0.0",
+  "description": "Skill para empaquetar la estructura de directorios y archivos de frontend omitiendo los archivos JSON en frontend-structure-bundle.txt",
+  "scripts": {
+    "bundle": "node -e \"const fs = require('fs'), path = require('path'), root = process.env.INIT_CWD || path.resolve(__dirname, '../../..'), targetDir = path.resolve(root, 'frontend'); const ignoredDirs = ['node_modules', '.next', 'out', 'dist', '.turbo', '.git', '.vitest-cache', '__pycache__']; function walk(dir, fileList = []) { fs.readdirSync(dir).forEach(file => { if (ignoredDirs.includes(file)) return; const filePath = path.join(dir, file); if (fs.statSync(filePath).isDirectory()) { walk(filePath, fileList); } else if (!filePath.endsWith('.json')) { fileList.push(filePath); } }); return fileList; } const files = walk(targetDir); let out = '=== FRONTEND STRUCTURE BUNDLE ===\\n'; files.forEach(f => { const relPath = path.relative(root, f); out += '\\n--- FILE: ' + relPath + ' ---\\n' + fs.readFileSync(f, 'utf-8'); }); fs.writeFileSync(path.resolve(root, 'frontend-structure-bundle.txt'), out); console.log('frontend-structure-bundle.txt generated successfully.');\""
+  }
+}

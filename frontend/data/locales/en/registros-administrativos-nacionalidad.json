@@ -1,0 +1,37 @@
+{
+  "question": "How many foreign Social Security affiliates, salaried workers, unemployment recipients, and pensioners are recorded by Spain's tax, INE, and Social Security registers?",
+  "unit": "foreign affiliates",
+  "contextNotes": [
+    "Data sourced directly from official Spanish administrative registers: tax withholding filings (AEAT Form 190), Social Security affiliation records (TGSS), and INE Social Security status cross-tabulations (Table 48951), without synthetic imputations.",
+    "AEAT figures for salaried workers and unemployment benefit recipients report both headcounts and gross annual amounts by nationality.",
+    "Because AEAT does not publish euro pension expenditure by nationality, contributory pensioner headcounts split by Spanish vs. foreign nationality are sourced from INE Table 48951.",
+    "TGSS figures reflect foreign nationals actively registered with Social Security on the last day of the latest available reference period for each year."
+  ],
+  "sources": [
+    {
+      "institution": "Agencia Estatal de Administración Tributaria (AEAT)",
+      "shortName": "AEAT",
+      "title": "Mercado de trabajo y pensiones en las fuentes tributarias (Nacionalidad y Sexo)",
+      "period": "2014–2025",
+      "lastUpdated": "2026-11-20",
+      "url": "https://sede.agenciatributaria.gob.es/AEAT/Contenidos_Comunes/La_Agencia_Tributaria/Estadisticas/Publicaciones/sites/mercado/mercado.html"
+    },
+    {
+      "institution": "Tesorería General de la Seguridad Social (TGSS)",
+      "shortName": "TGSS",
+      "title": "Afiliados extranjeros a la Seguridad Social (último día del período por país y régimen)",
+      "period": "2014–2026",
+      "lastUpdated": "2026-11-20",
+      "url": "https://w6.seg-social.es/PXWeb/sq/5724c901-f5c9-42d8-9d13-26506ee6a261"
+    },
+    {
+      "institution": "Instituto Nacional de Estadística (INE)",
+      "shortName": "INE",
+      "title": "Personas según situación en la Seguridad Social por nacionalidad (Pensión contributiva)",
+      "tableId": "48951",
+      "period": "2016–2024",
+      "lastUpdated": "2026-11-20",
+      "url": "https://www.ine.es/jaxi/Tabla.htm?tpx=48951&L=0"
+    }
+  ]
+}

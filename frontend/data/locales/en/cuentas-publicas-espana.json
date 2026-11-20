@@ -1,0 +1,546 @@
+{
+  "question": "How are revenues, public spending by function, and fiscal balance composed in Spain?",
+  "unit": "% of GDP",
+  "contextNotes": [
+    "Consolidated historical series of General Government Main Aggregates (S.13) according to ESA 2010.",
+    "Tax revenue data is sourced from annual and quarterly national accounts published by IGAE and Eurostat.",
+    "Spending by function (COFOG) is published with a one-year lag relative to general accounts."
+  ],
+  "sources": [
+    {
+      "institution": "Eurostat / IGAE",
+      "title": "General Government Main Aggregates (ESA 2010)",
+      "shortName": "Eurostat gov_10a_main"
+    }
+  ],
+  "conceptGuide": {
+    "title": "Guía para entender las Cuentas Públicas",
+    "subtitle": "Definiciones técnicas neutras para interpretar los ingresos, el gasto funcional y el saldo fiscal de España bajo la metodología europea SEC 2010.",
+    "quickKeys": [
+      {
+        "id": "key-gdp",
+        "badge": "% del PIB vs. M€",
+        "title": "¿Por qué se comparan los datos en % del PIB?",
+        "summary": "A lo largo de 30 años, los millones de euros nominales crecen simplemente por la inflación y el aumento del tamaño de la economía. Medir ingresos y gastos como porcentaje del PIB permite comparar 1995 y 2024 en igualdad de condiciones.",
+        "example": "Un gasto de 100.000 M€ representaba más del 20% del PIB en 1995, pero menos del 7% del PIB en 2024."
+      },
+      {
+        "id": "key-flow-stock",
+        "badge": "Flujo vs. Stock",
+        "title": "Déficit público no es lo mismo que deuda pública",
+        "summary": "El saldo fiscal (B.9) mide el flujo de un único año: la diferencia entre lo que entra y lo que sale ese ejercicio. La deuda pública es el stock acumulado de déficits pasados pendientes de amortizar.",
+        "example": "Reducir el déficit de -5% a -3% del PIB significa que el desajuste anual es menor, aunque la deuda total siga aumentando en euros mientras el saldo sea negativo."
+      },
+      {
+        "id": "key-s13",
+        "badge": "Consolidado S.13",
+        "title": "Incluye Estado, CCAA, Ayuntamientos y Seguridad Social",
+        "summary": "El sector S.13 agrupa a todas las Administraciones Públicas españolas de forma consolidada. Las transferencias internas entre administraciones se compensan para no contabilizar dos veces el mismo euro.",
+        "example": "Aunque la mayor parte de Sanidad y Educación la ejecutan las Comunidades Autónomas, aquí aparecen agregadas junto a las pensiones de la Seguridad Social y el gasto del Estado central."
+      },
+      {
+        "id": "key-accrual",
+        "badge": "Devengo SEC 2010",
+        "title": "Por qué estas cifras difieren de la recaudación de caja de la AEAT",
+        "summary": "Eurostat y la IGAE aplican el principio de devengo (SEC 2010): los impuestos y gastos se imputan al año en que se genera la obligación económica, no necesariamente al día en que entra o sale el dinero de la tesorería.",
+        "example": "Una devolución de IRPF pagada en primavera del año siguiente se ajusta contablemente al ejercicio fiscal correspondiente."
+      }
+    ],
+    "categories": [
+      {
+        "id": "fundamentals",
+        "label": "Conceptos generales"
+      },
+      {
+        "id": "revenues",
+        "label": "Ingresos e impuestos"
+      },
+      {
+        "id": "expenditures",
+        "label": "Gasto por función (COFOG)"
+      }
+    ],
+    "terms": [
+      {
+        "code": "SEC2010",
+        "displayCode": "SEC 2010",
+        "categoryId": "fundamentals",
+        "title": "Sistema Europeo de Cuentas (ESA 2010 / SEC 2010)",
+        "shortDefinition": "Marco contable obligatorio en la UE que garantiza series fiscales homogéneas entre países y años.",
+        "explanation": "Es el estándar estadístico europeo aplicado por la IGAE y auditado por Eurostat. Permite comparar las cuentas públicas españolas con una metodología uniforme desde 1995 hasta la actualidad sin rupturas de serie.",
+        "relatedCodes": [
+          "S13",
+          "B9"
+        ]
+      },
+      {
+        "code": "S13",
+        "displayCode": "S.13",
+        "categoryId": "fundamentals",
+        "title": "Sector Administraciones Públicas (consolidado)",
+        "shortDefinition": "Conjunto de Administración Central, Comunidades Autónomas, Corporaciones Locales y Seguridad Social.",
+        "explanation": "Reúne los cuatro subsectores públicos no empresariales de España. Al presentarse consolidado, se eliminan las transferencias entre niveles administrativos (por ejemplo, entregas a cuenta del Estado a las CCAA) para reflejar únicamente los ingresos procedentes de la economía y el gasto final.",
+        "relatedCodes": [
+          "TR",
+          "TE"
+        ]
+      },
+      {
+        "code": "PC_GDP",
+        "displayCode": "% PIB",
+        "categoryId": "fundamentals",
+        "title": "Porcentaje del Producto Interior Bruto",
+        "shortDefinition": "Proporción que representa una partida pública respecto al valor total de la economía española en ese año.",
+        "explanation": "Divide los millones de euros de cada ingreso o gasto entre el PIB nominal de España del mismo ejercicio. Las variaciones interanuales o entre décadas se expresan en puntos porcentuales del PIB (pp).",
+        "keyNote": "Pasar de 40% a 42% del PIB equivale a una subida de +2,0 puntos porcentuales (pp), no de un +2%.",
+        "relatedCodes": [
+          "TR",
+          "TE"
+        ]
+      },
+      {
+        "code": "TR",
+        "displayCode": "TR",
+        "categoryId": "fundamentals",
+        "title": "Total de Ingresos Públicos",
+        "shortDefinition": "Suma de impuestos, cotizaciones sociales y otros ingresos no tributarios recaudados por el sector S.13.",
+        "explanation": "Incluye los impuestos indirectos (D.2), impuestos directos (D.5), cotizaciones sociales (D.61), impuestos sobre el capital (D.91) y los ingresos no tributarios como tasas, ventas de servicios, rentas patrimoniales y fondos de la Unión Europea.",
+        "relatedCodes": [
+          "TE",
+          "B9",
+          "NON_TAX_RESIDUAL"
+        ]
+      },
+      {
+        "code": "TE",
+        "displayCode": "TE",
+        "categoryId": "fundamentals",
+        "title": "Total de Gastos Públicos",
+        "shortDefinition": "Suma consolidada de todos los gastos corrientes y de capital de las Administraciones Públicas.",
+        "explanation": "Abarca prestaciones sociales (pensiones, desempleo), remuneración de empleados públicos, consumos intermedios, inversiones en infraestructuras, subvenciones y el pago de intereses de la deuda pública.",
+        "keyNote": "El total TE de gov_10a_main coincide con la suma de las 10 divisiones funcionales COFOG (GF01 a GF10).",
+        "relatedCodes": [
+          "TR",
+          "B9",
+          "COFOG"
+        ]
+      },
+      {
+        "code": "B9",
+        "displayCode": "B.9",
+        "categoryId": "fundamentals",
+        "title": "Saldo Fiscal (Capacidad o Necesidad de Financiación)",
+        "shortDefinition": "Resultado anual de restar el Total de Gastos (TE) al Total de Ingresos (TR).",
+        "explanation": "En Contabilidad Nacional se denomina código B.9. Un valor negativo indica necesidad de financiación (déficit público: los gastos superan a los ingresos). Un valor positivo indica capacidad de financiación (superávit público).",
+        "keyNote": "En el diagrama de flujo, el déficit aparece como puente en el lado de ingresos y el superávit como puente en el lado de gastos para equilibrar contablemente ambas columnas.",
+        "relatedCodes": [
+          "TR",
+          "TE"
+        ]
+      },
+      {
+        "code": "D2",
+        "displayCode": "D.2",
+        "categoryId": "revenues",
+        "title": "Impuestos sobre la producción e importaciones (Indirectos)",
+        "shortDefinition": "Tributos que gravan el consumo de bienes y servicios o la actividad productiva, encabezados por el IVA.",
+        "explanation": "Agrupa el IVA (D.211), los impuestos especiales sobre hidrocarburos, tabaco, alcohol o electricidad y transmisiones patrimoniales (D.214), aranceles (D.212) y otros tributos sobre la producción como el IBI o el IAE (D.29).",
+        "relatedCodes": [
+          "D211",
+          "D214",
+          "D5"
+        ]
+      },
+      {
+        "code": "D211",
+        "displayCode": "D.211",
+        "categoryId": "revenues",
+        "title": "Impuesto sobre el Valor Añadido (IVA)",
+        "shortDefinition": "Principal impuesto indirecto que grava el consumo final de bienes y servicios.",
+        "explanation": "Recoge la recaudación neta de IVA atribuida al sector S.13 nacional bajo criterio SEC 2010.",
+        "relatedCodes": [
+          "D2"
+        ]
+      },
+      {
+        "code": "D214",
+        "displayCode": "D.214",
+        "categoryId": "revenues",
+        "title": "Impuestos especiales y otros sobre productos",
+        "shortDefinition": "Impuestos sobre hidrocarburos, tabaco, alcohol, electricidad, seguros y transmisiones patrimoniales (ITP/AJD).",
+        "explanation": "Incluye tanto los impuestos especiales armonizados en la UE como otros gravámenes autonómicos o estatales vinculados a transacciones de productos específicos.",
+        "relatedCodes": [
+          "D2"
+        ]
+      },
+      {
+        "code": "D5",
+        "displayCode": "D.5",
+        "categoryId": "revenues",
+        "title": "Impuestos corrientes sobre la renta y el patrimonio (Directos)",
+        "shortDefinition": "Tributos que gravan la renta obtenida por personas y empresas, principalmente IRPF y Sociedades.",
+        "explanation": "Reúne los impuestos sobre la renta de los hogares (D.51A_C1, principalmente IRPF), el Impuesto sobre Sociedades pagado por empresas (D.51B_C2) y otros impuestos periódicos sobre patrimonio o circulación (D.59).",
+        "relatedCodes": [
+          "D51A_C1",
+          "D51B_C2",
+          "D2"
+        ]
+      },
+      {
+        "code": "D51A_C1",
+        "displayCode": "D.51A",
+        "categoryId": "revenues",
+        "title": "IRPF y renta de hogares",
+        "shortDefinition": "Impuesto sobre la Renta de las Personas Físicas y retenciones sobre rentas del trabajo y capital.",
+        "explanation": "Es la principal figura dentro de los impuestos directos en España. Grava de forma progresiva las rentas salariales, pensiones sujetas, actividades económicas y rendimientos del ahorro.",
+        "relatedCodes": [
+          "D5",
+          "D51B_C2"
+        ]
+      },
+      {
+        "code": "D51B_C2",
+        "displayCode": "D.51B",
+        "categoryId": "revenues",
+        "title": "Impuesto sobre Sociedades",
+        "shortDefinition": "Impuesto directo que grava los beneficios contables ajustados de las personas jurídicas (empresas).",
+        "explanation": "Su recaudación es más sensible al ciclo económico que el IRPF o el IVA debido a la volatilidad de los beneficios empresariales y la compensación de bases imponibles negativas.",
+        "relatedCodes": [
+          "D5",
+          "D51A_C1"
+        ]
+      },
+      {
+        "code": "D61",
+        "displayCode": "D.61",
+        "categoryId": "revenues",
+        "title": "Cotizaciones sociales netas",
+        "shortDefinition": "Aportaciones obligatorias de empresas y trabajadores destinadas a financiar la Seguridad Social y pensiones.",
+        "explanation": "Comprende las cotizaciones efectivas pagadas por empleadores (D.611), las pagadas por trabajadores y autónomos (D.613) y las cotizaciones imputadas (D.612, vinculadas principalmente a regímenes de funcionarios como Clases Pasivas).",
+        "keyNote": "En contabilidad SEC 2010 las cotizaciones sociales se registran por separado de los impuestos (D.2 y D.5), aunque forman parte de la presión fiscal total.",
+        "relatedCodes": [
+          "GF10",
+          "TR"
+        ]
+      },
+      {
+        "code": "D91",
+        "displayCode": "D.91",
+        "categoryId": "revenues",
+        "title": "Impuestos sobre el capital",
+        "shortDefinition": "Tributos no periódicos sobre transmisiones patrimoniales gratuitas o incrementos de valor del suelo.",
+        "explanation": "Incluye principalmente el Impuesto sobre Sucesiones y Donaciones y el Impuesto municipal sobre el Incremento de Valor de los Terrenos de Naturaleza Urbana (plusvalía municipal).",
+        "relatedCodes": [
+          "D5",
+          "TR"
+        ]
+      },
+      {
+        "code": "NON_TAX_RESIDUAL",
+        "displayCode": "No trib.",
+        "categoryId": "revenues",
+        "title": "Ingresos no tributarios",
+        "shortDefinition": "Tasas, precios públicos, rentas patrimoniales y transferencias recibidas de la Unión Europea.",
+        "explanation": "Se calcula como la diferencia entre el Total de Ingresos (TR) y el total de impuestos y cotizaciones netos. Incluye tasas administrativas, matrículas universitarias, dividendos de empresas públicas (como Loterías o ENAIRE), intereses cobrados y fondos europeos (FEDER, FSE, NextGenerationEU).",
+        "relatedCodes": [
+          "TR",
+          "D995"
+        ]
+      },
+      {
+        "code": "D212",
+        "displayCode": "D.212",
+        "categoryId": "revenues",
+        "title": "Impuestos sobre las importaciones (exc. IVA)",
+        "shortDefinition": "Derechos de aduana y aranceles sobre productos importados de fuera de la UE.",
+        "explanation": "Tributos devengados en el momento de la entrada de mercancías procedentes de terceros países.",
+        "relatedCodes": [
+          "D2"
+        ]
+      },
+      {
+        "code": "D29",
+        "displayCode": "D.29",
+        "categoryId": "revenues",
+        "title": "Otros impuestos sobre la producción",
+        "shortDefinition": "Impuestos periódicos sobre bienes inmuebles y actividad empresarial (IBI, IAE, tasas de actividad).",
+        "explanation": "Gravámenes municipales y estatales exigibles por el ejercicio de actividades productivas o la propiedad inmobiliaria vinculada a la producción.",
+        "relatedCodes": [
+          "D2"
+        ]
+      },
+      {
+        "code": "D59",
+        "displayCode": "D.59",
+        "categoryId": "revenues",
+        "title": "Otros impuestos corrientes",
+        "shortDefinition": "Tributos corrientes sobre propiedad, patrimonio, vehículos de tracción mecánica y licencias.",
+        "explanation": "Gravámenes periódicos no vinculados al beneficio empresarial directo ni al consumo diario.",
+        "relatedCodes": [
+          "D5"
+        ]
+      },
+      {
+        "code": "D611",
+        "displayCode": "D.611",
+        "categoryId": "revenues",
+        "title": "Cotizaciones efectivas de empleadores",
+        "shortDefinition": "Aportaciones a la Seguridad Social a cargo de las empresas y empleadores.",
+        "explanation": "Cuota patronal destinada a financiar contingencias comunes, accidentes de trabajo y formación.",
+        "relatedCodes": [
+          "D61"
+        ]
+      },
+      {
+        "code": "D612",
+        "displayCode": "D.612",
+        "categoryId": "revenues",
+        "title": "Cotizaciones sociales imputadas",
+        "shortDefinition": "Contrapartida contable de prestaciones pagadas directamente por empleadores públicos.",
+        "explanation": "Valor contable atribuido a regímenes especiales como Clases Pasivas o prestaciones por incapacidad pagadas directamente por la Administración.",
+        "relatedCodes": [
+          "D61"
+        ]
+      },
+      {
+        "code": "D613",
+        "displayCode": "D.613",
+        "categoryId": "revenues",
+        "title": "Cotizaciones efectivas de hogares",
+        "shortDefinition": "Aportaciones de trabajadores por cuenta ajena, autónomos y desempleados a la Seguridad Social.",
+        "explanation": "Cuotas deducidas de las nóminas o abonadas por trabajadores por cuenta propia para coberturas sociales.",
+        "relatedCodes": [
+          "D61"
+        ]
+      },
+      {
+        "code": "D995",
+        "displayCode": "D.995",
+        "categoryId": "revenues",
+        "title": "Ajuste por impuestos y cotizaciones incobrables",
+        "shortDefinition": "Corrección contable para descontar derechos fiscales liquidados que probablemente nunca se cobrarán.",
+        "explanation": "Bajo el principio de devengo SEC 2010, si una liquidación tributaria se estima incobrable, se ajusta mediante la partida D.995 para evitar inflar artificialmente los ingresos públicos totales.",
+        "relatedCodes": [
+          "SEC2010",
+          "TR"
+        ]
+      },
+      {
+        "code": "COFOG",
+        "displayCode": "COFOG",
+        "categoryId": "expenditures",
+        "title": "Clasificación Funcional del Gasto (COFOG 1999)",
+        "shortDefinition": "Estándar internacional de la ONU/OCDE/Eurostat que agrupa el gasto público en 10 grandes áreas según su finalidad.",
+        "explanation": "Divide el gasto total (TE) según para qué se utiliza el dinero (sanidad, educación, protección social, defensa, etc.), con independencia de qué ministerio o comunidad autónoma gestione la partida.",
+        "keyNote": "Los datos COFOG detallados suelen publicarse unos meses después de los agregados totales TR/TE del último año cerrado.",
+        "relatedCodes": [
+          "TE",
+          "GF10",
+          "GF01"
+        ]
+      },
+      {
+        "code": "GF10",
+        "displayCode": "GF10",
+        "categoryId": "expenditures",
+        "title": "Protección social",
+        "shortDefinition": "Mayor partida del gasto público: pensiones de jubilación, viudedad, incapacidad, desempleo y ayudas sociales.",
+        "explanation": "Incluye todas las prestaciones económicas y servicios sociales de protección frente a riesgos de vejez (GF1002), desempleo (GF1005), enfermedad/incapacidad, familia y exclusión social.",
+        "relatedCodes": [
+          "D61",
+          "COFOG",
+          "GF1002",
+          "GF1005"
+        ]
+      },
+      {
+        "code": "GF1002",
+        "displayCode": "GF1002",
+        "categoryId": "expenditures",
+        "title": "Vejez (pensiones de jubilación)",
+        "shortDefinition": "Prestaciones de jubilación contributiva y no contributiva pagadas por el sistema público.",
+        "explanation": "Principal concepto dentro del gasto en protección social en España, destinado a mantener los ingresos de las personas retiradas.",
+        "relatedCodes": [
+          "GF10",
+          "D61"
+        ]
+      },
+      {
+        "code": "GF1005",
+        "displayCode": "GF1005",
+        "categoryId": "expenditures",
+        "title": "Desempleo",
+        "shortDefinition": "Prestaciones contributivas, subsidios de desempleo y programas de inserción laboral.",
+        "explanation": "Gasto en protección frente a la pérdida de empleo. Varía fuertemente según la posición del ciclo económico.",
+        "relatedCodes": [
+          "GF10"
+        ]
+      },
+      {
+        "code": "GF01",
+        "displayCode": "GF01",
+        "categoryId": "expenditures",
+        "title": "Servicios públicos generales (incl. intereses de la deuda)",
+        "shortDefinition": "Funcionamiento de órganos de gobierno, hacienda, acción exterior, transferencias a la UE e intereses de deuda.",
+        "explanation": "Agrupa los costes de la administración general y las contribuciones al presupuesto de la UE, pero una parte muy relevante corresponde a las transacciones de la deuda pública (GF0107).",
+        "keyNote": "No debe interpretarse solo como 'gasto político' o administrativo: los intereses de la deuda pública (GF0107) suelen representar cerca de un tercio o más de toda esta división.",
+        "relatedCodes": [
+          "GF0107",
+          "COFOG"
+        ]
+      },
+      {
+        "code": "GF0107",
+        "displayCode": "GF0107",
+        "categoryId": "expenditures",
+        "title": "Transacciones de la deuda pública (intereses)",
+        "shortDefinition": "Pagos anuales de intereses y costes financieros asociados a la deuda pública emitida.",
+        "explanation": "Subfunción dentro de GF01 que refleja el coste financiero anual del endeudamiento del sector S.13. No incluye la amortización del principal de la deuda (que es una operación financiera, no un gasto no financiero).",
+        "relatedCodes": [
+          "GF01",
+          "B9"
+        ]
+      },
+      {
+        "code": "GF0101",
+        "displayCode": "GF0101",
+        "categoryId": "expenditures",
+        "title": "Órganos ejecutivos, legislativos y asuntos fiscales",
+        "shortDefinition": "Gastos de funcionamiento de jefatura del Estado, cortes, gobierno y administración tributaria.",
+        "explanation": "Costes de personal y funcionamiento de los poderes del Estado y la gestión censal y tributaria.",
+        "relatedCodes": [
+          "GF01"
+        ]
+      },
+      {
+        "code": "GF07",
+        "displayCode": "GF07",
+        "categoryId": "expenditures",
+        "title": "Sanidad",
+        "shortDefinition": "Gasto público en hospitales, atención primaria, salud pública y prestación farmacéutica.",
+        "explanation": "Recoge el gasto sanitario consolidado de todas las administraciones, gestionado mayoritariamente por los servicios de salud de las Comunidades Autónomas.",
+        "relatedCodes": [
+          "S13",
+          "COFOG"
+        ]
+      },
+      {
+        "code": "GF09",
+        "displayCode": "GF09",
+        "categoryId": "expenditures",
+        "title": "Educación",
+        "shortDefinition": "Financiación pública de educación infantil, primaria, secundaria, formación profesional, universidad y becas.",
+        "explanation": "Incluye centros públicos, conciertos educativos y becas de estudio en todos los niveles administrativos.",
+        "relatedCodes": [
+          "S13",
+          "COFOG"
+        ]
+      },
+      {
+        "code": "GF04",
+        "displayCode": "GF04",
+        "categoryId": "expenditures",
+        "title": "Asuntos económicos e infraestructuras",
+        "shortDefinition": "Inversión y subvenciones en transporte (carreteras, ferrocarril), energía, agricultura, industria e I+D económica.",
+        "explanation": "Abarca la obra pública en infraestructuras de transporte (GF0405), ayudas al sector primario, políticas energéticas y apoyo a la actividad empresarial. También incluye ayudas extraordinarias de capital en crisis (como rescates financieros en 2012 o ayudas a empresas en 2020-2021).",
+        "relatedCodes": [
+          "COFOG",
+          "GF0405"
+        ]
+      },
+      {
+        "code": "GF0405",
+        "displayCode": "GF0405",
+        "categoryId": "expenditures",
+        "title": "Transporte e infraestructuras",
+        "shortDefinition": "Construcción, mantenimiento y conservación de carreteras, red ferroviaria, puertos y aeropuertos.",
+        "explanation": "Inversión pública en redes de transporte estatal, autonómica y local para la movilidad de personas y mercancías.",
+        "relatedCodes": [
+          "GF04"
+        ]
+      },
+      {
+        "code": "GF03",
+        "displayCode": "GF03",
+        "categoryId": "expenditures",
+        "title": "Orden público y seguridad",
+        "shortDefinition": "Fuerzas y cuerpos de seguridad (policía), tribunales de justicia, prisiones y protección civil/bomberos.",
+        "explanation": "Combina policía estatal, autonómica y local (GF0301), administración de justicia (GF0303), servicios de extinción de incendios e instituciones penitenciarias.",
+        "relatedCodes": [
+          "COFOG",
+          "GF0301",
+          "GF0303"
+        ]
+      },
+      {
+        "code": "GF0301",
+        "displayCode": "GF0301",
+        "categoryId": "expenditures",
+        "title": "Servicios de policía y seguridad ciudadana",
+        "shortDefinition": "Policía Nacional, Guardia Civil, policías autonómicas (Mossos, Ertzaintza, Foral) y policías locales.",
+        "explanation": "Gastos de personal y mantenimiento operativo de la seguridad ciudadana.",
+        "relatedCodes": [
+          "GF03"
+        ]
+      },
+      {
+        "code": "GF0303",
+        "displayCode": "GF0303",
+        "categoryId": "expenditures",
+        "title": "Tribunales de justicia y administración judicial",
+        "shortDefinition": "Juzgados, tribunales, fiscalía, registro civil y administración judicial.",
+        "explanation": "Funcionamiento de la administración de justicia en todo el territorio nacional.",
+        "relatedCodes": [
+          "GF03"
+        ]
+      },
+      {
+        "code": "GF02",
+        "displayCode": "GF02",
+        "categoryId": "expenditures",
+        "title": "Defensa",
+        "shortDefinition": "Fuerzas Armadas, defensa militar, defensa civil e I+D militar.",
+        "explanation": "Registra el gasto consolidado de defensa conforme a criterios SEC 2010 (el equipamiento militar mayor se contabiliza en el momento de su entrega, no cuando se firman contratos plurianuales).",
+        "relatedCodes": [
+          "SEC2010",
+          "COFOG"
+        ]
+      },
+      {
+        "code": "GF05",
+        "displayCode": "GF05",
+        "categoryId": "expenditures",
+        "title": "Protección del medio ambiente",
+        "shortDefinition": "Gestión de residuos, depuración de aguas residuales, lucha contra la contaminación y conservación natural.",
+        "explanation": "Partida con fuerte peso de las Corporaciones Locales (recogida de basuras y saneamiento) y Comunidades Autónomas.",
+        "relatedCodes": [
+          "S13",
+          "COFOG"
+        ]
+      },
+      {
+        "code": "GF06",
+        "displayCode": "GF06",
+        "categoryId": "expenditures",
+        "title": "Vivienda y servicios comunitarios",
+        "shortDefinition": "Urbanismo, abastecimiento de agua, alumbrado público y políticas públicas de acceso a la vivienda.",
+        "explanation": "Combina gasto municipal en servicios comunitarios básicos con programas estatales y autonómicos de vivienda.",
+        "relatedCodes": [
+          "S13",
+          "COFOG"
+        ]
+      },
+      {
+        "code": "GF08",
+        "displayCode": "GF08",
+        "categoryId": "expenditures",
+        "title": "Ocio, cultura y religión",
+        "shortDefinition": "Instalaciones deportivas, bibliotecas, museos, patrimonio cultural y medios públicos de comunicación.",
+        "explanation": "Incluye gasto cultural y deportivo de los tres niveles administrativos, así como la financiación de radiotelevisiones públicas.",
+        "relatedCodes": [
+          "COFOG"
+        ]
+      }
+    ]
+  }
+}

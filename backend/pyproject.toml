@@ -1,0 +1,19 @@
+[project]
+name = "factores-scrapers"
+version = "0.1.0"
+description = "Scrapers e ingesta de datos oficiales para Factores"
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31.0",
+    "tqdm>=4.66.0",
+    "pytest>=8.0.0",
+    "beautifulsoup4>=4.12.0",
+]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+testpaths = ["."]
+python_files = ["test_*.py"]
+
+[tool.uv]
+package = false

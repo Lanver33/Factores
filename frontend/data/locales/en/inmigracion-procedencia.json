@@ -1,0 +1,21 @@
+{
+  "question": "What is the evolution of immigration from abroad into Spain?",
+  "unit": "people",
+  "contextNotes": [
+    "Annual immigration flows from abroad registered by the National Statistics Institute (INE).",
+    "Combines historical series 2008-2020 (Table 24295) and current series 2021-2024 (Table 69690) from the Migration and Residence Changes Statistics (EMCR).",
+    "Includes granular breakdown for 52 top origin countries and continental macro-regions."
+  ],
+  "sources": [
+    {
+      "institution": "National Statistics Institute (INE)",
+      "title": "Migration and Residence Changes Statistics (2008-2020)",
+      "shortName": "Historical EMCR"
+    },
+    {
+      "institution": "National Statistics Institute (INE)",
+      "title": "Migration and Residence Changes Statistics (2021-2024)",
+      "shortName": "Current EMCR"
+    }
+  ]
+}

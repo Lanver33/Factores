@@ -1,0 +1,37 @@
+{
+  "question": "¿Cuántos trabajadores extranjeros afiliados, asalariados, desempleados y pensionistas registran la Seguridad Social, el INE y la Agencia Tributaria en España?",
+  "unit": "afiliados extranjeros",
+  "contextNotes": [
+    "Datos procedentes directamente de registros administrativos oficiales: declaraciones tributarias (Modelo 190 de la AEAT), ficheros de afiliación de la TGSS y cruce con la Seguridad Social del INE (Tabla 48951), sin imputaciones sintéticas.",
+    "Las magnitudes de asalariados y perceptores de prestaciones por desempleo de la AEAT incluyen número de perceptores y retribuciones/prestaciones brutas anuales por nacionalidad.",
+    "Dado que la AEAT no desglosa el importe económico de las pensiones por nacionalidad, el número total de pensionistas contributivos por nacionalidad (española vs. extranjera) se obtiene de la Tabla 48951 del INE (en miles redondeados a personas).",
+    "Los datos de la TGSS corresponden al número de afiliados extranjeros en alta laboral el último día del período de referencia disponible para cada año."
+  ],
+  "sources": [
+    {
+      "institution": "Agencia Estatal de Administración Tributaria (AEAT)",
+      "shortName": "AEAT",
+      "title": "Mercado de trabajo y pensiones en las fuentes tributarias (Nacionalidad y Sexo)",
+      "period": "2014–2025",
+      "lastUpdated": "2026-11-20",
+      "url": "https://sede.agenciatributaria.gob.es/AEAT/Contenidos_Comunes/La_Agencia_Tributaria/Estadisticas/Publicaciones/sites/mercado/mercado.html"
+    },
+    {
+      "institution": "Tesorería General de la Seguridad Social (TGSS)",
+      "shortName": "TGSS",
+      "title": "Afiliados extranjeros a la Seguridad Social (último día del período por país y régimen)",
+      "period": "2014–2026",
+      "lastUpdated": "2026-11-20",
+      "url": "https://w6.seg-social.es/PXWeb/sq/5724c901-f5c9-42d8-9d13-26506ee6a261"
+    },
+    {
+      "institution": "Instituto Nacional de Estadística (INE)",
+      "shortName": "INE",
+      "title": "Personas según situación en la Seguridad Social por nacionalidad (Pensión contributiva)",
+      "tableId": "48951",
+      "period": "2016–2024",
+      "lastUpdated": "2026-11-20",
+      "url": "https://www.ine.es/jaxi/Tabla.htm?tpx=48951&L=0"
+    }
+  ]
+}

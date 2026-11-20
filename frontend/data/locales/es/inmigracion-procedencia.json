@@ -1,0 +1,21 @@
+{
+  "question": "¿Cuál es la evolución de la inmigración procedente del extranjero en España?",
+  "unit": "personas",
+  "contextNotes": [
+    "Flujo anual de inmigraciones procedentes del extranjero registrado por el Instituto Nacional de Estadística (INE).",
+    "Combina la serie histórica 2008-2020 (Tabla 24295) y la serie actual 2021-2024 (Tabla 69690) de la Estadística de Migraciones y Cambios de Residencia (EMCR).",
+    "Incluye el desglose individual de los 52 países de mayor flujo hacia España y la agregación por macro-regiones continentales."
+  ],
+  "sources": [
+    {
+      "institution": "Instituto Nacional de Estadística (INE)",
+      "title": "Estadística de Migraciones y Cambios de Residencia (2008-2020)",
+      "shortName": "EMCR Histórica"
+    },
+    {
+      "institution": "Instituto Nacional de Estadística (INE)",
+      "title": "Estadística de Migraciones y Cambios de Residencia (2021-2024)",
+      "shortName": "EMCR Actual"
+    }
+  ]
+}

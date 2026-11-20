@@ -1,0 +1,219 @@
+{
+  "question": "¿Cómo se comparan la demografía, el empleo y la renta entre población española y extranjera en España?",
+  "unit": "% población extranjera",
+  "contextNotes": [
+    "Todos los indicadores proceden directamente de estadísticas oficiales del INE remitidas a Eurostat (Padrón/ECP, EPA, ECV y Estadística de Adquisiciones de Nacionalidad), sin imputaciones sintéticas ni multiplicadores estimados.",
+    "La clasificación por nacionalidad (pasaporte) refleja el estatus legal en cada año; las adquisiciones anuales de nacionalidad española trasladan a residentes nacidos en el extranjero del grupo de población extranjera al de nacionalidad española.",
+    "Los indicadores del mercado laboral (tasa de actividad, empleo, paro y ocupados) corresponden a la población de 15 a 64 años conforme a los criterios armonizados de la EPA / LFS.",
+    "La renta neta equivalente (ECV / EU-SILC) ajusta los ingresos disponibles del hogar por su tamaño y composición mediante la escala modificada de la OCDE para comparar el poder adquisitivo individual."
+  ],
+  "sources": [
+    {
+      "institution": "INE / Eurostat",
+      "title": "Población residente por nacionalidad, país de nacimiento y edad (remitido por INE)",
+      "shortName": "Eurostat · migr_pop1ctz / pop3ctb"
+    },
+    {
+      "institution": "INE / Eurostat",
+      "title": "Adquisiciones de nacionalidad española (remitido por INE)",
+      "shortName": "Eurostat · migr_acq"
+    },
+    {
+      "institution": "INE (EPA) / Eurostat",
+      "title": "Mercado laboral por nacionalidad y país de nacimiento (actividad, empleo, paro y ocupados)",
+      "shortName": "Eurostat · LFS (EPA España)"
+    },
+    {
+      "institution": "INE (ECV) / Eurostat",
+      "title": "Renta neta equivalente y tasa de riesgo de pobreza por nacionalidad",
+      "shortName": "Eurostat · EU-SILC (ECV España)"
+    }
+  ],
+  "conceptGuide": {
+    "title": "Guía Metodológica: Indicadores Oficiales por Nacionalidad y Origen",
+    "subtitle": "Conceptos clave para interpretar la demografía, el mercado laboral y la renta en España con datos contrastados del INE y Eurostat",
+    "quickKeys": [
+      {
+        "id": "CITIZEN_VS_BIRTH",
+        "badge": "Estatus legal vs. Origen",
+        "title": "Nacionalidad (Pasaporte) vs. País de nacimiento",
+        "summary": "La nacionalidad refleja el estatus jurídico actual de la persona. Debido a que las personas originarias de países iberoamericanos pueden solicitar la nacionalidad española tras 2 años de residencia legal continuada, cientos de miles de personas nacidas en el extranjero pasan cada año al grupo con nacionalidad española, modificando la composición de ambos colectivos con el tiempo.",
+        "example": "En 2024 residían en España 8,8 millones de personas nacidas en el extranjero, pero solo 6,5 millones tenían pasaporte extranjero: los 2,3 millones restantes son personas nacidas fuera que han adquirido la nacionalidad española."
+      },
+      {
+        "id": "AGE_STRUCTURE",
+        "badge": "Estructura etaria",
+        "title": "Pirámide demográfica y concentración en edad laboral",
+        "summary": "La población extranjera presenta una concentración significativamente mayor en tramos de edad activa (15–64 años, ~79%) y una presencia muy reducida en mayores de 65 años (~8%), frente a la población española (~64% y ~22% respectivamente). Esta diferencia de edad explica en gran medida su mayor peso en el empleo y su menor demanda relativa de pensiones de jubilación.",
+        "example": "La tasa de dependencia de la tercera edad es de aproximadamente 35 personas mayores por cada 100 en edad de trabajar entre españoles, frente a menos de 10 por cada 100 entre extranjeros."
+      },
+      {
+        "id": "LABOR_RATES",
+        "badge": "Mercado de trabajo",
+        "title": "Diferencias de denominador en las tasas de la EPA",
+        "summary": "La tasa de actividad divide la población activa entre la población de 15 a 64 años. La tasa de empleo divide los ocupados entre la población de 15 a 64 años. La tasa de paro divide los desempleados exclusivamente entre la población activa (denominador más reducido). Un colectivo con mayor tasa de actividad puede registrar a la vez mayor tasa de empleo y mayor tasa de paro.",
+        "example": "En 2024, la tasa de actividad de extranjeros y españoles rondaba el 75%, pero la mayor tasa de paro extranjera (~16% vs ~10%) refleja una mayor exposición a la temporalidad o ciclos económicos."
+      },
+      {
+        "id": "NO_DIRECT_FISCAL_SPLIT",
+        "badge": "Rigor metodológico",
+        "title": "¿Por qué no existe un saldo fiscal oficial en euros?",
+        "summary": "Ni la Intervención General de la Administración del Estado (IGAE) ni Eurostat registran la recaudación tributaria (IVA, Sociedades, hidrocarburos) ni el consumo de bienes públicos indivisibles (defensa, seguridad, infraestructuras, intereses de la deuda) según la nacionalidad en el pasaporte. Todo cálculo en euros requiere modelos de imputación sintética basados en supuestos que arrojan resultados dispares.",
+        "example": "Medir exclusivamente variables estadísticas oficiales directamente observadas (población, ocupación, tasas laborales y renta neta por unidad de consumo) ofrece transparencia y neutralidad sin introducir hipótesis no contrastadas."
+      }
+    ],
+    "categories": [
+      {
+        "id": "demographics",
+        "label": "Demografía y Migración"
+      },
+      {
+        "id": "labor",
+        "label": "Mercado Laboral (EPA)"
+      },
+      {
+        "id": "income",
+        "label": "Renta y Condiciones de Vida (ECV)"
+      }
+    ],
+    "terms": [
+      {
+        "code": "CITIZENSHIP",
+        "displayCode": "Nacionalidad",
+        "categoryId": "demographics",
+        "title": "Nacionalidad (Pasaporte)",
+        "shortDefinition": "Vínculo jurídico de ciudadanía con un Estado soberano concreto.",
+        "explanation": "En las estadísticas del Padrón Continuo y de Eurostat, clasifica a los residentes según el pasaporte oficial que ostentan a 1 de enero. Este indicador no distingue si la persona adquirió la nacionalidad española por origen o por concesión legal posterior.",
+        "keyNote": "Las concesiones anuales de nacionalidad reducen el colectivo extranjero e incrementan el español.",
+        "relatedCodes": [
+          "BIRTHPLACE",
+          "NATURALIZATION",
+          "EU_VS_NEU"
+        ]
+      },
+      {
+        "code": "BIRTHPLACE",
+        "displayCode": "Nacimiento",
+        "categoryId": "demographics",
+        "title": "País de nacimiento",
+        "shortDefinition": "Lugar geográfico donde nació la persona residente, con independencia de su estatus jurídico actual.",
+        "explanation": "Es un atributo demográfico invariable en el tiempo. Permite analizar el peso acumulado de la inmigración en la estructura social española sin el efecto de absorción que generan los procesos de naturalización.",
+        "keyNote": "Permite comparar con precisión la población nacida en España frente a la nacida en el extranjero.",
+        "relatedCodes": [
+          "CITIZENSHIP",
+          "NATURALIZATION"
+        ]
+      },
+      {
+        "code": "NATURALIZATION",
+        "displayCode": "Adquisición",
+        "categoryId": "demographics",
+        "title": "Adquisición de nacionalidad española",
+        "shortDefinition": "Concesión legal de la ciudadanía española a residentes extranjeros.",
+        "explanation": "En España se otorga principalmente por residencia legal continuada: 10 años como norma general, 2 años para ciudadanos de países iberoamericanos, Andorra, Filipinas, Guinea Ecuatorial o personas de origen sefardí, o 1 año para nacidos en territorio español. Estadísticamente, cada concesión traslada al residente del cómputo de extranjeros al de nacionales.",
+        "keyNote": "En 2024 se registraron más de 250.000 adquisiciones de nacionalidad española.",
+        "relatedCodes": [
+          "CITIZENSHIP",
+          "BIRTHPLACE"
+        ]
+      },
+      {
+        "code": "DEPENDENCY_RATIO",
+        "displayCode": "Dependencia 65+",
+        "categoryId": "demographics",
+        "title": "Tasa de dependencia de la tercera edad",
+        "shortDefinition": "Proporción de personas de 65 o más años respecto a la población en edad laboral (15–64 años), expresada por cada 100 activos potenciales.",
+        "explanation": "Mide la relación demográfica entre la población en edad habitual de jubilación y la que se encuentra en tramos de actividad productiva. Una tasa de 35 indica que hay 35 personas mayores por cada 100 en edad de trabajar.",
+        "keyNote": "La baja tasa de dependencia en la población extranjera (~10%) reduce el envejecimiento medio del país.",
+        "relatedCodes": [
+          "WORKING_AGE"
+        ]
+      },
+      {
+        "code": "WORKING_AGE",
+        "displayCode": "15-64 años",
+        "categoryId": "demographics",
+        "title": "Población en edad de trabajar",
+        "shortDefinition": "Residentes con edades comprendidas entre los 15 y los 64 años cumplidos.",
+        "explanation": "Es el estándar internacional utilizado por Eurostat, la OCDE y la OIT para aislar a la población en edad de trabajar frente a la población infantil (<15 años) y la tercera edad (65+ años), sirviendo de base para los cálculos de actividad y empleo.",
+        "relatedCodes": [
+          "DEPENDENCY_RATIO",
+          "ACTIVITY_RATE",
+          "EMPLOYMENT_RATE"
+        ]
+      },
+      {
+        "code": "ACTIVITY_RATE",
+        "displayCode": "Actividad",
+        "categoryId": "labor",
+        "title": "Tasa de actividad (EPA)",
+        "shortDefinition": "Porcentaje que representa la población activa (ocupados + desempleados en búsqueda activa) sobre el total de personas de 15 a 64 años.",
+        "explanation": "Mide el nivel de predisposición y participación laboral en la economía. No computa a personas inactivas como estudiantes a tiempo completo, personas dedicadas en exclusiva a cuidados no remunerados o perceptores de pensiones de incapacidad.",
+        "relatedCodes": [
+          "EMPLOYMENT_RATE",
+          "UNEMPLOYMENT_RATE",
+          "WORKING_AGE"
+        ]
+      },
+      {
+        "code": "EMPLOYMENT_RATE",
+        "displayCode": "Empleo",
+        "categoryId": "labor",
+        "title": "Tasa de empleo (EPA)",
+        "shortDefinition": "Porcentaje de personas ocupadas sobre el total de la población de 15 a 64 años.",
+        "explanation": "Constituye el indicador más directo de la absorción laboral real, ya que su base de cálculo (el tamaño de la población en edad de trabajar) es exógena y no varía ante cambios de ánimo o transiciones entre actividad e inactividad.",
+        "relatedCodes": [
+          "ACTIVITY_RATE",
+          "UNEMPLOYMENT_RATE",
+          "WORKING_AGE"
+        ]
+      },
+      {
+        "code": "UNEMPLOYMENT_RATE",
+        "displayCode": "Paro",
+        "categoryId": "labor",
+        "title": "Tasa de paro (EPA)",
+        "shortDefinition": "Porcentaje de personas en situación de desempleo con búsqueda activa respecto al conjunto de la población activa (ocupados + parados).",
+        "explanation": "Al calcularse sobre la población activa y no sobre la población total, dos colectivos con la misma tasa de empleo pueden presentar tasas de paro muy dispares si uno de ellos presenta una tasa de actividad mucho mayor.",
+        "relatedCodes": [
+          "ACTIVITY_RATE",
+          "EMPLOYMENT_RATE"
+        ]
+      },
+      {
+        "code": "EQUIVALISED_INCOME",
+        "displayCode": "Renta equivalente",
+        "categoryId": "income",
+        "title": "Renta neta disponible equivalente (ECV / EU-SILC)",
+        "shortDefinition": "Ingresos netos anuales totales del hogar divididos por su número de unidades de consumo según la escala modificada de la OCDE.",
+        "explanation": "Permite comparar el poder adquisitivo real entre hogares de diferente dimensión y estructura familiar. Asigna un coeficiente de 1,0 al primer adulto, 0,5 a cada miembro adicional de 14 o más años y 0,3 a los menores de 14 años para tener en cuenta las economías de escala en el hogar.",
+        "relatedCodes": [
+          "AROP_RATE"
+        ]
+      },
+      {
+        "code": "AROP_RATE",
+        "displayCode": "Riesgo de pobreza (AROP)",
+        "categoryId": "income",
+        "title": "Tasa de riesgo de pobreza relativa (AROP)",
+        "shortDefinition": "Porcentaje de personas con una renta disponible equivalente inferior al 60% de la mediana nacional.",
+        "explanation": "Es un índice estadístico de desigualdad en la distribución de ingresos, no una medida de privación material o indigencia absoluta. El umbral se recalcula anualmente: cuando la renta mediana general se incrementa, el umbral de corte en euros se eleva en igual proporción.",
+        "relatedCodes": [
+          "EQUIVALISED_INCOME"
+        ]
+      },
+      {
+        "code": "EU_VS_NEU",
+        "displayCode": "UE vs. No-UE",
+        "categoryId": "demographics",
+        "title": "Extranjeros Comunitarios (UE-27) vs. Extracomunitarios",
+        "shortDefinition": "Distinción entre residentes procedentes de Estados miembros de la Unión Europea y de terceros países.",
+        "explanation": "Los ciudadanos comunitarios gozan de libertad de residencia y circulación y homologación laboral inmediata en España. Los nacionales de terceros países están regulados por la normativa de extranjería (permisos de residencia, trabajo y visados) y cuentan con itinerarios de naturalización diferenciados.",
+        "relatedCodes": [
+          "CITIZENSHIP",
+          "NATURALIZATION"
+        ]
+      }
+    ]
+  }
+}

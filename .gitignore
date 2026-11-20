@@ -1,24 +1,23 @@
 # dependencies
-/node_modules
-/.pnp
+node_modules/
+.pnp
 .pnp.js
 
 # python & uv
 .venv/
 staging/
-.opencode/
 __pycache__/
 *.pyc
 
 # testing
-/coverage
+coverage/
 
 # next.js
-/.next/
-/out/
+.next/
+out/
 
 # production
-/build
+build/
 
 # debug
 npm-debug.log*
@@ -30,9 +29,9 @@ yarn-error.log*
 .env
 
 # vercel
-.vercel
+.vercel/
 
-# typescript
+# OS / IDE
+.DS_Store
 *.tsbuildinfo
 next-env.d.ts
-all-typescript-code.ts
