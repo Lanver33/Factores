@@ -1,5 +1,5 @@
 {
-  "question": "¿Cómo se comparan la demografía, el empleo y la renta entre población española y extranjera en España?",
+  "question": "Demografía, empleo y renta por nacionalidad y país de nacimiento.",
   "unit": "% población extranjera",
   "contextNotes": [
     "Todos los indicadores proceden directamente de estadísticas oficiales del INE remitidas a Eurostat (Padrón/ECP, EPA, ECV y Estadística de Adquisiciones de Nacionalidad), sin imputaciones sintéticas ni multiplicadores estimados.",

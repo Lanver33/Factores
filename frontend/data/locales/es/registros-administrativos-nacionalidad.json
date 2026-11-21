@@ -1,5 +1,5 @@
 {
-  "question": "¿Cuántos trabajadores extranjeros afiliados, asalariados, desempleados y pensionistas registran la Seguridad Social, el INE y la Agencia Tributaria en España?",
+  "question": "Registros oficiales de empleo, salarios, desempleo y pensiones por nacionalidad.",
   "unit": "afiliados extranjeros",
   "contextNotes": [
     "Datos procedentes directamente de registros administrativos oficiales: declaraciones tributarias (Modelo 190 de la AEAT), ficheros de afiliación de la TGSS y cruce con la Seguridad Social del INE (Tabla 48951), sin imputaciones sintéticas.",

@@ -535,7 +535,7 @@ def run_pipeline(
     if not dry_run:
         slug = config["indicatorId"]
         es_data = {
-            "question": config.get("question", "¿Cómo se comparan la demografía, el empleo y la renta entre población española y extranjera en España?"),
+            "question": "Demografía, empleo y renta por nacionalidad y país de nacimiento.",
             "unit": config.get("headlineUnit", "% población extranjera"),
             "contextNotes": payload["contextNotes"],
             "sources": payload["sources"],
@@ -544,7 +544,7 @@ def run_pipeline(
             es_data["conceptGuide"] = payload["conceptGuide"]
 
         en_data = {
-            "question": "How do demographics, employment, and income compare between Spanish and foreign populations in Spain?",
+            "question": "Demographics, employment, and income by nationality and country of birth.",
             "unit": "% foreign population",
             "contextNotes": [
                 "All indicators trace directly to official statistics from Spain's INE transmitted to Eurostat (Padrón/ECP, EPA, ECV, and Acquisition of Citizenship Statistics).",

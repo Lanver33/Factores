@@ -1,5 +1,5 @@
 {
-  "question": "How do demographics, employment, and income compare between Spanish and foreign populations in Spain?",
+  "question": "Demographics, employment, and income by nationality and country of birth.",
   "unit": "% foreign population",
   "contextNotes": [
     "All indicators trace directly to official statistics from Spain's INE transmitted to Eurostat (Padrón/ECP, EPA, ECV, and Acquisitions of Citizenship), without synthetic imputations.",

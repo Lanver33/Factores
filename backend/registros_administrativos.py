@@ -849,14 +849,14 @@ def run_pipeline() -> dict[str, Any]:
     payload = build_payload(aeat_by_year, tgss_by_year, ine_pensioners_by_year, tgss_url)
 
     es_data = {
-        "question": "¿Cuántos trabajadores extranjeros afiliados, asalariados, desempleados y pensionistas registran la Seguridad Social, el INE y la Agencia Tributaria en España?",
+        "question": "Registros oficiales de empleo, salarios, desempleo y pensiones por nacionalidad.",
         "unit": "afiliados extranjeros",
         "contextNotes": payload["contextNotes"],
         "sources": payload["sources"],
     }
 
     en_data = {
-        "question": "How many foreign Social Security affiliates, salaried workers, unemployment recipients, and pensioners are recorded by Spain's tax, INE, and Social Security registers?",
+        "question": "Official administrative registers of employment, wages, unemployment, and pensions by nationality.",
         "unit": "foreign affiliates",
         "contextNotes": [
             "Data sourced directly from official Spanish administrative registers: tax withholding filings (AEAT Form 190), Social Security affiliation records (TGSS), and INE Social Security status cross-tabulations (Table 48951), without synthetic imputations.",
