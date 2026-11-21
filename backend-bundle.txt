@@ -268937,7 +268937,7 @@ def run_pipeline(config_path: Path, output_path: Path, dry_run: bool = False, gu
     if not dry_run:
         slug = config["indicatorId"]
         es_data = {
-            "question": "Evolución de ingresos, gasto público por función y saldo fiscal en España.",
+            "question": "Ingresos y gastos del gobierno",
             "unit": config.get("headlineUnit", "% del PIB"),
             "contextNotes": payload["contextNotes"],
             "sources": payload["sources"],
@@ -268946,7 +268946,7 @@ def run_pipeline(config_path: Path, output_path: Path, dry_run: bool = False, gu
             es_data["conceptGuide"] = payload["conceptGuide"]
 
         en_data = {
-            "question": "Public revenue, functional expenditure, and fiscal balance in Spain.",
+            "question": "Government revenues and expenditures",
             "unit": "% of GDP",
             "contextNotes": [
                 "Consolidated historical series of General Government Main Aggregates (S.13) according to ESA 2010.",
@@ -269963,7 +269963,7 @@ def run_pipeline(
     if not dry_run:
         slug = config["indicatorId"]
         es_data = {
-            "question": "Demografía, empleo y renta por nacionalidad y país de nacimiento.",
+            "question": "Españoles y migrantes en el mercado laboral",
             "unit": config.get("headlineUnit", "% población extranjera"),
             "contextNotes": payload["contextNotes"],
             "sources": payload["sources"],
@@ -269972,7 +269972,7 @@ def run_pipeline(
             es_data["conceptGuide"] = payload["conceptGuide"]
 
         en_data = {
-            "question": "Demographics, employment, and income by nationality and country of birth.",
+            "question": "Spanish nationals and migrants in the labor market",
             "unit": "% foreign population",
             "contextNotes": [
                 "All indicators trace directly to official statistics from Spain's INE transmitted to Eurostat (Padrón/ECP, EPA, ECV, and Acquisition of Citizenship Statistics).",
@@ -270936,14 +270936,14 @@ def run_pipeline() -> dict[str, Any]:
     payload = build_payload(aeat_by_year, tgss_by_year, ine_pensioners_by_year, tgss_url)
 
     es_data = {
-        "question": "Registros oficiales de empleo, salarios, desempleo y pensiones por nacionalidad.",
+        "question": "Salarios frente a desempleo y pensiones",
         "unit": "afiliados extranjeros",
         "contextNotes": payload["contextNotes"],
         "sources": payload["sources"],
     }
 
     en_data = {
-        "question": "Official administrative registers of employment, wages, unemployment, and pensions by nationality.",
+        "question": "Wages vs. unemployment and pensions",
         "unit": "foreign affiliates",
         "contextNotes": [
             "Data sourced directly from official Spanish administrative registers: tax withholding filings (AEAT Form 190), Social Security affiliation records (TGSS), and INE Social Security status cross-tabulations (Table 48951), without synthetic imputations.",

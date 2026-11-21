@@ -320,7 +320,7 @@ def run_pipeline(config_path: Path, output_path: Path, dry_run: bool = False, gu
     if not dry_run:
         slug = config["indicatorId"]
         es_data = {
-            "question": "Evolución de ingresos, gasto público por función y saldo fiscal en España.",
+            "question": "Ingresos y gastos del gobierno",
             "unit": config.get("headlineUnit", "% del PIB"),
             "contextNotes": payload["contextNotes"],
             "sources": payload["sources"],
@@ -329,7 +329,7 @@ def run_pipeline(config_path: Path, output_path: Path, dry_run: bool = False, gu
             es_data["conceptGuide"] = payload["conceptGuide"]
 
         en_data = {
-            "question": "Public revenue, functional expenditure, and fiscal balance in Spain.",
+            "question": "Government revenues and expenditures",
             "unit": "% of GDP",
             "contextNotes": [
                 "Consolidated historical series of General Government Main Aggregates (S.13) according to ESA 2010.",
